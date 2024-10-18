@@ -64,6 +64,7 @@ public class BWGBiomes {
     public static final ResourceKey<Biome> OVERGROWTH_WOODLANDS = createBiome("overgrowth_woodlands", BWGOverworldBiomes::overgrowthWoodlands, BWGBiomeTags.FOREST, BWGBiomeTags.DENSE, BiomeTags.HAS_VILLAGE_PLAINS, BiomeTags.HAS_PILLAGER_OUTPOST);
 
     public static final ResourceKey<Biome> PALE_BOG = createBiome("pale_bog", BWGOverworldBiomes::paleBog, BWGBiomeTags.SWAMP, BWGBiomeTags.StructureHasTags.HAS_BOG_TRIAL);
+    public static final ResourceKey<Biome> PINE_BARRENS = createBiome("pine_barrens", BWGOverworldBiomes::pineBarrens, BWGBiomeTags.FOREST, BWGBiomeTags.CONIFEROUS, BWGBiomeTags.DENSE);
     public static final ResourceKey<Biome> PRAIRIE = createBiome("prairie", BWGOverworldBiomes::prairie, BWGBiomeTags.PLAINS, BWGBiomeTags.DENSE, BWGBiomeTags.StructureHasTags.HAS_PRAIRIE_HOUSE, BWGBiomeTags.TEMPERATE);
     public static final ResourceKey<Biome> PUMPKIN_VALLEY = createBiome("pumpkin_valley", BWGOverworldBiomes::pumpkinValley, BWGBiomeTags.PLAINS, BWGBiomeTags.DENSE, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_PUMPKIN_PATCH);
     public static final ResourceKey<Biome> RAINBOW_BEACH = createBiome("rainbow_beach", BWGOverworldBiomes::rainbowBeach, BWGBiomeTags.BEACH, BWGBiomeTags.SANDY, BiomeTags.HAS_BURIED_TREASURE);
