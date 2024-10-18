@@ -973,13 +973,14 @@ class BWGOverworldBiomes {
 
     protected static Biome pineBarrens(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
+        BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addForestGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
-        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BWG_OAK_TREES);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.PINE_TREES);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BWG_OAK_TREES);
 
-        BWGOverworldDefaultFeatures.addBlueBerryBush(generationSettings);
+        BWGOverworldDefaultFeatures.addLushBlueBerryBush(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         addSpawn(spawnSettings, EntityType.WOLF, 8, 4, 4);

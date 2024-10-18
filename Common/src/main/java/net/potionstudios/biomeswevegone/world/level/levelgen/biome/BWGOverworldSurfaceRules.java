@@ -314,6 +314,12 @@ public class BWGOverworldSurfaceRules {
             )
     );
 
+    private static final SurfaceRules.RuleSource PINE_BARRENS = biomeAbovePreliminarySurface(BWGBiomes.PINE_BARRENS, SurfaceRules.sequence(
+            NOISE_COARSE_DIRT,
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), PEAT_SURFACE),
+            OVERGROWN_STONE_STONE_SURFACE
+    ));
+
     private static final SurfaceRules.RuleSource PUMPKIN_VALLEY = biomeAbovePreliminarySurface(BWGBiomes.PUMPKIN_VALLEY, LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE);
 
     private static final SurfaceRules.RuleSource RAINBOW_BEACH = biomeAbovePreliminarySurface(BWGBiomes.RAINBOW_BEACH,
@@ -434,6 +440,7 @@ public class BWGOverworldSurfaceRules {
                 MOJAVE_DESERT,
                 OVERGROWTH_WOODLANDS,
                 PALE_BOG,
+                PINE_BARRENS,
                 PUMPKIN_VALLEY,
                 RAINBOW_BEACH,
                 RED_ROCK_VALLEY,

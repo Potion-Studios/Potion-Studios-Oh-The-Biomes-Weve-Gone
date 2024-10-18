@@ -65,12 +65,13 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:patch_large_fern",
       "minecraft:patch_grass_forest",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
-      "biomeswevegone:bwg_oak_trees",
       "biomeswevegone:pine_trees",
-      "biomeswevegone:blue_berry_bush"
+      "biomeswevegone:bwg_oak_trees",
+      "biomeswevegone:blue_berry_bush_lush"
     ],
     [
       "minecraft:freeze_top_layer"
