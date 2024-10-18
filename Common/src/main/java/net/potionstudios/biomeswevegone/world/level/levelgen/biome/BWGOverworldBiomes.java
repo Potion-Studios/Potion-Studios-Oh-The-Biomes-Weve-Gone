@@ -977,7 +977,7 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BWG_OAK_TREES);
-        //TODO: Pine Trees
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.PINE_TREES);
 
         BWGOverworldDefaultFeatures.addBlueBerryBush(generationSettings);
 
