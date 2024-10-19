@@ -315,10 +315,8 @@ public class BWGOverworldSurfaceRules {
     );
 
     private static final SurfaceRules.RuleSource PINE_BARRENS = biomeAbovePreliminarySurface(BWGBiomes.PINE_BARRENS, SurfaceRules.sequence(
-            NOISE_COARSE_DIRT,
-            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), PEAT_SURFACE),
-            OVERGROWN_STONE_STONE_SURFACE
-    ));
+            makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.SANDY_DIRT.get()),
+            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.COARSE_DIRT)));
 
     private static final SurfaceRules.RuleSource PUMPKIN_VALLEY = biomeAbovePreliminarySurface(BWGBiomes.PUMPKIN_VALLEY, LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE);
 
