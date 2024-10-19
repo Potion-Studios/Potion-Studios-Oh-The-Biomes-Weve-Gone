@@ -9,8 +9,9 @@
   "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
+    "grass_color": -11179217,
     "sky_color": 7907327,
-    "water_color": -7650029,
+    "water_color": -10999552,
     "water_fog_color": 329011
   },
   "features": [
@@ -90,9 +91,21 @@
         "weight": 8
       },
       {
+        "type": "minecraft:fox",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 8
+      },
+      {
         "type": "minecraft:frog",
         "maxCount": 5,
         "minCount": 2,
+        "weight": 10
+      },
+      {
+        "type": "minecraft:rabbit",
+        "maxCount": 8,
+        "minCount": 3,
         "weight": 10
       },
       {

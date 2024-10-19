@@ -984,11 +984,13 @@ class BWGOverworldBiomes {
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         addSpawn(spawnSettings, EntityType.WOLF, 8, 4, 4);
+        addSpawn(spawnSettings, EntityType.FOX, 8, 2, 4);
         addSpawn(spawnSettings, EntityType.FROG, 10, 2, 5);
+        addSpawn(spawnSettings, EntityType.RABBIT, 10, 3, 8);
         addSpawn(spawnSettings, EntityType.TURTLE, 3, 2, 4);
 
         float temperature = 0.8F;
-        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.8f).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(new Color(139, 69, 19).getRGB()).waterFogColor(329011).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.8f).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(new Color(88, 41, 0).getRGB()).grassColorOverride(new Color(85, 107, 47).getRGB()).waterFogColor(329011).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     protected static Biome prairie(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
