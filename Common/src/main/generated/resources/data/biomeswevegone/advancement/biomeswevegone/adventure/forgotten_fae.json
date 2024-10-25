@@ -1,0 +1,34 @@
+{
+  "parent": "biomeswevegone:biomeswevegone/adventure/root",
+  "criteria": {
+    "pixe_club_music_disc": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:music_disc_pixie_club"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "biomeswevegone:textures/block/lush_dirt.png",
+    "description": {
+      "translate": "advancements.biomeswevegone.adventure.forgotten_fae.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "biomeswevegone:music_disc_pixie_club"
+    },
+    "title": {
+      "translate": "advancements.biomeswevegone.adventure.forgotten_fae.title"
+    }
+  },
+  "requirements": [
+    [
+      "pixe_club_music_disc"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
