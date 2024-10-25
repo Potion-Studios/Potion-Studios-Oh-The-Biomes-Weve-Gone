@@ -89,6 +89,18 @@ public class AdvancementGenerator implements ForgeAdvancementProvider.Advancemen
                 )
                 .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/little_house_on_the_prairie"), existingFileHelper);
 
+        Advancement.Builder.advancement()
+                .parent(adventureRoot)
+                .addCriterion("pixe_club_music_disc", InventoryChangeTrigger.TriggerInstance.hasItems(BWGItems.MUSIC_DISC_PIXIE_CLUB.get()))
+                .display(
+                        BWGItems.MUSIC_DISC_PIXIE_CLUB.get(),
+                        translateAble("adventure.forgotten_fae.title"),
+                        translateAble("adventure.forgotten_fae.description"),
+                        BiomesWeveGone.id("textures/block/lush_dirt.png"),
+                        FrameType.TASK, true, true, false
+                )
+                .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/forgotten_fae"), existingFileHelper);
+
 
         Advancement husbandryRoot = Advancement.Builder.advancement()
                 .parent(root)
