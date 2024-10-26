@@ -52,9 +52,6 @@ public class VanillaCompatFabric {
             if (key.equals(BuiltInLootTables.SNIFFER_DIGGING)) {
                 LootPool.Builder pool = LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
-                        .with(LootItem.lootTableItem(BWGBlocks.BLACK_ROSE.getBlock()).build())
-                        .with(LootItem.lootTableItem(BWGBlocks.PROTEA_FLOWER.getBlock()).build())
-                        .with(LootItem.lootTableItem(BWGBlocks.SILVER_VASE_FLOWER.getBlock()).build())
                         .with(LootItem.lootTableItem(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get()).build())
                         .with(LootItem.lootTableItem(BWGItems.BLUE_GLOWCANE_SHOOT.get()).build())
                         .with(LootItem.lootTableItem(BWGItems.GREEN_GLOWCANE_SHOOT.get()).build())
