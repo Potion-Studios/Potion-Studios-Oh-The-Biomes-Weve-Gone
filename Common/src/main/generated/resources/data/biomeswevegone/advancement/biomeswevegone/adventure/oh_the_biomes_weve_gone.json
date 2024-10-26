@@ -561,6 +561,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "biomeswevegone:pale_bog": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "biomeswevegone:pale_bog"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "biomeswevegone:prairie": {
       "conditions": {
         "player": [
@@ -953,6 +969,9 @@
     ],
     [
       "biomeswevegone:overgrowth_woodlands"
+    ],
+    [
+      "biomeswevegone:pale_bog"
     ],
     [
       "biomeswevegone:prairie"
