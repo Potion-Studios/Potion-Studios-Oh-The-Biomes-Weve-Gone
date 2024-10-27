@@ -1,16 +1,20 @@
 package net.potionstudios.biomeswevegone.world.entity.pumpkinwarden;
 
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.ByIdMap;
+import net.minecraft.util.RandomSource;
+import net.minecraft.util.StringRepresentable;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
@@ -24,6 +28,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.AttachedStemBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -36,9 +41,11 @@ import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
+import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.List;
+import java.util.function.IntFunction;
 
 /**
  * The Pumpkin Warden Entity
@@ -46,7 +53,7 @@ import java.util.List;
  * @see GeoEntity
  * @author YaBoiChips
  */
-public class PumpkinWarden extends PathfinderMob implements GeoEntity {
+public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHolder<PumpkinWarden.Variant> {
 
     private final AnimatableInstanceCache animatableInstanceCache = GeckoLibUtil.createInstanceCache(this);
     private BlockPos jukebox;
@@ -54,6 +61,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<Boolean> HIDING = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> TIMER = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<BlockState> DATA_CARRY_STATE = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.BLOCK_STATE);
+    private static final EntityDataAccessor<Integer> DATA_VARIANT = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.INT);
 
     public Goal moveGoal = new WaterAvoidingRandomStrollGoal(this, 1.0D,0.7F);
     public Goal runGoal = new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D);
@@ -70,7 +78,20 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         builder.define(DATA_CARRY_STATE, Blocks.AIR.defaultBlockState());
         builder.define(HIDING, false);
         builder.define(TIMER, 0);
+        builder.define(DATA_VARIANT, 0);
         super.defineSynchedData(builder);
+    }
+
+    @Override
+    public void readAdditionalSaveData(@NotNull CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        this.setVariant(Variant.byId(compound.getInt("Variant")));
+    }
+
+    @Override
+    public void addAdditionalSaveData(@NotNull CompoundTag compound) {
+        super.addAdditionalSaveData(compound);
+        compound.putInt("Variant", this.getVariant().getId());
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -221,6 +242,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         }
     }
 
+    @Override
+    public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+        this.setVariant(Variant.getSpawnVariant(level.getRandom()));
+        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+    }
+
 
     @Override
     public boolean canBeLeashed() {
@@ -274,6 +301,16 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     public BlockState getCarriedBlock() {
         BlockState blockState = this.entityData.get(DATA_CARRY_STATE);
         return blockState == Blocks.AIR.defaultBlockState() ? null : blockState;
+    }
+
+    @Override
+    public void setVariant(@NotNull Variant variant) {
+        this.entityData.set(DATA_VARIANT, variant.getId());
+    }
+
+    @Override
+    public @NotNull Variant getVariant() {
+        return Variant.byId(this.entityData.get(DATA_VARIANT));
     }
 
 
@@ -447,6 +484,42 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         protected boolean isValidTarget(LevelReader level, @NotNull BlockPos pos) {
             List<BlockState> blockStates = level.getBlockStates(new AABB(warden.blockPosition()).inflate(30)).toList();
             return !blockStates.get(warden.random.nextInt(blockStates.size())).isAir();
+        }
+    }
+
+    public enum Variant implements StringRepresentable {
+        DEFAULT(0, "default"),
+        PALE(1, "pale");
+
+        private static final Codec<Variant> CODEC = StringRepresentable.fromEnum(Variant::values);
+        private static final IntFunction<Variant> BY_ID = ByIdMap.continuous(Variant::getId, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
+        private final String name;
+        private final int id;
+
+        Variant(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public @NotNull String getSerializedName() {
+            return this.name;
+        }
+
+        public static Variant byId(int id) {
+            return BY_ID.apply(id);
+        }
+
+        private static Variant getSpawnVariant(RandomSource random) {
+            return random.nextFloat() < 0.05 ? Variant.PALE : Variant.DEFAULT;
         }
     }
 }

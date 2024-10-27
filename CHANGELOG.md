@@ -7,6 +7,7 @@ New Features:
 - Add Soul Fruit
 - Add Glow Bottles
 - Add Pale Pumpkins
+- Add Pale Pumpkin Warden Variant
 
 Fixes and Improvements:
 - Optimize Crag Garden and Basalt Barrera Generation

@@ -340,11 +340,10 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     public enum Variant implements StringRepresentable {
         STANDARD(0, "standard"),
         PINK(1, "pink"),
-        ALBINO(2, "albino"),
-        ;
+        ALBINO(2, "albino");
 
-        public static final Codec<Oddion.Variant> CODEC = StringRepresentable.fromEnum(Variant::values);
-        private static final IntFunction<Oddion.Variant> BY_ID = ByIdMap.continuous(Variant::getId, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
+        private static final Codec<Variant> CODEC = StringRepresentable.fromEnum(Variant::values);
+        private static final IntFunction<Variant> BY_ID = ByIdMap.continuous(Variant::getId, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
         private final String name;
         private final int id;
 
@@ -366,11 +365,11 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
             return this.name;
         }
 
-        public static Oddion.Variant byId(int id) {
+        public static Variant byId(int id) {
             return BY_ID.apply(id);
         }
 
-        private static Oddion.Variant getSpawnVariant(RandomSource random) {
+        private static Variant getSpawnVariant(RandomSource random) {
             int i = random.nextInt(100);
             return i < 47 ? STANDARD : i < 94 ? PINK : ALBINO;
         }
