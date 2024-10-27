@@ -402,6 +402,7 @@ public class ModelGenerators {
                         ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get()))).build();
             }, TreeBranchBlock.WATERLOGGED);
             simpleBlockWithItem(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BLOSSOM.get())));
+            simpleBlockWithItem(BWGWood.SPIRIT_ROOTS.get(), models().getExistingFile(blockBWGTexture(BWGWood.SPIRIT_ROOTS.get())));
         }
 
         private void snowyRotatableBlock(Block block) {
