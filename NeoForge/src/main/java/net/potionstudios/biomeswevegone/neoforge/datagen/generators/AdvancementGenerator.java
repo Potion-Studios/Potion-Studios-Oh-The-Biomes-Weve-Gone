@@ -7,12 +7,14 @@ import net.minecraft.data.advancements.packs.VanillaAdventureAdvancements;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructures;
 import org.jetbrains.annotations.NotNull;
@@ -101,6 +103,27 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
                 )
                 .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/forgotten_fae"), existingFileHelper);
 
+        AdvancementHolder paleBogRoot = Advancement.Builder.advancement()
+                .parent(adventureRoot)
+                .addCriterion("pale_bog", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inBiome(arg.holderOrThrow(BWGBiomes.PALE_BOG))))
+                .display(
+                        BWGWood.SPIRIT.logstem(),
+                        translateAble("adventure.pale_in_comparison.title"),
+                        translateAble("adventure.pale_in_comparison.description"),
+                        null,
+                        AdvancementType.TASK, true, true, false)
+                .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/pale_in_comparison"), existingFileHelper);
+
+        Advancement.Builder.advancement()
+                .parent(paleBogRoot)
+                .addCriterion("bog_trial", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(arg.holderOrThrow(BWGStructures.BOG_TRIAL))))
+                .display(
+                        BWGWood.SPIRIT_ROOTS.get(),
+                        translateAble("adventure.witches_road.title"),
+                        translateAble("adventure.witches_road.description"),
+                        null,
+                        AdvancementType.TASK, true, true, false)
+                .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/witches_road"), existingFileHelper);
 
         AdvancementHolder husbandryRoot = Advancement.Builder.advancement()
                 .parent(root)

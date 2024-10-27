@@ -173,6 +173,7 @@ public class BWGBiomeTags {
         public static final TagKey<Biome> HAS_PRAIRIE_HOUSE = create("has_structure/prairie_house");
         public static final TagKey<Biome> HAS_RUGGED_FOSSIL = create("has_structure/rugged_fossil");
         public static final TagKey<Biome> HAS_ASPEN_MANOR = create("has_structure/aspen_manor");
+        public static final TagKey<Biome> HAS_BOG_TRIAL = create("has_structure/bog_trial");
         public static final TagKey<Biome> HAS_VILLAGE_FORGOTTEN = create("has_structure/village_forgotten");
         public static final TagKey<Biome> HAS_VILLAGE_SKYRIS = create("has_structure/village_skyris");
         public static final TagKey<Biome> HAS_VILLAGE_SALEM = create("has_structure/village_salem");

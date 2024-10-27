@@ -225,6 +225,16 @@ public class BWGStructures {
             )
     );
 
+    public static final ResourceKey<Structure> BOG_TRIAL = register("bog_trial", (structureFactoryBootstapContext) ->
+            createJigsaw(
+                    structure(structureFactoryBootstapContext.lookup(Registries.BIOME).getOrThrow(BWGBiomeTags.StructureHasTags.HAS_BOG_TRIAL), TerrainAdjustment.BEARD_THIN),
+                    structureFactoryBootstapContext.lookup(Registries.TEMPLATE_POOL).getOrThrow(BWGTemplatePools.BOG_TRIAL),
+                    1,
+                    ConstantHeight.of(VerticalAnchor.absolute(1)),
+                    Heightmap.Types.WORLD_SURFACE_WG
+            )
+    );
+
     public static final ResourceKey<Structure> FORGOTTEN_VILLAGE = register("village/forgotten", (structureFactoryBootstapContext ->
             createJigsawWithExpansion(
                     structure(structureFactoryBootstapContext.lookup(Registries.BIOME).getOrThrow(BWGBiomeTags.StructureHasTags.HAS_VILLAGE_FORGOTTEN),

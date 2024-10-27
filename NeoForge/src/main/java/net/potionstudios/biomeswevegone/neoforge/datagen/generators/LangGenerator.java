@@ -65,6 +65,10 @@ public class LangGenerator extends LanguageProvider {
         add(advancement("adventure.little_house_on_the_prairie.description"), "Find all the Prairie houses");
         add(advancement("adventure.forgotten_fae.title"), "Forgotten Fae");
         add(advancement("adventure.forgotten_fae.description"), "Find a Pixie Club Music Disc");
+        add(advancement("adventure.pale_in_comparison.title"), "Pale in Comparison");
+        add(advancement("adventure.pale_in_comparison.description"), "So you’ve found a Pale Bog..");
+        add(advancement("adventure.witches_road.title"), "Down The Witches Road");
+        add(advancement("adventure.witches_road.description"), "In the Pale Bog lies a different kind of challenge.");
         add(advancement("husbandry.root.title"), "Husbandry");
         add(advancement("husbandry.root.description"), "The root of all things BWG husbandry");
         add(advancement("husbandry.granny_smith.title"), "Granny Smith?");

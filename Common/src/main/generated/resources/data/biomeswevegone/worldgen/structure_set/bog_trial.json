@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 302222254,
+    "separation": 6,
+    "spacing": 8
+  },
+  "structures": [
+    {
+      "structure": "biomeswevegone:bog_trial",
+      "weight": 1
+    }
+  ]
+}
