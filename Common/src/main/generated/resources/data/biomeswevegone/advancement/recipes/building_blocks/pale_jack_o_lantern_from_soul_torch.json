@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_carved_pale_pumpkin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:carved_pale_pumpkin"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:pale_jack_o_lantern_from_soul_torch"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_carved_pale_pumpkin"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:pale_jack_o_lantern_from_soul_torch"
+    ]
+  }
+}

@@ -69,7 +69,6 @@ public class BWGBlocks {
     public static final Supplier<DirtPathBlock> LUSH_DIRT_PATH = registerBlockItem("lush_dirt_path", () -> new BWGDirtPathBlock(LUSH_DIRT));
     public static final Supplier<BWGFarmLandBlock> LUSH_FARMLAND = registerBlockItem("lush_farmland", PlatformHandler.PLATFORM_HANDLER.bwgFarmLandBlock(LUSH_DIRT));
 
-
     public static final BWGSandSet BLACK_SAND_SET = new BWGSandSet("black", 5197647);
     public static final BWGSandSet WHITE_SAND_SET = new BWGSandSet("white", 15395562);
     public static final BWGSandSet BLUE_SAND_SET = new BWGSandSet("blue", 13559021);

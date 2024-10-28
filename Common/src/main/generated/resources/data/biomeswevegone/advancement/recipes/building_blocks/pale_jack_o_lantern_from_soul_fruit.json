@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomeswevegone:pale_jack_o_lantern"
+        "recipe": "biomeswevegone:pale_jack_o_lantern_from_soul_fruit"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "biomeswevegone:pale_jack_o_lantern"
+      "biomeswevegone:pale_jack_o_lantern_from_soul_fruit"
     ]
   }
 }
