@@ -76,7 +76,7 @@ public class GlowCaneBlock extends SugarCaneBlock implements SimpleWaterloggedBl
     protected void neighborChanged(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Block neighborBlock, @NotNull BlockPos neighborPos, boolean movedByPiston) {
         if (!state.canSurvive(level, pos)) {
             if (state.getValue(WATERLOGGED)) level.setBlockAndUpdate(pos, Fluids.WATER.defaultFluidState().createLegacyBlock());
-            else level.destroyBlock(pos, false);
+            else level.destroyBlock(pos, true);
         }
     }
 

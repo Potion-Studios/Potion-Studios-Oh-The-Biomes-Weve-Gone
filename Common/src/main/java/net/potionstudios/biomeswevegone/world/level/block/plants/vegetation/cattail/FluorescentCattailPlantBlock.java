@@ -1,6 +1,8 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -8,7 +10,6 @@ import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -35,12 +36,12 @@ public class FluorescentCattailPlantBlock extends CattailPlantBlock {
 
 	@Override
 	protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
-		if (stack.getItem() instanceof PowderItem powderItem)
-			if (powderItem.getColor() != state.getValue(COLOR)) {
-				level.setBlockAndUpdate(pos, state.setValue(COLOR, powderItem.getColor()));
-				if (!player.isCreative()) stack.shrink(1);
-				return ItemInteractionResult.SUCCESS;
-			}
+		if (stack.getItem() instanceof PowderItem powderItem && state.getValue(COLOR) == ColorProperty.NO_COLOR) {
+			level.playSound(player, pos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS);
+			level.setBlockAndUpdate(pos, state.setValue(COLOR, powderItem.getColor()));
+			if (!player.isCreative()) stack.shrink(1);
+			return ItemInteractionResult.SUCCESS;
+		}
 		return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
 	}
 
