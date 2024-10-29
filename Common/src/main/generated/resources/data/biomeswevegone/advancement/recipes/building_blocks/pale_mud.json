@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_soul_fruit": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:soul_fruit"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:pale_mud"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_soul_fruit"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:pale_mud"
+    ]
+  }
+}
