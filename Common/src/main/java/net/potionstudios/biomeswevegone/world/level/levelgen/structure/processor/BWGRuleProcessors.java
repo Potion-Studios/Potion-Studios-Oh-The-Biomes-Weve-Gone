@@ -182,12 +182,22 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.5f, BWGBlocks.LUSH_GRASS_BLOCK.get())
 	);
 
+	protected static RuleProcessor BOG_TRIAL_FLOOR = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PALE_MUD.get(), 0.35f, BWGBlocks.PACKED_PALE_MUD.get()),
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PALE_MUD.get(), 0.25f, BWGBlocks.PALE_MUD_BRICKS_SET.getBase()),
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PALE_MUD.get(), 0.2f, BWGBlocks.BLACK_SAND_SET.getSand())
+	);
+
 	protected static RuleProcessor skyrisLeavesToGreenAppleLeaves(float chance) {
 		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGWood.SKYRIS.leaves(), chance, BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get()));
 	}
 
 	protected static RuleProcessor skyrisLeavesToFlowering(float chance) {
 		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGWood.SKYRIS.leaves(), chance, BWGWood.FLOWERING_SKYRIS_LEAVES.get()));
+	}
+
+	protected static RuleProcessor spiritLeavesToFlowering(float chance) {
+		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGWood.SPIRIT_LEAVES.get(), chance, BWGWood.FLOWERING_SPIRIT_LEAVES.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true)));
 	}
 
 	private static ProcessorRule createAlwaysTrueRandomBlockMatchTest(Block start, float chance, Block newBlock) {

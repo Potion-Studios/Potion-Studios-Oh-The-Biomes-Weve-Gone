@@ -4,7 +4,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:bog_trial",
-        "processors": "minecraft:empty",
+        "processors": "biomeswevegone:bog_trial",
         "projection": "rigid"
       },
       "weight": 1

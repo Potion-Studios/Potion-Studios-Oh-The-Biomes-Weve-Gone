@@ -171,6 +171,13 @@ public class BWGStructureProcessorLists {
             )
     ));
 
+    public static final ResourceKey<StructureProcessorList> BOG_TRIAL = register("bog_trial", structureProcessorListHolderGetter -> new StructureProcessorList(
+            ImmutableList.of(
+                    BWGRuleProcessors.spiritLeavesToFlowering(0.5f),
+                    BWGRuleProcessors.BOG_TRIAL_FLOOR
+            )
+    ));
+
     private static ResourceKey<StructureProcessorList> register(String id, StructureProcessorListFactory factory) {
         ResourceKey<StructureProcessorList> structureProcessorListResourceKey = ResourceKey.create(Registries.PROCESSOR_LIST, BiomesWeveGone.id(id));
         STRUCTURE_PROCESSOR_LIST_FACTORIES.put(structureProcessorListResourceKey, factory);
