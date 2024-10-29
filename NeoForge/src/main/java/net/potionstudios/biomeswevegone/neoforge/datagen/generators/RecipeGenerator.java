@@ -418,6 +418,16 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(BWGBlocks.CARVED_PALE_PUMPKIN.get()), has(BWGBlocks.CARVED_PALE_PUMPKIN.get()))
                 .save(recipeOutput, BiomesWeveGone.id("pale_jack_o_lantern_from_soul_fruit"));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.SOUL_TORCH, 4)
+                .define('X', Ingredient.of(Items.COAL, Items.CHARCOAL))
+                .define('#', Items.STICK)
+                .define('S', BWGItems.SOUL_FRUIT.get())
+                .pattern("X")
+                .pattern("#")
+                .pattern("S")
+                .unlockedBy(getHasName(BWGItems.SOUL_FRUIT.get()), has(BWGItems.SOUL_FRUIT.get()))
+                .save(recipeOutput);
+
     }
 
     private static void sandToGlass(RecipeOutput finishedRecipeConsumer, BWGSandSet set, Item glass) {
