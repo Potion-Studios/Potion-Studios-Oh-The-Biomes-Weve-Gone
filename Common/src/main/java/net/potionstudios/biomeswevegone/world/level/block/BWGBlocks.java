@@ -26,6 +26,7 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.CarvedBa
 import net.potionstudios.biomeswevegone.world.level.block.plants.flower.*;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.branch.TreeBranchBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.SoulFruitBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.grower.BWGTreeGrowers;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.*;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.CattailPlantBlock;
@@ -257,6 +258,7 @@ public class BWGBlocks {
     public static final Supplier<BWGFruitBlock> BAOBAB_FRUIT_BLOCK = registerBlock("baobab_fruit", () -> new BWGFruitBlock(() ->BWGItems.BAOBAB_FRUIT, BWGWood.RIPE_BAOBAB_LEAVES));
     public static final Supplier<BWGFruitBlock> GREEN_APPLE_FRUIT_BLOCK = registerBlock("green_apple_fruit", () -> new BWGFruitBlock(() ->BWGItems.GREEN_APPLE, BWGWood.SKYRIS_LEAVES_GREEN_APPLE));
     public static final Supplier<BWGFruitBlock> YUCCA_FRUIT_BLOCK = registerBlock("yucca_fruit", () -> new BWGFruitBlock(() ->BWGItems.YUCCA_FRUIT, BWGWood.RIPE_YUCCA_LEAVES));
+    public static final Supplier<SoulFruitBlock> SOUL_FRUIT_BLOCK = registerBlock("soul_fruit", SoulFruitBlock::new);
 
     public static final BWGBlockSet DACITE_SET = new BWGBlockSet("dacite", MapColor.TERRACOTTA_WHITE);
     public static final BWGBlockSet DACITE_BRICKS_SET = new BWGBlockSet("dacite_bricks", "dacite_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
