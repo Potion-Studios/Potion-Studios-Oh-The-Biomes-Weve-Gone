@@ -18,11 +18,13 @@ import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConf
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.player.BonemealEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
+import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
@@ -51,6 +53,7 @@ public class VanillaCompatNeoForge {
         bus.addListener(VanillaCompatNeoForge::registerTillables);
         if (BWGTradesConfig.INSTANCE.get().enableTrades()) bus.addListener(VanillaCompatNeoForge::onVillagerTrade);
         bus.addListener(VanillaCompatNeoForge::onBoneMealUse);
+        bus.addListener(VanillaCompatNeoForge::registerBrewingRecipes);
     }
 
     private static void registerTillables(final BlockEvent.BlockToolModificationEvent event) {
@@ -75,6 +78,14 @@ public class VanillaCompatNeoForge {
             BWGVillagerTrades.TRADES.get(event.getType())
                     .forEach(pair -> trades.get(pair.getFirst().intValue()).add((trader, random) -> pair.getSecond()));
         }
+    }
+
+    /**
+     * Register brewing recipes.
+     * @see RegisterBrewingRecipesEvent
+     */
+    public static void registerBrewingRecipes(final RegisterBrewingRecipesEvent event) {
+        BWGBrewingRecipes.buildBrewingRecipes(event.getBuilder()::addMix);
     }
 
     private static void onBoneMealUse(final BonemealEvent event) {

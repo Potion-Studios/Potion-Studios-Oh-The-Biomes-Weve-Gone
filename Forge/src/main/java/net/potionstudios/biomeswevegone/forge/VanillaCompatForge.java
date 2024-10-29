@@ -15,6 +15,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.ToolActions;
+import net.minecraftforge.event.brewing.BrewingRecipeRegisterEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
@@ -23,6 +24,7 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
+import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
@@ -52,6 +54,7 @@ public class VanillaCompatForge {
         bus.addListener(VanillaCompatForge::registerTillables);
         bus.addListener(VanillaCompatForge::registerFuels);
         if (BWGTradesConfig.INSTANCE.get().enableTrades()) bus.addListener(VanillaCompatForge::onVillagerTrade);
+        bus.addListener(VanillaCompatForge::registerBrewingRecipes);
         bus.addListener(VanillaCompatForge::onBoneMealUse);
     }
 
@@ -86,6 +89,14 @@ public class VanillaCompatForge {
             BWGVillagerTrades.TRADES.get(event.getType())
                     .forEach(pair -> trades.get(pair.getFirst().intValue()).add((trader, random) -> pair.getSecond()));
         }
+    }
+
+    /**
+     * Register brewing recipes.
+     * @see BrewingRecipeRegisterEvent
+     */
+    public static void registerBrewingRecipes(final BrewingRecipeRegisterEvent event) {
+        BWGBrewingRecipes.buildBrewingRecipes(event.getBuilder()::addMix);
     }
 
     private static void onBoneMealUse(final BonemealEvent event) {

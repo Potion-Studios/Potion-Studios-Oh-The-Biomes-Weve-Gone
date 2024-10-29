@@ -12,6 +12,7 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
+import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
@@ -34,6 +35,7 @@ public class VanillaCompatFabric {
         registerBiomeModifiers();
         registerLootModifiers();
         registerTrades();
+        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> BWGBrewingRecipes.buildBrewingRecipes(builder::addMix));
     }
 
     private static void registerFuels() {
