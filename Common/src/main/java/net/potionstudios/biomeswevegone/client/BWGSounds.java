@@ -19,6 +19,8 @@ public class BWGSounds {
     public static final Supplier<SoundEvent> ODDION_AMBIENT = createFixedRangeEvent("oddion.ambient", 8F);
     public static final Supplier<SoundEvent> ODDION_HAPPY = createFixedRangeEvent("oddion.happy", 8F);
 
+    public static final Supplier<SoundEvent> SOUL_FRUIT_WAIL = createFixedRangeEvent("soul_fruit.wail", 8F);
+
     public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_DISC_PIXIE_CLUB = registerSoundEventHolder("music_disc.pixie_club");
 
     public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_BIOME_CRAG_GARDENS = registerSoundEventHolder("music.overworld.crag_gardens");

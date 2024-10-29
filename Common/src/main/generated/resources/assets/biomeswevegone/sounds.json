@@ -45,5 +45,11 @@
       "biomeswevegone:entity/oddion/oddion_hurt"
     ],
     "subtitle": "subtitles.entity.oddion_hurt"
+  },
+  "soul_fruit.wail": {
+    "sounds": [
+      "biomeswevegone:block/soul_fruit_wail"
+    ],
+    "subtitle": "subtitles.block.soul_fruit_wail"
   }
 }

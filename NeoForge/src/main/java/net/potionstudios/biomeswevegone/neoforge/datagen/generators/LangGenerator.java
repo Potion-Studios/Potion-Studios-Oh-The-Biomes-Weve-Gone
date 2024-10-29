@@ -92,6 +92,8 @@ public class LangGenerator extends LanguageProvider {
         add("subtitles.entity.oddion_death", "Oddion dies");
         add("subtitles.entity.oddion_happy", "Oddion happy purrs");
 
+        add("subtitles.block.soul_fruit_wail", "Soul Fruit wails");
+
         add(death("inQuicksand"), "%s tried to swim in the desert");
         add(death("cattailExplosion"), "%s got too curious and put a cattail in a campfire");
     }
