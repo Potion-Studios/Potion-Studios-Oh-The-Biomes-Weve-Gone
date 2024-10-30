@@ -36,7 +36,7 @@ public class FluorescentCattailPlantBlock extends CattailPlantBlock {
 
 	@Override
 	protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
-		if (stack.getItem() instanceof PowderItem powderItem && state.getValue(COLOR) == ColorProperty.NO_COLOR) {
+		if (stack.getItem() instanceof PowderItem powderItem && (state.getValue(COLOR) == ColorProperty.NO_COLOR || player.isCreative())) {
 			level.playSound(player, pos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS);
 			level.setBlockAndUpdate(pos, state.setValue(COLOR, powderItem.getColor()));
 			if (!player.isCreative()) stack.shrink(1);
