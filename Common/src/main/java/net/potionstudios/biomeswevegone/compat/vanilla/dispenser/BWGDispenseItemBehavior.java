@@ -3,13 +3,19 @@ package net.potionstudios.biomeswevegone.compat.vanilla.dispenser;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.DispensibleContainerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
+import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -36,6 +42,26 @@ public class BWGDispenseItemBehavior {
 					dispensibleContainerItem.checkExtraContent(null, level, item, blockPos);
 					return new ItemStack(Items.BUCKET);
 				} else return this.defaultDispenseItemBehavior.dispense(blockSource, item);
+			}
+		});
+
+		DispenserBlock.registerBehavior(BWGBlocks.CARVED_PALE_PUMPKIN.get(), new OptionalDispenseItemBehavior() {
+			@Override
+			protected @NotNull ItemStack execute(@NotNull BlockSource blockSource, @NotNull ItemStack item) {
+				Level level = blockSource.level();
+				BlockPos blockPos = blockSource.pos().relative(blockSource.state().getValue(DispenserBlock.FACING));
+				CarvedPumpkinBlock carvedPumpkinBlock = BWGBlocks.CARVED_PALE_PUMPKIN.get();
+				if (level.isEmptyBlock(blockPos) && carvedPumpkinBlock.canSpawnGolem(level, blockPos)) {
+					if (!level.isClientSide()) {
+						level.setBlock(blockPos, carvedPumpkinBlock.defaultBlockState(), 3);
+						level.gameEvent(null, GameEvent.BLOCK_PLACE, blockPos);
+					}
+
+					item.shrink(1);
+					this.setSuccess(true);
+				} else this.setSuccess(ArmorItem.dispenseArmor(blockSource, item));
+
+				return item;
 			}
 		});
 	}
