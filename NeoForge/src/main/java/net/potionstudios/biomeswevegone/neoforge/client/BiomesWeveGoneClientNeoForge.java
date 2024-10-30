@@ -87,6 +87,8 @@ public class BiomesWeveGoneClientNeoForge {
         event.registerSpriteSet(BWGParticles.SILVER_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(BWGParticles.IRONWOOD_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(BWGParticles.SPIRIT.get(), FallingLeafParticle.Provider::new);
+        event.registerSpriteSet(BWGParticles.SPIRIT_LEAVES.get(), FallingLeafParticle.Provider::new);
+
     }
 
     /**

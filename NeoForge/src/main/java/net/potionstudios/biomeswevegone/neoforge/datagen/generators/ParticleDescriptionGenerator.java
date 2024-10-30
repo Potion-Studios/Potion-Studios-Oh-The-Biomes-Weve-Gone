@@ -33,5 +33,6 @@ public class ParticleDescriptionGenerator extends ParticleDescriptionProvider {
 		spriteSet(BWGParticles.YELLOW_SAKURA_LEAVES.get(), BiomesWeveGone.id("yellow_sakura"), 8, false);
 		spriteSet(BWGParticles.WHITE_SAKURA_LEAVES.get(), BiomesWeveGone.id("white_sakura"), 8, false);
 		spriteSet(BWGParticles.WITCH_HAZEL_LEAVES.get(), BiomesWeveGone.id("witch_hazel"), 6, false);
+		spriteSet(BWGParticles.SPIRIT_LEAVES.get(), BiomesWeveGone.id("spirit_leaf"), 2, false);
 	}
 }

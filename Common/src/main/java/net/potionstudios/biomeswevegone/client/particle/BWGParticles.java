@@ -13,6 +13,7 @@ import java.util.function.Supplier;
 public class BWGParticles {
 
     public static final Supplier<SimpleParticleType> WITCH_HAZEL_LEAVES = register("witch_hazel_leaves");
+    public static final Supplier<SimpleParticleType> SPIRIT_LEAVES = register("spirit_leaves");
     public static final Supplier<SimpleParticleType> WHITE_SAKURA_LEAVES = register("white_sakura_leaves");
     public static final Supplier<SimpleParticleType> YELLOW_SAKURA_LEAVES = register("yellow_sakura_leaves");
     public static final Supplier<SimpleParticleType> RED_MAPLE_LEAVES = register("red_maple_leaves");
