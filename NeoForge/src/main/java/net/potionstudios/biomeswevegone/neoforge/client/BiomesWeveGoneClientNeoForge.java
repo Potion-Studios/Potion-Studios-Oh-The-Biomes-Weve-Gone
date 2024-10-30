@@ -122,7 +122,7 @@ public class BiomesWeveGoneClientNeoForge {
     }
 
     private static void registerGUILayers(final RegisterGuiLayersEvent event) {
-        event.registerAbove(VanillaGuiLayers.CAMERA_OVERLAYS, ResourceLocation.withDefaultNamespace("textures/misc/pumpkinblur.png"), (guiGraphics, deltaTracker) -> {
+        event.registerAbove(VanillaGuiLayers.CAMERA_OVERLAYS, BiomesWeveGone.id("textures/misc/palepumpkinblur.png"), (guiGraphics, deltaTracker) -> {
             Minecraft minecraft = Minecraft.getInstance();
             if (minecraft.options.getCameraType().isFirstPerson()) {
 	            assert minecraft.player != null;
@@ -132,7 +132,7 @@ public class BiomesWeveGoneClientNeoForge {
                         RenderSystem.depthMask(false);
                         RenderSystem.enableBlend();
                         guiGraphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
-                        guiGraphics.blit(ResourceLocation.withDefaultNamespace("textures/misc/pumpkinblur.png"), 0, 0, -90, 0.0F, 0.0F, guiGraphics.guiWidth(), guiGraphics.guiHeight(), guiGraphics.guiWidth(), guiGraphics.guiHeight());
+                        guiGraphics.blit(BiomesWeveGone.id("textures/misc/palepumpkinblur.png"), 0, 0, -90, 0.0F, 0.0F, guiGraphics.guiWidth(), guiGraphics.guiHeight(), guiGraphics.guiWidth(), guiGraphics.guiHeight());
                         RenderSystem.disableBlend();
                         RenderSystem.depthMask(true);
                         RenderSystem.enableDepthTest();
