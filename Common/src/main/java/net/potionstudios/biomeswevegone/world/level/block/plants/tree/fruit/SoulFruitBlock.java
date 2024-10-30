@@ -45,6 +45,6 @@ public class SoulFruitBlock extends BWGFruitBlock {
 		Vec3 center = pos.getCenter();
 		for (ServerPlayer player : level.getPlayers(player -> !player.isSpectator()))
 			if (center.closerThan(player.position(), 25))
-				player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 1200));
+				player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 1200, 0, false, false));
 	}
 }
