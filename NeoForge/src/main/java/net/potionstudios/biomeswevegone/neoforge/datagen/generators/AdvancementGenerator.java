@@ -116,7 +116,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
                 .parent(adventureRoot)
                 .addCriterion("pale_bog", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inBiome(arg.holderOrThrow(BWGBiomes.PALE_BOG))))
                 .display(
-                        BWGWood.SPIRIT.logstem(),
+                        BWGItems.SOUL_FRUIT.get(),
                         translateAble("adventure.pale_in_comparison.title"),
                         translateAble("adventure.pale_in_comparison.description"),
                         null,
