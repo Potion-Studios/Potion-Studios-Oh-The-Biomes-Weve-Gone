@@ -1,0 +1,46 @@
+{
+  "parent": "biomeswevegone:biomeswevegone/husbandry/root",
+  "criteria": {
+    "forgotten_nostalgia": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "biomeswevegone:pumpkin_warden"
+            }
+          }
+        ],
+        "item": {
+          "items": "#biomeswevegone:flowers/roses"
+        }
+      },
+      "trigger": "minecraft:player_interacted_with_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.biomeswevegone.husbandry.forgotten_nostalgia.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "biomeswevegone:rose"
+    },
+    "title": {
+      "translate": "advancements.biomeswevegone.husbandry.forgotten_nostalgia.title"
+    }
+  },
+  "requirements": [
+    [
+      "forgotten_nostalgia"
+    ]
+  ],
+  "rewards": {
+    "loot": [
+      "biomeswevegone:blocks/pale_pumpkin"
+    ]
+  },
+  "sends_telemetry_event": true
+}

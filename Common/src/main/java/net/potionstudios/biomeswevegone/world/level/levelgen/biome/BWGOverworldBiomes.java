@@ -937,7 +937,6 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addSwampDelta(generationSettings);
 
         BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addJungleGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addSwampExtraVegetation(generationSettings);
@@ -945,8 +944,8 @@ class BWGOverworldBiomes {
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.SPIRIT_TREES);
         BWGOverworldDefaultFeatures.addBWGSwampVegetation(generationSettings);
-        BWGOverworldDefaultFeatures.addCattails(generationSettings);
         BWGOverworldDefaultFeatures.addFluorscentCattails(generationSettings);
+        BWGOverworldDefaultFeatures.addCattails(generationSettings);
         BWGOverworldDefaultFeatures.addSages(generationSettings);
         BWGOverworldDefaultFeatures.addMudDisks(generationSettings);
 
