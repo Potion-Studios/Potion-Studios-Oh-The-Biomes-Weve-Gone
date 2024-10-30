@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.forge.loot.AddItemModifier;
-import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.modifiers.BWGBiomeModifiers;
 import org.jetbrains.annotations.NotNull;
 
@@ -58,9 +58,10 @@ class ForgeDatagen {
 
         @Override
         protected void start(HolderLookup.@NotNull Provider arg) {
-            add("bwg_flowers_from_sniffer_dig", new AddItemModifier(new LootItemCondition[]{
-                    new LootTableIdCondition.Builder(BuiltInLootTables.SNIFFER_DIGGING.location()).build()}, BWGBlocks.BLACK_ROSE.getBlock().asItem(),
-                    BWGBlocks.PROTEA_FLOWER.getBlock().asItem(), BWGBlocks.SILVER_VASE_FLOWER.getBlock().asItem()));
+            add("bwg_items_from_sniffer_dig", new AddItemModifier(new LootItemCondition[]{
+                    new LootTableIdCondition.Builder(BuiltInLootTables.SNIFFER_DIGGING.location()).build()}, BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(),
+                    BWGItems.BLUE_GLOWCANE_SHOOT.get(), BWGItems.GREEN_GLOWCANE_SHOOT.get(), BWGItems.RED_GLOWCANE_SHOOT.get(), BWGItems.YELLOW_GLOWCANE_SHOOT.get(),
+                    BWGItems.PALE_PUMPKIN_SEEDS.get()));
         }
     }
 

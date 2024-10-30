@@ -23,10 +23,8 @@ public abstract class PalePumpkinOverlayMixin {
 
     @Inject(method = "renderCameraOverlays", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
     private void renderCameraOverlays(GuiGraphics guiGraphics, DeltaTracker deltaTracker, CallbackInfo ci) {
-
-        if (this.minecraft.player.getInventory().getArmor(3).is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem())) {
+        if (this.minecraft.player.getInventory().getArmor(3).is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem()))
             this.renderTextureOverlay(guiGraphics, BiomesWeveGone.id("textures/misc/palepumpkinblur.png"), 1.0F);
-        }
     }
 
 }
