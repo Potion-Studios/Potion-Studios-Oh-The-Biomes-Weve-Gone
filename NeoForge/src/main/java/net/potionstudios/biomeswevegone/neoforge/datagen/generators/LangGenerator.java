@@ -83,6 +83,9 @@ public class LangGenerator extends LanguageProvider {
         add(advancement("husbandry.johnny_appleseed.description"), "Find All 3 Apples");
         add(advancement("husbandry.hot_diggity_not_dog.title"), "Hot Diggity Not Dog");
         add(advancement("husbandry.hot_diggity_not_dog.description"), "Cook a Cattail on a campfire, you might wanna back away...");
+        add(advancement("husbandry.forgotten_nostalgia.title"), "Forgotten Nostalgia");
+        add(advancement("husbandry.forgotten_nostalgia.description"), "");
+
 
         add("entity.minecraft.villager.biomeswevegone.forager", "Forager");
         add("entity.minecraft.villager.forager", "Forager");

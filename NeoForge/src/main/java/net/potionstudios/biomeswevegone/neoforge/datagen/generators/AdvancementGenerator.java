@@ -3,15 +3,23 @@ package net.potionstudios.biomeswevegone.neoforge.datagen.generators;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.advancements.packs.VanillaAdventureAdvancements;
+import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
+import net.potionstudios.biomeswevegone.tags.BWGItemTags;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
@@ -19,6 +27,7 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructures;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 public class AdvancementGenerator implements AdvancementProvider.AdvancementGenerator {
@@ -201,6 +210,17 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
                         translateAble("husbandry.hot_diggity_not_dog.description"),
                         null, AdvancementType.TASK, true, true, false)
                 .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/husbandry/hot_diggity_not_dog"), existingFileHelper);
+
+        Advancement.Builder.advancement()
+                .parent(husbandryRoot)
+                .rewards(new AdvancementRewards.Builder().addLootTable(ResourceKey.create(Registries.LOOT_TABLE, BiomesWeveGone.id("blocks/pale_pumpkin"))))
+                .addCriterion("forgotten_nostalgia", PlayerInteractTrigger.TriggerInstance.itemUsedOnEntity(ItemPredicate.Builder.item().of(BWGItemTags.ROSES), Optional.of(EntityPredicate.wrap(EntityPredicate.Builder.entity().of(BWGEntities.PUMPKIN_WARDEN.get())))))
+                .display(
+                        BWGBlocks.ROSE.getBlock().asItem(),
+                        translateAble("husbandry.forgotten_nostalgia.title"),
+                        translateAble("husbandry.forgotten_nostalgia.description"),
+                        null, AdvancementType.CHALLENGE, true, true, false)
+                .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/husbandry/forgotten_nostalgia"), existingFileHelper);
 
     }
 
