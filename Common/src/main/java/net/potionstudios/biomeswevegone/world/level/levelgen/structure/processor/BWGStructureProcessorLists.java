@@ -174,7 +174,8 @@ public class BWGStructureProcessorLists {
     public static final ResourceKey<StructureProcessorList> BOG_TRIAL = register("bog_trial", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                     BWGRuleProcessors.spiritLeavesToFlowering(0.5f),
-                    BWGRuleProcessors.BOG_TRIAL_FLOOR
+                    BWGRuleProcessors.BOG_TRIAL_FLOOR,
+                    BWGRuleProcessors.WHITE_PUFFBALL_RANDOM_AGE
             )
     ));
 
