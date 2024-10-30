@@ -24,7 +24,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class SoulFruitBlock extends BWGFruitBlock {
 	public SoulFruitBlock() {
-		super(Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH).lightLevel(light -> 10).mapColor(MapColor.COLOR_PURPLE).sound(new SoundType(1f, 1f, BWGSounds.SOUL_FRUIT_WAIL.get(), SoundEvents.GRASS_STEP, SoundEvents.SWEET_BERRY_BUSH_PLACE, SoundEvents.GRASS_HIT, SoundEvents.GRASS_FALL)), () -> BWGItems.SOUL_FRUIT, BWGWood.FLOWERING_SPIRIT_LEAVES);
+		super(Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH).lightLevel(light -> 14).mapColor(MapColor.COLOR_PURPLE).sound(new SoundType(1f, 1f, BWGSounds.SOUL_FRUIT_WAIL.get(), SoundEvents.GRASS_STEP, SoundEvents.SWEET_BERRY_BUSH_PLACE, SoundEvents.GRASS_HIT, SoundEvents.GRASS_FALL)), () -> BWGItems.SOUL_FRUIT, BWGWood.FLOWERING_SPIRIT_LEAVES);
 	}
 
 	@Override
