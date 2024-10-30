@@ -96,7 +96,8 @@ public class BWGOverworldVegationPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> SWAMP_WATER_VEGETATION = createWorldSurfaceSquared("swamp_water_vegetation", BWGOverworldVegetationConfiguredFeatures.SWAMP_WATER_VEGETATION, 20);
     public static final ResourceKey<PlacedFeature> MANGROVE_SWAMP_WATER_VEGETATION = createWorldSurfaceSquared("mangrove_swamp_water_vegetation", BWGOverworldVegetationConfiguredFeatures.MANGROVE_SWAMP_WATER_VEGETATION, 15);
-    public static final ResourceKey<PlacedFeature> CATTAILS = PlacedFeaturesUtil.createPlacedFeature("cattails", BWGOverworldVegetationConfiguredFeatures.CATTAILS, PlacedFeaturesUtil.oceanFloorSquaredWithCountAndMaxDepth(16, OptionalInt.of(2)));
+    public static final ResourceKey<PlacedFeature> CATTAILS = PlacedFeaturesUtil.createPlacedFeature("cattails", BWGOverworldVegetationConfiguredFeatures.CATTAILS, PlacedFeaturesUtil.oceanFloorSquaredWithCountAndMaxDepth(12, OptionalInt.of(2)));
+    public static final ResourceKey<PlacedFeature> FLUORESCENT_CATTAILS = PlacedFeaturesUtil.createPlacedFeature("fluorescent_cattails", BWGOverworldVegetationConfiguredFeatures.FLUORESCENT_CATTAILS, PlacedFeaturesUtil.oceanFloorSquaredWithCountAndMaxDepth(6, OptionalInt.of(2)));
 
     public static final ResourceKey<PlacedFeature> IRONWOOD_PLATEAU_GLOW_LICHEN = PlacedFeaturesUtil.createPlacedFeature("ironwood_plateau_glow_lichen", CaveFeatures.GLOW_LICHEN, () -> List.of(CountPlacement.of(256), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(63), VerticalAnchor.absolute(140)), SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE, Integer.MIN_VALUE, -1), SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE_WG, 1, Integer.MAX_VALUE), BiomeFilter.biome()));
 

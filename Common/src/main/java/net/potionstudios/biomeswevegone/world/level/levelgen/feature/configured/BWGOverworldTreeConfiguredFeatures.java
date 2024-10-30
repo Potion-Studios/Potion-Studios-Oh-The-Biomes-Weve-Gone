@@ -3625,6 +3625,76 @@ public class BWGOverworldTreeConfiguredFeatures {
             )
     );
 
+    public static final Supplier<AttachedToLeavesDecorator> SOUL_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.2F, 10, 10, BWGWood.FLOWERING_SPIRIT_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.SOUL_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("spirit_tree1",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig(
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk1"),
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy1"),
+                    BiasedToBottomInt.of(8, 15),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SPIRIT_ROOTS.get().defaultBlockState(), 5).add(BWGWood.SPIRIT.logstem().defaultBlockState(), 10).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.SPIRIT_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_SPIRIT_LEAVES.get().defaultBlockState(), 3).build()
+                    ),
+                    BWGWood.SPIRIT.logstem(),
+                    BWGWood.SPIRIT_LEAVES.get(),
+                    BlockTags.DIRT, 10, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), SOUL_FRUIT.get())
+            )
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("spirit_tree2",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig(
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk2"),
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy2"),
+                    BiasedToBottomInt.of(8, 15),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SPIRIT_ROOTS.get().defaultBlockState(), 5).add(BWGWood.SPIRIT.logstem().defaultBlockState(), 10).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.SPIRIT_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_SPIRIT_LEAVES.get().defaultBlockState(), 3).build()
+                    ),
+                    BWGWood.SPIRIT.logstem(),
+                    BWGWood.SPIRIT_LEAVES.get(),
+                    BlockTags.DIRT, 10, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), SOUL_FRUIT.get())
+            )
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("spirit_tree3",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig(
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk3"),
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy3"),
+                    BiasedToBottomInt.of(8, 15),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SPIRIT_ROOTS.get().defaultBlockState(), 5).add(BWGWood.SPIRIT.logstem().defaultBlockState(), 10).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.SPIRIT_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_SPIRIT_LEAVES.get().defaultBlockState(), 3).build()
+                    ),
+                    BWGWood.SPIRIT.logstem(),
+                    BWGWood.SPIRIT_LEAVES.get(),
+                    BlockTags.DIRT, 10, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), SOUL_FRUIT.get())
+            )
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("spirit_tree4",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig(
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk4"),
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy4"),
+                    BiasedToBottomInt.of(8, 15),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SPIRIT_ROOTS.get().defaultBlockState(), 5).add(BWGWood.SPIRIT.logstem().defaultBlockState(), 10).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.SPIRIT_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_SPIRIT_LEAVES.get().defaultBlockState(), 3).build()
+                    ),
+                    BWGWood.SPIRIT.logstem(),
+                    BWGWood.SPIRIT_LEAVES.get(),
+                    BlockTags.DIRT, 10, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), SOUL_FRUIT.get())
+            )
+    );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("zelkova_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
@@ -3884,6 +3954,18 @@ public class BWGOverworldTreeConfiguredFeatures {
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(WILLOW_TREE2)), 0.25F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(WILLOW_TREE3)), 0.25F)),
                         PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(WILLOW_TREE4)));
+            }
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("spirit_trees",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SPIRIT_TREE1)), 0.01F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SPIRIT_TREE4)), 0.25F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SPIRIT_TREE3)), 0.25F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SPIRIT_TREE2)));
             }
     );
 

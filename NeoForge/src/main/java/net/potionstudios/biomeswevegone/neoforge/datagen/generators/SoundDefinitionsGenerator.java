@@ -30,6 +30,7 @@ public class SoundDefinitionsGenerator extends SoundDefinitionsProvider {
         add(BWGSounds.ODDION_HAPPY, definition().with(sound(BiomesWeveGone.id("entity/oddion/oddion_happy"))).subtitle(subtitle("entity.oddion_happy")));
         add(BWGSounds.SOUL_FRUIT_WAIL, definition().with(sound(BiomesWeveGone.id("block/soul_fruit_wail"))).subtitle(subtitle("block.soul_fruit_wail")));
         add(BWGSounds.MUSIC_DISC_PIXIE_CLUB.get().value(), definition().with(sound(BiomesWeveGone.id("music/disc/pixie_club")).stream(true)));
+        add(BWGSounds.MUSIC_BIOME_PALE_BOG.get().value(), definition().with(sound(BiomesWeveGone.id("music/overworld/pale_bog"))));
         add(BWGSounds.MUSIC_BIOME_CRAG_GARDENS.get().value(), definition().with(sound(BiomesWeveGone.id("music/overworld/crag_gardens"))));
         add(BWGSounds.MUSIC_BIOME_ERODED_BOREALIS.get().value(), definition().with(sound(BiomesWeveGone.id("music/overworld/eroded_borealis"))));
         add(BWGSounds.MUSIC_BIOME_FORGOTTEN_FOREST.get().value(), definition().with(sound(BiomesWeveGone.id("music/overworld/forgotten_forest"))));

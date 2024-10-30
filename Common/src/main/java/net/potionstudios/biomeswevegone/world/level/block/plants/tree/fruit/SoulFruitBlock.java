@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class SoulFruitBlock extends BWGFruitBlock {
 	public SoulFruitBlock() {
-		super(Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH).mapColor(MapColor.COLOR_PURPLE), () -> BWGItems.SOUL_FRUIT, BWGWood.FLOWERING_SPIRIT_LEAVES);
+		super(Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH).lightLevel(light -> 10).mapColor(MapColor.COLOR_PURPLE), () -> BWGItems.SOUL_FRUIT, BWGWood.FLOWERING_SPIRIT_LEAVES);
 	}
 
 	@Override

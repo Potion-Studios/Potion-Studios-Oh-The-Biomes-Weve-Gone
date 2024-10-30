@@ -318,9 +318,17 @@ public class BWGOverworldVegetationConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CATTAIL = createPatchConfiguredFeature("cattail", BWGBlocks.CATTAIL, 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> CATTAIL_SPROUT = createPatchConfiguredFeature("cattail_sprout", BWGBlocks.CATTAIL_SPROUT, 32);
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FLUORESCENT_CATTAIL = createPatchConfiguredFeature("fluorescent_cattail", BWGBlocks.FLUORESCENT_CATTAIL, 32);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FLUORESCENT_CATTAIL_SPROUT = createPatchConfiguredFeature("fluorescent_cattail_sprout", BWGBlocks.FLUORESCENT_CATTAIL_SPROUT, 16);
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> CATTAILS = ConfiguredFeaturesUtil.createConfiguredFeature("cattails",
             Feature.RANDOM_SELECTOR,
             (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), CATTAIL, CATTAIL_SPROUT)
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FLUORESCENT_CATTAILS = ConfiguredFeaturesUtil.createConfiguredFeature("fluorescent_cattails",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), FLUORESCENT_CATTAIL, FLUORESCENT_CATTAIL_SPROUT)
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WATER_VEGETATION = ConfiguredFeaturesUtil.createConfiguredFeature("crag_water_vegetation",

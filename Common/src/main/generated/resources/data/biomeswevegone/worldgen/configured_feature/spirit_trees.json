@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "biomeswevegone:spirit_tree2",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "biomeswevegone:spirit_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "biomeswevegone:spirit_tree4",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "biomeswevegone:spirit_tree3",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

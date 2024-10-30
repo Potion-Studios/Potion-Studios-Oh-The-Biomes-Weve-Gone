@@ -12,9 +12,9 @@
       "sound": "minecraft:ambient.soul_sand_valley.additions",
       "tick_chance": 0.0111
     },
-    "fog_color": 12638463,
-    "foliage_color": 6337104,
-    "grass_color": 7375928,
+    "fog_color": 11056293,
+    "foliage_color": 11056293,
+    "grass_color": 11056293,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -25,14 +25,22 @@
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": false,
-      "sound": "minecraft:music.overworld.swamp"
+      "sound": "biomeswevegone:music.overworld.pale_bog"
     },
-    "sky_color": 7907327,
-    "water_color": 4815438,
-    "water_fog_color": 6717479
+    "particle": {
+      "options": {
+        "type": "biomeswevegone:spirit"
+      },
+      "probability": 5.0E-5
+    },
+    "sky_color": 11056293,
+    "water_color": 9230578,
+    "water_fog_color": 2835532
   },
   "features": [
-    [],
+    [
+      "biomeswevegone:swamp_grass_block_delta"
+    ],
     [
       "minecraft:lake_lava_underground",
       "minecraft:lake_lava_surface"
@@ -73,9 +81,8 @@
       "minecraft:ore_lapis_buried",
       "minecraft:ore_copper",
       "minecraft:underwater_magma",
-      "minecraft:disk_sand",
       "minecraft:disk_clay",
-      "minecraft:disk_gravel"
+      "biomeswevegone:disk_mud"
     ],
     [],
     [
@@ -83,7 +90,17 @@
       "minecraft:spring_lava"
     ],
     [
-      "minecraft:glow_lichen"
+      "minecraft:glow_lichen",
+      "minecraft:patch_grass_jungle",
+      "minecraft:brown_mushroom_normal",
+      "minecraft:red_mushroom_normal",
+      "minecraft:patch_sugar_cane_swamp",
+      "minecraft:patch_pumpkin",
+      "minecraft:seagrass_swamp",
+      "biomeswevegone:spirit_trees",
+      "biomeswevegone:swamp_water_vegetation",
+      "biomeswevegone:fluorescent_cattails",
+      "biomeswevegone:sages"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -94,9 +111,41 @@
   "spawners": {
     "ambient": [],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "minecraft:frog",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 10
+      }
+    ],
     "misc": [],
-    "monster": [],
+    "monster": [
+      {
+        "type": "minecraft:drowned",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 85
+      },
+      {
+        "type": "minecraft:spider",
+        "maxCount": 4,
+        "minCount": 3,
+        "weight": 85
+      },
+      {
+        "type": "minecraft:bogged",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 85
+      },
+      {
+        "type": "minecraft:slime",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 1
+      }
+    ],
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []

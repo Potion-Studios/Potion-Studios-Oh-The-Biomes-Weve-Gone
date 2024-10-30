@@ -931,13 +931,43 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome paleBog(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        OverworldBiomes.globalOverworldGeneration(generationSettings);
+        BiomeDefaultFeatures.addDefaultOres(generationSettings);
+        BWGOverworldDefaultFeatures.addSwampDelta(generationSettings);
+
+        BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
+        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+        BiomeDefaultFeatures.addJungleGrass(generationSettings);
+        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+        BiomeDefaultFeatures.addSwampExtraVegetation(generationSettings);
+        addVegetal(generationSettings, AquaticPlacements.SEAGRASS_SWAMP);
+
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.SPIRIT_TREES);
+        BWGOverworldDefaultFeatures.addBWGSwampVegetation(generationSettings);
+        BWGOverworldDefaultFeatures.addCattails(generationSettings);
+        BWGOverworldDefaultFeatures.addFluorscentCattails(generationSettings);
+        BWGOverworldDefaultFeatures.addSages(generationSettings);
+        BWGOverworldDefaultFeatures.addMudDisks(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
+        addSpawn(spawnSettings, EntityType.DROWNED, 85, 2, 4);
+        addSpawn(spawnSettings, EntityType.SPIDER, 85, 3, 4);
+        addSpawn(spawnSettings, EntityType.BOGGED, 85, 2, 4);
+        addSpawn(spawnSettings, EntityType.SLIME, 1, 1, 1);
+        addSpawn(spawnSettings, EntityType.FROG, 10, 2, 5);
 
         float temperature = 0.8F;
-        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SWAMP)).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0))
-                .ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111)).waterColor(4815438).waterFogColor(6717479).grassColorOverride(7375928).foliageColorOverride(6337104).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true)
+                .temperature(temperature)
+                .downfall(0.9F)
+                .specialEffects((new BiomeSpecialEffects.Builder())
+                        .backgroundMusic(Musics.createGameMusic(BWGSounds.MUSIC_BIOME_PALE_BOG.get()))
+                        .ambientParticle(new AmbientParticleSettings(BWGParticles.SPIRIT.get(), 0.00005F))
+                        .ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0))
+                        .ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111))
+                        .waterColor(9230578).waterFogColor(2835532).grassColorOverride(11056293).foliageColorOverride(11056293).fogColor(11056293).skyColor(11056293)
+                        .build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     protected static Biome prairie(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {

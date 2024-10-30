@@ -1,0 +1,115 @@
+{
+  "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
+  "config": {
+    "base_location": "biomeswevegone:features/trees/spirit/spirit_tree_trunk4",
+    "can_grow_on_filter": {
+      "type": "minecraft:matching_block_tag",
+      "tag": "minecraft:dirt"
+    },
+    "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "canopy_location": "biomeswevegone:features/trees/spirit/spirit_tree_canopy4",
+    "decorators": [
+      {
+        "type": "minecraft:leave_vine",
+        "probability": 1.0
+      },
+      {
+        "type": "minecraft:trunk_vine"
+      },
+      {
+        "type": "ohthetreesyoullgrow:attached_to_fruit_leaves",
+        "block_provider": {
+          "type": "minecraft:randomized_int_state_provider",
+          "property": "age",
+          "source": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "biomeswevegone:soul_fruit",
+              "Properties": {
+                "age": "0"
+              }
+            }
+          },
+          "values": {
+            "type": "minecraft:uniform",
+            "max_inclusive": 3,
+            "min_inclusive": 0
+          }
+        },
+        "directions": [
+          "down"
+        ],
+        "exclusion_radius_xz": 10,
+        "exclusion_radius_y": 10,
+        "leaves_block": "biomeswevegone:flowering_spirit_leaves",
+        "probability": 0.2,
+        "required_empty_blocks": 2
+      }
+    ],
+    "height": {
+      "type": "minecraft:biased_to_bottom",
+      "max_inclusive": 15,
+      "min_inclusive": 8
+    },
+    "leaves_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "biomeswevegone:spirit_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 10
+        },
+        {
+          "data": {
+            "Name": "biomeswevegone:flowering_spirit_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 3
+        }
+      ]
+    },
+    "leaves_target": [
+      "biomeswevegone:spirit_leaves"
+    ],
+    "log_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "biomeswevegone:spirit_roots",
+            "Properties": {
+              "waterlogged": "false"
+            }
+          },
+          "weight": 5
+        },
+        {
+          "data": {
+            "Name": "biomeswevegone:spirit_log",
+            "Properties": {
+              "axis": "y"
+            }
+          },
+          "weight": 10
+        }
+      ]
+    },
+    "log_target": [
+      "biomeswevegone:spirit_log"
+    ],
+    "max_log_depth": 10,
+    "place_from_nbt": []
+  }
+}

@@ -14,6 +14,11 @@
       "biomeswevegone:music/overworld/forgotten_forest"
     ]
   },
+  "music.overworld.pale_bog": {
+    "sounds": [
+      "biomeswevegone:music/overworld/pale_bog"
+    ]
+  },
   "music_disc.pixie_club": {
     "sounds": [
       {

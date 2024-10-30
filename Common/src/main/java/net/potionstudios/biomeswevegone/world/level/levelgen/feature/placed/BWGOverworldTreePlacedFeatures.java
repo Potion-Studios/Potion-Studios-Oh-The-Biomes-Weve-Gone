@@ -77,6 +77,7 @@ public class BWGOverworldTreePlacedFeatures {
     public static final ResourceKey<PlacedFeature> OAK_TREES_SWAMP = PlacedFeaturesUtil.createPlacedFeature("oak_trees_swamp", BWGOverworldTreeConfiguredFeatures.OAK_TREES, PlacedFeaturesUtil.treePlacementBaseOceanFloor(PlacementUtils.countExtra(0, 0.2F, 1), RarityFilter.onAverageOnceEvery(2)));
     public static final ResourceKey<PlacedFeature> ENCHANTED_TREES = PlacedFeaturesUtil.createPlacedFeature("enchanted_trees", BWGOverworldTreeConfiguredFeatures.ENCHANTED_TREES, () -> VegetationPlacements.treePlacement(PlacementUtils.countExtra(15, 0.25F, 3)));
     public static final ResourceKey<PlacedFeature> SPARSE_ENCHANTED_TREES = PlacedFeaturesUtil.createPlacedFeature("sparse_enchanted_trees", BWGOverworldTreeConfiguredFeatures.ENCHANTED_TREES, () -> VegetationPlacements.treePlacement(PlacementUtils.countExtra(0, 0.25F, 3)));
+    public static final ResourceKey<PlacedFeature> SPIRIT_TREES = PlacedFeaturesUtil.createPlacedFeature("spirit_trees", BWGOverworldTreeConfiguredFeatures.SPIRIT_TREES, PlacedFeaturesUtil.treePlacementBaseOceanFloor(PlacementUtils.countExtra(2, 0.25F, 1)));
 
 
     public static final ResourceKey<PlacedFeature> FIRECRACKER_SHRUBS = PlacedFeaturesUtil.createPlacedFeature("firecracker_shrubs", BWGOverworldTreeConfiguredFeatures.FIRECRACKER_SHRUBS, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2)));

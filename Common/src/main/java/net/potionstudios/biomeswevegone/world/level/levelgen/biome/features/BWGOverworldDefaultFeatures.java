@@ -169,6 +169,10 @@ public class BWGOverworldDefaultFeatures {
         biomeIn.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BWGPlacedFeatures.DISK_MUD);
     }
 
+    public static void addPaleBogFlowers(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.LEATHER_FLOWERS);
+    }
+
     public static void addBWGSwampVegetation(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.SWAMP_WATER_VEGETATION);
     }
@@ -195,6 +199,10 @@ public class BWGOverworldDefaultFeatures {
 
     public static void addCattails(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.CATTAILS);
+    }
+
+    public static void addFluorscentCattails(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.FLUORESCENT_CATTAILS);
     }
 
     private static void addVegetal(BiomeGenerationSettings.@NotNull Builder builder, ResourceKey<PlacedFeature> feature) {

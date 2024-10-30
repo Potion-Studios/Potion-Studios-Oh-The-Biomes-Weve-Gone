@@ -26,6 +26,7 @@ public class BWGSounds {
     public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_BIOME_CRAG_GARDENS = registerSoundEventHolder("music.overworld.crag_gardens");
     public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_BIOME_ERODED_BOREALIS = registerSoundEventHolder("music.overworld.eroded_borealis");
     public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_BIOME_FORGOTTEN_FOREST = registerSoundEventHolder("music.overworld.forgotten_forest");
+    public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_BIOME_PALE_BOG = registerSoundEventHolder("music.overworld.pale_bog");
 
     private static Supplier<SoundEvent> createFixedRangeEvent(String id, float range) {
         return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.SOUND_EVENT, id, () -> SoundEvent.createFixedRangeEvent(BiomesWeveGone.id(id), range));

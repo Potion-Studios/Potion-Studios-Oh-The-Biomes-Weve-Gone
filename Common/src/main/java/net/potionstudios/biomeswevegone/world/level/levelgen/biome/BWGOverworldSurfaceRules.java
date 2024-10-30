@@ -140,6 +140,28 @@ public class BWGOverworldSurfaceRules {
             PEAT_SURFACE
     ));
 
+    private static final SurfaceRules.RuleSource PALE_BOG = SurfaceRules.ifTrue(
+            SurfaceRules.isBiome(BWGBiomes.PALE_BOG), abovePreliminarySurface(
+                    SurfaceRules.sequence(SEA_LEVEL_WATER_NOISE,
+                            makeifTrueRule(SurfaceRules.not(WATER_CHECK),
+                                    makeifTrueRule(SurfaceRules.ON_FLOOR, SurfaceRules.sequence(
+                                                    makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75), BWGBlocks.PACKED_PALE_MUD.get()),
+                                                    makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95), BWGBlocks.BLACK_SAND_SET.getSand()),
+                                                    SurfaceRules.state(BWGBlocks.PALE_MUD.get().defaultBlockState())
+                                            )
+                                    )
+                            ), SurfaceRules.sequence(
+                                    makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.68), SurfaceRules.sequence(
+                                            makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.PEAT.get()),
+                                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.PALE_MUD.get())
+                                    )),
+                                    makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.77),
+                                            makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.LUSH_GRASS_BLOCK.get())),
+                                    makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.PALE_MUD.get())
+                            )
+                    )
+            ));
+
     private static final SurfaceRules.RuleSource CYPRESS_MANGROVE = SurfaceRules.ifTrue(
             SurfaceRules.isBiome(BWGBiomes.CYPRESS_SWAMPLANDS, BWGBiomes.WHITE_MANGROVE_MARSHES), abovePreliminarySurface(
             SurfaceRules.sequence(SEA_LEVEL_WATER_NOISE,
@@ -423,6 +445,7 @@ public class BWGOverworldSurfaceRules {
 //                TROPICAL_ISLAND,
                 BLACK_ICE_BANDS,
                 LUSH_STACKS,
+                PALE_BOG,
                 DEAD_SEA
         );
     }

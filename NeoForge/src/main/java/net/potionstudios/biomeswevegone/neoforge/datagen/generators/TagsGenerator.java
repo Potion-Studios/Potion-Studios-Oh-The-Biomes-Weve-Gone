@@ -21,6 +21,7 @@ import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
+import net.potionstudios.biomeswevegone.world.level.block.set.BWGBlockSet;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
@@ -151,12 +152,14 @@ public class TagsGenerator {
             tag(BWGBlockTags.SNOWY_PLANT_PLACEABLE).add(Blocks.SNOW_BLOCK, Blocks.POWDER_SNOW).addTag(BlockTags.DIRT);
             tag(BWGBlockTags.BWG_MUSHROOM_PLACEABLE).addTag(BlockTags.MUSHROOM_GROW_BLOCK).addTag(BlockTags.BASE_STONE_OVERWORLD).addTag(BlockTags.DIRT);
             tag(BWGBlockTags.HYDRANGEA_BUSH_PLACEABLE).addTag(BlockTags.DIRT);
-            tag(BlockTags.DIRT).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.PEAT.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get());
+            tag(BlockTags.DIRT).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PALE_MUD.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.PEAT.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get());
             tag(BlockTags.CLIMBABLE).add(BWGBlocks.SKYRIS_VINE.get()).add(BWGBlocks.POISON_IVY.get());
             tag(BlockTags.OVERWORLD_CARVER_REPLACEABLES)
                     .add(BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(),
                             BWGBlocks.ROCKY_STONE_SET.getBase(), BWGBlocks.MOSSY_STONE_SET.getBase(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PEAT.get());
             tag(BlockTags.CROPS).add(BWGBlocks.ODDION_CROP.get(), BWGBlocks.PALE_PUMPKIN_STEM.get());
+            tag(BlockTags.LOGS).add(BWGWood.SPIRIT_ROOTS.get());
+            tag(BlockTags.LOGS_THAT_BURN).add(BWGWood.SPIRIT_ROOTS.get());
             tag(BlockTags.BEE_GROWABLES).add(BWGBlocks.BLUEBERRY_BUSH.get());
             tag(BlockTags.SNIFFER_DIGGABLE_BLOCK).add(BWGBlocks.LUSH_DIRT_PATH.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.SANDY_DIRT_PATH.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PEAT.get());
             tag(BlockTags.SNIFFER_EGG_HATCH_BOOST).add(BWGBlocks.LUSH_GRASS_BLOCK.get());
