@@ -38,7 +38,7 @@ public class SoulFruitBlock extends BWGFruitBlock {
 	public void randomTick(BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
 		super.randomTick(state, level, pos, random);
 		level.playSound(null, pos, BWGSounds.SOUL_FRUIT_WAIL.get(), SoundSource.BLOCKS);
-		level.getPlayers(player -> player.distanceToSqr(pos.getX(), pos.getY(), pos.getZ()) < 25).stream().filter(player -> !player.isSpectator()).forEach(player ->
+		level.getPlayers(player -> pos.getCenter().closerThan(player.position(), 25)).stream().filter(player -> !player.isSpectator()).forEach(player ->
 				player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 1200), player));
 	}
 }
