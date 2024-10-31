@@ -157,6 +157,8 @@ class BlockLootGenerator extends BlockLootSubProvider {
         add(BWGWood.FLOWERING_SKYRIS_LEAVES.get(), createLeavesDrops(BWGWood.FLOWERING_SKYRIS_LEAVES.get(), BWGWood.SKYRIS.sapling().getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get(), createFruitLeavesDrops(BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get(), BWGWood.SKYRIS.sapling().getBlock(), BWGItems.GREEN_APPLE.get(),NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.HOLLY_BERRY_LEAVES.get(), createSilkTouchOrShearsDispatchTable(BWGWood.HOLLY_BERRY_LEAVES.get(), LootItem.lootTableItem(Items.SWEET_BERRIES).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))));
+        add(BWGWood.SPIRIT_LEAVES.get(), createLeavesDrops(BWGWood.SPIRIT_LEAVES.get(), BWGWood.SPIRIT.sapling().getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGWood.FLOWERING_SPIRIT_LEAVES.get(), createLeavesDrops(BWGWood.FLOWERING_SPIRIT_LEAVES.get(), BWGWood.SPIRIT.sapling().getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
 
         add(BWGBlocks.LUSH_GRASS_BLOCK.get(), block -> createSingleItemTableWithSilkTouch(block, BWGBlocks.LUSH_DIRT.get()));
         dropOther(BWGBlocks.LUSH_FARMLAND.get(), BWGBlocks.LUSH_DIRT.get());
