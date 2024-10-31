@@ -183,10 +183,7 @@ class BWGRuleProcessors {
 	);
 
 	protected static RuleProcessor BOG_TRIAL_FLOOR = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PALE_MUD.get(), 0.35f, BWGBlocks.PACKED_PALE_MUD.get()),
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PALE_MUD.get(), 0.25f, BWGBlocks.PALE_MUD_BRICKS_SET.getBase()),
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PALE_MUD.get(), 0.2f, BWGBlocks.BLACK_SAND_SET.getSand())
-	);
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PALE_MUD_BRICKS_SET.getBase(), 0.5f, BWGBlocks.PACKED_PALE_MUD.get()));
 
 	protected static RuleProcessor skyrisLeavesToGreenAppleLeaves(float chance) {
 		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGWood.SKYRIS.leaves(), chance, BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get()));
