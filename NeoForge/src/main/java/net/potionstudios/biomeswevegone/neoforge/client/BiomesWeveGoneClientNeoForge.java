@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.neoforge.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.SuspendedParticle;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -25,6 +26,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.client.particle.particles.FallingLeafParticle;
+import net.potionstudios.biomeswevegone.client.particle.particles.FireFlyParticle;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 
@@ -78,7 +80,7 @@ public class BiomesWeveGoneClientNeoForge {
      * @see RegisterParticleProvidersEvent
      */
     private static void registerParticles(final RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(BWGParticles.FIREFLY.get(), FallingLeafParticle.Provider::new);
+        event.registerSpriteSet(BWGParticles.FIREFLY.get(), FireFlyParticle.Provider::new);
         event.registerSpriteSet(BWGParticles.BOREALIS_GLINT.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(BWGParticles.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(BWGParticles.WHITE_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);

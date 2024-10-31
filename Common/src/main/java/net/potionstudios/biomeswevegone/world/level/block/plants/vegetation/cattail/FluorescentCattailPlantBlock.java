@@ -46,15 +46,15 @@ public class FluorescentCattailPlantBlock extends CattailPlantBlock {
 	}
 
 	@Override
-	public void animateTick(@NotNull BlockState state, Level level, BlockPos pos, RandomSource random) {
+	public void animateTick(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, RandomSource random) {
+		if (random.nextDouble() == 0.01) return;
 		int i = pos.getX();
 		int j = pos.getY();
 		int k = pos.getZ();
-		level.addParticle(BWGParticles.FIREFLY.get(), i + random.nextDouble(), j + 0.7, k + random.nextDouble(), 0.0, 0.0, 0.0);
 		BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
 
-		for (int l = 0; l < 14; l++) {
-			mutableBlockPos.set(i + Mth.nextInt(random, -10, 10), j - random.nextInt(10), k + Mth.nextInt(random, -10, 10));
+		for (int l = 0; l < 2; l++) {
+			mutableBlockPos.set(i + Mth.nextInt(random, -6, 6), j + random.nextInt(-1, 3), k + Mth.nextInt(random, -6, 6));
 			BlockState blockState = level.getBlockState(mutableBlockPos);
 			if (!blockState.isCollisionShapeFullBlock(level, mutableBlockPos)) {
 				level.addParticle(
