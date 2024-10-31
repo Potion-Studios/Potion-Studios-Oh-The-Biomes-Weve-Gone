@@ -12,6 +12,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -47,5 +48,14 @@ public class SoulFruitBlock extends BWGFruitBlock {
 		for (ServerPlayer player : level.getPlayers(player -> !player.isSpectator()))
 			if (center.closerThan(player.position(), 25))
 				player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 1200, 0, false, false));
+	}
+
+	@Override
+	public void destroy(@NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockState state) {
+		if (level.isClientSide()) return;
+		Vec3 center = pos.getCenter();
+		for (ServerPlayer player : ((ServerLevel) level).getPlayers(player -> !player.isSpectator()))
+			if (center.closerThan(player.position(), 25))
+				player.removeEffect(MobEffects.DARKNESS);
 	}
 }
