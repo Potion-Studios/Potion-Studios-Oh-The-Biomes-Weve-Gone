@@ -3695,6 +3695,74 @@ public class BWGOverworldTreeConfiguredFeatures {
             )
     );
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BASE_SPIRIT_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("base_spirit_tree1",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig(
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk1"),
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy1"),
+                    BiasedToBottomInt.of(8, 15),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SPIRIT_ROOTS.get().defaultBlockState(), 5).add(BWGWood.SPIRIT.logstem().defaultBlockState(), 10).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.SPIRIT_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_SPIRIT_LEAVES.get().defaultBlockState(), 3).build()
+                    ),
+                    BWGWood.SPIRIT.logstem(),
+                    BWGWood.SPIRIT_LEAVES.get(),
+                    BlockTags.DIRT, 10
+            )
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BASE_SPIRIT_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("base_spirit_tree2",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig(
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk2"),
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy2"),
+                    BiasedToBottomInt.of(8, 15),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SPIRIT_ROOTS.get().defaultBlockState(), 5).add(BWGWood.SPIRIT.logstem().defaultBlockState(), 10).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.SPIRIT_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_SPIRIT_LEAVES.get().defaultBlockState(), 3).build()
+                    ),
+                    BWGWood.SPIRIT.logstem(),
+                    BWGWood.SPIRIT_LEAVES.get(),
+                    BlockTags.DIRT, 10
+            )
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BASE_SPIRIT_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("base_spirit_tree3",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig(
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk3"),
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy3"),
+                    BiasedToBottomInt.of(8, 15),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SPIRIT_ROOTS.get().defaultBlockState(), 5).add(BWGWood.SPIRIT.logstem().defaultBlockState(), 10).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.SPIRIT_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_SPIRIT_LEAVES.get().defaultBlockState(), 3).build()
+                    ),
+                    BWGWood.SPIRIT.logstem(),
+                    BWGWood.SPIRIT_LEAVES.get(),
+                    BlockTags.DIRT, 10
+            )
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BASE_SPIRIT_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("base_spirit_tree4",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig(
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk4"),
+                    BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy4"),
+                    BiasedToBottomInt.of(8, 15),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SPIRIT_ROOTS.get().defaultBlockState(), 5).add(BWGWood.SPIRIT.logstem().defaultBlockState(), 10).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.SPIRIT_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_SPIRIT_LEAVES.get().defaultBlockState(), 3).build()
+                    ),
+                    BWGWood.SPIRIT.logstem(),
+                    BWGWood.SPIRIT_LEAVES.get(),
+                    BlockTags.DIRT, 10
+            )
+    );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("zelkova_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(

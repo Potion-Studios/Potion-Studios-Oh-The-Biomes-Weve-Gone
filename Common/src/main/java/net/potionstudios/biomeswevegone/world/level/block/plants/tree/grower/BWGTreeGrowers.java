@@ -187,10 +187,10 @@ public class BWGTreeGrowers {
 
     public static final Supplier<TreeGrower> SPIRIT = () -> new BWGTreeGrower("spirit",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.SPIRIT_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.SPIRIT_TREE2, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.SPIRIT_TREE3, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.SPIRIT_TREE4, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.BASE_SPIRIT_TREE1, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.BASE_SPIRIT_TREE2, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.BASE_SPIRIT_TREE3, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.BASE_SPIRIT_TREE4, 1)
                     .build());
 
     public static final Supplier<TreeGrower> WHITE_MANGROVE = () -> new BWGTreeGrower("white_mangrove",
