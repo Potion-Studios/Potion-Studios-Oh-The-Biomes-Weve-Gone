@@ -658,6 +658,10 @@
       "can_villager_compost": true,
       "chance": 0.3
     },
+    "biomeswevegone:spirit_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
     "biomeswevegone:tall_allium": {
       "can_villager_compost": true,
       "chance": 0.65
