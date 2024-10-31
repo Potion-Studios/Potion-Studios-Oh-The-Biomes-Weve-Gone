@@ -11,7 +11,6 @@ import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStruct
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 
-import java.util.List;
 import java.util.Map;
 
 public class BWGStructureSets {
@@ -20,46 +19,45 @@ public class BWGStructureSets {
 
 
     public static final ResourceKey<StructureSet> SHARPENED_ROCKS = register("sharpened_rocks", structureHolderGetter ->
-            new StructureSet(List.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.SHARPENED_ROCK))), new RandomSpreadStructurePlacement(12, 3, RandomSpreadType.TRIANGULAR, 348457856))
+            new StructureSet(ImmutableList.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.SHARPENED_ROCK))), new RandomSpreadStructurePlacement(12, 3, RandomSpreadType.TRIANGULAR, 348457856))
     );
 
     public static final ResourceKey<StructureSet> IRONWOOD_GOUR_PLATEAU = register("ironwood_gour_plateau", structureHolderGetter ->
-        new StructureSet(List.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.IRONWOOD_GOUR_PLATEAU))), new RandomSpreadStructurePlacement(4, 1, RandomSpreadType.TRIANGULAR, 596586))
+        new StructureSet(ImmutableList.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.IRONWOOD_GOUR_PLATEAU))), new RandomSpreadStructurePlacement(4, 1, RandomSpreadType.TRIANGULAR, 596586))
     );
 
     public static final ResourceKey<StructureSet> LARGE_COLD_LAKE = register("large_cold_lake", structureHolderGetter ->
-        new StructureSet(List.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.LARGE_LAKE))), new RandomSpreadStructurePlacement(32, 8, RandomSpreadType.TRIANGULAR, 546451665))
+        new StructureSet(ImmutableList.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.LARGE_LAKE))), new RandomSpreadStructurePlacement(32, 8, RandomSpreadType.TRIANGULAR, 546451665))
     );
 
     public static final ResourceKey<StructureSet> LUSH_ARCHES = register("lush_arch", structureHolderGetter ->
-        new StructureSet(List.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.LUSH_ARCH))), new RandomSpreadStructurePlacement(8, 2, RandomSpreadType.TRIANGULAR, 54546651))
+        new StructureSet(ImmutableList.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.LUSH_ARCH))), new RandomSpreadStructurePlacement(8, 2, RandomSpreadType.TRIANGULAR, 54546651))
     );
 
     public static final ResourceKey<StructureSet> DRIPSTONE_ARCHES = register("dripstone_arches", structureHolderGetter ->
-        new StructureSet(List.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.DRIPSTONE_ARCH))), new RandomSpreadStructurePlacement(8, 2, RandomSpreadType.TRIANGULAR, 1151551458))
+        new StructureSet(ImmutableList.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.DRIPSTONE_ARCH))), new RandomSpreadStructurePlacement(8, 2, RandomSpreadType.TRIANGULAR, 1151551458))
     );
 
     public static final ResourceKey<StructureSet> RED_ROCK_ARCHES = register("red_rock_arches", structureHolderGetter ->
-        new StructureSet(List.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.RED_ROCK_ARCH))), new RandomSpreadStructurePlacement(16, 4, RandomSpreadType.TRIANGULAR, 5454151))
+        new StructureSet(ImmutableList.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.RED_ROCK_ARCH))), new RandomSpreadStructurePlacement(16, 4, RandomSpreadType.TRIANGULAR, 5454151))
     );
 
-
     private static final ResourceKey<StructureSet> PRAIRIE_HOUSES = register("prairie_houses", structureHolderGetter -> new StructureSet(
-            List.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.PRAIRIE_HOUSE), 5),
+            ImmutableList.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.PRAIRIE_HOUSE), 5),
                     StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.ABANDONED_PRAIRIE_HOUSE), 4))
             , new RandomSpreadStructurePlacement(25, 20, RandomSpreadType.LINEAR, 703905857)));
 
     private static final ResourceKey<StructureSet> RUGGED_FOSSILS = register("rugged_fossils", structureHolderGetter -> new StructureSet(
-            List.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.RUGGED_FOSSIL), 5))
+            ImmutableList.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.RUGGED_FOSSIL), 5))
             , new RandomSpreadStructurePlacement(8, 6, RandomSpreadType.LINEAR, 682594027)));
 
     private static final ResourceKey<StructureSet> ASPEN_MANORS = register("aspen_manors", structureHolderGetter -> new StructureSet(
-            List.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.ASPEN_MANOR_1), 1),
+            ImmutableList.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.ASPEN_MANOR_1), 1),
                     StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.ASPEN_MANOR_2), 1))
             , new RandomSpreadStructurePlacement(50, 35, RandomSpreadType.LINEAR, 372893981)));
 
     private static final ResourceKey<StructureSet> BOG_TRIAL = register("bog_trial", structureHolderGetter -> new StructureSet(
-            List.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.BOG_TRIAL)))
+            ImmutableList.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.BOG_TRIAL)))
             , new RandomSpreadStructurePlacement(50, 35, RandomSpreadType.LINEAR, 302222254)));
 
     private static final ResourceKey<StructureSet> VILLAGES = register("villages", structureHolderGetter -> new StructureSet(
@@ -73,7 +71,7 @@ public class BWGStructureSets {
     ));
 
 //    public static final ResourceKey<StructureSet> CANYON = register("canyon", structureHolderGetter -> {
-//        return new StructureSet(List.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.CANYON))), new RandomSpreadStructurePlacement(12, 3, RandomSpreadType.TRIANGULAR, 3455464));
+//        return new StructureSet(ImmutableList.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.CANYON))), new RandomSpreadStructurePlacement(12, 3, RandomSpreadType.TRIANGULAR, 3455464));
 //    });
 
     private static ResourceKey<StructureSet> register(String id, StructureSetFactory factory) {
