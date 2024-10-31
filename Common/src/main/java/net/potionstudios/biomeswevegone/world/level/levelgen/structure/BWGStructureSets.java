@@ -58,7 +58,7 @@ public class BWGStructureSets {
 
     private static final ResourceKey<StructureSet> BOG_TRIAL = register("bog_trial", structureHolderGetter -> new StructureSet(
             ImmutableList.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.BOG_TRIAL)))
-            , new RandomSpreadStructurePlacement(50, 35, RandomSpreadType.LINEAR, 302222254)));
+            , new RandomSpreadStructurePlacement(40, 30, RandomSpreadType.LINEAR, 302222254)));
 
     private static final ResourceKey<StructureSet> VILLAGES = register("villages", structureHolderGetter -> new StructureSet(
             ImmutableList.of(
