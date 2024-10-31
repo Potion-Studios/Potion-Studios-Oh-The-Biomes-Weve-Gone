@@ -9,6 +9,8 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.structure.BuiltinStructures;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
@@ -48,6 +50,9 @@ public class BWGTemplatePools {
 
 	public static final ResourceKey<StructureTemplatePool> BOG_TRIAL = register("bog_trial", templatePoolFactoryContext ->
 			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(BWGStructures.BOG_TRIAL.location().toString(), getProcessor(templatePoolFactoryContext, BWGStructureProcessorLists.BOG_TRIAL)), 1)), StructureTemplatePool.Projection.RIGID));
+
+	private static final ResourceKey<StructureTemplatePool> BABY_VILLAGER = register("baby_villager", templatePoolFactoryContext ->
+			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(ResourceLocation.withDefaultNamespace("village/plains/villagers/baby").toString()), 1)), StructureTemplatePool.Projection.RIGID));
 
 	private static StructureTemplatePool createTemplatePool(Holder<StructureTemplatePool> fallback, List<Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer>> rawTemplateFactories, StructureTemplatePool.Projection projection) {
 		return new StructureTemplatePool(fallback, rawTemplateFactories, projection);
