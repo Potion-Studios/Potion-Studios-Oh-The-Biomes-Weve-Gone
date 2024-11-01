@@ -1,13 +1,13 @@
-# 2.2.0 SpookTober Update
+# 2.2.0 SpookTober Update -> https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone/discussions/149
 New Features:
 - Add Spirit Wood Set
 - Add Pale Mud, Packed, and Bricks
 - Add Fluorescent Cattails
 - Add GlowCane and Glowcane powder
-- Add Soul Fruit
-- Add Glow Bottles
-- Add Pale Pumpkins
+- Add Soul Fruit, Glow Bottles, Pale Pumpkins
 - Add Pale Pumpkin Warden Variant
+- Add Pale Bog Biome
+- Add Bog Trial Structure
 
 Fixes and Improvements:
 - Optimize Crag Garden and Basalt Barrera Generation

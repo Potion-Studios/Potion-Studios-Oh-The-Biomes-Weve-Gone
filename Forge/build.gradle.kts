@@ -37,7 +37,7 @@ loom {
         convertAccessWideners.set(true)
         extraAccessWideners.add(loom.accessWidenerPath.get().asFile.name)
 
-        mixinConfig("biomeswevegone-common.mixins.json")
+        mixinConfigs("biomeswevegone-common.mixins.json", "biomeswevegone.mixins.json")
     }
 
     runs.create("datagen") {
