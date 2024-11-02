@@ -3,7 +3,6 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cat
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -47,26 +46,20 @@ public class FluorescentCattailPlantBlock extends CattailPlantBlock {
 
 	@Override
 	public void animateTick(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, RandomSource random) {
-		if (random.nextDouble() == 0.01) return;
-		int i = pos.getX();
-		int j = pos.getY();
-		int k = pos.getZ();
+		if (random.nextDouble() > 0.25) return;
 		BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
-
-		for (int l = 0; l < 2; l++) {
-			mutableBlockPos.set(i + Mth.nextInt(random, -6, 6), j + random.nextInt(-1, 3), k + Mth.nextInt(random, -6, 6));
-			BlockState blockState = level.getBlockState(mutableBlockPos);
-			if (!blockState.isCollisionShapeFullBlock(level, mutableBlockPos)) {
-				level.addParticle(
-						BWGParticles.FIREFLY.get(),
-						(double)mutableBlockPos.getX() + random.nextDouble(),
-						(double)mutableBlockPos.getY() + random.nextDouble(),
-						(double)mutableBlockPos.getZ() + random.nextDouble(),
-						0.0,
-						0.0,
-						0.0
-				);
-			}
+		
+		mutableBlockPos.set(pos.getX() + random.nextInt(-6, 6), pos.getY() + random.nextInt(-1, 3), pos.getZ() + random.nextInt(-6, 6));
+		if (!level.getBlockState(mutableBlockPos).isCollisionShapeFullBlock(level, mutableBlockPos)) {
+			level.addParticle(
+					BWGParticles.FIREFLY.get(),
+					(double)mutableBlockPos.getX() + random.nextDouble(),
+					(double)mutableBlockPos.getY() + random.nextDouble(),
+					(double)mutableBlockPos.getZ() + random.nextDouble(),
+					0.0,
+					0.0,
+					0.0
+			);
 		}
 	}
 
