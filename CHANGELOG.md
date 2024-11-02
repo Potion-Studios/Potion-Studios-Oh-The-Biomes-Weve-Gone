@@ -1,3 +1,8 @@
+# 1.4.0
+- Add Pixie Club Music Disc to Forgotten Village House and Temple Chest Pools
+- Add Forgotten Fae Advancement
+- Move from using ID in Fruitblock for Leaves to using Supplier of the Leaves Block
+
 # 1.3.3
 - Make Entity Model Classes Package-Private, remove pointless override of getAnimation Method
 - Decrease Pumpkin Warden Shadow Radius

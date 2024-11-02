@@ -39,7 +39,8 @@ class ChestLootGenerator implements LootTableSubProvider {
             lootItemWithCount(BWGItems.ODDION_BULB.get(), 2, 8).setWeight(10),
             lootItemWithCount(Items.AMETHYST_SHARD, 2, 4).setWeight(2),
             lootItemWithCount(Items.EMERALD, 1, 4).setWeight(1),
-            lootItemWithCount(Items.MELON_SLICE, 1, 9).setWeight(8));
+            lootItemWithCount(Items.MELON_SLICE, 1, 9).setWeight(8),
+            lootItemWithCount(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), 1, 1).setWeight(1));
 
         createTable(output,"village/forgotten/armorer", 3.0f, 8.0f,
                 lootItemWithCount(Items.RAW_IRON, 2, 7).setWeight(2),
@@ -67,7 +68,8 @@ class ChestLootGenerator implements LootTableSubProvider {
                 lootItemWithCount(Items.STRING, 3, 9).setWeight(9),
                 lootItemWithCount(Items.EMERALD, 1, 4).setWeight(9),
                 lootItemWithCount(Items.EXPERIENCE_BOTTLE, 3, 7).setWeight(3),
-                lootItemWithCount(Items.WILD_ARMOR_TRIM_SMITHING_TEMPLATE, 1, 2).setWeight(2));
+                lootItemWithCount(Items.WILD_ARMOR_TRIM_SMITHING_TEMPLATE, 1, 2).setWeight(2),
+                lootItemWithCount(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), 1, 1).setWeight(1));
 
         createTable(output,"village/skyris/house", 3.0f, 8.0f,
                 lootItemWithCount(Items.BEETROOT_SOUP, 1, 3),

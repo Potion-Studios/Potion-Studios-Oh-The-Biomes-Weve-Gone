@@ -98,6 +98,21 @@
           ],
           "name": "minecraft:wild_armor_trim_smithing_template",
           "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "biomeswevegone:music_disc_pixie_club"
         }
       ],
       "rolls": {
