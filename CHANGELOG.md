@@ -13,6 +13,7 @@ Fixes and Improvements:
 - Optimize Crag Garden and Basalt Barrera Generation
 - Move from using ID in Fruitblock for Leaves to using Supplier of the Leaves Block
 - Increase Pumpkin Generation in Pumpkin Valley Biome
+- Update German Language Translations
 
 # 2.1.5
 - Fix and Add Missing Mossy Red Rock and Mossy Stone Recipes
