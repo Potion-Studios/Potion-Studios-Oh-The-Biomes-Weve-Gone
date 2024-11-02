@@ -1,3 +1,5 @@
+# 2.2.1
+
 # 2.2.0 SpookTober Update -> https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone/discussions/149
 New Features:
 - Add Spirit Wood Set
