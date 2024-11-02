@@ -9,11 +9,12 @@ New Features:
 - Add Pale Bog Biome
 - Add Bog Trial Structure
 
-Fixes and Improvements:
+Fixes, Improvements and Other Changes:
 - Optimize Crag Garden and Basalt Barrera Generation
 - Move from using ID in Fruitblock for Leaves to using Supplier of the Leaves Block
 - Increase Pumpkin Generation in Pumpkin Valley Biome
 - Update German Language Translations
+- Add Pixie Club Music Disc to Forgotten Village House and Temple Chest Pools
 
 # 2.1.5
 - Fix and Add Missing Mossy Red Rock and Mossy Stone Recipes
