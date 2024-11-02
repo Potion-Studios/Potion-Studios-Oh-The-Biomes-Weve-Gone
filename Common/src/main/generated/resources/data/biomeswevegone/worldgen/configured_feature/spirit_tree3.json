@@ -41,10 +41,10 @@
         "directions": [
           "down"
         ],
-        "exclusion_radius_xz": 10,
-        "exclusion_radius_y": 10,
+        "exclusion_radius_xz": 5,
+        "exclusion_radius_y": 5,
         "leaves_block": "biomeswevegone:flowering_spirit_leaves",
-        "probability": 0.2,
+        "probability": 0.1,
         "required_empty_blocks": 2
       }
     ],
