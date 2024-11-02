@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.*;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.client.particle.particles.FallingLeafParticle;
+import net.potionstudios.biomeswevegone.client.particle.particles.FireFlyParticle;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGSpreadableBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.BWGCactusBlock;
@@ -70,7 +71,7 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
     }
 
     private void registerParticles() {
-        ParticleFactoryRegistry.getInstance().register(BWGParticles.FIREFLY.get(), FallingLeafParticle.Provider::new);
+        ParticleFactoryRegistry.getInstance().register(BWGParticles.FIREFLY.get(), FireFlyParticle.Provider::new);
         ParticleFactoryRegistry.getInstance().register(BWGParticles.BOREALIS_GLINT.get(), FallingLeafParticle.Provider::new);
         ParticleFactoryRegistry.getInstance().register(BWGParticles.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.Provider::new);
         ParticleFactoryRegistry.getInstance().register(BWGParticles.WHITE_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);

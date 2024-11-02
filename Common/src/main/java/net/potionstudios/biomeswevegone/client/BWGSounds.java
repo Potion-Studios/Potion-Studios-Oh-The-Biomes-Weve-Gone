@@ -19,7 +19,7 @@ public class BWGSounds {
     public static final Supplier<SoundEvent> ODDION_AMBIENT = createFixedRangeEvent("oddion.ambient", 8F);
     public static final Supplier<SoundEvent> ODDION_HAPPY = createFixedRangeEvent("oddion.happy", 8F);
 
-    public static final Supplier<SoundEvent> MUSIC_DISC_PIXIE_CLUB = PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.SOUND_EVENT,"music_disc.pixie_club", () -> SoundEvent.createVariableRangeEvent(BiomesWeveGone.id("music_disc.pixie_club")));
+    public static final Supplier<SoundEvent> MUSIC_DISC_PIXIE_CLUB = PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.SOUND_EVENT, "music_disc.pixie_club", () -> SoundEvent.createVariableRangeEvent(BiomesWeveGone.id("music_disc.pixie_club")));
 
     public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_BIOME_CRAG_GARDENS = registerSoundEventHolder("music.overworld.crag_gardens");
     public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_BIOME_ERODED_BOREALIS = registerSoundEventHolder("music.overworld.eroded_borealis");

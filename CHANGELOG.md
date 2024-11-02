@@ -3,6 +3,7 @@
 - Add Forgotten Fae Advancement
 - Move from using ID in Fruitblock for Leaves to using Supplier of the Leaves Block
 - Increase Pumpkin Generation in Pumpkin Valley Biome
+- New FireFly Particle Logic
 
 # 1.3.3
 - Make Entity Model Classes Package-Private, remove pointless override of getAnimation Method
