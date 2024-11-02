@@ -44,7 +44,7 @@
         "exclusion_radius_xz": 8,
         "exclusion_radius_y": 8,
         "leaves_block": "biomeswevegone:flowering_spirit_leaves",
-        "probability": 0.05,
+        "probability": 0.06,
         "required_empty_blocks": 2
       }
     ],
