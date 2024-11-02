@@ -69,6 +69,16 @@ public class BWGOverworldSurfaceRules {
             )
     );
 
+    private static final SurfaceRules.RuleSource ASPEN_BOREAL = biomeAbovePreliminarySurface(BWGBiomes.ASPEN_BOREAL, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT)
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), ROOTED_DIRT_SURFACE),
+            PODZOL_DIRT_SURFACE
+    ));
+
     private static final SurfaceRules.RuleSource ATACAMA_OUTBACK = biomeAbovePreliminarySurface(BWGBiomes.ATACAMA_OUTBACK, SurfaceRules.sequence(
         makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
                 SurfaceRules.sequence(
@@ -78,16 +88,6 @@ public class BWGOverworldSurfaceRules {
             RED_QUICKSAND_SURFACE,
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), CRACKED_RED_SAND_SURFACE),
             CRACKED_RED_SAND_SURFACE
-    ));
-
-    private static final SurfaceRules.RuleSource ASPEN_BOREAL = biomeAbovePreliminarySurface(BWGBiomes.ASPEN_BOREAL, SurfaceRules.sequence(
-            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
-                    SurfaceRules.sequence(
-                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK),
-                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT)
-                    )),
-            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), ROOTED_DIRT_SURFACE),
-            PODZOL_DIRT_SURFACE
     ));
 
     private static final SurfaceRules.RuleSource BAOBAB_SAVANNA = biomeAbovePreliminarySurface(BWGBiomes.BAOBAB_SAVANNA, SurfaceRules.sequence(
@@ -140,28 +140,6 @@ public class BWGOverworldSurfaceRules {
             PEAT_SURFACE
     ));
 
-    private static final SurfaceRules.RuleSource PALE_BOG = SurfaceRules.ifTrue(
-            SurfaceRules.isBiome(BWGBiomes.PALE_BOG), abovePreliminarySurface(
-                    SurfaceRules.sequence(SEA_LEVEL_WATER_NOISE,
-                            makeifTrueRule(SurfaceRules.not(WATER_CHECK),
-                                    makeifTrueRule(SurfaceRules.ON_FLOOR, SurfaceRules.sequence(
-                                                    makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75), BWGBlocks.PACKED_PALE_MUD.get()),
-                                                    makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95), BWGBlocks.BLACK_SAND_SET.getSand()),
-                                                    SurfaceRules.state(BWGBlocks.PALE_MUD.get().defaultBlockState())
-                                            )
-                                    )
-                            ), SurfaceRules.sequence(
-                                    makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.68), SurfaceRules.sequence(
-                                            makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.PEAT.get()),
-                                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.PALE_MUD.get())
-                                    )),
-                                    makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.77),
-                                            makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.LUSH_GRASS_BLOCK.get())),
-                                    makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.PALE_MUD.get())
-                            )
-                    )
-            ));
-
     private static final SurfaceRules.RuleSource CYPRESS_MANGROVE = SurfaceRules.ifTrue(
             SurfaceRules.isBiome(BWGBiomes.CYPRESS_SWAMPLANDS, BWGBiomes.WHITE_MANGROVE_MARSHES), abovePreliminarySurface(
             SurfaceRules.sequence(SEA_LEVEL_WATER_NOISE,
@@ -203,8 +181,25 @@ public class BWGOverworldSurfaceRules {
                     makeStateRule(BWGBlocks.DACITE_SET.getBase())
             ));
 
+    private static final SurfaceRules.RuleSource DEAD_SEA = biomeAbovePreliminarySurface(BWGBiomes.DEAD_SEA,
+            SurfaceRules.sequence(
+                    new BetweenRepeatingNoiseRange(Noises.CALCITE, 0.02f, -2f, 2f, STONE, GRAVEL),
+                    STONE
+            ));
+
     private static final SurfaceRules.RuleSource EBONY_WOODS = biomeAbovePreliminarySurface(BWGBiomes.EBONY_WOODS,
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D), COARSE_DIRT_DIRT_SURFACE));
+
+    private static final SurfaceRules.RuleSource ENCHANTED_TANGLE = biomeAbovePreliminarySurface(BWGBiomes.ENCHANTED_TANGLE, BWGRuleSources.weightedRuleSource(
+            SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
+                    .add(LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE, 5)
+                    .add(PEAT_SURFACE, 3)
+                    .add(COARSE_DIRT_DIRT_SURFACE, 1)
+                    .add(MUD_SURFACE, 1)
+                    .add(PODZOL_DIRT_SURFACE, 2)
+                    .add(PACKED_MUD_SURFACE, 1)
+                    .build()
+    ));
 
     private static final SurfaceRules.RuleSource ERODED_BOREALIS = biomeAbovePreliminarySurface(BWGBiomes.ERODED_BOREALIS, SurfaceRules.sequence(
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
@@ -213,6 +208,16 @@ public class BWGOverworldSurfaceRules {
                             makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT)
                     )),
             POWDER_SNOW_SURFACE,
+            PEAT_SURFACE
+    ));
+
+    private static final SurfaceRules.RuleSource FORGOTTEN_FOREST = biomeAbovePreliminarySurface(BWGBiomes.FORGOTTEN_FOREST, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.LUSH_GRASS_BLOCK.get()),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.LUSH_DIRT.get())
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), NOISE_COARSE_DIRT),
             PEAT_SURFACE
     ));
 
@@ -264,16 +269,11 @@ public class BWGOverworldSurfaceRules {
                     .build()
     ));
 
-    private static final SurfaceRules.RuleSource ENCHANTED_TANGLE = biomeAbovePreliminarySurface(BWGBiomes.ENCHANTED_TANGLE, BWGRuleSources.weightedRuleSource(
-            SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
-                    .add(LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE, 5)
-                    .add(PEAT_SURFACE, 3)
-                    .add(COARSE_DIRT_DIRT_SURFACE, 1)
-                    .add(MUD_SURFACE, 1)
-                    .add(PODZOL_DIRT_SURFACE, 2)
-                    .add(PACKED_MUD_SURFACE, 1)
-                    .build()
-    ));
+    private static final SurfaceRules.RuleSource LUSH_STACKS = biomeAbovePreliminarySurface(BWGBiomes.LUSH_STACKS,
+            SurfaceRules.sequence(
+                    new BetweenRepeatingNoiseRange(Noises.CALCITE, 0.02f, -2f, 2f, STONE, GRAVEL),
+                    STONE
+            ));
 
     private static final SurfaceRules.RuleSource MOJAVE_DESERT = biomeAbovePreliminarySurface(BWGBiomes.MOJAVE_DESERT, BWGRuleSources.weightedRuleSource(
             SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
@@ -283,6 +283,37 @@ public class BWGOverworldSurfaceRules {
                     .build()
     ));
 
+    private static final SurfaceRules.RuleSource OVERGROWTH_WOODLANDS = biomeAbovePreliminarySurface(BWGBiomes.OVERGROWTH_WOODLANDS, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.MOSS_BLOCK),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.MOSS_BLOCK)
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), PEAT_SURFACE),
+            LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE
+    ));
+
+    private static final SurfaceRules.RuleSource PALE_BOG = biomeAbovePreliminarySurface(BWGBiomes.PALE_BOG, SurfaceRules.sequence(
+            SEA_LEVEL_WATER_NOISE,
+                    makeifTrueRule(SurfaceRules.not(WATER_CHECK),
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, SurfaceRules.sequence(
+                                            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75), BWGBlocks.PACKED_PALE_MUD.get()),
+                                            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95), BWGBlocks.BLACK_SAND_SET.getSand()),
+                                            makeStateRule(BWGBlocks.PALE_MUD.get())
+                                    )
+                            )
+                    ), SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.68), SurfaceRules.sequence(
+                                    makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.PEAT.get()),
+                                    makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.PALE_MUD.get())
+                            )),
+                            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.77),
+                                    makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.LUSH_GRASS_BLOCK.get())),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.PALE_MUD.get())
+                    )
+            )
+    );
+
     private static final SurfaceRules.RuleSource PUMPKIN_VALLEY = biomeAbovePreliminarySurface(BWGBiomes.PUMPKIN_VALLEY, LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE);
 
     private static final SurfaceRules.RuleSource RAINBOW_BEACH = biomeAbovePreliminarySurface(BWGBiomes.RAINBOW_BEACH,
@@ -290,18 +321,6 @@ public class BWGOverworldSurfaceRules {
                 new BetweenRepeatingNoiseRange(Noises.CALCITE, 0.02f, -2f, 2f, PURPLE_SAND, WHITE_SAND, BLACK_SAND, PINK_SAND),
                 BLUE_SAND
         ));
-
-    private static final SurfaceRules.RuleSource DEAD_SEA = biomeAbovePreliminarySurface(BWGBiomes.DEAD_SEA,
-            SurfaceRules.sequence(
-                    new BetweenRepeatingNoiseRange(Noises.CALCITE, 0.02f, -2f, 2f, STONE, GRAVEL),
-                    STONE
-            ));
-
-    private static final SurfaceRules.RuleSource LUSH_STACKS = biomeAbovePreliminarySurface(BWGBiomes.LUSH_STACKS,
-            SurfaceRules.sequence(
-                    new BetweenRepeatingNoiseRange(Noises.CALCITE, 0.02f, -2f, 2f, STONE, GRAVEL),
-                    STONE
-            ));
 
 
     private static final SurfaceRules.RuleSource RED_ROCK_VALLEY = biomeAbovePreliminarySurface(BWGBiomes.RED_ROCK_VALLEY, SurfaceRules.sequence(
@@ -363,26 +382,6 @@ public class BWGOverworldSurfaceRules {
             PEAT_SURFACE
     ));
 
-    private static final SurfaceRules.RuleSource FORGOTTEN_FOREST = biomeAbovePreliminarySurface(BWGBiomes.FORGOTTEN_FOREST, SurfaceRules.sequence(
-            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
-                    SurfaceRules.sequence(
-                            makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.LUSH_GRASS_BLOCK.get()),
-                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.LUSH_DIRT.get())
-                    )),
-            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), NOISE_COARSE_DIRT),
-            PEAT_SURFACE
-    ));
-
-    private static final SurfaceRules.RuleSource OVERGROWTH_WOODLANDS = biomeAbovePreliminarySurface(BWGBiomes.OVERGROWTH_WOODLANDS, SurfaceRules.sequence(
-            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
-                    SurfaceRules.sequence(
-                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.MOSS_BLOCK),
-                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.MOSS_BLOCK)
-                    )),
-            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), PEAT_SURFACE),
-            LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE
-    ));
-
 //    private static final SurfaceRules.RuleSource TROPICAL_ISLAND = biomeAbovePreliminarySurface(BWGBiomes.TROPICAL_ISLAND, SurfaceRules.sequence(
 //            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
 //                    SurfaceRules.sequence(
@@ -404,12 +403,13 @@ public class BWGOverworldSurfaceRules {
      */
     public static SurfaceRules.RuleSource makeRules() {
         return SurfaceRules.sequence(
-                ATACAMA_OUTBACK,
                 ASPEN_BOREAL,
+                ATACAMA_OUTBACK,
                 BAOBAB_SAVANNA,
                 BASALT_BARRERA,
                 BAYOU,
                 BLACK_FOREST,
+                BLACK_ICE_BANDS,
                 CANADIAN_SHIELD,
 //                CANYON,
                 CIKA_WOODS,
@@ -419,14 +419,21 @@ public class BWGOverworldSurfaceRules {
                 CRIMSON_TUNDRA,
                 DACITE_RIDGES,
                 DACITE_SHORE,
+                DEAD_SEA,
                 EBONY_WOODS,
                 ENCHANTED_TANGLE,
                 ERODED_BOREALIS,
+                FORGOTTEN_FOREST,
+                FRAGMENT_JUNGLE,
+                FROSTED_CONIFEROUS_FOREST,
                 FROSTED_TIAGA,
                 HOWLING_PEAKS,
                 IRONWOOD_GOUR,
                 JACARANDA_JUNGLE,
+                LUSH_STACKS,
                 MOJAVE_DESERT,
+                OVERGROWTH_WOODLANDS,
+                PALE_BOG,
                 PUMPKIN_VALLEY,
                 RAINBOW_BEACH,
                 RED_ROCK_VALLEY,
@@ -436,17 +443,9 @@ public class BWGOverworldSurfaceRules {
                 //SHATTERED_GLACIER,
                 SIERRA_BADLANDS,
                 SKYRIS_VALE,
-                FORGOTTEN_FOREST,
-                FRAGMENT_JUNGLE,
-                FROSTED_CONIFEROUS_FOREST,
                 WEEPING_WITCH_FOREST,
-                WINDSWEPT_DESERT,
-                OVERGROWTH_WOODLANDS,
+                WINDSWEPT_DESERT
 //                TROPICAL_ISLAND,
-                BLACK_ICE_BANDS,
-                LUSH_STACKS,
-                PALE_BOG,
-                DEAD_SEA
         );
     }
 
