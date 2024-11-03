@@ -8,6 +8,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,6 +22,7 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
         super(properties);
         this.fruitBlock = fruitBlock;
         this.tickSpawnChance = tickSpawnChance;
+        BiomesWeveGone.LOGGER.info("Fruit Block: " + fruitBlock.get());
     }
 
     @Override

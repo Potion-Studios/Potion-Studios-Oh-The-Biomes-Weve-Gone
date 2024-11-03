@@ -1,5 +1,6 @@
 # 2.2.1
 - Match Pale jack o’lantern Light Level to Soul Fruit block light level
+- Fix Fruit Block/Leaves Crash
 
 # 2.2.0 SpookTober Update -> https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone/discussions/149
 New Features:
