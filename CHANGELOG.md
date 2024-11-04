@@ -1,3 +1,5 @@
+# 2.2.2
+
 # 2.2.1
 - Match Pale jack o’lantern Light Level to Soul Fruit block light level
 - Fix Fruit Block/Leaves Crash
