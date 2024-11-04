@@ -343,7 +343,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
             if (this.isReachedTarget()) {
                 Level level = this.warden.level();
                 BlockState blockstate = level.getBlockState(this.blockPos);
-                if (blockstate.getBlock() instanceof StemGrownBlock block) {
+                if (blockstate.getBlock() instanceof StemGrownBlock) {
                     level.removeBlock(this.blockPos, false);
                     level.gameEvent(GameEvent.BLOCK_DESTROY, this.blockPos, GameEvent.Context.of(this.warden, blockstate));
                     this.warden.setCarriedBlock(blockstate.getBlock().defaultBlockState());

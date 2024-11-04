@@ -340,8 +340,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     public enum Variant implements StringRepresentable {
         STANDARD(0, "standard"),
         PINK(1, "pink"),
-        ALBINO(2, "albino"),
-        ;
+        ALBINO(2, "albino");
 
         public static final Codec<Oddion.Variant> CODEC = StringRepresentable.fromEnum(Variant::values);
         private static final IntFunction<Oddion.Variant> BY_ID = ByIdMap.continuous(Variant::getId, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
