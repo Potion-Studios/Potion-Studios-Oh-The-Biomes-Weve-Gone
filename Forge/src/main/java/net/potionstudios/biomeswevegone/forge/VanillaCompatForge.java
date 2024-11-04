@@ -95,7 +95,7 @@ public class VanillaCompatForge {
      * Register brewing recipes.
      * @see BrewingRecipeRegisterEvent
      */
-    public static void registerBrewingRecipes(final BrewingRecipeRegisterEvent event) {
+    private static void registerBrewingRecipes(final BrewingRecipeRegisterEvent event) {
         BWGBrewingRecipes.buildBrewingRecipes(event.getBuilder()::addMix);
     }
 

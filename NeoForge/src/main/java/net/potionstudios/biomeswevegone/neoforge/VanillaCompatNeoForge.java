@@ -84,7 +84,7 @@ public class VanillaCompatNeoForge {
      * Register brewing recipes.
      * @see RegisterBrewingRecipesEvent
      */
-    public static void registerBrewingRecipes(final RegisterBrewingRecipesEvent event) {
+    private static void registerBrewingRecipes(final RegisterBrewingRecipesEvent event) {
         BWGBrewingRecipes.buildBrewingRecipes(event.getBuilder()::addMix);
     }
 
