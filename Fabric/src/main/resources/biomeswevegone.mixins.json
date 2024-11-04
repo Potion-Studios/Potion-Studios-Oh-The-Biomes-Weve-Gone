@@ -8,6 +8,7 @@
   ],
   "mixins": [
     "CropBlockMixin",
+    "EnderManMixin",
     "PrairieGrassMixin"
   ],
   "injectors": {

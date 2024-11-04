@@ -3,7 +3,7 @@
 - Fix Fruit Block/Leaves Crash
 - Decrease Bush nbt template file size
 - Remove some Duplicate Language Keys from German Language File
-- Prevent Enderman from Angering when player is wearing Pale Carved Pumpkin (NeoForge and Forge)
+- Prevent Enderman from Angering when player is wearing Pale Carved Pumpkin
 - Allow Vanishing Enchantment on Pale Carved Pumpkin
 
 # 2.2.0 SpookTober Update -> https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone/discussions/149
