@@ -5,7 +5,7 @@ import net.fabricmc.loom.api.LoomGradleExtensionAPI
 plugins {
     id("architectury-plugin") version "3.4-SNAPSHOT"
     id("dev.architectury.loom") version "1.7-SNAPSHOT" apply false
-    id("com.gradleup.shadow") version "8.3.4" apply false
+    id("com.gradleup.shadow") version "8.3.5" apply false
     id("com.hypherionmc.modutils.modpublisher") version "2.+"
     java
     idea

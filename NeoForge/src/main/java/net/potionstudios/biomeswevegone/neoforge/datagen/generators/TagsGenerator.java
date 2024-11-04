@@ -321,6 +321,8 @@ public class TagsGenerator {
             tag(Tags.Items.FOODS).add(BWGItems.COOKED_ODDION_BULB.get(), BWGItems.COOKED_WHITE_PUFFBALL_CAP.get(), BWGItems.COOKED_YUCCA_FRUIT.get(), BWGItems.ALOE_VERA_JUICE.get());
             tag(Tags.Items.SEEDS_PUMPKIN).add(BWGItems.PALE_PUMPKIN_SEEDS.get());
             tag(Tags.Items.CROPS_PUMPKIN).add(BWGBlocks.PALE_PUMPKIN.get().asItem());
+            tag(ItemTags.EQUIPPABLE_ENCHANTABLE).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
+            tag(ItemTags.VANISHING_ENCHANTABLE).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
     }
