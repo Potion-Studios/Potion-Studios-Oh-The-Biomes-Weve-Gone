@@ -22,7 +22,6 @@ public class BWGBiomeTags {
     public static final TagKey<Biome> LUSH_ARCH = create("lush_arch");
     public static final TagKey<Biome> RED_ROCK_ARCH = create("red_rock_arch");
     public static final TagKey<Biome> DRIPSTONE_ARCH = create("dripstone_arch");
-    public static final TagKey<Biome> CANYON = create("canyon");
     public static final TagKey<Biome> HAS_TERRAIN_ADDITIONS = create("has_terrain_additions");
 
     /** Correlates to

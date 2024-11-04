@@ -15,7 +15,6 @@ public class BWGFeatures {
 
     public static final Supplier<SharpenedRockFeature> SHARPENED_ROCK = create("sharpened_rock", () -> new SharpenedRockFeature(NoneFeatureConfiguration.CODEC));
     public static final Supplier<RoundedRock> ROUNDED_ROCK = create("rounded_rock", () -> new RoundedRock(RoundedRockConfig.CODEC));
-//    public static final Supplier<CanyonFeature> CANYON = create("canyon", () -> new CanyonFeature(NoneFeatureConfiguration.CODEC));
     public static final Supplier<PillarFeature> PILLAR = create("pillar", () -> new PillarFeature(PillarFeature.Config.CODEC));
     public static final Supplier<VineProcessorFeature> VINE_PROCESSOR = create("vine_processor", () -> new VineProcessorFeature(NoneFeatureConfiguration.CODEC));
     public static final Supplier<LushBlocksProcessorFeature> LUSH_BLOCKS_PROCESSOR = create("lush_blocks_processor", () -> new LushBlocksProcessorFeature(NoneFeatureConfiguration.CODEC));

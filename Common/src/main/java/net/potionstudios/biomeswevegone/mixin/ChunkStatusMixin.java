@@ -23,7 +23,6 @@ public class ChunkStatusMixin {
     @Inject(method = "method_16569", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILHARD)
     private static void injectCragTerrain(ChunkStatus chunkStatus, ServerLevel serverLevel, ChunkGenerator chunkGenerator, List<?> list, ChunkAccess chunkAccess, CallbackInfo ci, WorldGenRegion worldGenRegion) {
         CragGardenExtension.runCragGardenExtension(worldGenRegion::getBiome, chunkAccess, serverLevel.getSeed(), worldGenRegion.registryAccess().registryOrThrow(Registries.NOISE).getOrThrow(Noises.SURFACE), worldGenRegion.registryAccess().registryOrThrow(Registries.NOISE).getOrThrow(Noises.SURFACE_SECONDARY));
-//        TropicalIslandExtension.runTropicalIslandExtension(worldGenRegion::getBiome, chunkAccess, serverLevel.getSeed());
         BasaltBarreraExtension.runBasaltBarreraExtension(chunkAccess, worldGenRegion, chunkGenerator);
     }
 }

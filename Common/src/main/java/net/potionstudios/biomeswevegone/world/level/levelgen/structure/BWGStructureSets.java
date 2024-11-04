@@ -66,9 +66,6 @@ public class BWGStructureSets {
             ), new RandomSpreadStructurePlacement(34, 8, RandomSpreadType.LINEAR, 437845874)
     ));
 
-//    public static final ResourceKey<StructureSet> CANYON = register("canyon", structureHolderGetter -> {
-//        return new StructureSet(ImmutableList.of(StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.CANYON))), new RandomSpreadStructurePlacement(12, 3, RandomSpreadType.TRIANGULAR, 3455464));
-//    });
 
     private static ResourceKey<StructureSet> register(String id, StructureSetFactory factory) {
         ResourceKey<StructureSet> structureSetResourceKey = ResourceKey.create(Registries.STRUCTURE_SET, BiomesWeveGone.id(id));
