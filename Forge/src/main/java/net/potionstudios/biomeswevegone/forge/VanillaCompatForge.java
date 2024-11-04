@@ -6,6 +6,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
@@ -16,6 +17,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConf
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.brewing.BrewingRecipeRegisterEvent;
+import net.minecraftforge.event.entity.living.EnderManAngerEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
@@ -56,6 +58,7 @@ public class VanillaCompatForge {
         if (BWGTradesConfig.INSTANCE.get().enableTrades()) bus.addListener(VanillaCompatForge::onVillagerTrade);
         bus.addListener(VanillaCompatForge::registerBrewingRecipes);
         bus.addListener(VanillaCompatForge::onBoneMealUse);
+        bus.addListener(VanillaCompatForge::onEnderManAnger);
     }
 
     private static void registerTillables(final BlockEvent.BlockToolModificationEvent event) {
@@ -97,6 +100,15 @@ public class VanillaCompatForge {
      */
     private static void registerBrewingRecipes(final BrewingRecipeRegisterEvent event) {
         BWGBrewingRecipes.buildBrewingRecipes(event.getBuilder()::addMix);
+    }
+
+    /**
+     * Handle Enderman anger.
+     * @see EnderManAngerEvent
+     */
+    private static void onEnderManAnger(final EnderManAngerEvent event) {
+        if (event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem()))
+            event.setCanceled(true);
     }
 
     private static void onBoneMealUse(final BonemealEvent event) {
