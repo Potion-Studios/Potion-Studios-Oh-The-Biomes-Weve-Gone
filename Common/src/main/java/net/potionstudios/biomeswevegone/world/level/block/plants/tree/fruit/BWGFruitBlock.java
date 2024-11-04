@@ -1,7 +1,9 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit;
 
+import com.google.common.base.Suppliers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -27,6 +29,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
@@ -39,14 +42,14 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
     private final Supplier<Supplier<Item>> fruit;
     private final Supplier<LeavesBlock> leaves;
 
-    public BWGFruitBlock(Properties properties, Supplier<Supplier<Item>> fruit, Supplier<LeavesBlock> leaves) {
+    public BWGFruitBlock(Properties properties, Supplier<Supplier<Item>> fruit, String leaves) {
         super(properties);
         this.fruit = fruit;
-        this.leaves = leaves;
+        this.leaves = Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.get(BiomesWeveGone.id(leaves)));
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
-    public BWGFruitBlock(Supplier<Supplier<Item>> fruit, Supplier<LeavesBlock> leaves) {
+    public BWGFruitBlock(Supplier<Supplier<Item>> fruit, String leaves) {
         this(Properties.copy(Blocks.SWEET_BERRY_BUSH), fruit, leaves);
     }
 
