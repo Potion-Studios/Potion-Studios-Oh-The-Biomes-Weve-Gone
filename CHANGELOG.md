@@ -1,8 +1,8 @@
-<<<<<<< HEAD
 # 1.4.1
 - Remove Unused Code
 - Update German Language File (DE_DE)
 - Decrease Bush nbt template file size
+- Fix fruit block supplier null crash
 
 # 1.4.0
 - Add Pixie Club Music Disc to Forgotten Village House and Temple Chest Pools
