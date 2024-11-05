@@ -19,7 +19,7 @@ class ManOWarModel<T extends GeoAnimatable> extends GeoModel<T> {
 
     @Override
     public ResourceLocation getTextureResource(T object) {
-        return ManOWarRenderer.TEXTURES.get(((ManOWar) object).getColor());
+        return BiomesWeveGone.id("textures/entity/manowar/" + ((ManOWar) object).getColor().getSerializedName() + ".png");
     }
 
     @Override

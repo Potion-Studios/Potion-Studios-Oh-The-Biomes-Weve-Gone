@@ -13,6 +13,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -326,7 +327,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
             return Colors.MAGENTA;
         } else if (i <= 2) {
             return Colors.BLUE;
-        } else if (i <= 3) {
+        } else if (i == 3) {
             return Colors.PURPLE;
         } else {
             return Colors.RAINBOW;
@@ -407,14 +408,25 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
         return SoundEvents.BUCKET_FILL_AXOLOTL;
     }
 
-    public enum Colors {
-        BLUE(),
-        PURPLE(),
-        MAGENTA(),
-        RAINBOW();
+    public enum Colors implements StringRepresentable {
+        BLUE("blue"),
+        PURPLE("purple"),
+        MAGENTA("magenta"),
+        RAINBOW("rainbow");
 
-        public static Colors byIndex(int index) {
+        private final String name;
+
+	    Colors(String name) {
+		    this.name = name;
+	    }
+
+	    public static Colors byIndex(int index) {
             return makeIndex(Colors.values(), index);
+        }
+
+        @Override
+        public @NotNull String getSerializedName() {
+            return name;
         }
     }
 

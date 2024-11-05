@@ -1,22 +1,16 @@
 package net.potionstudios.biomeswevegone.world.entity.manowar;
 
-import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
-
-import java.util.Map;
 
 /**
  * ManOWar Entity Renderer
@@ -24,14 +18,6 @@ import java.util.Map;
  * @author YaBoiChips
  */
 public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
-
-    public static final Map<ManOWar.Colors, ResourceLocation> TEXTURES = Util.make(Maps.newEnumMap(ManOWar.Colors.class), (map) -> {
-        map.put(ManOWar.Colors.MAGENTA, BiomesWeveGone.id("textures/entity/manowar/magenta.png"));
-        map.put(ManOWar.Colors.RAINBOW, BiomesWeveGone.id("textures/entity/manowar/rainbow.png"));
-        map.put(ManOWar.Colors.PURPLE, BiomesWeveGone.id("textures/entity/manowar/purple.png"));
-        map.put(ManOWar.Colors.BLUE, BiomesWeveGone.id("textures/entity/manowar/blue.png"));
-    });
-
 
     public ManOWarRenderer(EntityRendererProvider.Context context) {
         super(context, new ManOWarModel<>());
@@ -42,14 +28,6 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
     public void preRender(PoseStack poseStack, T animatable, BakedGeoModel model, @Nullable MultiBufferSource bufferSource, @Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour) {
         if (animatable.isBaby()) poseStack.scale(0.5f, 0.5f, 0.5f);
         super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, colour);
-    }
-
-    /**
-     * Returns the location of an entity's texture.
-     */
-    @Override
-    public @NotNull ResourceLocation getTextureLocation(T entity) {
-        return TEXTURES.get(entity.getColor());
     }
 
     @Override
