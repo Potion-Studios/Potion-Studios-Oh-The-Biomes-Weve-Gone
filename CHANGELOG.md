@@ -1,4 +1,5 @@
 # 2.2.2
+- Remove unneeded BWGPumpkin Class
 
 # 2.2.1
 - Match Pale jack o’lantern Light Level to Soul Fruit block light level
