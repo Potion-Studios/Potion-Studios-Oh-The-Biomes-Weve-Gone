@@ -292,7 +292,7 @@ public class BWGStructures {
 //    );
 
     private static ResourceKey<Structure> register(String id, StructureFactory factory) {
-        ResourceKey<Structure> structureSetResourceKey = ResourceKey.create(Registries.STRUCTURE, BiomesWeveGone.id(id));
+        ResourceKey<Structure> structureSetResourceKey = BiomesWeveGone.key(Registries.STRUCTURE, id);
         STRUCTURE_FACTORIES.put(structureSetResourceKey, factory);
         return structureSetResourceKey;
     }

@@ -74,7 +74,7 @@ public class BWGTemplatePools {
 	}
 
 	private static ResourceKey<StructureTemplatePool> register(String id, TemplatePoolFactory factory) {
-		ResourceKey<StructureTemplatePool> templatePoolResourceKey = ResourceKey.create(Registries.TEMPLATE_POOL, BiomesWeveGone.id(id));
+		ResourceKey<StructureTemplatePool> templatePoolResourceKey = BiomesWeveGone.key(Registries.TEMPLATE_POOL, id);
 		TEMPLATE_POOL_FACTORIES.put(templatePoolResourceKey, factory);
 		return templatePoolResourceKey;
 	}

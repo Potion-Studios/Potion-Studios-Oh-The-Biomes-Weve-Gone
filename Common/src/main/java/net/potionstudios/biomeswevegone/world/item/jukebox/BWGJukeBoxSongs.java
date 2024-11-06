@@ -21,7 +21,7 @@ public interface BWGJukeBoxSongs {
     ResourceKey<JukeboxSong> PIXIE_CLUB = register("pixie_club", BWGSounds.MUSIC_DISC_PIXIE_CLUB, 213, 4);
 
     private static ResourceKey<JukeboxSong> register(String id, Supplier<Holder.Reference<SoundEvent>> soundEvent, int lengthInSeconds, int comparatorOutput) {
-        ResourceKey<JukeboxSong> key = ResourceKey.create(Registries.JUKEBOX_SONG, BiomesWeveGone.id(id));
+        ResourceKey<JukeboxSong> key = BiomesWeveGone.key(Registries.JUKEBOX_SONG, id);
         JUKEBOX_SONG_FACTORIES.put(key, context -> new JukeboxSong(soundEvent.get(), Component.translatable(Util.makeDescriptionId("jukebox_song", key.location())), lengthInSeconds, comparatorOutput));
         return key;
     }

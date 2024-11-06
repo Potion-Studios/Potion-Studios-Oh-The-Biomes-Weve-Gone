@@ -66,7 +66,7 @@ public class PlacedFeaturesUtil {
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {
-        return ResourceKey.create(Registries.PLACED_FEATURE, BiomesWeveGone.id(name));
+        return BiomesWeveGone.key(Registries.PLACED_FEATURE, name);
     }
 
     @FunctionalInterface

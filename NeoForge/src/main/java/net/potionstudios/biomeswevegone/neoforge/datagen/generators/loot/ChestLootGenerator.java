@@ -204,6 +204,6 @@ public class ChestLootGenerator implements LootTableSubProvider {
     private void createTable(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output, String id, float minRolls, float maxRolls, LootPoolEntryContainer.Builder<?>... entriesBuilder) {
         LootPool.Builder pool = LootPool.lootPool().setRolls(UniformGenerator.between(minRolls, maxRolls));
         for (LootPoolEntryContainer.Builder<?> entry : entriesBuilder) pool.add(entry);
-        output.accept(ResourceKey.create(Registries.LOOT_TABLE, BiomesWeveGone.id("chests/" + id)), LootTable.lootTable().withPool(pool));
+        output.accept(BiomesWeveGone.key(Registries.LOOT_TABLE, "chests/" + id), LootTable.lootTable().withPool(pool));
     }
 }

@@ -106,7 +106,7 @@ public class ConfiguredFeaturesUtil {
     }
 
     private static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, BiomesWeveGone.id(name));
+        return BiomesWeveGone.key(Registries.CONFIGURED_FEATURE, name);
     }
 
     @FunctionalInterface

@@ -1,6 +1,8 @@
 package net.potionstudios.biomeswevegone;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.potionstudios.biomeswevegone.client.BWGSounds;
@@ -93,5 +95,15 @@ public class BiomesWeveGone {
      */
     public static ResourceLocation id(String name) {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
+    }
+
+    /**
+     * Creates a new resource key for Oh The Biomes We've Gone.
+     * @param registryKey the registry key for the resource
+     * @param name the name of the resource
+     * @return the new resource key with the Biomes We've Gone location
+     */
+    public static <T> ResourceKey<T> key(ResourceKey<? extends Registry<T>> registryKey, String name) {
+        return ResourceKey.create(registryKey, id(name));
     }
 }

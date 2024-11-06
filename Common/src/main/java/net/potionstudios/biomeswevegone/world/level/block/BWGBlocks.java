@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone.world.level.block;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.item.BlockItem;
@@ -289,8 +288,8 @@ public class BWGBlocks {
     public static final Supplier<StairBlock> CATTAIL_THATCH_STAIRS = registerBlockItem("cattail_thatch_stairs", () -> new StairBlock(CATTAIL_THATCH.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(CATTAIL_THATCH.get())));
     public static final Supplier<WoolCarpetBlock> CATTAIL_THATCH_CARPET = registerBlockItem("cattail_thatch_carpet", () -> new WoolCarpetBlock(DyeColor.BROWN, BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.5f)));
 
-    public static final Supplier<AttachedStemBlock> ATTACHED_PALE_PUMPKIN_STEM = registerBlock("attached_pale_pumpkin_stem", () -> new AttachedStemBlock(ResourceKey.create(Registries.BLOCK, BiomesWeveGone.id("pale_pumpkin_stem")), ResourceKey.create(Registries.BLOCK, BiomesWeveGone.id("pale_pumpkin")), ResourceKey.create(Registries.ITEM, BiomesWeveGone.id("pale_pumpkin_seeds")), BlockBehaviour.Properties.ofFullCopy(Blocks.ATTACHED_PUMPKIN_STEM)));
-    public static final Supplier<StemBlock> PALE_PUMPKIN_STEM = registerBlock("pale_pumpkin_stem", () -> new StemBlock(ResourceKey.create(Registries.BLOCK, BiomesWeveGone.id("pale_pumpkin")), ResourceKey.create(Registries.BLOCK, BiomesWeveGone.id("attached_pale_pumpkin_stem")), ResourceKey.create(Registries.ITEM, BiomesWeveGone.id("pale_pumpkin_seeds")), BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN_STEM)));
+    public static final Supplier<AttachedStemBlock> ATTACHED_PALE_PUMPKIN_STEM = registerBlock("attached_pale_pumpkin_stem", () -> new AttachedStemBlock(BiomesWeveGone.key(Registries.BLOCK, "pale_pumpkin_stem"), BiomesWeveGone.key(Registries.BLOCK, "pale_pumpkin"), BiomesWeveGone.key(Registries.ITEM, "pale_pumpkin_seeds"), BlockBehaviour.Properties.ofFullCopy(Blocks.ATTACHED_PUMPKIN_STEM)));
+    public static final Supplier<StemBlock> PALE_PUMPKIN_STEM = registerBlock("pale_pumpkin_stem", () -> new StemBlock(BiomesWeveGone.key(Registries.BLOCK, "pale_pumpkin"), BiomesWeveGone.key(Registries.BLOCK,"attached_pale_pumpkin_stem"), BiomesWeveGone.key(Registries.ITEM, "pale_pumpkin_seeds"), BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN_STEM)));
     public static final Supplier<PalePumpkinBlock> PALE_PUMPKIN = registerBlockItem("pale_pumpkin", PalePumpkinBlock::new);
     public static final Supplier<EquipableCarvedPalePumpkinBlock> CARVED_PALE_PUMPKIN = registerBlockItem("carved_pale_pumpkin", EquipableCarvedPalePumpkinBlock::new);
     public static final Supplier<PaleCarvedPumpkinBlock> PALE_JACK_O_LANTERN = registerBlockItem("pale_jack_o_lantern", PaleCarvedPumpkinBlock::new);

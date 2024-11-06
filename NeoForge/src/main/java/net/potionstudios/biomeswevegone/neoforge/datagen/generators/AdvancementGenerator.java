@@ -7,7 +7,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.advancements.packs.VanillaAdventureAdvancements;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
@@ -208,7 +207,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
 
         Advancement.Builder.advancement()
                 .parent(husbandryRoot)
-                .rewards(new AdvancementRewards.Builder().addLootTable(ResourceKey.create(Registries.LOOT_TABLE, BiomesWeveGone.id("blocks/pale_pumpkin"))))
+                .rewards(new AdvancementRewards.Builder().addLootTable(BiomesWeveGone.key(Registries.LOOT_TABLE, "blocks/pale_pumpkin")))
                 .addCriterion("forgotten_nostalgia", PlayerInteractTrigger.TriggerInstance.itemUsedOnEntity(ItemPredicate.Builder.item().of(BWGItemTags.ROSES), Optional.of(EntityPredicate.wrap(EntityPredicate.Builder.entity().of(BWGEntities.PUMPKIN_WARDEN.get())))))
                 .display(
                         BWGBlocks.ROSE.getBlock().asItem(),

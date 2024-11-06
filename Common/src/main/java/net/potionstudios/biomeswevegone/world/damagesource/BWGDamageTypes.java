@@ -19,7 +19,7 @@ public interface BWGDamageTypes {
     ResourceKey<DamageType> CATTAIL_EXPLOSION = register("cattail_explosion", (damageTypeBootstapContext -> new DamageType(BiomesWeveGone.MOD_ID + ".cattailExplosion", DamageScaling.ALWAYS, 0.1F)));
 
     private static ResourceKey<DamageType> register(String id, DamageTypeFactory factory) {
-        ResourceKey<DamageType> key = ResourceKey.create(Registries.DAMAGE_TYPE, BiomesWeveGone.id(id));
+        ResourceKey<DamageType> key = BiomesWeveGone.key(Registries.DAMAGE_TYPE, id);
         DAMAGE_TYPE_FACTORIES.put(key, factory);
         return key;
     }
