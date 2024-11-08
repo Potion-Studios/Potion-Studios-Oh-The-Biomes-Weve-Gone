@@ -2,7 +2,8 @@
 - Remove unneeded BWGPumpkin Class
 - Use Simpler Code for ManOWar Texture Location
 - Fix Soul Torch Recipe with Soul Fruit overwriting Vanilla Recipe
-- Decrease Yucca Tree NBTTemplates File Size
+- Decrease Yucca and Baobab Tree NBTTemplates File Size
+- Rename Baobab tree files to match the tree name
 
 # 2.2.1
 - Match Pale jack o’lantern Light Level to Soul Fruit block light level

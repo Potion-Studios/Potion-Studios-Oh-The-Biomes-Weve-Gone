@@ -217,8 +217,8 @@ public class BWGOverworldTreeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BAOBAB_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("baobab_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/baobab/baobab_tree_trunk1"),
-                    BiomesWeveGone.id("features/trees/baobab/baobab_tree_canopy1"),
+                    BiomesWeveGone.id("features/trees/baobab/baobab_trunk1"),
+                    BiomesWeveGone.id("features/trees/baobab/baobab_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.BAOBAB.logstem().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
@@ -234,8 +234,8 @@ public class BWGOverworldTreeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BAOBAB_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("baobab_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/baobab/baobab_tree_trunk2"),
-                    BiomesWeveGone.id("features/trees/baobab/baobab_tree_canopy2"),
+                    BiomesWeveGone.id("features/trees/baobab/baobab_trunk2"),
+                    BiomesWeveGone.id("features/trees/baobab/baobab_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.BAOBAB.logstem().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
@@ -251,8 +251,8 @@ public class BWGOverworldTreeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BAOBAB_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("baobab_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/baobab/baobab_tree_trunk3"),
-                    BiomesWeveGone.id("features/trees/baobab/baobab_tree_canopy3"),
+                    BiomesWeveGone.id("features/trees/baobab/baobab_trunk3"),
+                    BiomesWeveGone.id("features/trees/baobab/baobab_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.BAOBAB.logstem().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
