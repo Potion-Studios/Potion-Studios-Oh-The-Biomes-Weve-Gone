@@ -1,6 +1,7 @@
 # 1.4.2
 - Add Apple Fruit Decorator to Orchard Trees
 - Fix Fruit Blocks not Generating on Fruit Leaves
+- Decrease Yucca Tree NBTTemplates File Size
 
 # 1.4.1
 - Remove Unused Code
