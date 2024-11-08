@@ -426,7 +426,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern("#")
                 .pattern("S")
                 .unlockedBy(getHasName(BWGItems.SOUL_FRUIT.get()), has(BWGItems.SOUL_FRUIT.get()))
-                .save(recipeOutput);
+                .save(recipeOutput, BiomesWeveGone.id("soul_torch_from_soul_fruit"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.PALE_MUD.get(), 8)
                 .define('X', BWGItems.SOUL_FRUIT.get())

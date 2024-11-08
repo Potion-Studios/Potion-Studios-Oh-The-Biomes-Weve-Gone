@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:soul_torch"
+        "recipe": "biomeswevegone:soul_torch_from_soul_fruit"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:soul_torch"
+      "biomeswevegone:soul_torch_from_soul_fruit"
     ]
   }
 }
