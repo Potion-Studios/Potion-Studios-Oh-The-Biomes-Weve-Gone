@@ -212,7 +212,7 @@ public class BWGOverworldTreeConfiguredFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> BAOBAB_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.2F, 2, 0, BWGWood.RIPE_BAOBAB_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.BAOBAB_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    private static final Supplier<AttachedToLeavesDecorator> BAOBAB_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.2F, 2, 0, BWGWood.RIPE_BAOBAB_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.BAOBAB_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BAOBAB_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("baobab_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
@@ -1571,7 +1571,7 @@ public class BWGOverworldTreeConfiguredFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> YUCCA_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.RIPE_YUCCA_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.YUCCA_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    private static final Supplier<AttachedToLeavesDecorator> YUCCA_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.RIPE_YUCCA_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.YUCCA_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> YUCCA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("yucca_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
@@ -2365,7 +2365,7 @@ public class BWGOverworldTreeConfiguredFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> APPLE_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.RIPE_ORCHARD_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.APPLE_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    private static final Supplier<AttachedToLeavesDecorator> APPLE_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.RIPE_ORCHARD_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.APPLE_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("orchard_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
@@ -2712,7 +2712,7 @@ public class BWGOverworldTreeConfiguredFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> GREEN_APPLE_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.GREEN_APPLE_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    private static final Supplier<AttachedToLeavesDecorator> GREEN_APPLE_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.GREEN_APPLE_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYRIS_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("skyris_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
@@ -3627,7 +3627,7 @@ public class BWGOverworldTreeConfiguredFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> SOUL_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.06F, 8, 8, BWGWood.FLOWERING_SPIRIT_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.SOUL_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    private static final Supplier<AttachedToLeavesDecorator> SOUL_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.06F, 8, 8, BWGWood.FLOWERING_SPIRIT_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.SOUL_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("spirit_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
