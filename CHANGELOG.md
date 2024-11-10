@@ -1,4 +1,5 @@
 # 1.4.2
+- Add Apple Fruit Decorator to Orchard Trees
 
 # 1.4.1
 - Remove Unused Code

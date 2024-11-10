@@ -2365,6 +2365,8 @@ public class BWGOverworldTreeConfiguredFeatures {
             )
     );
 
+    public static final Supplier<AttachedToLeavesDecorator> APPLE_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.RIPE_ORCHARD_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.APPLE_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("orchard_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
@@ -2379,7 +2381,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
+                    BlockTags.DIRT, 5, ImmutableList.of(APPLE_FRUIT.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("orchard_tree2",
@@ -2396,7 +2398,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
+                    BlockTags.DIRT, 5, ImmutableList.of(APPLE_FRUIT.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("orchard_tree3",
@@ -2413,7 +2415,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
+                    BlockTags.DIRT, 5, ImmutableList.of(APPLE_FRUIT.get())
             )
     );
 
@@ -2430,7 +2432,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                             .add(BWGWood.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
                     ),                    Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
+                    BlockTags.DIRT, 5, ImmutableList.of(APPLE_FRUIT.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("orchard_tree5",
@@ -2446,7 +2448,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                             .add(BWGWood.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
                     ),                    Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
+                    BlockTags.DIRT, 5, ImmutableList.of(APPLE_FRUIT.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("palm_tree1",
