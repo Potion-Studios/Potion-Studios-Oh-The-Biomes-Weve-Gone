@@ -1,3 +1,5 @@
+# 1.4.2
+
 # 1.4.1
 - Remove Unused Code
 - Update German Language File (DE_DE)
