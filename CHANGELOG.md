@@ -1,5 +1,6 @@
 # 1.4.2
 - Add Apple Fruit Decorator to Orchard Trees
+- Fix Fruit Blocks not Generating on Fruit Leaves
 
 # 1.4.1
 - Remove Unused Code

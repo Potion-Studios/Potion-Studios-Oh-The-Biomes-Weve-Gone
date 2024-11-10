@@ -8,6 +8,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,6 +25,11 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
     }
 
     @Override
+    protected boolean isRandomlyTicking(@NotNull BlockState state) {
+        return !state.getValue(PERSISTENT);
+    }
+
+    @Override
     public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         super.randomTick(state, level, pos, random);
         BlockPos fruitPos = pos.below();
@@ -36,6 +42,7 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
     }
 
     private void placeFruit(@NotNull Level level, @NotNull BlockPos pos) {
+        BiomesWeveGone.LOGGER.info("Placing fruit at {}", pos);
         level.setBlock(pos, fruitBlock.get().defaultBlockState().setValue(BWGFruitBlock.AGE, 0), 2);
     }
 

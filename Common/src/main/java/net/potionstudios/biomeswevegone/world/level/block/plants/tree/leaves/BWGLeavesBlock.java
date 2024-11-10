@@ -46,6 +46,4 @@ public class BWGLeavesBlock extends LeavesBlock {
                 }
             }
     }
-
-
 }
