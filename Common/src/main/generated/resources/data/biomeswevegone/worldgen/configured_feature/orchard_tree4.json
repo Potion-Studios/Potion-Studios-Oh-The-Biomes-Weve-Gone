@@ -10,6 +10,37 @@
       "type": "minecraft:replaceable"
     },
     "canopy_location": "biomeswevegone:features/trees/oak/large_oak_canopy1",
+    "decorators": [
+      {
+        "type": "ohthetreesyoullgrow:attached_to_fruit_leaves",
+        "block_provider": {
+          "type": "minecraft:randomized_int_state_provider",
+          "property": "age",
+          "source": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "biomeswevegone:apple_fruit",
+              "Properties": {
+                "age": "0"
+              }
+            }
+          },
+          "values": {
+            "type": "minecraft:uniform",
+            "max_inclusive": 3,
+            "min_inclusive": 0
+          }
+        },
+        "directions": [
+          "down"
+        ],
+        "exclusion_radius_xz": 2,
+        "exclusion_radius_y": 0,
+        "leaves_block": "biomeswevegone:ripe_orchard_leaves",
+        "probability": 0.1,
+        "required_empty_blocks": 2
+      }
+    ],
     "height": {
       "type": "minecraft:biased_to_bottom",
       "max_inclusive": 4,

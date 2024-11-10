@@ -1,4 +1,5 @@
 # 2.2.3
+- Add Apple Fruit Decorator to Orchard Trees
 
 # 2.2.2
 - Remove unneeded BWGPumpkin Class
