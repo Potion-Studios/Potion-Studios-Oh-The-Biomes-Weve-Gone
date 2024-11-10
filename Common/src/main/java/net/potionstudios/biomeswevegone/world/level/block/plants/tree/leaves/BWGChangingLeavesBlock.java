@@ -54,7 +54,7 @@ public class BWGChangingLeavesBlock extends BWGLeavesBlock implements Bonemealab
 
     @Override
     public boolean isBonemealSuccess(@NotNull Level level, RandomSource randomSource, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
-        return randomSource.nextFloat() < 0.5F;
+        return randomSource.nextBoolean();
     }
 
     @Override
