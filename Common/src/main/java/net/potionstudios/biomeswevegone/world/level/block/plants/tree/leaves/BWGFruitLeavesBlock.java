@@ -25,7 +25,7 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
     }
 
     @Override
-    protected boolean isRandomlyTicking(@NotNull BlockState state) {
+    public boolean isRandomlyTicking(@NotNull BlockState state) {
         return !state.getValue(PERSISTENT);
     }
 
