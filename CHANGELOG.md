@@ -5,6 +5,7 @@
 - Remove Bonemeal interactions between Fruit Leaves and Fruit Block
 - Make Fruit Leaves only valid bonemeal targets when there is air below the block
 - Make it so Flowering Leaves can't be bonemealed if placed by player
+- Update Ukrainian Language File
 
 # 1.4.1
 - Remove Unused Code
