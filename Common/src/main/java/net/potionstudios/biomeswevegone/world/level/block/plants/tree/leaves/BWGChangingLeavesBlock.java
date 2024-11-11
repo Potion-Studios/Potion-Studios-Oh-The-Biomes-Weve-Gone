@@ -49,7 +49,7 @@ public class BWGChangingLeavesBlock extends BWGLeavesBlock implements Bonemealab
 
     @Override
     public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
-        return true;
+        return !state.getValue(PERSISTENT);
     }
 
     @Override

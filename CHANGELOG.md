@@ -5,6 +5,7 @@
 - Update Ukrainian Language File
 - Remove Bonemeal interactions between Fruit Leaves and Fruit Block
 - Make Fruit Leaves only valid bonemeal targets when there is air below the block
+- Make it so Flowering Leaves can't be bonemealed if placed by player
 
 # 2.2.2
 - Remove unneeded BWGPumpkin Class
