@@ -8,7 +8,6 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
 import org.jetbrains.annotations.NotNull;
 
@@ -42,27 +41,21 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
     }
 
     private void placeFruit(@NotNull Level level, @NotNull BlockPos pos) {
-        BiomesWeveGone.LOGGER.info("Placing fruit at {}", pos);
         level.setBlock(pos, fruitBlock.get().defaultBlockState().setValue(BWGFruitBlock.AGE, 0), 2);
     }
 
     @Override
     public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
-        return !state.getValue(PERSISTENT);
+        return !state.getValue(PERSISTENT) && level.getBlockState(pos.below()).isAir();
     }
 
     @Override
     public boolean isBonemealSuccess(@NotNull Level level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
-        BlockState below = level.getBlockState(pos.below());
-            if (below.isAir() || below.is(fruitBlock.get()) && below.getValue(BWGFruitBlock.AGE) < 3)
-                return random.nextBoolean();
-        return false;
+        return random.nextBoolean();
     }
 
     @Override
     public void performBonemeal(@NotNull ServerLevel level, @NotNull RandomSource random, BlockPos pos, @NotNull BlockState state) {
-        BlockState below = level.getBlockState(pos.below());
-        if (below.isAir()) placeFruit(level, pos.below());
-        else if (below.is(fruitBlock.get())) level.setBlock(pos.below(), below.cycle(BWGFruitBlock.AGE), 2);
+        placeFruit(level, pos.below());
     }
 }

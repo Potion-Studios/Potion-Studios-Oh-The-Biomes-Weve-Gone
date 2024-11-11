@@ -2,6 +2,8 @@
 - Add Apple Fruit Decorator to Orchard Trees
 - Fix Fruit Blocks not Generating on Fruit Leaves
 - Decrease Yucca Tree NBTTemplates File Size
+- Remove Bonemeal interactions between Fruit Leaves and Fruit Block
+- Make Fruit Leaves only valid bonemeal targets when there is air below the block
 
 # 1.4.1
 - Remove Unused Code
