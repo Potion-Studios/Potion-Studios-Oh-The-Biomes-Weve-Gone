@@ -3,6 +3,8 @@
 - Make AttachedToLeavesDecorators private
 - Fix Fruit Blocks not Generating on Fruit Leaves
 - Update Ukrainian Language File
+- Remove Bonemeal interactions between Fruit Leaves and Fruit Block
+- Make Fruit Leaves only valid bonemeal targets when there is air below the block
 
 # 2.2.2
 - Remove unneeded BWGPumpkin Class
