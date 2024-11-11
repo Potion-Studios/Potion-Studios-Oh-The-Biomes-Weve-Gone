@@ -1,9 +1,12 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit;
 
 import com.google.common.base.Suppliers;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -37,6 +40,12 @@ import java.util.function.Supplier;
 
 public class BWGFruitBlock extends Block implements BonemealableBlock {
 
+    public static final MapCodec<BWGFruitBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            propertiesCodec(),
+            ResourceLocation.CODEC.fieldOf("fruit").forGetter(item -> BuiltInRegistries.ITEM.getKey(item.fruit.get().get())),
+            ResourceLocation.CODEC.fieldOf("leaves").forGetter(block -> BuiltInRegistries.BLOCK.getKey(block.leaves.get()))
+    ).apply(instance, BWGFruitBlock::new));
+
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
     public static final int MAX_AGE = 3;
 
@@ -57,8 +66,17 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
+    private BWGFruitBlock(Properties properties, ResourceLocation fruitLocation, ResourceLocation leavesLocation) {
+        this(properties, Suppliers.memoize(() -> () -> BuiltInRegistries.ITEM.get(fruitLocation)), Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.get(leavesLocation)));
+    }
+
     public BWGFruitBlock(Supplier<Supplier<Item>> fruit, String leaves) {
         this(Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH), fruit, leaves);
+    }
+
+    @Override
+    protected @NotNull MapCodec<? extends Block> codec() {
+        return CODEC;
     }
 
     @Override
