@@ -2,6 +2,7 @@
 - Add Apple Fruit Decorator to Orchard Trees
 - Make AttachedToLeavesDecorators private
 - Fix Fruit Blocks not Generating on Fruit Leaves
+- Update Ukrainian Language File
 
 # 2.2.2
 - Remove unneeded BWGPumpkin Class
