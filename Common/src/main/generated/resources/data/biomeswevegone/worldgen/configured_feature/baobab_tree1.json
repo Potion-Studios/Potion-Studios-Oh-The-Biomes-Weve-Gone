@@ -1,7 +1,7 @@
 {
   "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
   "config": {
-    "base_location": "biomeswevegone:features/trees/baobab/baobab_tree_trunk1",
+    "base_location": "biomeswevegone:features/trees/baobab/baobab_trunk1",
     "can_grow_on_filter": {
       "type": "minecraft:matching_block_tag",
       "tag": "minecraft:dirt"
@@ -9,7 +9,7 @@
     "can_leaves_place_filter": {
       "type": "minecraft:replaceable"
     },
-    "canopy_location": "biomeswevegone:features/trees/baobab/baobab_tree_canopy1",
+    "canopy_location": "biomeswevegone:features/trees/baobab/baobab_canopy1",
     "decorators": [
       {
         "type": "ohthetreesyoullgrow:attached_to_fruit_leaves",
