@@ -25,7 +25,7 @@
   "biome.biomeswevegone.frosted_coniferous_forest": "寒霜针叶林",
   "biome.biomeswevegone.frosted_taiga": "覆雪的针叶林",
   "biome.biomeswevegone.howling_peaks": "呼啸山巅",
-  "biome.biomeswevegone.ironwood_gour": "硬木蘑菇石交错带",
+  "biome.biomeswevegone.ironwood_gour": "铁色木蘑菇石交错带",
   "biome.biomeswevegone.jacaranda_jungle": "蓝花楹丛林",
   "biome.biomeswevegone.maple_taiga": "枫叶针叶林",
   "biome.biomeswevegone.mojave_desert": "莫哈韦沙漠",
@@ -1014,6 +1014,8 @@
   "advancements.biomeswevegone.adventure.oh_the_biomes_weve_gone.title": "我们走过的生物群系",
   "advancements.biomeswevegone.adventure.root.description": "我们走过的生物群系冒险体系",
   "advancements.biomeswevegone.adventure.root.title": "冒险",
+  "advancements.biomeswevegone.adventure.forgotten_fae.description": "找到名为《精灵俱乐部》的唱片",
+  "advancements.biomeswevegone.adventure.forgotten_fae.title": "被遗忘的仙境",
   "biome.biomeswevegone.overgrowth_woodlands": "繁茂林地",
   "block.biomeswevegone.sandy_dirt": "沙质土",
   "block.biomeswevegone.sandy_dirt_path": "沙质土土径",
@@ -1026,8 +1028,8 @@
   "advancements.biomeswevegone.husbandry.hot_diggity_not_dog.title": "热狗不是狗！",
   "advancements.biomeswevegone.husbandry.johnny_appleseed.description": "收集到三种苹果",
   "advancements.biomeswevegone.husbandry.johnny_appleseed.title": "先锋人士",
-  "subtitles.entity.oddion_ambient": "奇异洋葱咕噜",
-  "subtitles.entity.oddion_death": "奇异洋葱死亡",
-  "subtitles.entity.oddion_happy": "奇异洋葱欣喜",
-  "subtitles.entity.oddion_hurt": "奇异洋葱受伤"
+  "subtitles.entity.oddion_ambient": "奇异洋葱：咕噜",
+  "subtitles.entity.oddion_death": "奇异洋葱：死亡",
+  "subtitles.entity.oddion_happy": "奇异洋葱：欣喜",
+  "subtitles.entity.oddion_hurt": "奇异洋葱：受伤"
 }
