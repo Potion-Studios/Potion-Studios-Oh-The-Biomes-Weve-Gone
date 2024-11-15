@@ -111,6 +111,10 @@ public class VanillaCompatForge {
             event.setCanceled(true);
     }
 
+    /**
+     * Handle bone meal use.
+     * @see BonemealEvent
+     */
     private static void onBoneMealUse(final BonemealEvent event) {
         if (event.getLevel().isClientSide()) return;
         ServerLevel level = (ServerLevel) event.getLevel();
@@ -144,7 +148,7 @@ public class VanillaCompatForge {
 
                         holder = ((RandomPatchConfiguration) list.getFirst().config()).feature();
                     } else {
-                        if (!optional.isPresent()) continue;
+                        if (optional.isEmpty()) continue;
                         holder = optional.get();
                     }
 

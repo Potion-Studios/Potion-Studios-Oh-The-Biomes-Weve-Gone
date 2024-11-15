@@ -64,16 +64,11 @@ public abstract class PrairieGrassMixin extends SpreadingSnowyDirtBlock implemen
                     Holder<PlacedFeature> holder;
                     if (random.nextInt(8) == 0) {
                         List<ConfiguredFeature<?, ?>> list = level.getBiome(blockPos2).value().getGenerationSettings().getFlowerFeatures();
-                        if (list.isEmpty()) {
-                            continue;
-                        }
+                        if (list.isEmpty()) continue;
 
                         holder = ((RandomPatchConfiguration) list.getFirst().config()).feature();
                     } else {
-                        if (!optional.isPresent()) {
-                            continue;
-                        }
-
+                        if (optional.isEmpty()) continue;
                         holder = optional.get();
                     }
 
