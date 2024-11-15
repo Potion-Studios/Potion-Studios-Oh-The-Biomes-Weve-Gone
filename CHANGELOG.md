@@ -1,4 +1,6 @@
 # 1.4.3
+- Fix White Mangrove Trees Canopies Floating above trunks
+- Decrease White Mangrove Tree File Sizes and Rename
 
 # 1.4.2
 - Add Apple Fruit Decorator to Orchard Trees
