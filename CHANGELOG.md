@@ -4,6 +4,7 @@
 - Update Simplified Chinese (zh_cn) Translations (Credits: Crown-Fairy)
 - Bonemealing Grass Blocks in Allium Shrubland gives chance of any color Alliums and Allium Bushes to grow
 - Add Japanese Translations (ja_jp) (Credits: Abbage230)
+- Decrease Giant Allium File Sizes
 
 # 2.2.3
 - Add Apple Fruit Decorator to Orchard Trees

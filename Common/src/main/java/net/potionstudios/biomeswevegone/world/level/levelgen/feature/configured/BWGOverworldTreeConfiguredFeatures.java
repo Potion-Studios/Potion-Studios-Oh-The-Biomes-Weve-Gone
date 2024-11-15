@@ -3854,7 +3854,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.FLORUS.logstem()),
                     BlockStateProvider.simple(BWGBlocks.ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
+                    Blocks.STONE,
                     BlockTags.DIRT, 5
             )
     );
@@ -3868,7 +3868,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.FLORUS.logstem()),
                     BlockStateProvider.simple(BWGBlocks.ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
+                    Blocks.STONE,
                     BlockTags.DIRT, 5
             )
     );
@@ -3882,7 +3882,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.FLORUS.logstem()),
                     BlockStateProvider.simple(BWGBlocks.ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
+                    Blocks.STONE,
                     BlockTags.DIRT, 5
             )
     );
@@ -3896,7 +3896,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.FLORUS.logstem()),
                     BlockStateProvider.simple(BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
+                    Blocks.STONE,
                     BlockTags.DIRT, 5
             )
     );
@@ -3910,7 +3910,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.FLORUS.logstem()),
                     BlockStateProvider.simple(BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
+                    Blocks.STONE,
                     BlockTags.DIRT, 5
             )
     );
@@ -3924,7 +3924,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.FLORUS.logstem()),
                     BlockStateProvider.simple(BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
+                    Blocks.STONE,
                     BlockTags.DIRT, 5
             )
     );
@@ -3938,7 +3938,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.FLORUS.logstem()),
                     BlockStateProvider.simple(BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
+                    Blocks.STONE,
                     BlockTags.DIRT, 5
             )
     );
@@ -3952,7 +3952,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.FLORUS.logstem()),
                     BlockStateProvider.simple(BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
+                    Blocks.STONE,
                     BlockTags.DIRT, 5
             )
     );
@@ -3966,7 +3966,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.FLORUS.logstem()),
                     BlockStateProvider.simple(BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
+                    Blocks.STONE,
                     BlockTags.DIRT, 5
             )
     );
