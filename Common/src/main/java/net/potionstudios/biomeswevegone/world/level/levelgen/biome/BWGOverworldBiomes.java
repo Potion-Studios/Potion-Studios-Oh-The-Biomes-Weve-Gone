@@ -1249,6 +1249,7 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addLushBlueBerryBush(generationSettings);
         BWGOverworldDefaultFeatures.addWinterSucculent(generationSettings);
         BWGOverworldDefaultFeatures.addWinterCyclamen(generationSettings);
+        BWGOverworldDefaultFeatures.addSnowdrops(generationSettings);
         BWGOverworldDefaultFeatures.addWinterScilla(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
@@ -1312,6 +1313,8 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addLushBlueBerryBush(generationSettings);
         BWGOverworldDefaultFeatures.addAnemones(generationSettings);
         BWGOverworldDefaultFeatures.addCrocus(generationSettings);
+        BWGOverworldDefaultFeatures.addWinterCyclamen(generationSettings);
+        BWGOverworldDefaultFeatures.addSnowdrops(generationSettings);
         BWGOverworldDefaultFeatures.addRockyStoneBoulder(generationSettings);
         BWGOverworldDefaultFeatures.addWhitePuffball(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
@@ -1347,6 +1350,7 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.FRAGMENT_JUNGLE_TREES);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.RAINFOREST_TREES);
         BWGOverworldDefaultFeatures.addBWGTropicFlowers(generationSettings);
+        BWGOverworldDefaultFeatures.addProteaFlowers(generationSettings);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.JUNGLE_FLOWERS_PILLAR);
 
         BWGOverworldDefaultFeatures.addMossyStoneBoulder(generationSettings);

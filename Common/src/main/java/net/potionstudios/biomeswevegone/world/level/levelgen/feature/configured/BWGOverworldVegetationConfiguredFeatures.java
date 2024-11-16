@@ -50,6 +50,9 @@ public class BWGOverworldVegetationConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WINTER_ROSE = createFlowerConfiguredFeature("winter_rose", () -> BWGBlocks.WINTER_ROSE.getBlockSupplier().get());
     public static final ResourceKey<ConfiguredFeature<?, ?>> WINTER_SCILLA = createFlowerConfiguredFeature("winter_scilla", () -> BWGBlocks.WINTER_SCILLA.getBlockSupplier().get());
     public static final ResourceKey<ConfiguredFeature<?, ?>> WINTER_CYCLAMEN = createFlowerConfiguredFeature("winter_cyclamen", () -> BWGBlocks.WINTER_CYCLAMEN.getBlockSupplier().get());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SNOWDROPS = createFlowerConfiguredFeature("snowdrops", () -> BWGBlocks.SNOWDROPS.getBlockSupplier().get());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PROTEA_FLOWER = createFlowerConfiguredFeature("protea_flower", () -> BWGBlocks.PROTEA_FLOWER.getBlockSupplier().get());
+
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSE_FIELD_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("rose_field_flowers",
             Feature.RANDOM_SELECTOR,
