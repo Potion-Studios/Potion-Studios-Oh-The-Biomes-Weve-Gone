@@ -79,6 +79,8 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> WINTER_SUCCULENT = createWorldSurfaceSquared("winter_succulent", BWGBlocks.WINTER_SUCCULENT.getFeature(), 2);
     public static final ResourceKey<PlacedFeature> WINTER_SCILLA = createWorldSurfaceSquared("winter_scilla", BWGOverworldVegetationConfiguredFeatures.WINTER_SCILLA, 2);
     public static final ResourceKey<PlacedFeature> WINTER_CYCLAMEN = createWorldSurfaceSquared("winter_cyclamen", BWGOverworldVegetationConfiguredFeatures.WINTER_CYCLAMEN, 1);
+    public static final ResourceKey<PlacedFeature> SNOWDROPS = createWorldSurfaceSquared("snowdrops", BWGOverworldVegetationConfiguredFeatures.SNOWDROPS, 1);
+    public static final ResourceKey<PlacedFeature> PROTEA_FLOWER = createWorldSurfaceSquared("protea_flower", BWGOverworldVegetationConfiguredFeatures.PROTEA_FLOWER, 1);
 
     public static final ResourceKey<PlacedFeature> SAGES = createWorldSurfaceSquared("sages", BWGOverworldVegetationConfiguredFeatures.SAGES, 1);
     public static final ResourceKey<PlacedFeature> JUNGLE_FLOWERS = createWorldSurfaceSquared("jungle_flowers", BWGOverworldVegetationConfiguredFeatures.JUNGLE_FLOWERS, 1);

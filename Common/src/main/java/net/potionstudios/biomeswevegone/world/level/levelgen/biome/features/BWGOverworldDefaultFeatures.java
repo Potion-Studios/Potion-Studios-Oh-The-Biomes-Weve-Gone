@@ -116,6 +116,14 @@ public class BWGOverworldDefaultFeatures {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.WINTER_CYCLAMEN);
     }
 
+    public static void addSnowdrops(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.SNOWDROPS);
+    }
+
+    public static void addProteaFlowers(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.PROTEA_FLOWER);
+    }
+
     public static void addWinterSucculent(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.WINTER_SUCCULENT);
     }
