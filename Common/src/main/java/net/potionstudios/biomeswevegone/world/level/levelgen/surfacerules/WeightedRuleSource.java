@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public record WeightedRuleSource(SimpleWeightedRandomList<SurfaceRules.RuleSource> ruleSources) implements SurfaceRules.RuleSource {
 
-	public static KeyDispatchDataCodec<WeightedRuleSource> CODEC = KeyDispatchDataCodec.of(RecordCodecBuilder.mapCodec(builder ->
+	public static final KeyDispatchDataCodec<WeightedRuleSource> CODEC = KeyDispatchDataCodec.of(RecordCodecBuilder.mapCodec(builder ->
 			builder.group(
 					SimpleWeightedRandomList.wrappedCodec(SurfaceRules.RuleSource.CODEC).fieldOf("provider").forGetter(WeightedRuleSource::ruleSources)
 			).apply(builder, WeightedRuleSource::new)));
