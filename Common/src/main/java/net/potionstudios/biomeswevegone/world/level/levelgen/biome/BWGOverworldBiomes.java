@@ -735,8 +735,8 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addHugeMushrooms(generationSettings);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
-        BiomeDefaultFeatures.addLightBambooVegetation(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+        BiomeDefaultFeatures.addLightBambooVegetation(generationSettings);
         BiomeDefaultFeatures.addSparseJungleTrees(generationSettings);
         BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
