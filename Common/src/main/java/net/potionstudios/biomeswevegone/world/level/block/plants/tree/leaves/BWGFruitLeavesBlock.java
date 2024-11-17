@@ -3,11 +3,15 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.tree.leaves;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
 import org.jetbrains.annotations.NotNull;
 
@@ -42,6 +46,16 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
 
     private void placeFruit(@NotNull Level level, @NotNull BlockPos pos) {
         level.setBlock(pos, fruitBlock.get().defaultBlockState().setValue(BWGFruitBlock.AGE, 0), 2);
+    }
+
+    @Override
+    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
+        if (player.isCreative() && !level.isClientSide())
+            if (player.getItemInHand(hand).is(fruitBlock.get().getFruit()) && level.getBlockState(pos.below()).isAir()) {
+                placeFruit(level, pos.below());
+                return InteractionResult.SUCCESS;
+            }
+        return super.use(state, level, pos, player, hand, hit);
     }
 
     @Override
