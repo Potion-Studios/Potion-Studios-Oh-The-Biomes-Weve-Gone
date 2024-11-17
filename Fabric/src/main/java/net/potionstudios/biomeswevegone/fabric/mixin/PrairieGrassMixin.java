@@ -37,7 +37,7 @@ public abstract class PrairieGrassMixin extends SpreadingSnowyDirtBlock implemen
             if (level.getBiome(pos).is(BWGBiomes.PRAIRIE))
                 cancel = BoneMealHandler.grassBoneMealHandler(level, pos.above(), BWGBlocks.PRAIRIE_GRASS.get(), BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_BONEMEAL, false);
             else if (level.getBiome(pos).is(BWGBiomes.ALLIUM_SHRUBLAND))
-                cancel = BoneMealHandler.grassBoneMealHandler(level, pos.above(), Blocks.SHORT_GRASS, VegetationPlacements.GRASS_BONEMEAL, true);
+                cancel = BoneMealHandler.grassBoneMealHandler(level, pos.above(), Blocks.GRASS, VegetationPlacements.GRASS_BONEMEAL, true);
         if (cancel)
             ci.cancel();
     }
