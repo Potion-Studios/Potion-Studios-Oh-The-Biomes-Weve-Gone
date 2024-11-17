@@ -10,6 +10,7 @@
 - Add Winter Cyclamen to Howling Peaks
 - Add Protea to Fragment Jungle
 - Hitting Fruit Blocks with a Projectile will now cause the block to break with the fruit dropping if it is fully grown
+- Fix Incompatibily with Organics Mod. Closes #164
 
 
 # 1.4.2
