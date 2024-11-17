@@ -11,6 +11,7 @@
 - Add Protea to Fragment Jungle
 - Hitting Fruit Blocks with a Projectile will now cause the block to break with the fruit dropping if it is fully grown
 - Fix Incompatibily with Organics Mod
+- Clicking on Fruit Leaves with Fruit Item in creative will now place the fruit block below the leaves (Assuming there is air below)
 
 # 2.2.3
 - Add Apple Fruit Decorator to Orchard Trees
