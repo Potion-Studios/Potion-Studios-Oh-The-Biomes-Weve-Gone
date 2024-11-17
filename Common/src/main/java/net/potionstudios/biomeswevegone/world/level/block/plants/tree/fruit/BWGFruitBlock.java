@@ -15,7 +15,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -77,14 +76,13 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
     public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
         boolean maxAge = state.getValue(AGE) == MAX_AGE;
 
-        if (!maxAge && player.getItemInHand(hand).is(Items.BONE_MEAL))
-            return InteractionResult.PASS;
-
         if (maxAge) {
             popResource(level, pos, this.fruit.get().get().getDefaultInstance());
             level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             level.setBlock(pos, state.setValue(AGE, 0), 2);
-
+            return InteractionResult.sidedSuccess(level.isClientSide());
+        } else if (player.isCreative() && player.getItemInHand(hand).is(getFruit())) {
+            level.setBlock(pos, state.setValue(AGE, state.getValue(AGE) + 1), 2);
             return InteractionResult.sidedSuccess(level.isClientSide());
         }
 
@@ -124,8 +122,8 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, @NotNull RandomSource random, @NotNull BlockPos pos, BlockState state) {
-        level.setBlock(pos, state.setValue(AGE, Math.min(MAX_AGE, state.getValue(AGE) + 1)), 2);
+    public void performBonemeal(@NotNull ServerLevel level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
+        level.setBlock(pos, state.setValue(AGE, state.getValue(AGE) + 1), 2);
     }
 
     @Override

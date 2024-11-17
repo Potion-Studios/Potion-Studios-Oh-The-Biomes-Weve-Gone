@@ -12,7 +12,7 @@
 - Hitting Fruit Blocks with a Projectile will now cause the block to break with the fruit dropping if it is fully grown
 - Fix Incompatibily with Organics Mod
 - Clicking on Fruit Leaves with Fruit Item in creative will now place the fruit block below the leaves (Assuming there is air below)
-
+- Clicking on Fruit with Fruit Item in creative will now Age the Fruit Block
 
 # 1.4.2
 - Add Apple Fruit Decorator to Orchard Trees
