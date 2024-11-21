@@ -106,7 +106,6 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
         this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 2.0F));
         this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.BONE_MEAL), false));
-        super.registerGoals();
     }
 
     @Override

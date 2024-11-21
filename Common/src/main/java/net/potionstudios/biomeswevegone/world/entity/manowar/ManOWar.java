@@ -169,7 +169,6 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     @Override
     protected void registerGoals() {
-        super.registerGoals();
         this.goalSelector.addGoal(1, new TryFindWaterGoal(this));
         this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, Player.class, 8.0F, 1.0D, 1.0D));
         this.goalSelector.addGoal(2, new ManOWarRandomMovementGoal(this));
@@ -196,14 +195,14 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     @Override
-    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+    public @NotNull SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
         spawnGroupData = super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
         if (spawnType == MobSpawnType.BUCKET) {
             this.setBaby(true);
             return spawnGroupData;
         }
         this.setColor(getRandColor(random));
-        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+        return spawnGroupData;
     }
 
     @Nullable

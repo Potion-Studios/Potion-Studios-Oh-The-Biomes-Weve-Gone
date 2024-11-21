@@ -111,7 +111,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         this.goalSelector.addGoal(2, new PumpkinWardenTakeBlockGoal(this, 1, 32, 5));
         this.goalSelector.addGoal(5, new StayByBellGoal(this, 1, 5000));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        super.registerGoals();
     }
 
     @Override
