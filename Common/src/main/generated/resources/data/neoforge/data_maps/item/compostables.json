@@ -154,6 +154,10 @@
       "can_villager_compost": true,
       "chance": 0.5
     },
+    "biomeswevegone:carved_pale_pumpkin": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
     "biomeswevegone:cika_leaves": {
       "can_villager_compost": true,
       "chance": 0.3
@@ -481,6 +485,18 @@
     "biomeswevegone:osiria_rose": {
       "can_villager_compost": true,
       "chance": 0.65
+    },
+    "biomeswevegone:pale_jack_o_lantern": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:pale_pumpkin": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:pale_pumpkin_seeds": {
+      "can_villager_compost": true,
+      "chance": 0.3
     },
     "biomeswevegone:palm_leaves": {
       "can_villager_compost": true,

@@ -29,9 +29,8 @@ public class BlockFeatures {
                 consumer.accept(block, 0.3F);
             else if (block instanceof VineBlock || block instanceof DesertPlantBlock || block instanceof BWGCactusBlock)
                 consumer.accept(block, 0.5F);
-            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock || block instanceof FlatVegetationBlock || block instanceof BWGPlacementBushBlock)
+            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock || block instanceof FlatVegetationBlock || block instanceof BWGPlacementBushBlock || block instanceof PumpkinBlock || block instanceof CarvedPumpkinBlock)
                 consumer.accept(block, 0.65F);
-
         });
 
         BWGWood.WOOD.forEach(entry -> {
@@ -40,6 +39,7 @@ public class BlockFeatures {
         });
 
         BWGItems.ITEMS.stream().filter(item -> item.get().components().has(DataComponents.FOOD)).forEach(item -> consumer.accept(item.get(), 0.85F));
+        consumer.accept(BWGItems.PALE_PUMPKIN_SEEDS.get(), 0.3F);
     }
 
     /**
