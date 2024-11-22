@@ -98,6 +98,10 @@
       "can_villager_compost": true,
       "chance": 0.3
     },
+    "biomeswevegone:blue_glowcane_shoot": {
+      "can_villager_compost": true,
+      "chance": 0.5
+    },
     "biomeswevegone:blue_rose_bush": {
       "can_villager_compost": true,
       "chance": 0.65
@@ -317,6 +321,10 @@
     "biomeswevegone:green_enchanted_sapling": {
       "can_villager_compost": true,
       "chance": 0.3
+    },
+    "biomeswevegone:green_glowcane_shoot": {
+      "can_villager_compost": true,
+      "chance": 0.5
     },
     "biomeswevegone:green_mushroom": {
       "can_villager_compost": true,
@@ -586,6 +594,10 @@
       "can_villager_compost": true,
       "chance": 0.3
     },
+    "biomeswevegone:red_glowcane_shoot": {
+      "can_villager_compost": true,
+      "chance": 0.5
+    },
     "biomeswevegone:red_maple_leaves": {
       "can_villager_compost": true,
       "chance": 0.3
@@ -801,6 +813,10 @@
     "biomeswevegone:yellow_daffodil": {
       "can_villager_compost": true,
       "chance": 0.65
+    },
+    "biomeswevegone:yellow_glowcane_shoot": {
+      "can_villager_compost": true,
+      "chance": 0.5
     },
     "biomeswevegone:yellow_sakura_leaves": {
       "can_villager_compost": true,

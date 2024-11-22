@@ -40,6 +40,10 @@ public class BlockFeatures {
 
         BWGItems.ITEMS.stream().filter(item -> item.get().components().has(DataComponents.FOOD)).forEach(item -> consumer.accept(item.get(), 0.85F));
         consumer.accept(BWGItems.PALE_PUMPKIN_SEEDS.get(), 0.3F);
+        consumer.accept(BWGItems.BLUE_GLOWCANE_SHOOT.get(), 0.5f);
+        consumer.accept(BWGItems.GREEN_GLOWCANE_SHOOT.get(), 0.5f);
+        consumer.accept(BWGItems.RED_GLOWCANE_SHOOT.get(), 0.5f);
+        consumer.accept(BWGItems.YELLOW_GLOWCANE_SHOOT.get(), 0.5f);
     }
 
     /**
