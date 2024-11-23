@@ -44,6 +44,8 @@ public class BlockFeatures {
         consumer.accept(BWGItems.GREEN_GLOWCANE_SHOOT.get(), 0.5f);
         consumer.accept(BWGItems.RED_GLOWCANE_SHOOT.get(), 0.5f);
         consumer.accept(BWGItems.YELLOW_GLOWCANE_SHOOT.get(), 0.5f);
+        consumer.accept(BWGItems.CATTAIL_SPROUT.get(), 0.5f);
+        consumer.accept(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(), 0.5f);
     }
 
     /**

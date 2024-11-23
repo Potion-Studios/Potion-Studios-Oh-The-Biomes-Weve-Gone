@@ -162,6 +162,10 @@
       "can_villager_compost": true,
       "chance": 0.65
     },
+    "biomeswevegone:cattail_sprout": {
+      "can_villager_compost": true,
+      "chance": 0.5
+    },
     "biomeswevegone:cika_leaves": {
       "can_villager_compost": true,
       "chance": 0.3
@@ -293,6 +297,10 @@
     "biomeswevegone:flowering_yucca_leaves": {
       "can_villager_compost": true,
       "chance": 0.3
+    },
+    "biomeswevegone:fluorescent_cattail_sprout": {
+      "can_villager_compost": true,
+      "chance": 0.5
     },
     "biomeswevegone:foxglove": {
       "can_villager_compost": true,

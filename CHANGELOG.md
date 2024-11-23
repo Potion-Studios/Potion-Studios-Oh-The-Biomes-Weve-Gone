@@ -1,6 +1,7 @@
 # 2.2.5
 - Make Pale Pumpkin Set Compostable
 - Make GlowCane Shoots Compostable
+- Make Cattail Sprouts Compostable
 
 # 2.2.4
 - Fix White Mangrove Trees Canopies Floating above trunks
