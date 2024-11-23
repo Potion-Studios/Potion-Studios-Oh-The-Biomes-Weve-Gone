@@ -1,4 +1,5 @@
 # 1.4.4
+- Add Russian Translations (ru_ru) (Credits: j-tap)
 
 # 1.4.3
 - Fix White Mangrove Trees Canopies Floating above trunks
