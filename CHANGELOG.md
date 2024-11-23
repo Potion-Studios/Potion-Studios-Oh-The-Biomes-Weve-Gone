@@ -1,5 +1,6 @@
 # 1.4.4
 - Add Russian Translations (ru_ru) (Credits: j-tap)
+- Make Cattail Sprout Compostable
 
 # 1.4.3
 - Fix White Mangrove Trees Canopies Floating above trunks

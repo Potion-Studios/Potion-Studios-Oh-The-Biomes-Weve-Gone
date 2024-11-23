@@ -39,6 +39,7 @@ public class BlockFeatures {
         });
 
         BWGItems.ITEMS.stream().filter(item -> item.get().isEdible()).forEach(item -> consumer.accept(item.get(), 0.85F));
+        consumer.accept(BWGItems.CATTAIL_SPROUT.get(), 0.5F);
     }
 
     /**
