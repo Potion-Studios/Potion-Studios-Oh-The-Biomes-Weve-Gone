@@ -162,6 +162,19 @@ public class TagsGenerator {
             tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
             tag(BlockTags.REPLACEABLE).add(BWGBlocks.PRAIRIE_GRASS.get(), BWGBlocks.TALL_PRAIRIE_GRASS.get(), BWGBlocks.BEACH_GRASS.get(), BWGBlocks.TALL_BEACH_GRASS.get(), BWGBlocks.SKYRIS_VINE.get());
             tag(BlockTags.SAND).add(BWGBlocks.SANDY_DIRT.get(), BWGBlocks.CRACKED_SAND.get());
+
+            // Entity Integration Tags
+            tag(BlockTags.ANIMALS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.PEAT.get());
+            tag(BlockTags.FROGS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get());
+            tag(BlockTags.PARROTS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get());
+            tag(BlockTags.POLAR_BEARS_SPAWNABLE_ON_ALTERNATE).add(BWGBlocks.BLACK_ICE.get(), BWGBlocks.BOREALIS_ICE.get());
+            tag(BlockTags.RABBITS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.RED_ROCK_SET.getBase());
+            tag(BlockTags.FOXES_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PODZOL_DACITE.get());
+            tag(BlockTags.WOLVES_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PODZOL_DACITE.get());
+
+            tag(BlockTags.FROG_PREFER_JUMP_TO).add(BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.TINY_LILY_PADS.get());
+            tag(BlockTags.SNAPS_GOAT_HORN).add(BWGBlocks.PACKED_BLACK_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
+
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
 

@@ -1,6 +1,8 @@
 # 1.4.4
 - Add Russian Translations (ru_ru) (Credits: j-tap)
 - Make Cattail Sprout Compostable
+- Fix Animals not spawning in BWG Biomes due to missing block tags
+- Add Goats to Howling Peaks
 
 # 1.4.3
 - Fix White Mangrove Trees Canopies Floating above trunks
