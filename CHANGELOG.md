@@ -2,6 +2,9 @@
 - Make Pale Pumpkin Set Compostable
 - Make GlowCane Shoots Compostable
 - Make Cattail Sprouts Compostable
+- Fix Animals not spawning in BWG Biomes due to missing block tags
+- Add Goats to Howling Peaks
+- Add Armadillos to Araucaria, Baobab Savannas, Ironwood Gour and Red Rock Valley
 
 # 2.2.4
 - Fix White Mangrove Trees Canopies Floating above trunks

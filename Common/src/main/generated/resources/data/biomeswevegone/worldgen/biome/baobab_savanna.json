@@ -139,6 +139,12 @@
         "maxCount": 4,
         "minCount": 3,
         "weight": 1
+      },
+      {
+        "type": "minecraft:armadillo",
+        "maxCount": 3,
+        "minCount": 2,
+        "weight": 10
       }
     ],
     "misc": [],

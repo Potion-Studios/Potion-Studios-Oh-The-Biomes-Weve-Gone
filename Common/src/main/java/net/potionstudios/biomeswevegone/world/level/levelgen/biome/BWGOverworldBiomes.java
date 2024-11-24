@@ -116,6 +116,7 @@ class BWGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.plainsSpawns(spawnSettings);
         addSpawn(spawnSettings, EntityType.LLAMA, 1, 3, 4);
+        addSpawn(spawnSettings, EntityType.ARMADILLO, 10, 2, 3);
 
         float temperature = 1.2F;
         return new Biome.BiomeBuilder().hasPrecipitation(false).temperature(temperature).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10860373).foliageColorOverride(10860373).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
@@ -191,6 +192,7 @@ class BWGOverworldBiomes {
         addSpawn(spawnSettings, EntityType.HORSE, 1, 2, 6);
         addSpawn(spawnSettings, EntityType.DONKEY, 1, 1, 1);
         addSpawn(spawnSettings, EntityType.LLAMA, 1, 3, 4);
+        addSpawn(spawnSettings, EntityType.ARMADILLO, 10, 2, 3);
 
         float temperature = 1.2F;
         return new Biome.BiomeBuilder().hasPrecipitation(false).temperature(temperature).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10860373).foliageColorOverride(10860373).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
@@ -1056,6 +1058,7 @@ class BWGOverworldBiomes {
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         addSpawn(spawnSettings, EntityType.RABBIT, 4, 2, 3);
+        addSpawn(spawnSettings, EntityType.ARMADILLO, 10, 2, 3);
         addSpawn(spawnSettings, EntityType.BAT, 10, 8, 8);
         addSpawn(spawnSettings, EntityType.SPIDER, 100, 4, 4);
         addSpawn(spawnSettings, EntityType.HUSK, 95, 4, 4);
@@ -1257,7 +1260,6 @@ class BWGOverworldBiomes {
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.1F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10855786).foliageColorOverride(10855786).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    //TODO: Configure properties
     protected static Biome ironwoodGour(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 
@@ -1277,6 +1279,7 @@ class BWGOverworldBiomes {
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         addSpawn(spawnSettings, EntityType.RABBIT, 4, 2, 3);
+        addSpawn(spawnSettings, EntityType.ARMADILLO, 10, 2, 3);
         addSpawn(spawnSettings, EntityType.BAT, 10, 8, 8);
         addSpawn(spawnSettings, EntityType.SPIDER, 100, 4, 4);
         addSpawn(spawnSettings, EntityType.HUSK, 95, 4, 4);
@@ -1385,6 +1388,7 @@ class BWGOverworldBiomes {
         addSpawn(spawnSettings, EntityType.RABBIT, 10, 2, 3);
         addSpawn(spawnSettings, EntityType.FOX, 8, 2, 4);
         addSpawn(spawnSettings, EntityType.STRAY, 80, 4, 4);
+        addSpawn(spawnSettings, EntityType.GOAT, 5, 1, 3);
 
         float temperature = -0.5F;
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(1.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).grassColorOverride(15834405).foliageColorOverride(15834405).fogColor(12638463).skyColor(12700876).ambientParticle(new AmbientParticleSettings(ParticleTypes.WHITE_ASH, 0.01428F)).ambientLoopSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
