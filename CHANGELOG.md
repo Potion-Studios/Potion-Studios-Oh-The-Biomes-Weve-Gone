@@ -1,3 +1,5 @@
+# 2.2.6
+
 # 2.2.5
 - Make Pale Pumpkin Set Compostable
 - Make GlowCane Shoots Compostable
