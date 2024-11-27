@@ -1,4 +1,5 @@
 # 2.2.6
+- Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer)
 
 # 2.2.5
 - Make Pale Pumpkin Set Compostable
