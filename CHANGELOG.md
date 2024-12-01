@@ -2,6 +2,7 @@
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer) (#172)
 - Generalize Particle Registration
 - Fix StemBlock/AttachedStemBlock/PitcherCropBlock not being placeable on BWG Farmland (Fabric Only)
+- Finish and Tweak German Translations (de_de) (Credits: ieguana)
 
 # 1.4.4
 - Add Russian Translations (ru_ru) (Credits: j-tap)
