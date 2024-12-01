@@ -19,9 +19,6 @@ import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.*;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
-import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
-import net.potionstudios.biomeswevegone.client.particle.particles.FallingLeafParticle;
-import net.potionstudios.biomeswevegone.client.particle.particles.FireFlyParticle;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGSpreadableBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.BWGCactusBlock;
@@ -46,7 +43,7 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
         registerRenderTypes();
         BiomesWeveGoneClient.registerEntityRenderers(EntityRendererRegistry::register);
         BiomesWeveGoneClient.registerBlockEntityRenderers(BlockEntityRenderers::register);
-        registerParticles();
+        BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> ParticleFactoryRegistry.getInstance().register(type, spriteProviderFactory::apply));
         BiomesWeveGoneClient.registerLayerDefinitions((a, b) -> EntityModelLayerRegistry.registerModelLayer(a, b::get));
         registerColorChangingBlocks();
     }
@@ -70,19 +67,6 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.cutoutMipped());
         else if (block instanceof StainedGlassPaneBlock || block instanceof HalfTransparentBlock)
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.translucent());
-    }
-
-    private void registerParticles() {
-        ParticleFactoryRegistry.getInstance().register(BWGParticles.FIREFLY.get(), FireFlyParticle.Provider::new);
-        ParticleFactoryRegistry.getInstance().register(BWGParticles.BOREALIS_GLINT.get(), FallingLeafParticle.Provider::new);
-        ParticleFactoryRegistry.getInstance().register(BWGParticles.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.Provider::new);
-        ParticleFactoryRegistry.getInstance().register(BWGParticles.WHITE_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
-        ParticleFactoryRegistry.getInstance().register(BWGParticles.YELLOW_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
-        ParticleFactoryRegistry.getInstance().register(BWGParticles.RED_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
-        ParticleFactoryRegistry.getInstance().register(BWGParticles.SILVER_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
-        ParticleFactoryRegistry.getInstance().register(BWGParticles.IRONWOOD_LEAVES.get(), FallingLeafParticle.Provider::new);
-        ParticleFactoryRegistry.getInstance().register(BWGParticles.SPIRIT.get(), FallingLeafParticle.Provider::new);
-        ParticleFactoryRegistry.getInstance().register(BWGParticles.SPIRIT_LEAVES.get(), FallingLeafParticle.Provider::new);
     }
 
     private void registerColorChangingBlocks() {

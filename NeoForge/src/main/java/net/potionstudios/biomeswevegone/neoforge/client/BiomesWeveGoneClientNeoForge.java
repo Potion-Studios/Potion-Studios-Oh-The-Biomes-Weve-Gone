@@ -21,9 +21,6 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
-import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
-import net.potionstudios.biomeswevegone.client.particle.particles.FallingLeafParticle;
-import net.potionstudios.biomeswevegone.client.particle.particles.FireFlyParticle;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 
@@ -55,7 +52,7 @@ public class BiomesWeveGoneClientNeoForge {
         eventBus.addListener(BiomesWeveGoneClientNeoForge::neoForgeClientSetup);
         eventBus.addListener((Consumer<EntityRenderersEvent.RegisterRenderers>) event -> BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer));
         eventBus.addListener((Consumer<EntityRenderersEvent.RegisterRenderers>) event -> BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer));
-        eventBus.addListener(BiomesWeveGoneClientNeoForge::registerParticles);
+        eventBus.addListener((RegisterParticleProvidersEvent event) -> BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> event.registerSpriteSet(type, spriteProviderFactory::apply)));
         eventBus.addListener((Consumer<EntityRenderersEvent.RegisterLayerDefinitions>) event -> BiomesWeveGoneClient.registerLayerDefinitions(event::registerLayerDefinition));
         eventBus.addListener(BiomesWeveGoneClientNeoForge::registerColorChangingBlocks);
         eventBus.addListener(BiomesWeveGoneClientNeoForge::registerItemColorHandlers);
@@ -69,25 +66,6 @@ public class BiomesWeveGoneClientNeoForge {
      */
     private static void neoForgeClientSetup(final FMLClientSetupEvent event) {
         BiomesWeveGoneClient.onInitialize(Minecraft.getInstance());
-    }
-
-    /**
-     * Registers the custom particles for the mod.
-     * @param event The event to register the particles to.
-     * @see RegisterParticleProvidersEvent
-     */
-    private static void registerParticles(final RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(BWGParticles.FIREFLY.get(), FireFlyParticle.Provider::new);
-        event.registerSpriteSet(BWGParticles.BOREALIS_GLINT.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(BWGParticles.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(BWGParticles.WHITE_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(BWGParticles.YELLOW_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(BWGParticles.RED_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(BWGParticles.SILVER_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(BWGParticles.IRONWOOD_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(BWGParticles.SPIRIT.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(BWGParticles.SPIRIT_LEAVES.get(), FallingLeafParticle.Provider::new);
-
     }
 
     /**
