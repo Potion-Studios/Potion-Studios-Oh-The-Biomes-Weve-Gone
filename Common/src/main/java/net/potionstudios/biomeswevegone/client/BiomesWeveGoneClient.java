@@ -5,11 +5,14 @@ import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.particle.ParticleProvider;
+import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -17,6 +20,9 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
+import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
+import net.potionstudios.biomeswevegone.client.particle.particles.FallingLeafParticle;
+import net.potionstudios.biomeswevegone.client.particle.particles.FireFlyParticle;
 import net.potionstudios.biomeswevegone.client.renderer.BWGBoatRenderer;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
@@ -28,6 +34,7 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 
 import java.awt.*;
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
@@ -87,6 +94,22 @@ public class BiomesWeveGoneClient {
             consumer.accept(BWGBoatRenderer.createChestBoatModelName(type), ChestBoatModel::createBodyModel);
         }
     }
+
+    /**
+     * Registers the Particle Providers for the mod.
+     * @see ParticleProvider
+     */
+    public static void registerParticles(BiConsumer<SimpleParticleType, Function<SpriteSet, ParticleProvider<SimpleParticleType>>> consumer) {
+        consumer.accept(BWGParticles.FIREFLY.get(), FireFlyParticle.Provider::new);
+        consumer.accept(BWGParticles.BOREALIS_GLINT.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.WHITE_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.YELLOW_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.RED_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.SILVER_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.IRONWOOD_LEAVES.get(), FallingLeafParticle.Provider::new);
+    }
+
 
     private static final ImprovedNoise NOISE = new ImprovedNoise(new XoroshiroRandomSource(1));
 
