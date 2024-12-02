@@ -49,7 +49,7 @@ public class BiomesWeveGoneClientNeoForge {
      * @param eventBus The event bus to register the client side of the mod to.
      */
     public static void init(IEventBus eventBus) {
-        eventBus.addListener(BiomesWeveGoneClientNeoForge::neoForgeClientSetup);
+        eventBus.addListener((FMLClientSetupEvent event) -> BiomesWeveGoneClient.onInitialize());
         eventBus.addListener((Consumer<EntityRenderersEvent.RegisterRenderers>) event -> BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer));
         eventBus.addListener((Consumer<EntityRenderersEvent.RegisterRenderers>) event -> BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer));
         eventBus.addListener((RegisterParticleProvidersEvent event) -> BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> event.registerSpriteSet(type, spriteProviderFactory::apply)));
@@ -57,15 +57,6 @@ public class BiomesWeveGoneClientNeoForge {
         eventBus.addListener(BiomesWeveGoneClientNeoForge::registerColorChangingBlocks);
         eventBus.addListener(BiomesWeveGoneClientNeoForge::registerItemColorHandlers);
         eventBus.addListener(BiomesWeveGoneClientNeoForge::registerGUILayers);
-    }
-
-    /**
-     * Sets up the client side of the mod.
-     * @param event The event to set up the client side of the mod.
-     * @see FMLClientSetupEvent
-     */
-    private static void neoForgeClientSetup(final FMLClientSetupEvent event) {
-        BiomesWeveGoneClient.onInitialize(Minecraft.getInstance());
     }
 
     /**

@@ -1,6 +1,5 @@
 package net.potionstudios.biomeswevegone.forge.client;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.FastColor;
@@ -37,22 +36,13 @@ public class BiomesWeveGoneClientForge {
      * @param eventBus The event bus to register the client side of the mod to.
      */
     public static void init(IEventBus eventBus) {
-        eventBus.addListener(BiomesWeveGoneClientForge::forgeClientSetup);
+        eventBus.addListener((FMLClientSetupEvent event) -> BiomesWeveGoneClient.onInitialize());
         eventBus.addListener((Consumer<EntityRenderersEvent.RegisterRenderers>) event -> BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer));
         eventBus.addListener((Consumer<EntityRenderersEvent.RegisterRenderers>) event -> BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer));
         eventBus.addListener((RegisterParticleProvidersEvent event) -> BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> event.registerSpriteSet(type, spriteProviderFactory::apply)));
         eventBus.addListener((Consumer<EntityRenderersEvent.RegisterLayerDefinitions>) event -> BiomesWeveGoneClient.registerLayerDefinitions(event::registerLayerDefinition));
         eventBus.addListener(BiomesWeveGoneClientForge::registerColorChangingBlocks);
         eventBus.addListener(BiomesWeveGoneClientForge::registerItemColorHandlers);
-    }
-
-    /**
-     * Sets up the client side of the mod.
-     * @param event The event to set up the client side of the mod.
-     * @see FMLClientSetupEvent
-     */
-    private static void forgeClientSetup(final FMLClientSetupEvent event) {
-        BiomesWeveGoneClient.onInitialize(Minecraft.getInstance());
     }
 
     /**
