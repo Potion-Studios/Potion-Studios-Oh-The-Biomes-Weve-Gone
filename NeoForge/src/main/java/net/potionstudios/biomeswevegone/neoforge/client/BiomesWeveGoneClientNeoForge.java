@@ -2,8 +2,6 @@ package net.potionstudios.biomeswevegone.neoforge.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -16,7 +14,6 @@ import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
-import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 
 /**
  * This class is used to initialize the Forge client side of the mod.
@@ -38,22 +35,8 @@ public class BiomesWeveGoneClientNeoForge {
         eventBus.addListener((RegisterParticleProvidersEvent event) -> BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> event.registerSpriteSet(type, spriteProviderFactory::apply)));
         eventBus.addListener((EntityRenderersEvent.RegisterLayerDefinitions event) -> BiomesWeveGoneClient.registerLayerDefinitions(event::registerLayerDefinition));
         eventBus.addListener((RegisterColorHandlersEvent.Block event) -> BiomesWeveGoneClient.registerBlockColors(event::register));
-        eventBus.addListener(BiomesWeveGoneClientNeoForge::registerItemColorHandlers);
+        eventBus.addListener((RegisterColorHandlersEvent.Item event) -> BiomesWeveGoneClient.registerItemColors(event::register, event.getBlockColors()));
         eventBus.addListener(BiomesWeveGoneClientNeoForge::registerGUILayers);
-    }
-
-    /**
-     * Registers the item color handlers for the mod.
-     * @param event The event to register the item color handlers to.
-     * @see RegisterColorHandlersEvent.Item
-     */
-    private static void registerItemColorHandlers(final RegisterColorHandlersEvent.Item event) {
-        event.register((stack, tintIndex) -> {
-                    Block block = ((BlockItem) stack.getItem()).getBlock();
-                    return event.getBlockColors().getColor(block.defaultBlockState(), null, null, tintIndex);
-                }, BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.CLOVER_PATCH.get(), BWGBlocks.LEAF_PILE.get(), BWGBlocks.POISON_IVY.get()
-                , BWGWood.MAHOGANY.leaves(), BWGWood.WILLOW.leaves(), BWGWood.MAPLE.leaves(), BWGWood.YUCCA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.RIPE_YUCCA_LEAVES.get(), BWGWood.CYPRESS.leaves(), BWGBlocks.LUSH_GRASS_BLOCK.get()
-                , BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get());
     }
 
     /**
