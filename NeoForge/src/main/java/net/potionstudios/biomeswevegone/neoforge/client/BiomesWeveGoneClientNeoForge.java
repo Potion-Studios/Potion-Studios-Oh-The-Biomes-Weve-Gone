@@ -40,15 +40,7 @@ public class BiomesWeveGoneClientNeoForge {
      * Constructor for the client side of the NeoForge mod.
      * @param eventBus The event bus to register the client side of the mod to.
      */
-    public BiomesWeveGoneClientNeoForge(IEventBus eventBus) {
-        init(eventBus);
-    }
-
-    /**
-     * Initializes the client side of the Forge mod.
-     * @param eventBus The event bus to register the client side of the mod to.
-     */
-    public static void init(IEventBus eventBus) {
+    public BiomesWeveGoneClientNeoForge(final IEventBus eventBus) {
         eventBus.addListener((FMLClientSetupEvent event) -> BiomesWeveGoneClient.onInitialize());
         eventBus.addListener((Consumer<EntityRenderersEvent.RegisterRenderers>) event -> BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer));
         eventBus.addListener((Consumer<EntityRenderersEvent.RegisterRenderers>) event -> BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer));
@@ -91,6 +83,10 @@ public class BiomesWeveGoneClientNeoForge {
                 , BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get());
     }
 
+    /**
+     * Registers the GUI layers for the mod.
+     * @see RegisterGuiLayersEvent
+     */
     private static void registerGUILayers(final RegisterGuiLayersEvent event) {
         event.registerAbove(VanillaGuiLayers.CAMERA_OVERLAYS, BiomesWeveGone.id("textures/misc/palepumpkinblur.png"), (guiGraphics, deltaTracker) -> {
             Minecraft minecraft = Minecraft.getInstance();
