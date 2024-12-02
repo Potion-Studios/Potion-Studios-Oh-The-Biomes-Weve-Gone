@@ -2,8 +2,6 @@ package net.potionstudios.biomeswevegone.fabric.mixin;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.StemBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -13,11 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(StemBlock.class)
-public abstract class StemBlockMixin extends BushBlock implements BonemealableBlock {
-    protected StemBlockMixin(Properties properties) {
-        super(properties);
-    }
-
+public abstract class StemBlockMixin {
     /**
      * @reason Allows crops to be placed on Blocks that extend FarmBlock
      * @author Joseph T. McQuigg
