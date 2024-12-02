@@ -62,7 +62,10 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.translucent());
     }
 
-
+    /**
+     * Registers the item colors.
+     * @see ColorProviderRegistry.ITEM
+     */
     private void registerItemColorHandlers() {
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
             Block block = ((BlockItem) stack.getItem()).getBlock();

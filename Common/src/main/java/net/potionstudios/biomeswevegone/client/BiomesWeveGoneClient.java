@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.client;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColor;
+import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -108,7 +109,7 @@ public class BiomesWeveGoneClient {
     }
 
     /**
-     * Registers the Particle Providers for the mod.
+     * Registers the Particle Providers.
      * @see ParticleProvider
      */
     public static void registerParticles(BiConsumer<SimpleParticleType, Function<SpriteSet, ParticleProvider<SimpleParticleType>>> consumer) {
@@ -124,6 +125,10 @@ public class BiomesWeveGoneClient {
         consumer.accept(BWGParticles.SPIRIT_LEAVES.get(), FallingLeafParticle.Provider::new);
     }
 
+    /**
+     * Registers the block colors.
+     * @see BlockColors
+     */
     public static void registerBlockColors(BiConsumer<BlockColor, Block[]> consumer) {
         consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageGrassColor(view, pos) : GrassColor.getDefaultColor(), new Block[] {BWGBlocks.FLOWER_PATCH.get(), BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.WHITE_SAKURA_PETALS.get(), BWGBlocks.YELLOW_SAKURA_PETALS.get()});
         consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageFoliageColor(view, pos) : FoliageColor.get(0.5D, 1.0D), new Block[] {
@@ -138,6 +143,10 @@ public class BiomesWeveGoneClient {
         consumer.accept((state, view, pos, tintIndex) -> -2046180, new Block[] {BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get()});
     }
 
+    /**
+     * Registers the item colors.
+     * @see ItemColors
+     */
     public static void registerItemColors(BiConsumer<ItemColor, ItemLike[]> consumer, BlockColors blockColors) {
         consumer.accept((stack, tintIndex) -> {
                     Block block = ((BlockItem) stack.getItem()).getBlock();
