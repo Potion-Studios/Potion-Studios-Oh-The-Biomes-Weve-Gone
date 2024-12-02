@@ -21,6 +21,8 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.Glow
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.CattailSproutBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 
+import java.util.Objects;
+
 /**
  * Initializes the Fabric client.
  * @see ClientModInitializer#onInitializeClient()
@@ -38,7 +40,10 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
         BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> ParticleFactoryRegistry.getInstance().register(type, spriteProviderFactory::apply));
         BiomesWeveGoneClient.registerLayerDefinitions((a, b) -> EntityModelLayerRegistry.registerModelLayer(a, b::get));
         BiomesWeveGoneClient.registerBlockColors(ColorProviderRegistry.BLOCK::register);
-        registerItemColorHandlers();
+        BiomesWeveGoneClient.registerBlockItemColors(consumer -> ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
+            Block block = ((BlockItem) stack.getItem()).getBlock();
+            return Objects.requireNonNull(ColorProviderRegistry.BLOCK.get(block)).getColor(block.defaultBlockState(), null, null, tintIndex);
+        }, consumer));
     }
 
     /**
@@ -60,18 +65,5 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.cutoutMipped());
         else if (block instanceof StainedGlassPaneBlock || block instanceof HalfTransparentBlock)
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.translucent());
-    }
-
-    /**
-     * Registers the item colors.
-     * @see ColorProviderRegistry.ITEM
-     */
-    private void registerItemColorHandlers() {
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-            Block block = ((BlockItem) stack.getItem()).getBlock();
-            return ColorProviderRegistry.BLOCK.get(block).getColor(block.defaultBlockState(), null, null, tintIndex);
-        }, BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.CLOVER_PATCH.get(), BWGBlocks.LEAF_PILE.get(), BWGBlocks.POISON_IVY.get()
-                , BWGWood.MAHOGANY.leaves(), BWGWood.WILLOW.leaves(), BWGWood.MAPLE.leaves(), BWGWood.YUCCA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.RIPE_YUCCA_LEAVES.get(), BWGWood.CYPRESS.leaves(),
-                BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get());
     }
 }
