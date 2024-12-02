@@ -5,9 +5,7 @@ import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.GrassBlock;
-import net.minecraft.world.level.block.SpreadingSnowyDirtBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -19,12 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GrassBlock.class)
-public abstract class PrairieGrassMixin extends SpreadingSnowyDirtBlock implements BonemealableBlock {
-
-    protected PrairieGrassMixin(Properties properties) {
-        super(properties);
-    }
-
+public abstract class PrairieGrassMixin {
     /**
      * @reason Allows for Bonemealing of Prairie Grass to spawn Prairie Grass and other features.
      * @see GrassBlock#performBonemeal(ServerLevel, RandomSource, BlockPos, BlockState)

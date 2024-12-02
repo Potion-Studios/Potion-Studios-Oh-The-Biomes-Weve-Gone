@@ -10,11 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(CropBlock.class)
-public abstract class CropBlockMixin extends BushBlock implements BonemealableBlock {
-    public CropBlockMixin(Properties properties) {
-        super(properties);
-    }
-
+public abstract class CropBlockMixin {
     /**
      * @reason Allows crops to be placed on Blocks that extend FarmBlock
      * @author Joseph T. McQuigg
