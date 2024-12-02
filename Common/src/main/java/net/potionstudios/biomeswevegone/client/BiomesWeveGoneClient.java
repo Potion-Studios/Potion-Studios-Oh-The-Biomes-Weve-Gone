@@ -1,6 +1,5 @@
 package net.potionstudios.biomeswevegone.client;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -46,9 +45,8 @@ public class BiomesWeveGoneClient {
 
     /**
      * Initializes the client-side Common code for Oh The Biomes We've Gone.
-     * @param minecraft the Minecraft instance
      */
-    public static void onInitialize(Minecraft minecraft) {
+    public static void onInitialize() {
         BWGWoodSet.woodsets().forEach(set -> registerWoodTypes(set.woodType()));
     }
 

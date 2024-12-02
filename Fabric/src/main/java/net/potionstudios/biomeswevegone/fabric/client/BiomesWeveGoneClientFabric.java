@@ -8,7 +8,6 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
@@ -37,7 +36,7 @@ import java.util.Objects;
 public class BiomesWeveGoneClientFabric implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        BiomesWeveGoneClient.onInitialize(Minecraft.getInstance());
+        BiomesWeveGoneClient.onInitialize();
         registerRenderTypes();
         BiomesWeveGoneClient.registerEntityRenderers(EntityRendererRegistry::register);
         BiomesWeveGoneClient.registerBlockEntityRenderers(BlockEntityRenderers::register);
