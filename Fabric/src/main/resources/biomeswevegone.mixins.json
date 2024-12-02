@@ -7,9 +7,12 @@
     "PalePumpkinOverlayMixin"
   ],
   "mixins": [
+    "AttachedStemBlockMixin",
     "CropBlockMixin",
     "EnderManMixin",
-    "PrairieGrassMixin"
+    "PitcherCropBlockMixin",
+    "PrairieGrassMixin",
+    "StemBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1

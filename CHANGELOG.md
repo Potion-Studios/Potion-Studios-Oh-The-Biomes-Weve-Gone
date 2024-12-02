@@ -2,6 +2,7 @@
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer)
 - Generalize Particle Registration
 - Finish and Tweak German Translations (de_de) (Credits: ieguana)
+- Fix StemBlock/AttachedStemBlock/PitcherCropBlock not being placeable on BWG Farmland (Fabric Only)
 
 # 2.2.5
 - Make Pale Pumpkin Set Compostable
