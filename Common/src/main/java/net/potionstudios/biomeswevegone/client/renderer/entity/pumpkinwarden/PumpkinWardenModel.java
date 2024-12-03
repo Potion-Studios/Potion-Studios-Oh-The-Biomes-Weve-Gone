@@ -1,7 +1,8 @@
-package net.potionstudios.biomeswevegone.world.entity.pumpkinwarden;
+package net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden;
 
 import net.minecraft.resources.ResourceLocation;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.model.CoreGeoBone;

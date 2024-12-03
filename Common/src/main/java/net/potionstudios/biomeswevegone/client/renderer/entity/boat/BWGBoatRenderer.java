@@ -1,4 +1,4 @@
-package net.potionstudios.biomeswevegone.client.renderer;
+package net.potionstudios.biomeswevegone.client.renderer.entity.boat;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.blaze3d.vertex.PoseStack;

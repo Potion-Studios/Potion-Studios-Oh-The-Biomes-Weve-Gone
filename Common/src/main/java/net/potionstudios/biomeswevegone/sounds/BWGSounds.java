@@ -1,4 +1,4 @@
-package net.potionstudios.biomeswevegone.client;
+package net.potionstudios.biomeswevegone.sounds;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;

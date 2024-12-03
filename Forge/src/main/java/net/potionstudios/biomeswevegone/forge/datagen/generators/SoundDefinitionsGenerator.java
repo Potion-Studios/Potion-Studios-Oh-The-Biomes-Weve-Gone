@@ -4,7 +4,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.SoundDefinitionsProvider;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.client.BWGSounds;
+import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 
 /**
  * Generates the Sounds.json file
