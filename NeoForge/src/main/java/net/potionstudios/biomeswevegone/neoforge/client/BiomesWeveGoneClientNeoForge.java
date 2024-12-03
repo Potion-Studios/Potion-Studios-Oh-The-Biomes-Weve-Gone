@@ -19,7 +19,6 @@ import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 
 /**
  * This class is used to initialize the Forge client side of the mod.
- * @see FMLClientSetupEvent
  * @see BiomesWeveGoneClient
  * @author Joseph T. McQuigg
  */

@@ -1,6 +1,7 @@
-package net.potionstudios.biomeswevegone.world.entity.oddion;
+package net.potionstudios.biomeswevegone.client.renderer.entity.oddion;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.potionstudios.biomeswevegone.world.entity.oddion.Oddion;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 

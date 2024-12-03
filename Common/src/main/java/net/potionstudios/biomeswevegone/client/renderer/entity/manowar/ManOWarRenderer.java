@@ -1,4 +1,4 @@
-package net.potionstudios.biomeswevegone.world.entity.manowar;
+package net.potionstudios.biomeswevegone.client.renderer.entity.manowar;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -6,6 +6,7 @@ import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
+import net.potionstudios.biomeswevegone.world.entity.manowar.ManOWar;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.cache.object.BakedGeoModel;

@@ -1,7 +1,8 @@
-package net.potionstudios.biomeswevegone.world.entity.manowar;
+package net.potionstudios.biomeswevegone.client.renderer.entity.manowar;
 
 import net.minecraft.resources.ResourceLocation;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.world.entity.manowar.ManOWar;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.model.GeoModel;
 
