@@ -28,8 +28,9 @@ public class CampfireExplodingBlockItem extends BlockItem {
             BlockPos clickedPos = context.getClickedPos();
             if (level.getBlockEntity(clickedPos) instanceof CampfireBlockEntity campfireBlockEntity)
                 if (campfireBlockEntity.getBlockState().getValue(CampfireBlock.LIT) && campfireBlockEntity.getItems().stream().anyMatch(ItemStack::isEmpty)) {
+                    context.getItemInHand().shrink(1);
                     level.explode(null, new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(BWGDamageTypes.CATTAIL_EXPLOSION)), null, clickedPos.getX() + 0.5D, clickedPos.getY() + 0.5D, clickedPos.getZ() + 0.5D, 5.0F, false, Level.ExplosionInteraction.NONE);
-                    return InteractionResult.CONSUME;
+                    return InteractionResult.SUCCESS;
                 }
         }
         return super.useOn(context);
