@@ -1,8 +1,11 @@
-# 2.2.6
+# 2.3.0 -> Major Internal Changes and Refactors
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer)
 - Generalize Particle, Block and Item Color Registrations
 - Finish and Tweak German Translations (de_de) (Credits: ieguana)
 - Fix StemBlock/AttachedStemBlock/PitcherCropBlock not being placeable on BWG Farmland (Fabric Only)
+- Refactor Entity Renderers into client package and renderer/entity subpackage
+- Refactor BWGSounds class from client package into sounds subpackage
+- Remove unneeded super calls in block based Mixins
 
 # 2.2.5
 - Make Pale Pumpkin Set Compostable
