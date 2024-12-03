@@ -1,8 +1,11 @@
-# 1.4.5
+# 1.5.0 -> Major Internal Changes and Refactors
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer) (#172)
-- Generalize Particle Registration
+- Generalize Particle, Block and Item Color Registrations
 - Fix StemBlock/AttachedStemBlock/PitcherCropBlock not being placeable on BWG Farmland (Fabric Only)
 - Finish and Tweak German Translations (de_de) (Credits: ieguana)
+- Refactor Entity Renderers into client package and renderer/entity subpackage
+- Refactor BWGSounds class from client package into sounds subpackage
+- Remove unneeded super calls in block based Mixins
 
 # 1.4.4
 - Add Russian Translations (ru_ru) (Credits: j-tap)
