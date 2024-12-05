@@ -2561,7 +2561,7 @@ public class BWGOverworldTreeConfiguredFeatures {
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
                     BiomesWeveGone.id("features/trees/generic_trunk"),
-                    BiomesWeveGone.id("features/trees/palo-verde/palo_verde_tree_canopy1"),
+                    BiomesWeveGone.id("features/trees/palo-verde/palo_verde_canopy1"),
                     BiasedToBottomInt.of(1, 4),
                     BlockStateProvider.simple(BWGWood.PALO_VERDE_LOG.get()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
@@ -2577,7 +2577,7 @@ public class BWGOverworldTreeConfiguredFeatures {
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
                     BiomesWeveGone.id("features/trees/generic_trunk"),
-                    BiomesWeveGone.id("features/trees/palo-verde/palo_verde_tree_canopy2"),
+                    BiomesWeveGone.id("features/trees/palo-verde/palo_verde_canopy2"),
                     BiasedToBottomInt.of(1, 4),
                     BlockStateProvider.simple(BWGWood.PALO_VERDE_LOG.get()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()

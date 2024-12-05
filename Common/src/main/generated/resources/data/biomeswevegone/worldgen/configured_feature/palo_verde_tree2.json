@@ -9,7 +9,7 @@
     "can_leaves_place_filter": {
       "type": "minecraft:replaceable"
     },
-    "canopy_location": "biomeswevegone:features/trees/palo-verde/palo_verde_tree_canopy2",
+    "canopy_location": "biomeswevegone:features/trees/palo-verde/palo_verde_canopy2",
     "height": {
       "type": "minecraft:biased_to_bottom",
       "value": {
