@@ -7,7 +7,7 @@
 - Refactor BWGSounds class from client package into sounds subpackage
 - Remove unneeded super calls in block based Mixins
 - Fix Cattail Sprout not being consumed when placed on a Campfire
-- Decrease Cypress Tree File Sizes
+- Decrease Cypress, and Palo Verde Tree File Sizes
 
 # 2.2.5
 - Make Pale Pumpkin Set Compostable
