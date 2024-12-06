@@ -10,6 +10,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
  * Holds Custom Biome Tags for Biomes We've Gone
  * @see BiomeTags
  * @see net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags
+ * @see net.neoforged.neoforge.common.Tags.Biomes
  * @see net.minecraftforge.common.Tags.Biomes
  * @author Joseph T. McQuigg
  */

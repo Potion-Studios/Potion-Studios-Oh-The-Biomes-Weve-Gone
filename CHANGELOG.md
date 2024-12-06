@@ -8,6 +8,7 @@
 - Remove unneeded super calls in block based Mixins
 - Fix Cattail Sprout not being consumed when placed on a Campfire
 - Decrease Cypress, and Palo Verde Tree File Sizes
+- Refactor Platform FarmLandBlock to have Platform Name
 
 # 2.2.5
 - Make Pale Pumpkin Set Compostable

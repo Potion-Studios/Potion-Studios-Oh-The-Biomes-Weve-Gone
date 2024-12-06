@@ -31,6 +31,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
+import net.potionstudios.biomeswevegone.forge.world.level.block.BWGForgeFarmLandBlock;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
@@ -78,7 +79,7 @@ public class ForgePlatformHandler implements PlatformHandler {
 
 	@Override
 	public Supplier<BWGFarmLandBlock> bwgFarmLandBlock(Supplier<Block> dirt) {
-		return () -> new net.potionstudios.biomeswevegone.forge.world.level.block.BWGFarmLandBlock(dirt);
+		return () -> new BWGForgeFarmLandBlock(dirt);
 	}
 
 	@Override

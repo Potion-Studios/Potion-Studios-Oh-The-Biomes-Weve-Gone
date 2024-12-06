@@ -7,12 +7,18 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.extensions.IForgeBlock;
+import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
-public class BWGFarmLandBlock extends net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock implements IForgeBlock {
-    public BWGFarmLandBlock(Supplier<Block> dirt) {
+/**
+ * Custom Farm Land Block for BWG that uses IForgeBlock to allow for plants to grow on it.
+ * @see BWGFarmLandBlock
+ * @see IForgeBlock
+ */
+public class BWGForgeFarmLandBlock extends BWGFarmLandBlock implements IForgeBlock {
+    public BWGForgeFarmLandBlock(Supplier<Block> dirt) {
         super(dirt);
     }
 

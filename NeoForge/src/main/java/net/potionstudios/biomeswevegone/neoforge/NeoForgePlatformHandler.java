@@ -30,6 +30,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
+import net.potionstudios.biomeswevegone.neoforge.world.level.block.BWGNeoForgeFarmLandBlock;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
@@ -71,7 +72,7 @@ public class NeoForgePlatformHandler implements PlatformHandler{
 
 	@Override
 	public Supplier<BWGFarmLandBlock> bwgFarmLandBlock(Supplier<Block> dirt) {
-		return () -> new net.potionstudios.biomeswevegone.neoforge.world.level.block.BWGFarmLandBlock(dirt);
+		return () -> new BWGNeoForgeFarmLandBlock(dirt);
 	}
 
 	@Override

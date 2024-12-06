@@ -9,9 +9,14 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 
+/**
+ * Registers the loot modifiers for Biomes We've Gone NeoForge
+ * @see IGlobalLootModifier
+ * @author Joseph T. McQuigg
+ */
 public class LootModifiersRegister {
 
-    public static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>> LOOT_MODIFIER_SERIALIZERS =
+    private static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>> LOOT_MODIFIER_SERIALIZERS =
             DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, BiomesWeveGone.MOD_ID);
 
     public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<AddItemModifier>> ADD_ITEM =
