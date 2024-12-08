@@ -9,6 +9,7 @@
 - Fix Cattail Sprout not being consumed when placed on a Campfire
 - Decrease Cypress, and Palo Verde Tree File Sizes
 - Refactor Platform FarmLandBlock to have Platform Name
+- Move Config Classes to Config Package
 
 # 1.4.4
 - Add Russian Translations (ru_ru) (Credits: j-tap)

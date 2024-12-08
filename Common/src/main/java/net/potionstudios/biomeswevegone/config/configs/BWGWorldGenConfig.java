@@ -1,4 +1,4 @@
-package net.potionstudios.biomeswevegone.world.level.levelgen.biome;
+package net.potionstudios.biomeswevegone.config.configs;
 
 import com.google.common.base.Suppliers;
 import com.mojang.datafixers.util.Pair;
@@ -18,6 +18,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.potionstudios.biomeswevegone.PlatformHandler;
+import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
