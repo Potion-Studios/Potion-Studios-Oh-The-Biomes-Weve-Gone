@@ -19,7 +19,7 @@ import net.neoforged.neoforge.event.entity.player.BonemealEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
-import net.potionstudios.biomeswevegone.world.entity.npc.BWGTradesConfig;
+import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
