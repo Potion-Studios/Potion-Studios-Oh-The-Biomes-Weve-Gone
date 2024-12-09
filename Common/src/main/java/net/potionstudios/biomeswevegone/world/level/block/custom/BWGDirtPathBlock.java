@@ -24,7 +24,7 @@ public class BWGDirtPathBlock extends DirtPathBlock {
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+    public @NotNull BlockState getStateForPlacement(BlockPlaceContext context) {
         return !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos())
                 ? Block.pushEntitiesUp(this.defaultBlockState(), dirtBlock.get().defaultBlockState(), context.getLevel(), context.getClickedPos())
                 : super.getStateForPlacement(context);

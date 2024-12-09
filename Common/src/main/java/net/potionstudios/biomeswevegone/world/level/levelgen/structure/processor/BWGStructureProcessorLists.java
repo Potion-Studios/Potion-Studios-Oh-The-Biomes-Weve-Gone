@@ -173,7 +173,7 @@ public class BWGStructureProcessorLists {
     ));
 
     private static ResourceKey<StructureProcessorList> register(String id, StructureProcessorListFactory factory) {
-        ResourceKey<StructureProcessorList> structureProcessorListResourceKey = ResourceKey.create(Registries.PROCESSOR_LIST, BiomesWeveGone.id(id));
+        ResourceKey<StructureProcessorList> structureProcessorListResourceKey = BiomesWeveGone.key(Registries.PROCESSOR_LIST, id);
         STRUCTURE_PROCESSOR_LIST_FACTORIES.put(structureProcessorListResourceKey, factory);
         return structureProcessorListResourceKey;
     }

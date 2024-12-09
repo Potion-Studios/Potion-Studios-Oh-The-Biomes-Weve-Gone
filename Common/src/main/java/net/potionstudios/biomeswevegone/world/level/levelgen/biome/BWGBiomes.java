@@ -82,7 +82,7 @@ public class BWGBiomes {
     
     @SafeVarargs
     public static ResourceKey<Biome> createBiome(String id, BiomeFactory biomeFactory, TagKey<Biome>... tags) {
-        ResourceKey<Biome> biomeResourceKey = ResourceKey.create(Registries.BIOME, BiomesWeveGone.id(id));
+        ResourceKey<Biome> biomeResourceKey = BiomesWeveGone.key(Registries.BIOME, id);
         BIOME_FACTORIES.put(biomeResourceKey, biomeFactory);
 
             for (TagKey<Biome> tag : tags)

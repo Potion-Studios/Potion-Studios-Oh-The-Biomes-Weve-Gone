@@ -25,7 +25,7 @@ public class BWGCreativeTabs {
     @SafeVarargs
     private static ResourceKey<CreativeModeTab> createCreativeTab(String name, Supplier<ItemStack> icon, ArrayList<Supplier<? extends Item>>... items) {
         PlatformHandler.PLATFORM_HANDLER.createCreativeTab(name, icon, items);
-        return ResourceKey.create(Registries.CREATIVE_MODE_TAB, BiomesWeveGone.id(name));
+        return BiomesWeveGone.key(Registries.CREATIVE_MODE_TAB, name);
     }
 
     public static void tabs() {

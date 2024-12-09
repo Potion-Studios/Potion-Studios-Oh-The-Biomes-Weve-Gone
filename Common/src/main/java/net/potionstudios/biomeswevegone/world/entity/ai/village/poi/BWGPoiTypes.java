@@ -16,7 +16,7 @@ public class BWGPoiTypes {
 
     private static ResourceKey<PoiType> register(String id, Supplier<Block> block, int maxTickets, int validRange) {
         PlatformHandler.PLATFORM_HANDLER.registerPOIType(id, block, maxTickets, validRange);
-        return ResourceKey.create(Registries.POINT_OF_INTEREST_TYPE, BiomesWeveGone.id(id));
+        return BiomesWeveGone.key(Registries.POINT_OF_INTEREST_TYPE, id);
     }
 
     public static void poiTypes() {
