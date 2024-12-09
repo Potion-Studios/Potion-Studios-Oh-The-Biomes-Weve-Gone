@@ -17,6 +17,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
+/**
+ * A loot modifier that adds items to an existing loot table.
+ * @see LootModifier
+ * @author Joseph T. McQuigg
+ */
 public class AddItemModifier extends LootModifier {
 
     public static final Supplier<Codec<AddItemModifier>> CODEC = Suppliers.memoize(()
