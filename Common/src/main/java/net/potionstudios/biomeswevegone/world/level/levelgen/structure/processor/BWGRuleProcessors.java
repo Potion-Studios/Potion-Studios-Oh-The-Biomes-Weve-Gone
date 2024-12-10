@@ -80,6 +80,12 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.1F, Blocks.MOSSY_COBBLESTONE)
 	);
 
+	protected static final RuleProcessor MOSSIFY_50_PERCENT = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE, 0.5F, BWGBlocks.MOSSY_STONE_SET.getBase()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.5F, Blocks.MOSSY_COBBLESTONE),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.5F, Blocks.MOSSY_STONE_BRICKS)
+	);
+
 	protected static final RuleProcessor WHITE_PUFFBALL_RANDOM_AGE = createRuleProcessor(
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_PUFFBALL.getBlock(), 0.33f, BWGBlocks.WHITE_PUFFBALL.getBlockState().setValue(WhitePuffballBlock.AGE, 0)),
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_PUFFBALL.getBlock(), 0.33f, BWGBlocks.WHITE_PUFFBALL.getBlockState().setValue(WhitePuffballBlock.AGE, 1)),

@@ -323,8 +323,8 @@ public class BWGVillageTemplatePools {
 
     public static final ResourceKey<StructureTemplatePool> PUMPKIN_PATCH_HOUSES = register("pumpkin_patch/houses", templatePoolFactoryContext ->
             createTemplatePool(getPool(templatePoolFactoryContext, PUMPKIN_PATCH_TERMINATOR), ImmutableList.of(
-                    legacyPoolElement("pumpkin_patch/houses/pumpkin_patch_small_house_1", 3),
-                    legacyPoolElement("pumpkin_patch/houses/pumpkin_patch_small_house_2", 3),
+                    singlePoolElement("pumpkin_patch/houses/pumpkin_patch_small_house_1", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
+                    singlePoolElement("pumpkin_patch/houses/pumpkin_patch_small_house_2", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
                     legacyPoolElement("pumpkin_patch/houses/pumpkin_patch_small_house_3", 3),
                     legacyPoolElement("pumpkin_patch/houses/pumpkin_patch_small_house_4", 3),
                     legacyPoolElement("pumpkin_patch/houses/pumpkin_patch_medium_house_1", 3),

@@ -1,0 +1,87 @@
+{
+  "processors": [
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "block": "minecraft:packed_mud",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.4
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:lush_grass_block",
+            "Properties": {
+              "snowy": "false"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "block": "minecraft:packed_mud",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.3
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:peat"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "block": "minecraft:stone",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.5
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:mossy_stone"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:cobblestone",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.5
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:mossy_cobblestone"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:stone_bricks",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.5
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:mossy_stone_bricks"
+          }
+        }
+      ]
+    }
+  ]
+}
