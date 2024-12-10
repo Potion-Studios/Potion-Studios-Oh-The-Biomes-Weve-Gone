@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "biomeswevegone:block/magenta_pitcher_plant_top"
+    "layer0": "biomeswevegone:item/magenta_pitcher_plant"
   }
 }

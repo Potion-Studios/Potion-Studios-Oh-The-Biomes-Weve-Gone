@@ -82,6 +82,8 @@ public class ModelGenerators {
             basicItem(BWGBlocks.ALOE_VERA.get().asItem());
             simpleItem(BWGItems.CATTAIL_SPROUT.get(), "cattails");
             simpleItemBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get());
+            simpleItem(BWGBlocks.CYAN_PITCHER_PLANT.get().asItem(), "cyan_pitcher_plant");
+            simpleItem(BWGBlocks.MAGENTA_PITCHER_PLANT.get().asItem(), "magenta_pitcher_plant");
         }
 
         private void simpleItem(ItemLike item, String texture) {
