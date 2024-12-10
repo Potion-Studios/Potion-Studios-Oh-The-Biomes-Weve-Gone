@@ -10,6 +10,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.config.configs.BWGWorldGenConfig;
 import net.potionstudios.biomeswevegone.util.BWGUtil;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.selector.BWGBiomeSelectors;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.selector.TerraBlenderBiomeSelectors;

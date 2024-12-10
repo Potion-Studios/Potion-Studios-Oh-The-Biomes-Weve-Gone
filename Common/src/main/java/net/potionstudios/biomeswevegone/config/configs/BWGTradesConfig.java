@@ -1,4 +1,4 @@
-package net.potionstudios.biomeswevegone.world.entity.npc;
+package net.potionstudios.biomeswevegone.config.configs;
 
 import com.google.common.base.Suppliers;
 import com.mojang.datafixers.util.Pair;
