@@ -166,8 +166,10 @@ public class BWGStructureProcessorLists {
 
     public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_HOUSE = register("pumpkin_patch_house", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    BWGRuleProcessors.packedMudToBlock(0.4f, BWGBlocks.LUSH_GRASS_BLOCK.get()),
-                    BWGRuleProcessors.packedMudToBlock(0.3f, BWGBlocks.PEAT.get()),
+                    BWGRuleProcessors.packedMudToBlock(0.5f, BWGBlocks.LUSH_GRASS_BLOCK.get()),
+                    BWGRuleProcessors.packedMudToBlock(0.35f, BWGBlocks.PEAT.get()),
+                    BWGRuleProcessors.packedMudToBlock(0.1f, Blocks.COARSE_DIRT),
+                    BWGRuleProcessors.STONEBRICKS_VARIANTS,
                     BWGRuleProcessors.MOSSIFY_50_PERCENT
             )
     ));

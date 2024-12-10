@@ -20,55 +20,45 @@
     },
     {
       "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
+        "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_small_house_3",
-        "processors": {
-          "processors": []
-        },
+        "processors": "biomeswevegone:pumpkin_patch_house",
         "projection": "rigid"
       },
       "weight": 3
     },
     {
       "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
+        "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_small_house_4",
-        "processors": {
-          "processors": []
-        },
+        "processors": "biomeswevegone:pumpkin_patch_house",
         "projection": "rigid"
       },
       "weight": 3
     },
     {
       "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
+        "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_medium_house_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "biomeswevegone:pumpkin_patch_house",
         "projection": "rigid"
       },
       "weight": 3
     },
     {
       "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
+        "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_medium_house_2",
-        "processors": {
-          "processors": []
-        },
+        "processors": "biomeswevegone:pumpkin_patch_house",
         "projection": "rigid"
       },
       "weight": 2
     },
     {
       "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
+        "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_medium_house_3",
-        "processors": {
-          "processors": []
-        },
+        "processors": "biomeswevegone:pumpkin_patch_house",
         "projection": "rigid"
       },
       "weight": 3
