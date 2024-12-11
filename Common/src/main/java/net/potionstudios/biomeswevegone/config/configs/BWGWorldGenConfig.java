@@ -17,8 +17,11 @@ import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
+import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldTreePlacedFeatures;
+import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGVanillaPlacedFeatures;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -28,7 +31,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 public record BWGWorldGenConfig(Map<ResourceKey<Biome>, Boolean> enabledBiomes, int regionWeight,
-                                boolean vanillaAdditions) {
+                                boolean vanillaAdditions, Map<ResourceKey<PlacedFeature>, Boolean> vanillaFeatures) {
 
     public static final Path PATH = PlatformHandler.PLATFORM_HANDLER.configPath().resolve("world_generation.json5");
 
@@ -39,14 +42,13 @@ public record BWGWorldGenConfig(Map<ResourceKey<Biome>, Boolean> enabledBiomes, 
             instance.group(
                     CommentedCodec.of(Codec.unboundedMap(ResourceKey.codec(Registries.BIOME), Codec.BOOL), "enabled_biomes", "Which biomes are enabled, if disabled the biome will default to its vanilla counterpart for the given region").orElse(getDefaultBiomes()).forGetter(BWGWorldGenConfig::enabledBiomes),
                     CommentedCodec.of(Codec.INT, "region_weight", "How much each BWG region weighs. This weight applies to all 3 BWG Regions").orElse(8).forGetter(BWGWorldGenConfig::regionWeight),
-                    CommentedCodec.of(Codec.BOOL, "vanilla_additions", "Whether to add bwg flowers and features to Vanilla Biomes (Config Option for Fabric Only)").orElse(true).forGetter(config -> true)
+                    CommentedCodec.of(Codec.BOOL, "vanilla_additions", "Whether to add bwg flowers and features to Vanilla Biomes (Config Option for Fabric Only)").orElse(true).forGetter(config -> true),
+                    CommentedCodec.of(Codec.unboundedMap(ResourceKey.codec(Registries.PLACED_FEATURE), Codec.BOOL), "enabled_vanilla_additions", "BWG Features that we add to Vanilla Biomes").orElse(getVanillaPlacedFeatureAdditions()).forGetter(BWGWorldGenConfig::vanillaFeatures)
             ).apply(instance, BWGWorldGenConfig::new)
     );
 
     public static BWGWorldGenConfig createDefault() {
-        Object2BooleanMap<ResourceKey<Biome>> enabledBiomes = getDefaultBiomes();
-
-        return new BWGWorldGenConfig(enabledBiomes, 8, true);
+        return new BWGWorldGenConfig(getDefaultBiomes(), 8, true, getVanillaPlacedFeatureAdditions());
     }
 
     private static @NotNull Object2BooleanMap<ResourceKey<Biome>> getDefaultBiomes() {
@@ -57,6 +59,17 @@ public record BWGWorldGenConfig(Map<ResourceKey<Biome>, Boolean> enabledBiomes, 
 
         enabledBiomes.put(BWGBiomes.ERODED_BOREALIS, false);
         return enabledBiomes;
+    }
+
+    private static @NotNull Object2BooleanMap<ResourceKey<PlacedFeature>> getVanillaPlacedFeatureAdditions() {
+        Object2BooleanMap<ResourceKey<PlacedFeature>> enabledFeatures = new Object2BooleanOpenHashMap<>();
+        enabledFeatures.put(BWGVanillaPlacedFeatures.FLOWER_DEFAULT, true);
+        enabledFeatures.put(BWGVanillaPlacedFeatures.FLOWER_PLAINS, true);
+        enabledFeatures.put(BWGVanillaPlacedFeatures.FOREST_FLOWERS, true);
+        enabledFeatures.put(BWGVanillaPlacedFeatures.FLOWER_WARM, true);
+        enabledFeatures.put(BWGOverworldTreePlacedFeatures.PALM_TREES, true);
+
+        return enabledFeatures;
     }
 
     public static BWGWorldGenConfig getOrCreateConfigFromDisk() {
@@ -80,7 +93,7 @@ public record BWGWorldGenConfig(Map<ResourceKey<Biome>, Boolean> enabledBiomes, 
                 temporary.putAll(defaultWorldGenConfig.enabledBiomes);
                 temporary.putAll(config.enabledBiomes);
 
-                BWGWorldGenConfig toCreate = new BWGWorldGenConfig(temporary, config.regionWeight, config.vanillaAdditions);
+                BWGWorldGenConfig toCreate = new BWGWorldGenConfig(temporary, config.regionWeight, config.vanillaAdditions, config.vanillaFeatures);
 
                 createDefaultFile(toCreate);
 

@@ -7,6 +7,6 @@
     "minecraft:savanna",
     "minecraft:savanna_plateau"
   ],
-  "features": "biomeswevegone:vanilla/flower_default",
+  "features": "biomeswevegone:vanilla/flower_warm",
   "step": "vegetal_decoration"
 }
