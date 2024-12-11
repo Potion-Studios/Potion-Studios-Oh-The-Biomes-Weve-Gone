@@ -171,7 +171,22 @@ public class BWGStructureProcessorLists {
                     BWGRuleProcessors.packedMudToBlock(0.35f, BWGBlocks.PEAT.get()),
                     BWGRuleProcessors.packedMudToBlock(0.1f, Blocks.COARSE_DIRT),
                     BWGRuleProcessors.STONEBRICKS_VARIANTS,
-                    BWGRuleProcessors.MOSSIFY_50_PERCENT
+                    BWGRuleProcessors.STONEBRICKS_MORE_VARIANTS
+            )
+    ));
+
+    public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_MEETING_POINT_2 = register("pumpkin_patch_meeting_point_2", structureProcessorListHolderGetter -> new StructureProcessorList(
+            ImmutableList.of(
+                    BWGRuleProcessors.COBBLESTONE_VARIANTS
+            )
+    ));
+
+    public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_MEETING_POINT_1 = register("pumpkin_patch_meeting_point_1", structureProcessorListHolderGetter -> new StructureProcessorList(
+            ImmutableList.of(
+                    BWGRuleProcessors.COBBLESTONE_50_PERCENT_DIRT_PATH,
+                    BWGRuleProcessors.COBBLESTONE_20_PERCENT_GRASS,
+                    BWGRuleProcessors.STONEBRICKS_VARIANTS,
+                    BWGRuleProcessors.COBBLESTONE_VARIANTS
             )
     ));
 

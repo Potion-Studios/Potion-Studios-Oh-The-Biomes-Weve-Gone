@@ -5,9 +5,43 @@
       "rules": [
         {
           "input_predicate": {
-            "block": "minecraft:packed_mud",
+            "block": "minecraft:cobblestone",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.5
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:dirt_path"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "block": "minecraft:cobblestone",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.2
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:grass_block",
+            "Properties": {
+              "snowy": "false"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:cobblestone",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.2
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -17,42 +51,6 @@
             "Properties": {
               "snowy": "false"
             }
-          }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
-        {
-          "input_predicate": {
-            "block": "minecraft:packed_mud",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.35
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "biomeswevegone:peat"
-          }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
-        {
-          "input_predicate": {
-            "block": "minecraft:packed_mud",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.1
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "minecraft:coarse_dirt"
           }
         }
       ]
@@ -106,7 +104,33 @@
       "rules": [
         {
           "input_predicate": {
-            "block": "minecraft:stone_bricks",
+            "block": "minecraft:cobblestone",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.3
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:mossy_cobblestone"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:cobblestone",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.3
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:mossy_stone"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:cobblestone",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.3
           },
@@ -119,7 +143,7 @@
         },
         {
           "input_predicate": {
-            "block": "minecraft:stone_bricks",
+            "block": "minecraft:cobblestone",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.15
           },
@@ -127,12 +151,12 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "Name": "minecraft:cracked_stone_bricks"
           }
         },
         {
           "input_predicate": {
-            "block": "minecraft:stone_bricks",
+            "block": "minecraft:cobblestone",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.15
           },
@@ -140,20 +164,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:mossy_cobblestone"
-          }
-        },
-        {
-          "input_predicate": {
-            "block": "minecraft:stone_bricks",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.05
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "minecraft:chiseled_stone_bricks"
+            "Name": "minecraft:stone"
           }
         }
       ]
