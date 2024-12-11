@@ -315,7 +315,6 @@ public class BWGVillageTemplatePools {
                     singlePoolElement("pumpkin_patch/streets/pumpkin_patch_straight_03", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_STREETS),
                     singlePoolElement("pumpkin_patch/streets/pumpkin_patch_crossroad_01", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_STREETS),
                     singlePoolElement("pumpkin_patch/streets/pumpkin_patch_crossroad_02", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_STREETS),
-                    singlePoolElement("pumpkin_patch/streets/pumpkin_patch_crossroad_02", 3),
                     singlePoolElement("pumpkin_patch/streets/pumpkin_patch_square_01", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_STREETS),
                     singlePoolElement("pumpkin_patch/streets/pumpkin_patch_square_02", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_STREETS),
                     singlePoolElement("pumpkin_patch/streets/pumpkin_patch_turn_01", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_STREETS)
