@@ -16,6 +16,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+/**
+ * Places Fruit Blocks Below Supported Leaves Blocks, if the block below is air.
+ * @see StructureProcessor
+ * @author Joseph T. McQuigg
+ */
 public class FruitBlockProcessor extends StructureProcessor {
 
 	public static final MapCodec<FruitBlockProcessor> CODEC = RecordCodecBuilder.mapCodec(instance ->
@@ -37,13 +42,10 @@ public class FruitBlockProcessor extends StructureProcessor {
 		List<StructureTemplate.StructureBlockInfo> newInfo = new java.util.ArrayList<>(List.copyOf(processedBlockInfos));
 
 		processedBlockInfos.stream().filter(blockInfo -> blockInfo.state().is(this.fruitBlock.getLeaves())).forEach(leavesBlockInfo -> {
-			BlockPos leavesPos = leavesBlockInfo.pos();
-			if (serverLevel.getBlockState(leavesPos.below()).isAir() && serverLevel.getRandom().nextBoolean()) {
-				newInfo.stream().filter(blockInfo -> blockInfo.pos().equals(leavesPos.below())).findFirst().ifPresent(fruitSpot -> {
-					newInfo.remove(fruitSpot);
-					newInfo.add(new StructureTemplate.StructureBlockInfo(fruitSpot.pos(), this.fruitBlock.defaultBlockState().setValue(BWGFruitBlock.AGE, serverLevel.getRandom().nextInt(BWGFruitBlock.MAX_AGE)), fruitSpot.nbt()));
-				});
-			}
+			BlockPos fruitPos = leavesBlockInfo.pos().below();
+			if (serverLevel.getBlockState(fruitPos).isAir() && serverLevel.getRandom().nextBoolean())
+				newInfo.stream().filter(blockInfo -> blockInfo.pos().equals(fruitPos)).findFirst().ifPresent(fruitSpot ->
+						newInfo.set(newInfo.indexOf(fruitSpot), new StructureTemplate.StructureBlockInfo(fruitSpot.pos(), this.fruitBlock.defaultBlockState().setValue(BWGFruitBlock.AGE, serverLevel.getRandom().nextInt(BWGFruitBlock.MAX_AGE)), fruitSpot.nbt())));
 		});
 		return newInfo;
 	}

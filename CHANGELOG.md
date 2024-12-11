@@ -11,6 +11,7 @@
 - Refactor Platform FarmLandBlock to have Platform Name
 - Move Config Classes to Config Package
 - Correct BWG Pitcher Plant Item Models
+- Slight Change to FruitBlockProcessor#finalizeProcessing to be more Efficient
 
 # 2.2.5
 - Make Pale Pumpkin Set Compostable
