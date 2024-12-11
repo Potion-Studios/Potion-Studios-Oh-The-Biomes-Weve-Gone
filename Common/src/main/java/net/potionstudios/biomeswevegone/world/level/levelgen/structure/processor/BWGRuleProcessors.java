@@ -171,6 +171,31 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.3f, BWGBlocks.MOSSY_STONE_SET.getBase())
 	);
 
+	protected static final RuleProcessor STONEBRICKS_MORE_VARIANTS = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.3f, BWGBlocks.ROCKY_STONE_SET.getBase()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.15f, Blocks.COBBLESTONE),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.15f, Blocks.MOSSY_COBBLESTONE),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.05f, Blocks.CHISELED_STONE_BRICKS)
+	);
+
+	protected static final RuleProcessor COBBLESTONE_VARIANTS = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.3f, Blocks.MOSSY_COBBLESTONE),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.3f, BWGBlocks.MOSSY_STONE_SET.getBase()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.3f, BWGBlocks.ROCKY_STONE_SET.getBase()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.15f, Blocks.CRACKED_STONE_BRICKS),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.15f, Blocks.STONE)
+	);
+
+	protected static final RuleProcessor COBBLESTONE_50_PERCENT_DIRT_PATH = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.5f, Blocks.DIRT_PATH)
+	);
+
+	protected static final RuleProcessor COBBLESTONE_20_PERCENT_GRASS = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.2f, Blocks.GRASS_BLOCK),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.2f, BWGBlocks.LUSH_GRASS_BLOCK.get())
+	);
+
+
 	protected static final RuleProcessor PODZOL_25_PERCENT_COARSE_DIRT = createRuleProcessor(
 			createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.25f, Blocks.COARSE_DIRT)
 	);
