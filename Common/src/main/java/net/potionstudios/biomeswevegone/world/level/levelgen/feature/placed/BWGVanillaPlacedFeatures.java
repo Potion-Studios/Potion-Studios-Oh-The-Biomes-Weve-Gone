@@ -22,7 +22,7 @@ public class BWGVanillaPlacedFeatures {
             )
     );
 
-    public static final ResourceKey<PlacedFeature> FLOWER_WARM = PlacedFeaturesUtil.createPlacedFeature("vanilla/flower_default",
+    public static final ResourceKey<PlacedFeature> FLOWER_WARM = PlacedFeaturesUtil.createPlacedFeature("vanilla/flower_warm",
             BWGVanillaConfiguredFeatures.FLOWER_DEFAULT,
             () -> List.of(
                     RarityFilter.onAverageOnceEvery(16),
