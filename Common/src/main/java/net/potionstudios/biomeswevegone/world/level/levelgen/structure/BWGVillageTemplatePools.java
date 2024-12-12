@@ -329,11 +329,11 @@ public class BWGVillageTemplatePools {
                     singlePoolElement("pumpkin_patch/houses/pumpkin_patch_medium_house_1", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
                     singlePoolElement("pumpkin_patch/houses/pumpkin_patch_medium_house_2", 2, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
                     singlePoolElement("pumpkin_patch/houses/pumpkin_patch_medium_house_3", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
-                    legacyPoolElement("pumpkin_patch/houses/pumpkin_patch_small_farm_1", 2, templatePoolFactoryContext, ProcessorLists.FARM_TAIGA),
-                    legacyPoolElement("pumpkin_patch/houses/pumpkin_patch_small_farm_2", 3, templatePoolFactoryContext, ProcessorLists.FARM_TAIGA),
-                    legacyPoolElement("pumpkin_patch/houses/pumpkin_patch_small_farm_3", 2, templatePoolFactoryContext, ProcessorLists.FARM_TAIGA),
-                    legacyPoolElement("pumpkin_patch/houses/pumpkin_patch_small_farm_4", 3, templatePoolFactoryContext, ProcessorLists.FARM_TAIGA),
-                    legacyPoolElement("pumpkin_patch/houses/pumpkin_patch_small_farm_5", 2, templatePoolFactoryContext, ProcessorLists.FARM_TAIGA),
+                    singlePoolElement("pumpkin_patch/houses/pumpkin_patch_small_farm_1", 2, templatePoolFactoryContext, ProcessorLists.FARM_TAIGA),
+                    singlePoolElement("pumpkin_patch/houses/pumpkin_patch_small_farm_2", 3, templatePoolFactoryContext, ProcessorLists.FARM_TAIGA),
+                    singlePoolElement("pumpkin_patch/houses/pumpkin_patch_small_farm_3", 2, templatePoolFactoryContext, ProcessorLists.FARM_TAIGA),
+                    singlePoolElement("pumpkin_patch/houses/pumpkin_patch_small_farm_4", 3, templatePoolFactoryContext, ProcessorLists.FARM_TAIGA),
+                    singlePoolElement("pumpkin_patch/houses/pumpkin_patch_small_farm_5", 2, templatePoolFactoryContext, ProcessorLists.FARM_TAIGA),
                     emptyPoolElement(10)
             ), StructureTemplatePool.Projection.RIGID));
 
