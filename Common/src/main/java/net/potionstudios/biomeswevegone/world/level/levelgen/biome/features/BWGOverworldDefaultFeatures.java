@@ -12,15 +12,15 @@ import org.jetbrains.annotations.NotNull;
 public class BWGOverworldDefaultFeatures {
 
     public static void addCloverPatches(BiomeGenerationSettings.Builder gen) {
-        addVegetal(gen,  BWGOverworldVegationPlacedFeatures.CLOVER_PATCH);
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.CLOVER_PATCH);
     }
 
     public static void addLeafPile(BiomeGenerationSettings.Builder gen) {
-        addVegetal(gen,  BWGOverworldVegationPlacedFeatures.LEAF_PILE);
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.LEAF_PILE);
     }
 
     public static void addBWGMushrooms(BiomeGenerationSettings.Builder gen) {
-        addVegetal(gen,  BWGOverworldVegationPlacedFeatures.MUSHROOMS);
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.MUSHROOMS);
     }
 
     public static void addSparseRedOakTrees(BiomeGenerationSettings.Builder gen) {
