@@ -20,7 +20,7 @@ public record BWGTradesConfig(boolean enableTrades, boolean enableVanillaTradeAd
 
     private static final Codec<BWGTradesConfig> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             CommentedCodec.of(Codec.BOOL, "enable_trades", "Whether to enable BWG Villager Trades").orElse(true).forGetter(config -> true),
-            CommentedCodec.of(Codec.BOOL, "enable_vanilla_trade_additions", "Whether to add BWG Villager Trades to Vanilla Villagers").orElse(true).forGetter(config -> true)
+            CommentedCodec.of(Codec.BOOL, "enable_vanilla_trade_additions", "Whether to add BWG Items to Vanilla Villager Type Trades").orElse(true).forGetter(config -> true)
     ).apply(instance, BWGTradesConfig::new));
 
     private static BWGTradesConfig createDefault() {

@@ -84,7 +84,7 @@ public class BWGBiomes {
     public static final ResourceKey<Biome> ZELKOVA_FOREST = createBiome("zelkova_forest", BWGOverworldBiomes::zelkovaForest, BWGBiomeTags.FOREST, BWGBiomeTags.DENSE);
     
     @SafeVarargs
-    public static ResourceKey<Biome> createBiome(String id, BiomeFactory biomeFactory, TagKey<Biome>... tags) {
+    private static ResourceKey<Biome> createBiome(String id, BiomeFactory biomeFactory, TagKey<Biome>... tags) {
         ResourceKey<Biome> biomeResourceKey = BiomesWeveGone.key(Registries.BIOME, id);
         BIOME_FACTORIES.put(biomeResourceKey, biomeFactory);
 

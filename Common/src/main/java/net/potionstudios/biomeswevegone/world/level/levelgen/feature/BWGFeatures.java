@@ -26,7 +26,7 @@ public class BWGFeatures {
     public static final Supplier<ConfigurableFreezeTopLayer> CONFIGURABLE_FREEZE_TOP_LAYER = create("configurable_freeze_top_layer", () -> new ConfigurableFreezeTopLayer(ConfigurableFreezeTopLayer.Config.CODEC));
 
 
-    public static <C extends FeatureConfiguration, F extends Feature<C>> Supplier<F> create(String id, Supplier<F> supplier) {
+    private static <C extends FeatureConfiguration, F extends Feature<C>> Supplier<F> create(String id, Supplier<F> supplier) {
         return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.FEATURE, id, supplier);
     }
 
