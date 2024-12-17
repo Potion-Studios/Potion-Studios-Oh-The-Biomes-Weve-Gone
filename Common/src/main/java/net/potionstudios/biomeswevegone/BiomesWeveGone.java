@@ -64,6 +64,7 @@ public class BiomesWeveGone {
         BWGPoiTypes.poiTypes();
         BWGVillagerProfessions.professions();
         BWGCustomStructureProcessors.processors();
+        BWGVillagerType.villagerTypes();
     }
 
     /**
