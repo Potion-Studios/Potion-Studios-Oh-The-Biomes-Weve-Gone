@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.*;
+import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -69,7 +70,12 @@ public class VanillaCompatFabric {
     private static void registerTrades() {
         if (!BWGTradesConfig.INSTANCE.get().enableTrades()) return;
         BWGVillagerTrades.makeTrades();
-        BWGVillagerTrades.TRADES.forEach(((villagerProfession, pairs) -> pairs.forEach(pair ->
-                TradeOfferHelper.registerVillagerOffers(villagerProfession, pair.getFirst(), factory -> factory.add(((trader, random) -> pair.getSecond()))))));
+        BWGVillagerTrades.TRADES.forEach((villagerProfession, offersMap) ->
+                offersMap.forEach((level, offers) ->
+                        TradeOfferHelper.registerVillagerOffers(villagerProfession, level, factory -> {
+                            for (MerchantOffer offer : offers) factory.add((trader, random) -> offer);
+                        })
+                )
+        );
     }
 }

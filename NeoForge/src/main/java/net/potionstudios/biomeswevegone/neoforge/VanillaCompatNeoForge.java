@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -65,15 +66,14 @@ public class VanillaCompatNeoForge {
         }
     }
 
-    /**
-     * Register villager trades.
-     * @see VillagerTradesEvent
-     */
     private static void onVillagerTrade(final VillagerTradesEvent event) {
         if (BWGVillagerTrades.TRADES.containsKey(event.getType())) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             BWGVillagerTrades.TRADES.get(event.getType())
-                    .forEach(pair -> trades.get(pair.getFirst().intValue()).add((trader, random) -> pair.getSecond()));
+                    .forEach((level, offers) -> {
+                        List<VillagerTrades.ItemListing> tradeList = trades.get(level.intValue());
+                        for (MerchantOffer offer : offers) tradeList.add((trader, random) -> offer);
+                    });
         }
     }
 
