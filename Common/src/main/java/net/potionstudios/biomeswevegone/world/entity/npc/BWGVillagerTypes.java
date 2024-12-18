@@ -8,7 +8,7 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 
 import java.util.function.Supplier;
 
-public class BWGVillagerType {
+public class BWGVillagerTypes {
 
 	public static final Supplier<VillagerType> SKYRIS = register("skyris");
 

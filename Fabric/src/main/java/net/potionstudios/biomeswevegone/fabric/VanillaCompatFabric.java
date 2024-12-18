@@ -19,6 +19,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerType;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -92,7 +93,7 @@ public class VanillaCompatFabric {
         );
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 1, factory -> {
-            factory.add(((trader, random) -> new VillagerTrades.EmeraldsForVillagerTypeItem(1, 12, 30, ImmutableMap.<VillagerType, Item>builder().put(BWGVillagerType.SKYRIS.get(), BWGWood.SKYRIS.boatItem().get()).build()).getOffer(trader, random)));
+            factory.add(((trader, random) -> new VillagerTrades.EmeraldsForVillagerTypeItem(1, 12, 30, ImmutableMap.<VillagerType, Item>builder().put(BWGVillagerTypes.SKYRIS.get(), BWGWood.SKYRIS.boatItem().get()).build()).getOffer(trader, random)));
         });
     }
 
