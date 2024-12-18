@@ -1,10 +1,13 @@
 package net.potionstudios.biomeswevegone.neoforge;
 
+import com.google.common.collect.ImmutableMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.block.Blocks;
@@ -21,10 +24,14 @@ import net.neoforged.neoforge.event.village.WandererTradesEvent;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerType;
 import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
+import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
+import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldVegationPlacedFeatures;
 
 import java.util.HashMap;
 import java.util.List;
@@ -83,6 +90,8 @@ public class VanillaCompatNeoForge {
                         List<VillagerTrades.ItemListing> tradeList = trades.get(level.intValue());
                         for (MerchantOffer offer : offers) tradeList.add((trader, random) -> offer);
                     });
+
+            event.getTrades().get(1).add((trader, random) -> new VillagerTrades.EmeraldsForVillagerTypeItem(1, 12, 30, ImmutableMap.<VillagerType, Item>builder().put(BWGVillagerType.SKYRIS.get(), BWGWood.SKYRIS.boatItem().get()).build()).getOffer(trader, random));
         }
     }
 
