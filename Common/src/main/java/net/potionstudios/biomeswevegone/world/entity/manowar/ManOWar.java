@@ -35,6 +35,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
+import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
@@ -122,7 +123,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     public static boolean checkManOWarSpawnRules(EntityType<? extends ManOWar> entity, LevelAccessor world, MobSpawnType spawnType, BlockPos pos, RandomSource rand) {
-        return pos.getY() <= (world.getSeaLevel() - 2) && world.getFluidState(pos.below()).is(FluidTags.WATER);
+        return BWGMobSpawnConfig.INSTANCE.man_o_war && pos.getY() <= (world.getSeaLevel() - 2) && world.getFluidState(pos.below()).is(FluidTags.WATER);
     }
 
     @Override

@@ -38,6 +38,7 @@ public class BWGEntities {
 		return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.ENTITY_TYPE, id, ()-> EntityType.Builder.of(factory, category).sized(width, height).clientTrackingRange(trackingRange).build(id));
 	}
 
+	@SuppressWarnings("unchecked")
 	public static <T extends Mob> void registerSpawnPlacements(Consumer<SpawnPlacement<T>> consumer) {
 		consumer.accept((SpawnPlacement<T>) new SpawnPlacement<>(MAN_O_WAR, SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ManOWar::checkManOWarSpawnRules));
 		consumer.accept((SpawnPlacement<T>) new SpawnPlacement<>(ODDION, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.WORLD_SURFACE, Oddion::checkOddionSpawnRules));

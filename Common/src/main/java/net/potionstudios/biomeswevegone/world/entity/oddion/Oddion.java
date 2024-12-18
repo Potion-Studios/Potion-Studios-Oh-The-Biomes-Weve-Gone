@@ -32,6 +32,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
+import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
@@ -121,11 +122,11 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     }
 
     public static boolean checkOddionSpawnRules(EntityType<? extends Oddion> entity, LevelAccessor world, MobSpawnType spawnType, BlockPos pos, RandomSource rand) {
-        return world.getBlockState(pos.below()).is(BlockTags.DIRT);
+        return BWGMobSpawnConfig.INSTANCE.oddion && world.getBlockState(pos.below()).is(BlockTags.DIRT);
     }
 
     @Override
-    public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+    public @Nullable SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
         this.setVariant(Variant.getSpawnVariant(level.getRandom()));
         return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
     }
