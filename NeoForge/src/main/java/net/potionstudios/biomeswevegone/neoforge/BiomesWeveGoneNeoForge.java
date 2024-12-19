@@ -15,8 +15,6 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGOverworldS
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGTerraBlenderRegion;
 import terrablender.api.SurfaceRuleManager;
 
-import java.util.function.Consumer;
-
 @Mod(BiomesWeveGone.MOD_ID)
 public class BiomesWeveGoneNeoForge {
 
@@ -27,8 +25,8 @@ public class BiomesWeveGoneNeoForge {
 		eventBus.addListener(this::onInitialize);
 		eventBus.addListener(this::onPostInitialize);
 		EVENT_BUS.addListener(this::onServerStarting);
-		eventBus.addListener((Consumer<EntityAttributeCreationEvent>) event -> BWGEntities.registerEntityAttributes(event::put));
-		eventBus.addListener((Consumer<RegisterSpawnPlacementsEvent>) event -> BWGEntities.registerSpawnPlacements((consumer) -> event.register(consumer.entityType().get(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), RegisterSpawnPlacementsEvent.Operation.OR)));
+		eventBus.addListener((EntityAttributeCreationEvent event) -> BWGEntities.registerEntityAttributes(event::put));
+		eventBus.addListener((RegisterSpawnPlacementsEvent event) -> BWGEntities.registerSpawnPlacements((consumer) -> event.register(consumer.entityType().get(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), RegisterSpawnPlacementsEvent.Operation.OR)));
 		VanillaCompatNeoForge.registerVanillaCompatEvents(EVENT_BUS);
 		LootModifiersRegister.register(eventBus);
 	}

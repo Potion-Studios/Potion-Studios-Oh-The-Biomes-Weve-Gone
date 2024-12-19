@@ -20,8 +20,6 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGOverworldS
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGTerraBlenderRegion;
 import terrablender.api.SurfaceRuleManager;
 
-import java.util.function.Consumer;
-
 /**
  * Main class for the mod on the Forge platform.
  * @see Mod
@@ -38,8 +36,8 @@ public class BiomesWeveGoneForge {
         MOD_BUS.addListener(this::onInitialize);
         MOD_BUS.addListener(this::onPostInitialize);
         EVENT_BUS.addListener(this::onServerStarting);
-        MOD_BUS.addListener((Consumer<EntityAttributeCreationEvent>) event -> BWGEntities.registerEntityAttributes(event::put));
-        MOD_BUS.addListener((Consumer<SpawnPlacementRegisterEvent>) event -> BWGEntities.registerSpawnPlacements((consumer) -> event.register(consumer.entityType().get(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), SpawnPlacementRegisterEvent.Operation.OR)));
+        MOD_BUS.addListener((EntityAttributeCreationEvent event) -> BWGEntities.registerEntityAttributes(event::put));
+        MOD_BUS.addListener((SpawnPlacementRegisterEvent event) -> BWGEntities.registerSpawnPlacements((consumer) -> event.register(consumer.entityType().get(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), SpawnPlacementRegisterEvent.Operation.OR)));
         VanillaCompatForge.registerVanillaCompatEvents(EVENT_BUS);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> BiomesWeveGoneClientForge.init(MOD_BUS));
         LootModifiersRegister.register(MOD_BUS);
