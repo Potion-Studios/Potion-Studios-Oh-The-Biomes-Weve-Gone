@@ -34,7 +34,7 @@ public class BiomesWeveGoneFabric implements ModInitializer {
         BiomesWeveGone.init();
         VanillaCompatFabric.init();
         BWGEntities.registerEntityAttributes(FabricDefaultAttributeRegistry::register);
-        BWGEntities.registerSpawnPlacements((consumer) -> SpawnPlacements.register(consumer.entityType().get(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate()));
+        BWGEntities.registerSpawnPlacements((consumer) -> SpawnPlacements.register(consumer.entityType(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate()));
         BiomesWeveGone.commonSetup();
         BiomesWeveGone.postInit();
         ServerLifecycleEvents.SERVER_STARTING.register(BiomesWeveGone::serverStart);
