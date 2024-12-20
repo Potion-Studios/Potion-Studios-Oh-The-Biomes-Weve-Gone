@@ -131,9 +131,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     public static boolean checkManOWarSpawnRules(EntityType<? extends ManOWar> entity, LevelAccessor world, MobSpawnType spawnType, BlockPos pos, RandomSource rand) {
-        int i = world.getSeaLevel();
-        int j = i - 2;
-        return pos.getY() <= j && world.getFluidState(pos.below()).is(FluidTags.WATER);
+        return pos.getY() <= (world.getSeaLevel() - 2) && world.getFluidState(pos.below()).is(FluidTags.WATER);
     }
 
     @Override
@@ -208,7 +206,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
 
     @Override
-    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor serverLevelAccessor, @NotNull DifficultyInstance difficultyInstance, @NotNull MobSpawnType mobSpawnType,  SpawnGroupData spawnGroupData,  CompoundTag compoundTag) {
+    public @NotNull SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor serverLevelAccessor, @NotNull DifficultyInstance difficultyInstance, @NotNull MobSpawnType mobSpawnType, SpawnGroupData spawnGroupData, CompoundTag compoundTag) {
         spawnGroupData = super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
         if (mobSpawnType == MobSpawnType.BUCKET && compoundTag != null && compoundTag.contains("BucketVariantTag", 3)) {
             this.setRawFlag(compoundTag.getInt("BucketVariantTag"));

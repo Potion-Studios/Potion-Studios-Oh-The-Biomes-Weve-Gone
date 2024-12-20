@@ -4,6 +4,7 @@ import corgitaco.corgilib.fabric.CorgiLibFabric;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.minecraft.world.entity.SpawnPlacements;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 
@@ -33,6 +34,7 @@ public class BiomesWeveGoneFabric implements ModInitializer {
         BiomesWeveGone.init();
         VanillaCompatFabric.init();
         BWGEntities.registerEntityAttributes(FabricDefaultAttributeRegistry::register);
+        BWGEntities.registerSpawnPlacements(consumer -> SpawnPlacements.register(consumer.entityType(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate()));
         BiomesWeveGone.commonSetup();
         BiomesWeveGone.postInit();
         ServerLifecycleEvents.SERVER_STARTING.register(BiomesWeveGone::serverStart);

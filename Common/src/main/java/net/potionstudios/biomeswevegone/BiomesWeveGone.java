@@ -72,7 +72,6 @@ public class BiomesWeveGone {
      * Ran later in the initialization process to setup common things.
      */
     public static void commonSetup() {
-        BWGEntities.registerSpawnPlacements();
         BWGVillagerType.setVillagerBWGBiomes();
     }
 

@@ -12,6 +12,7 @@
 - Move Config Classes to Config Package
 - Correct BWG Pitcher Plant Item Models
 - Slight Change to FruitBlockProcessor#finalizeProcessing to be more Efficient
+- Use SpawnPlacementRegisterEvent on Forge to Register Entity Spawn Placements
 
 # 1.4.4
 - Add Russian Translations (ru_ru) (Credits: j-tap)
