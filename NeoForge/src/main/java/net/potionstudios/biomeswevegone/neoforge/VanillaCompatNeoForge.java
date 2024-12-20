@@ -46,7 +46,7 @@ public class VanillaCompatNeoForge {
         ToolInteractions.registerFlattenables(ShovelItem.FLATTENABLES::put);
     }
 
-    public static void registerVanillaCompatEvents(IEventBus bus) {
+    public static void registerVanillaCompatEvents(final IEventBus bus) {
         bus.addListener(VanillaCompatNeoForge::registerTillables);
         if (BWGTradesConfig.INSTANCE.get().enableTrades()) bus.addListener(VanillaCompatNeoForge::onVillagerTrade);
         bus.addListener(VanillaCompatNeoForge::onBoneMealUse);
@@ -54,6 +54,10 @@ public class VanillaCompatNeoForge {
         bus.addListener(VanillaCompatNeoForge::onEnderManAnger);
     }
 
+    /**
+     * Register tillable blocks.
+     * @see BlockEvent.BlockToolModificationEvent
+     */
     private static void registerTillables(final BlockEvent.BlockToolModificationEvent event) {
         if (event.getItemAbility() == ItemAbilities.HOE_TILL && event.getLevel().getBlockState(event.getPos().above()).isAir()) {
             BlockState state = event.getState();
@@ -66,6 +70,10 @@ public class VanillaCompatNeoForge {
         }
     }
 
+    /**
+     * Register villager trades.
+     * @see VillagerTradesEvent
+     */
     private static void onVillagerTrade(final VillagerTradesEvent event) {
         if (BWGVillagerTrades.TRADES.containsKey(event.getType())) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
