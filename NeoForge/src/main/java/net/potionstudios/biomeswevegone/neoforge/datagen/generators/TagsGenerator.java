@@ -172,6 +172,11 @@ public class TagsGenerator {
             tag(BlockTags.ENDERMAN_HOLDABLE).add(BWGBlocks.PALE_PUMPKIN.get(), BWGBlocks.CARVED_PALE_PUMPKIN.get());
             tag(BlockTags.SWORD_EFFICIENT).add(BWGBlocks.PALE_PUMPKIN.get(), BWGBlocks.CARVED_PALE_PUMPKIN.get(), BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get(), BWGBlocks.PALE_JACK_O_LANTERN.get());
 
+            tag(BWGBlockTags.STORAGE_BLOCKS_ALLIUM).add(BWGBlocks.ALLIUM_PETAL_BLOCK.get());
+            tag(BWGBlockTags.STORAGE_BLOCKS_PINK_ALLIUM).add(BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get());
+            tag(BWGBlockTags.STORAGE_BLOCKS_WHITE_ALLIUM).add(BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get());
+            tag(BWGBlockTags.STORAGE_BLOCKS_ROSE).add(BWGBlocks.ROSE_PETAL_BLOCK.get());
+            tag(Tags.Blocks.STORAGE_BLOCKS).addTag(BWGBlockTags.STORAGE_BLOCKS_ALLIUM).addTag(BWGBlockTags.STORAGE_BLOCKS_PINK_ALLIUM).addTag(BWGBlockTags.STORAGE_BLOCKS_WHITE_ALLIUM).addTag(BWGBlockTags.STORAGE_BLOCKS_ROSE);
             // Entity Integration Tags
             tag(BlockTags.ANIMALS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.PEAT.get());
             tag(BlockTags.FROGS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PALE_MUD.get(), BWGWood.SPIRIT_ROOTS.get());
@@ -257,6 +262,11 @@ public class TagsGenerator {
             copy(BWGBlockTags.AMARANTH, BWGItemTags.AMARANTH);
             copy(BWGBlockTags.SAGES, BWGItemTags.SAGES);
             copy(BWGBlockTags.DAFFODILS, BWGItemTags.DAFFODILS);
+            copy(BWGBlockTags.STORAGE_BLOCKS_ALLIUM, BWGItemTags.STORAGE_BLOCKS_ALLIUM);
+            copy(BWGBlockTags.STORAGE_BLOCKS_PINK_ALLIUM, BWGItemTags.STORAGE_BLOCKS_PINK_ALLIUM);
+            copy(BWGBlockTags.STORAGE_BLOCKS_WHITE_ALLIUM, BWGItemTags.STORAGE_BLOCKS_WHITE_ALLIUM);
+            copy(BWGBlockTags.STORAGE_BLOCKS_ROSE, BWGItemTags.STORAGE_BLOCKS_ROSE);
+            copy(Tags.Blocks.STORAGE_BLOCKS, Tags.Items.STORAGE_BLOCKS);
             copy(BlockTags.FLOWERS, ItemTags.FLOWERS);
             copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
             copy(BlockTags.TALL_FLOWERS, ItemTags.TALL_FLOWERS);
