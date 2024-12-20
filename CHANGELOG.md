@@ -13,6 +13,7 @@
 - Correct BWG Pitcher Plant Item Models
 - Slight Change to FruitBlockProcessor#finalizeProcessing to be more Efficient
 - Use SpawnPlacementRegisterEvent on Forge to Register Entity Spawn Placements
+- Add Config to Enable/Disable Spawning of Oddion and Man O War
 
 # 1.4.4
 - Add Russian Translations (ru_ru) (Credits: j-tap)

@@ -32,6 +32,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
+import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
@@ -105,7 +106,6 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
         this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 2.0F));
         this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.BONE_MEAL), false));
-        super.registerGoals();
     }
 
     @Override
@@ -121,7 +121,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     }
 
     public static boolean checkOddionSpawnRules(EntityType<? extends Oddion> entity, LevelAccessor world, MobSpawnType spawnType, BlockPos pos, RandomSource rand) {
-        return world.getBlockState(pos.below()).is(BlockTags.DIRT);
+        return BWGMobSpawnConfig.INSTANCE.oddion && world.getBlockState(pos.below()).is(BlockTags.DIRT);
     }
 
     @Nullable
