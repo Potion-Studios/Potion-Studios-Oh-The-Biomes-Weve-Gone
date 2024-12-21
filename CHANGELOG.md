@@ -14,6 +14,7 @@
 - Slight Change to FruitBlockProcessor#finalizeProcessing to be more Efficient
 - Add Config to Enable/Disable Spawning of Oddion and Man O War
 - Add Storage Block Tags (Allium and Rose Petal Blocks)
+- Fix BWG trades on NeoForge
 
 # 2.2.5
 - Make Pale Pumpkin Set Compostable

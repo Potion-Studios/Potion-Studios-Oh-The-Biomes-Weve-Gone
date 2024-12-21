@@ -11,6 +11,7 @@ import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.neoforge.loot.LootModifiersRegister;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGOverworldSurfaceRules;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGTerraBlenderRegion;
 import terrablender.api.SurfaceRuleManager;
@@ -51,6 +52,7 @@ public class BiomesWeveGoneNeoForge {
 	 */
 	private void onPostInitialize(final FMLLoadCompleteEvent event) {
 		event.enqueueWork(BiomesWeveGone::postInit);
+		BWGVillagerTrades.makeTrades();
 	}
 
 	/**
