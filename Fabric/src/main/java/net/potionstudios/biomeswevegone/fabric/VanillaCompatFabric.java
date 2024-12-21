@@ -36,6 +36,7 @@ public class VanillaCompatFabric {
         registerBiomeModifiers();
         registerLootModifiers();
         registerTrades();
+        registerWanderingTrades();
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> BWGBrewingRecipes.buildBrewingRecipes(builder::addMix));
     }
 
@@ -76,6 +77,15 @@ public class VanillaCompatFabric {
                             for (MerchantOffer offer : offers) factory.add((trader, random) -> offer);
                         })
                 )
+        );
+    }
+
+    private static void registerWanderingTrades() {
+        BWGVillagerTrades.makeWanderingTrades();
+        BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) ->
+                TradeOfferHelper.registerWanderingTraderOffers(level, factory -> {
+                    for (MerchantOffer offer : offers) factory.add((trader, random) -> offer);
+                })
         );
     }
 }

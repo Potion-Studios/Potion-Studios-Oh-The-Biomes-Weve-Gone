@@ -10,10 +10,14 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -79,6 +83,19 @@ public class BWGVillagerTrades {
                         createItemsForEmeraldsOffer(BWGBlocks.RED_ROCK_SET.getBase(), 1, 1, 12, 15, 0.05f)
                 )
         )));
+    }
+
+    public static final Int2ObjectMap<List<MerchantOffer>> WANDERING_TRADER_TRADES = new Int2ObjectOpenHashMap<>();
+
+    public static void makeWanderingTrades() {
+        List<MerchantOffer> level1Items = new ArrayList<>();
+        BWGWood.WOOD.stream().filter(item -> item.get() instanceof SaplingBlock).forEach(item ->
+                level1Items.add(createItemsForEmeraldsOffer(item.get(), 5, 1, 8, 1, 0.05f)));
+        BWGSandSet.getSandSets().forEach(bwgSandSet -> level1Items.add(
+                createItemsForEmeraldsOffer(bwgSandSet.getSand(), 1, 4, 6, 1, 0.05f)));
+        WANDERING_TRADER_TRADES.put(1, level1Items);
+        WANDERING_TRADER_TRADES.put(2, ImmutableList.of(
+                createItemsForEmeraldsOffer(BWGItems.MAN_O_WAR_BUCKET.get(), 5, 1, 4, 1, 0.05f)));
     }
 
     private static MerchantOffer createEmeraldForItemsOffer(ItemLike item, int cost, int maxUses, int villagerXp) {

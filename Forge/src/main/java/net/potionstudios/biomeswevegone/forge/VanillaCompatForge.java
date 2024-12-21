@@ -18,6 +18,7 @@ import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
+import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
@@ -52,6 +53,7 @@ public class VanillaCompatForge {
         bus.addListener(VanillaCompatForge::registerTillables);
         bus.addListener(VanillaCompatForge::registerFuels);
         if (BWGTradesConfig.INSTANCE.get().enableTrades()) bus.addListener(VanillaCompatForge::onVillagerTrade);
+        bus.addListener(VanillaCompatForge::onWanderingTrade);
         bus.addListener(VanillaCompatForge::registerBrewingRecipes);
         bus.addListener(VanillaCompatForge::onBoneMealUse);
         bus.addListener(VanillaCompatForge::onEnderManAnger);
@@ -95,6 +97,16 @@ public class VanillaCompatForge {
                             for (MerchantOffer offer : offers) tradeList.add((trader, random) -> offer);
                     });
         }
+    }
+
+    /**
+     * Register wandering trader trades.
+     * @see WandererTradesEvent
+     */
+    private static void onWanderingTrade(final WandererTradesEvent event) {
+        BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) -> {
+            for (MerchantOffer offer : offers) event.getGenericTrades().add((trader, random) -> offer);
+        });
     }
 
     /**
