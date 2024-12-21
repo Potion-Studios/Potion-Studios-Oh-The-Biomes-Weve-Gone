@@ -10,6 +10,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -94,6 +95,13 @@ public class BWGVillagerTrades {
                 level1Items.add(createItemsForEmeraldsOffer(item.get(), 5, 1, 8, 1, 0.05f)));
         BWGSandSet.getSandSets().forEach(bwgSandSet -> level1Items.add(
                 createItemsForEmeraldsOffer(bwgSandSet.getSand(), 1, 4, 6, 1, 0.05f)));
+        BWGBlocks.BLOCKS.stream().filter(block -> block.get() instanceof FlowerBlock).forEach(block ->
+                level1Items.add(createItemsForEmeraldsOffer(block.get(), 1, 1, 13, 1, 0.05f)));
+        level1Items.add(createItemsForEmeraldsOffer(BWGItems.TINY_LILY_PADS.get(), 1, 2, 5, 1, 0.05f));
+        level1Items.add(createItemsForEmeraldsOffer(BWGItems.FLOWERING_TINY_LILY_PADS.get(), 1, 2, 5, 1, 0.05f));
+        level1Items.add(createItemsForEmeraldsOffer(BWGBlocks.WEEPING_MILKCAP.get(), 1, 1, 12, 1, 0.05f));
+        level1Items.add(createItemsForEmeraldsOffer(BWGBlocks.GREEN_MUSHROOM.get(), 1, 1, 12, 1, 0.05f));
+        level1Items.add(createItemsForEmeraldsOffer(BWGBlocks.WOOD_BLEWIT.get(), 1, 1, 12, 1, 0.05f));
         WANDERING_TRADER_TRADES.put(1, level1Items);
         WANDERING_TRADER_TRADES.put(2, ImmutableList.of(
                 createItemsForEmeraldsOffer(BWGItems.MAN_O_WAR_BUCKET.get(), 5, 1, 4, 1, 0.05f)));
