@@ -35,8 +35,11 @@ public class VanillaCompatFabric {
         ToolInteractions.registerTillables((block, pair) -> TillableBlockRegistry.register(block, pair.getFirst(), pair.getSecond()));
         registerBiomeModifiers();
         registerLootModifiers();
-        registerTrades();
-        registerWanderingTrades();
+        if (!BWGTradesConfig.INSTANCE.trades.disableTrades.value()) {
+            registerTrades();
+            if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value())
+                registerWanderingTrades();
+        }
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> BWGBrewingRecipes.buildBrewingRecipes(builder::addMix));
     }
 

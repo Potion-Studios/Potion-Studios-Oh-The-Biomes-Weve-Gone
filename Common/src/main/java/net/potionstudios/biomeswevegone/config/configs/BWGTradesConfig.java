@@ -7,6 +7,12 @@ public class BWGTradesConfig {
 
 	public static final BWGTradesConfig INSTANCE = ConfigLoader.loadConfig(BWGTradesConfig.class, "trades");
 
+	public BWGTrades trades = new BWGTrades();
+
+	public static class BWGTrades {
+		public ConfigUtils.CommentValue<Boolean> disableTrades = ConfigUtils.CommentValue.of("Disable All BWG Trades, If this is set to true none of the values below will matter", false);
+	}
+
 	public BWGVillagerTradesConfig villagerTrades = new BWGVillagerTradesConfig();
 
 	public static class BWGVillagerTradesConfig {
