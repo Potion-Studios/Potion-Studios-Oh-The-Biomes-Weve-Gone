@@ -27,30 +27,31 @@ public class BWGVillagerTrades {
     public static final Map<VillagerProfession, Int2ObjectMap<List<MerchantOffer>>> TRADES = new HashMap<>();
 
     public static void makeTrades() {
-        TRADES.put(BWGVillagerProfessions.FORAGER.get(), toIntMap(ImmutableMap.of(
-                1, ImmutableList.of(
-                        createEmeraldForItemsOffer(Items.RED_MUSHROOM, 10, 12, 2),
-                        createEmeraldForItemsOffer(Items.BROWN_MUSHROOM, 10, 12, 2),
-                        createEmeraldForItemsOffer(BWGBlocks.GREEN_MUSHROOM.get(), 10, 12, 2)
-                ),
-                2, ImmutableList.of(
-                        createEmeraldForItemsOffer(BWGBlocks.WOOD_BLEWIT.get(), 8, 12, 3),
-                        createItemsForEmeraldsOffer(BWGItems.WHITE_PUFFBALL_CAP.get(), 4, 5, 4, 2, 0.05f)
-                ),
-                3, ImmutableList.of(
-                        createEmeraldForItemsOffer(BWGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4)
-                ),
-                4, ImmutableList.of(
-                        createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BRANCH.get(), 4, 9, 4, 3, 0.05f),
-                        createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 3, 0.05f)
-                ),
-                5, ImmutableList.of(
-                        createItemsForEmeraldsOffer(BWGBlocks.SHELF_FUNGI.get(), 3, 9, 4, 4, 0.05f),
-                        createEmeraldForItemsOffer(Items.SWEET_BERRIES, 16, 4, 2),
-                        createEmeraldForItemsOffer(BWGItems.BLUEBERRIES.get(), 16, 4, 2)
-                )
-        )));
-        if (!BWGTradesConfig.INSTANCE.get().enableVanillaTradeAdditions()) return;
+        if (BWGTradesConfig.INSTANCE.villagerTrades.allowBWGForagerTrades)
+            TRADES.put(BWGVillagerProfessions.FORAGER.get(), toIntMap(ImmutableMap.of(
+                    1, ImmutableList.of(
+                            createEmeraldForItemsOffer(Items.RED_MUSHROOM, 10, 12, 2),
+                            createEmeraldForItemsOffer(Items.BROWN_MUSHROOM, 10, 12, 2),
+                            createEmeraldForItemsOffer(BWGBlocks.GREEN_MUSHROOM.get(), 10, 12, 2)
+                    ),
+                    2, ImmutableList.of(
+                            createEmeraldForItemsOffer(BWGBlocks.WOOD_BLEWIT.get(), 8, 12, 3),
+                            createItemsForEmeraldsOffer(BWGItems.WHITE_PUFFBALL_CAP.get(), 4, 5, 4, 2, 0.05f)
+                    ),
+                    3, ImmutableList.of(
+                            createEmeraldForItemsOffer(BWGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4)
+                    ),
+                    4, ImmutableList.of(
+                            createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BRANCH.get(), 4, 9, 4, 3, 0.05f),
+                            createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 3, 0.05f)
+                    ),
+                    5, ImmutableList.of(
+                            createItemsForEmeraldsOffer(BWGBlocks.SHELF_FUNGI.get(), 3, 9, 4, 4, 0.05f),
+                            createEmeraldForItemsOffer(Items.SWEET_BERRIES, 16, 4, 2),
+                            createEmeraldForItemsOffer(BWGItems.BLUEBERRIES.get(), 16, 4, 2)
+                    )
+            )));
+        if (!BWGTradesConfig.INSTANCE.villagerTrades.enableBWGVanillaProfessionTradeAdditions) return;
         TRADES.put(VillagerProfession.BUTCHER, toIntMap(ImmutableMap.of(
                 2, ImmutableList.of(
                         createEmeraldForItemsOffer(BWGItems.BLUEBERRIES.get(), 10, 12, 2)

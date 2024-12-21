@@ -69,8 +69,8 @@ public class VanillaCompatFabric {
     }
 
     private static void registerTrades() {
-        if (!BWGTradesConfig.INSTANCE.get().enableTrades()) return;
         BWGVillagerTrades.makeTrades();
+        if (BWGVillagerTrades.TRADES.isEmpty()) return;
         BWGVillagerTrades.TRADES.forEach((villagerProfession, offersMap) ->
                 offersMap.forEach((level, offers) ->
                         TradeOfferHelper.registerVillagerOffers(villagerProfession, level, factory -> {
@@ -81,6 +81,7 @@ public class VanillaCompatFabric {
     }
 
     private static void registerWanderingTrades() {
+        if (!BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades) return;
         BWGVillagerTrades.makeWanderingTrades();
         BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) ->
                 TradeOfferHelper.registerWanderingTraderOffers(level, factory -> {

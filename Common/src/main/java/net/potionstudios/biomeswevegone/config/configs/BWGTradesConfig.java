@@ -1,33 +1,21 @@
 package net.potionstudios.biomeswevegone.config.configs;
 
-import com.google.common.base.Suppliers;
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-import corgitaco.corgilib.serialization.codec.CommentedCodec;
-import net.potionstudios.biomeswevegone.PlatformHandler;
-import net.potionstudios.biomeswevegone.config.ConfigUtils;
-import org.jetbrains.annotations.NotNull;
+import net.potionstudios.biomeswevegone.config.ConfigLoader;
 
-import java.nio.file.Path;
-import java.util.function.Supplier;
+public class BWGTradesConfig {
 
-public record BWGTradesConfig(boolean enableTrades, boolean enableVanillaTradeAdditions) {
+	public static final BWGTradesConfig INSTANCE = ConfigLoader.loadConfig(BWGTradesConfig.class, "trades");
 
-    private static final Path PATH = PlatformHandler.PLATFORM_HANDLER.configPath().resolve("trades.json5");
+	public BWGVillagerTradesConfig villagerTrades = new BWGVillagerTradesConfig();
 
-    @NotNull
-    public static Supplier<BWGTradesConfig> INSTANCE = Suppliers.memoize(BWGTradesConfig::getOrCreateConfigFromDisk);
+	public static class BWGVillagerTradesConfig {
+		public boolean allowBWGForagerTrades = true;
+		public boolean enableBWGVanillaProfessionTradeAdditions = true;
+	}
 
-    private static final Codec<BWGTradesConfig> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            CommentedCodec.of(Codec.BOOL, "enable_trades", "Whether to enable BWG Villager Trades").orElse(true).forGetter(config -> true),
-            CommentedCodec.of(Codec.BOOL, "enable_vanilla_trade_additions", "Whether to add BWG Items to Vanilla Villager Type Trades").orElse(true).forGetter(config -> true)
-    ).apply(instance, BWGTradesConfig::new));
+	public BWGWanderingTraderTradesConfig wanderingTraderTrades = new BWGWanderingTraderTradesConfig();
 
-    private static BWGTradesConfig createDefault() {
-        return new BWGTradesConfig(true, true);
-    }
-
-    private static BWGTradesConfig getOrCreateConfigFromDisk() {
-        return ConfigUtils.loadConfig(PATH, CODEC, createDefault());
-    }
+	public static class BWGWanderingTraderTradesConfig {
+		public boolean enableBWGItemsTrades = true;
+	}
 }

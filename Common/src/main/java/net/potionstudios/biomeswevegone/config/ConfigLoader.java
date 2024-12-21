@@ -26,6 +26,10 @@ public class ConfigLoader {
 	 */
 	public static <T> T loadConfig(@NotNull Class<T> clazz, String name) {
 		try {
+			try {
+				Files.delete(PlatformHandler.PLATFORM_HANDLER.configPath().resolve(name + ".json5"));
+			} catch (Exception ignored) {}
+
 			Path configPath = PlatformHandler.PLATFORM_HANDLER.configPath().resolve(name + ".json");
 			T value = clazz.getConstructor().newInstance();
 
