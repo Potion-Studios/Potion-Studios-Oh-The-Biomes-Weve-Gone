@@ -28,7 +28,7 @@ public class BWGVillagerTrades {
     public static final Map<VillagerProfession, Int2ObjectMap<List<MerchantOffer>>> TRADES = new HashMap<>();
 
     public static void makeTrades() {
-        if (BWGTradesConfig.INSTANCE.villagerTrades.allowBWGForagerTrades)
+        if (BWGTradesConfig.INSTANCE.villagerTrades.allowBWGForagerTrades.value())
             TRADES.put(BWGVillagerProfessions.FORAGER.get(), toIntMap(ImmutableMap.of(
                     1, ImmutableList.of(
                             createEmeraldForItemsOffer(Items.RED_MUSHROOM, 10, 12, 2),
@@ -52,7 +52,7 @@ public class BWGVillagerTrades {
                             createEmeraldForItemsOffer(BWGItems.BLUEBERRIES.get(), 16, 4, 2)
                     )
             )));
-        if (!BWGTradesConfig.INSTANCE.villagerTrades.enableBWGVanillaProfessionTradeAdditions) return;
+        if (!BWGTradesConfig.INSTANCE.villagerTrades.enableBWGVanillaProfessionTradeAdditions.value()) return;
         TRADES.put(VillagerProfession.BUTCHER, toIntMap(ImmutableMap.of(
                 2, ImmutableList.of(
                         createEmeraldForItemsOffer(BWGItems.BLUEBERRIES.get(), 10, 12, 2)

@@ -81,7 +81,7 @@ public class VanillaCompatFabric {
     }
 
     private static void registerWanderingTrades() {
-        if (!BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades) return;
+        if (!BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value()) return;
         BWGVillagerTrades.makeWanderingTrades();
         BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) ->
                 TradeOfferHelper.registerWanderingTraderOffers(level, factory -> {

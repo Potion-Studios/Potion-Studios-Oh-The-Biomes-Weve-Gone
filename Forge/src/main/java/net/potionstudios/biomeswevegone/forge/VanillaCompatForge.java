@@ -53,7 +53,7 @@ public class VanillaCompatForge {
         bus.addListener(VanillaCompatForge::registerTillables);
         bus.addListener(VanillaCompatForge::registerFuels);
         bus.addListener(VanillaCompatForge::onVillagerTrade);
-        if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades) bus.addListener(VanillaCompatForge::onWanderingTrade);
+        if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value()) bus.addListener(VanillaCompatForge::onWanderingTrade);
         bus.addListener(VanillaCompatForge::registerBrewingRecipes);
         bus.addListener(VanillaCompatForge::onBoneMealUse);
         bus.addListener(VanillaCompatForge::onEnderManAnger);
