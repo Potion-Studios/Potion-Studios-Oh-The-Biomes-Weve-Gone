@@ -9,10 +9,8 @@ on:
 
 jobs:
   gradle:
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 21
@@ -22,20 +20,14 @@ jobs:
           java-version: 21
           cache: gradle
 
-      - name: Store gradle.properties secrets
-        env:
-          MAVEN_REPO_PROPERTIES: ${{ secrets.REPO_LOGIN }}
-        shell: bash
+      - name: Configure Gradle secrets
         run: |
           mkdir -p ~/.gradle/
           echo "GRADLE_USER_HOME=${HOME}/.gradle" >> $GITHUB_ENV
-          echo "${MAVEN_REPO_PROPERTIES}" > ~/.gradle/gradle.properties
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+          echo "${{ secrets.REPO_LOGIN }}" > ~/.gradle/gradle.properties
 
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
-      - name: Execute Gradle build and Publish to Maven
+      - name: Build and Publish to Maven
         run: ./gradlew publish publishAllPublicationsToJTDev-Maven-RepositoryRepository
