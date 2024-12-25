@@ -53,17 +53,15 @@ public class VanillaCompatFabric {
 
     private static void registerLootModifiers() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries)  -> {
-            if (key.equals(BuiltInLootTables.SNIFFER_DIGGING)) {
-                LootPool.Builder pool = LootPool.lootPool()
+            if (key.equals(BuiltInLootTables.SNIFFER_DIGGING))
+                tableBuilder.withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
                         .with(LootItem.lootTableItem(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get()).build())
                         .with(LootItem.lootTableItem(BWGItems.BLUE_GLOWCANE_SHOOT.get()).build())
                         .with(LootItem.lootTableItem(BWGItems.GREEN_GLOWCANE_SHOOT.get()).build())
                         .with(LootItem.lootTableItem(BWGItems.RED_GLOWCANE_SHOOT.get()).build())
                         .with(LootItem.lootTableItem(BWGItems.YELLOW_GLOWCANE_SHOOT.get()).build())
-                        .with(LootItem.lootTableItem(BWGItems.PALE_PUMPKIN_SEEDS.get()).build());
-                tableBuilder.withPool(pool);
-            }
+                        .with(LootItem.lootTableItem(BWGItems.PALE_PUMPKIN_SEEDS.get()).build()));
         });
     }
 
