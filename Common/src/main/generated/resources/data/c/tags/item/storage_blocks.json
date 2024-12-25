@@ -1,8 +1,8 @@
 {
   "values": [
-    "#biomeswevegone:storage_blocks/allium",
-    "#biomeswevegone:storage_blocks/pink_allium",
-    "#biomeswevegone:storage_blocks/rose",
-    "#biomeswevegone:storage_blocks/white_allium"
+    "#c:storage_blocks/allium",
+    "#c:storage_blocks/pink_allium",
+    "#c:storage_blocks/rose",
+    "#c:storage_blocks/white_allium"
   ]
 }

@@ -13,7 +13,7 @@
 - Correct BWG Pitcher Plant Item Models
 - Slight Change to FruitBlockProcessor#finalizeProcessing to be more Efficient
 - Add Config to Enable/Disable Spawning of Oddion and Man O War
-- Add Storage Block Tags (Allium and Rose Petal Blocks)
+- Add Storage Block Tags (Allium and Rose Petal Blocks) (#c name space)
 - Fix BWG trades on NeoForge
 
 # 2.2.5

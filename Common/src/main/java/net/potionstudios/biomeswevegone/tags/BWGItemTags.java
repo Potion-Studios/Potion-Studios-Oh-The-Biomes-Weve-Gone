@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.tags;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -29,10 +30,10 @@ public class BWGItemTags {
     public static final TagKey<Item> GLOWCANE_POWDER = create("glowcane_powder");
     public static final TagKey<Item> GLOWCANE_SHOOT = create("glowcane_shoot");
 
-    public static final TagKey<Item> STORAGE_BLOCKS_ALLIUM = create("storage_blocks/allium");
-    public static final TagKey<Item> STORAGE_BLOCKS_PINK_ALLIUM = create("storage_blocks/pink_allium");
-    public static final TagKey<Item> STORAGE_BLOCKS_WHITE_ALLIUM = create("storage_blocks/white_allium");
-    public static final TagKey<Item> STORAGE_BLOCKS_ROSE = create("storage_blocks/rose");
+    public static final TagKey<Item> STORAGE_BLOCKS_ALLIUM = createCommon("storage_blocks/allium");
+    public static final TagKey<Item> STORAGE_BLOCKS_PINK_ALLIUM = createCommon("storage_blocks/pink_allium");
+    public static final TagKey<Item> STORAGE_BLOCKS_WHITE_ALLIUM = createCommon("storage_blocks/white_allium");
+    public static final TagKey<Item> STORAGE_BLOCKS_ROSE = createCommon("storage_blocks/rose");
     
     public static final TagKey<Item> MAKES_BLACK_DYE = create("dye/makes_black_dye");
     public static final TagKey<Item> MAKES_BLUE_DYE = create("dye/makes_blue_dye");
@@ -54,5 +55,9 @@ public class BWGItemTags {
 
     private static TagKey<Item> create(String name) {
         return TagKey.create(Registries.ITEM, BiomesWeveGone.id(name));
+    }
+
+    private static TagKey<Item> createCommon(String name) {
+        return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", name));
     }
 }
