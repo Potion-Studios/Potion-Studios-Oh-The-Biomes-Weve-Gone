@@ -91,6 +91,7 @@
 - Fix BWG trades on NeoForge
 - Add BWG Items to Wandering Trader Trades
 - New BWG Trades Config with Wandering Trader Options, and Option to disable Forager Trades
+- Add BWG Villager Types with Custom Skins and adjusted Trades for each type
 
 # 2.2.5
 - Make Pale Pumpkin Set Compostable
