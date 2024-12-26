@@ -66,6 +66,7 @@ public class BiomesWeveGoneForge {
     private void onPostInitialize(final FMLLoadCompleteEvent event) {
         event.enqueueWork(BiomesWeveGone::postInit);
         BWGVillagerTrades.makeTrades();
+        BWGVillagerTrades.makeWanderingTrades();
     }
 
     /**

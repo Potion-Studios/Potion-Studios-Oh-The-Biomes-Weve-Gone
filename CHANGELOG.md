@@ -14,6 +14,8 @@
 - Slight Change to FruitBlockProcessor#finalizeProcessing to be more Efficient
 - Use SpawnPlacementRegisterEvent on Forge to Register Entity Spawn Placements
 - Add Config to Enable/Disable Spawning of Oddion and Man O War
+- Add BWG Items to Wandering Trader Trades
+- New BWG Trades Config with Wandering Trader Options, and Option to disable Forager Trades
 
 # 1.4.4
 - Add Russian Translations (ru_ru) (Credits: j-tap)
