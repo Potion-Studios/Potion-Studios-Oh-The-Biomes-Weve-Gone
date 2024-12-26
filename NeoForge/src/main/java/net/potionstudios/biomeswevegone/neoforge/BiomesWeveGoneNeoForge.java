@@ -53,6 +53,7 @@ public class BiomesWeveGoneNeoForge {
 	private void onPostInitialize(final FMLLoadCompleteEvent event) {
 		event.enqueueWork(BiomesWeveGone::postInit);
 		BWGVillagerTrades.makeTrades();
+		BWGVillagerTrades.makeWanderingTrades();
 	}
 
 	/**

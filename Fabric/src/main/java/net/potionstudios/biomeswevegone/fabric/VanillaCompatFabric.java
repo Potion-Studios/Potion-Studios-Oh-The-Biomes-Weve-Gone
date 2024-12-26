@@ -35,7 +35,11 @@ public class VanillaCompatFabric {
         ToolInteractions.registerTillables((block, pair) -> TillableBlockRegistry.register(block, pair.getFirst(), pair.getSecond()));
         registerBiomeModifiers();
         registerLootModifiers();
-        registerTrades();
+        if (!BWGTradesConfig.INSTANCE.trades.disableTrades.value()) {
+            registerTrades();
+            if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value())
+                registerWanderingTrades();
+        }
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> BWGBrewingRecipes.buildBrewingRecipes(builder::addMix));
     }
 
@@ -66,14 +70,24 @@ public class VanillaCompatFabric {
     }
 
     private static void registerTrades() {
-        if (!BWGTradesConfig.INSTANCE.get().enableTrades()) return;
         BWGVillagerTrades.makeTrades();
+        if (BWGVillagerTrades.TRADES.isEmpty()) return;
         BWGVillagerTrades.TRADES.forEach((villagerProfession, offersMap) ->
                 offersMap.forEach((level, offers) ->
                         TradeOfferHelper.registerVillagerOffers(villagerProfession, level, factory -> {
                             for (MerchantOffer offer : offers) factory.add((trader, random) -> offer);
                         })
                 )
+        );
+    }
+
+    private static void registerWanderingTrades() {
+        if (!BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value()) return;
+        BWGVillagerTrades.makeWanderingTrades();
+        BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) ->
+                TradeOfferHelper.registerWanderingTraderOffers(level, factory -> {
+                    for (MerchantOffer offer : offers) factory.add((trader, random) -> offer);
+                })
         );
     }
 }

@@ -15,6 +15,8 @@
 - Add Config to Enable/Disable Spawning of Oddion and Man O War
 - Add Storage Block Tags (Allium and Rose Petal Blocks) (#c name space)
 - Fix BWG trades on NeoForge
+- Add BWG Items to Wandering Trader Trades
+- New BWG Trades Config with Wandering Trader Options, and Option to disable Forager Trades
 
 # 2.2.5
 - Make Pale Pumpkin Set Compostable

@@ -19,6 +19,7 @@ import net.neoforged.neoforge.event.entity.living.EnderManAngerEvent;
 import net.neoforged.neoforge.event.entity.player.BonemealEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
+import net.neoforged.neoforge.event.village.WandererTradesEvent;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
@@ -48,7 +49,11 @@ public class VanillaCompatNeoForge {
 
     public static void registerVanillaCompatEvents(final IEventBus bus) {
         bus.addListener(VanillaCompatNeoForge::registerTillables);
-        if (BWGTradesConfig.INSTANCE.get().enableTrades()) bus.addListener(VanillaCompatNeoForge::onVillagerTrade);
+        if (!BWGTradesConfig.INSTANCE.trades.disableTrades.value()) {
+            bus.addListener(VanillaCompatNeoForge::onVillagerTrade);
+            if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value())
+                bus.addListener(VanillaCompatNeoForge::onWanderingTrade);
+        }
         bus.addListener(VanillaCompatNeoForge::onBoneMealUse);
         bus.addListener(VanillaCompatNeoForge::registerBrewingRecipes);
         bus.addListener(VanillaCompatNeoForge::onEnderManAnger);
@@ -83,6 +88,16 @@ public class VanillaCompatNeoForge {
                         for (MerchantOffer offer : offers) tradeList.add((trader, random) -> offer);
                     });
         }
+    }
+
+    /**
+     * Register wandering trader trades.
+     * @see WandererTradesEvent
+     */
+    private static void onWanderingTrade(final WandererTradesEvent event) {
+        BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) -> {
+            for (MerchantOffer offer : offers) event.getGenericTrades().add((trader, random) -> offer);
+        });
     }
 
     /**
