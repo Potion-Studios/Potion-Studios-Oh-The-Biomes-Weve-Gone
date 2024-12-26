@@ -53,12 +53,9 @@ public class VanillaCompatForge {
         bus.addListener(VanillaCompatForge::registerTillables);
         bus.addListener(VanillaCompatForge::registerFuels);
         if (!BWGTradesConfig.INSTANCE.trades.disableTrades.value()) {
-            BWGVillagerTrades.makeTrades();
             bus.addListener(VanillaCompatForge::onVillagerTrade);
-            if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value()) {
-                BWGVillagerTrades.makeWanderingTrades();
+            if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value())
                 bus.addListener(VanillaCompatForge::onWanderingTrade);
-            }
         }
         bus.addListener(VanillaCompatForge::registerBrewingRecipes);
         bus.addListener(VanillaCompatForge::onBoneMealUse);

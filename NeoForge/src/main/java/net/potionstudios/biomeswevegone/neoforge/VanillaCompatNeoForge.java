@@ -50,12 +50,9 @@ public class VanillaCompatNeoForge {
     public static void registerVanillaCompatEvents(final IEventBus bus) {
         bus.addListener(VanillaCompatNeoForge::registerTillables);
         if (!BWGTradesConfig.INSTANCE.trades.disableTrades.value()) {
-            BWGVillagerTrades.makeTrades();
             bus.addListener(VanillaCompatNeoForge::onVillagerTrade);
-            if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value()) {
-                BWGVillagerTrades.makeWanderingTrades();
+            if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value())
                 bus.addListener(VanillaCompatNeoForge::onWanderingTrade);
-            }
         }
         bus.addListener(VanillaCompatNeoForge::onBoneMealUse);
         bus.addListener(VanillaCompatNeoForge::registerBrewingRecipes);
