@@ -49,14 +49,12 @@ public class VanillaCompatFabric {
 
     private static void registerLootModifiers() {
         LootTableEvents.MODIFY.register((resourceManager, lootDataManager, resourceLocation, builder, source) -> {
-            if (resourceLocation.equals(BuiltInLootTables.SNIFFER_DIGGING)) {
-                LootPool.Builder pool = LootPool.lootPool()
+            if (resourceLocation.equals(BuiltInLootTables.SNIFFER_DIGGING))
+                builder.withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
                         .with(LootItem.lootTableItem(BWGBlocks.BLACK_ROSE.getBlock()).build())
                         .with(LootItem.lootTableItem(BWGBlocks.PROTEA_FLOWER.getBlock()).build())
-                        .with(LootItem.lootTableItem(BWGBlocks.SILVER_VASE_FLOWER.getBlock()).build());
-                builder.withPool(pool);
-            }
+                        .with(LootItem.lootTableItem(BWGBlocks.SILVER_VASE_FLOWER.getBlock()).build()));
         });
     }
 
