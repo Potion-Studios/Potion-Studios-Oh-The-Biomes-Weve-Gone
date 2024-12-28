@@ -3,7 +3,6 @@ package net.potionstudios.biomeswevegone.neoforge.client;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -36,10 +35,7 @@ public class BiomesWeveGoneClientNeoForge {
         eventBus.addListener((RegisterParticleProvidersEvent event) -> BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> event.registerSpriteSet(type, spriteProviderFactory::apply)));
         eventBus.addListener((EntityRenderersEvent.RegisterLayerDefinitions event) -> BiomesWeveGoneClient.registerLayerDefinitions(event::registerLayerDefinition));
         eventBus.addListener((RegisterColorHandlersEvent.Block event) -> BiomesWeveGoneClient.registerBlockColors(event::register));
-        eventBus.addListener((RegisterColorHandlersEvent.Item event) -> BiomesWeveGoneClient.registerBlockItemColors(consumer -> event.register((stack, tintIndex) -> {
-            Block block = ((BlockItem) stack.getItem()).getBlock();
-            return event.getBlockColors().getColor(block.defaultBlockState(), null, null, tintIndex);
-        }, consumer)));
+        eventBus.addListener((RegisterColorHandlersEvent.Item event) -> BiomesWeveGoneClient.registerBlockItemColors(consumer -> event.register((stack, tintIndex) -> event.getBlockColors().getColor(((BlockItem) stack.getItem()).getBlock().defaultBlockState(), null, null, tintIndex), consumer)));
         eventBus.addListener(BiomesWeveGoneClientNeoForge::registerGUILayers);
     }
 
