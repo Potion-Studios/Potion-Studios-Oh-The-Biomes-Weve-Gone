@@ -36,7 +36,7 @@ public class BiomesWeveGoneForge {
         ForgePlatformHandler.register(MOD_BUS);
         MOD_BUS.addListener(this::onInitialize);
         MOD_BUS.addListener(this::onPostInitialize);
-        EVENT_BUS.addListener(this::onServerStarting);
+        EVENT_BUS.addListener((ServerAboutToStartEvent event) -> BiomesWeveGone.serverStart(event.getServer()));
         MOD_BUS.addListener((EntityAttributeCreationEvent event) -> BWGEntities.registerEntityAttributes(event::put));
         MOD_BUS.addListener((SpawnPlacementRegisterEvent event) -> BWGEntities.registerSpawnPlacements(consumer -> event.register(consumer.entityType(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), SpawnPlacementRegisterEvent.Operation.OR)));
         VanillaCompatForge.registerVanillaCompatEvents(EVENT_BUS);
@@ -67,13 +67,5 @@ public class BiomesWeveGoneForge {
         event.enqueueWork(BiomesWeveGone::postInit);
         BWGVillagerTrades.makeTrades();
         BWGVillagerTrades.makeWanderingTrades();
-    }
-
-    /**
-     * Initializes server-side things.
-     * @see ServerAboutToStartEvent
-     */
-    private void onServerStarting(final ServerAboutToStartEvent event) {
-        BiomesWeveGone.serverStart(event.getServer());
     }
 }
