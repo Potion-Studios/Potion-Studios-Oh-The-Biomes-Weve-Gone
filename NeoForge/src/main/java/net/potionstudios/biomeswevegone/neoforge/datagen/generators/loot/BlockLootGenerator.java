@@ -160,6 +160,8 @@ class BlockLootGenerator extends BlockLootSubProvider {
         add(BWGWood.SPIRIT_LEAVES.get(), createLeavesDrops(BWGWood.SPIRIT_LEAVES.get(), BWGWood.SPIRIT.sapling().getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.FLOWERING_SPIRIT_LEAVES.get(), createLeavesDrops(BWGWood.FLOWERING_SPIRIT_LEAVES.get(), BWGWood.SPIRIT.sapling().getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
 
+        dropSelf(BWGWood.SPIRIT_ROOTS.get());
+
         add(BWGBlocks.LUSH_GRASS_BLOCK.get(), block -> createSingleItemTableWithSilkTouch(block, BWGBlocks.LUSH_DIRT.get()));
         dropOther(BWGBlocks.LUSH_FARMLAND.get(), BWGBlocks.LUSH_DIRT.get());
         dropOther(BWGBlocks.LUSH_DIRT_PATH.get(), BWGBlocks.LUSH_DIRT.get());
