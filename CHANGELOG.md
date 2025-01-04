@@ -1,3 +1,5 @@
+# 2.3.1
+
 # 2.3.0 -> Major Internal Changes and Refactors
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer)
 - Generalize Particle, Block and Item Color Registrations
