@@ -1,6 +1,7 @@
 # 2.3.1
 - Add Missing Spanish (Chile) Language Keys
 - Add Missing Spirit Roots LootTable/Drops
+- Add Built-in Support for Repurposed Structures (Adds Forager Houses to Villages) (NeoForge & Fabric)
 
 # 2.3.0 -> Major Internal Changes and Refactors
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer)
