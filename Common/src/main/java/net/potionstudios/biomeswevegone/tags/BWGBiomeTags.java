@@ -170,6 +170,12 @@ public class BWGBiomeTags {
      */
     public static final TagKey<Biome> OCEAN = create("ocean");
 
+    /**
+     * This Tag is used for the BoneMealHandler to determine if the biome is a grass block that can spawn flowers
+     * @see net.potionstudios.biomeswevegone.util.BoneMealHandler
+     */
+    public static final TagKey<Biome> GRASS_BLOCK_FLOWER_BONEMEAL = create("grass_block_flower_bonemeal");
+
     public static class StructureHasTags {
         public static final TagKey<Biome> HAS_PRAIRIE_HOUSE = create("has_structure/prairie_house");
         public static final TagKey<Biome> HAS_RUGGED_FOSSIL = create("has_structure/rugged_fossil");

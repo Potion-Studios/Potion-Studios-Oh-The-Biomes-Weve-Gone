@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.potionstudios.biomeswevegone.tags.BWGBiomeTags;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldVegationPlacedFeatures;
@@ -27,7 +28,7 @@ public final class BoneMealHandler {
         if (grass.is(Blocks.GRASS_BLOCK))
             if (level.getBiome(blockPos).is(BWGBiomes.PRAIRIE))
                 return grassBoneMealHandler(level, blockPos.above(), BWGBlocks.PRAIRIE_GRASS.get(), BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_BONEMEAL, false);
-            else if (level.getBiome(blockPos).is(BWGBiomes.ALLIUM_SHRUBLAND))
+            else if (level.getBiome(blockPos).is(BWGBiomeTags.GRASS_BLOCK_FLOWER_BONEMEAL))
                 return grassBoneMealHandler(level, blockPos.above(), Blocks.SHORT_GRASS, VegetationPlacements.GRASS_BONEMEAL, true);
         return false;
     }
