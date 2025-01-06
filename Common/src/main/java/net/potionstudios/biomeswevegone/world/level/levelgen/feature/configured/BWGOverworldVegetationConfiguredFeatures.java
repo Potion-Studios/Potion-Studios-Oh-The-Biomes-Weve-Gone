@@ -441,7 +441,6 @@ public class BWGOverworldVegetationConfiguredFeatures {
     }
 
 
-
     public static void init() {
         BiomesWeveGone.LOGGER.info("Creating and Registering Overworld Vegetation Configured Features");
     }
