@@ -38,6 +38,15 @@ public class RecipeGenerator extends RecipeProvider {
 
     @Override
     protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.CRAFTING_TABLE)
+                .define('#', BWGItemTags.VANILLA_PLANKS)
+                .pattern("##")
+                .pattern("##")
+                .group("planks")
+                .unlockedBy("has_vanilla_planks", has(BWGItemTags.VANILLA_PLANKS))
+                .save(recipeOutput);
+
+
         BWGWoodSet.woodsets().forEach(set -> {
             planksFromLog(recipeOutput, set.planks(), set.logItemTag(), 4);
             woodFromLogs(recipeOutput, set.wood(), set.logstem());

@@ -2,6 +2,7 @@
 - Add Missing Spanish (Chile) Language Keys
 - Add Missing Spirit Roots LootTable/Drops
 - BoneMealing The Hydrange Hedge block will now Drop Hydrangea Hedges
+- Fix BWG Planks not being shown to craft specific wood set crafting tables
 
 # 2.3.0 -> Major Internal Changes and Refactors
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer)
