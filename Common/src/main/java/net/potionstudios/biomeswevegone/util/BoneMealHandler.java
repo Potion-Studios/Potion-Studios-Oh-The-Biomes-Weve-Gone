@@ -15,6 +15,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.potionstudios.biomeswevegone.tags.BWGBiomeTags;
+import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldVegationPlacedFeatures;
@@ -25,7 +26,7 @@ import java.util.Optional;
 public final class BoneMealHandler {
 
     public static boolean bwgBoneMealHandler(ServerLevel level, BlockPos blockPos, BlockState grass) {
-        if (grass.is(Blocks.GRASS_BLOCK))
+        if (grass.is(BWGBlockTags.GRASS))
             if (level.getBiome(blockPos).is(BWGBiomes.PRAIRIE))
                 return grassBoneMealHandler(level, blockPos.above(), BWGBlocks.PRAIRIE_GRASS.get(), BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_BONEMEAL, false);
             else if (level.getBiome(blockPos).is(BWGBiomeTags.GRASS_BLOCK_FLOWER_BONEMEAL))
@@ -45,7 +46,7 @@ public final class BoneMealHandler {
             RandomSource random = level.getRandom();
             for (int j = 0; j < i / 16; ++j) {
                 blockPos2 = blockPos2.offset(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
-                if (!level.getBlockState(blockPos2.below()).is(Blocks.GRASS_BLOCK) || level.getBlockState(blockPos2).isCollisionShapeFullBlock(level, blockPos2))
+                if (!level.getBlockState(blockPos2.below()).is(BWGBlockTags.GRASS) || level.getBlockState(blockPos2).isCollisionShapeFullBlock(level, blockPos2))
                     continue label49;
             }
 

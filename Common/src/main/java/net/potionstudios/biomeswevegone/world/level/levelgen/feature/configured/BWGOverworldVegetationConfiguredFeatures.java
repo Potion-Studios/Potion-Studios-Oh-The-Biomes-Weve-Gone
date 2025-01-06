@@ -74,7 +74,7 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JAPANESE_ORCHID = createFlowerConfiguredFeature("japanese_orchid", BWGBlocks.JAPANESE_ORCHID);
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CLOVER_PATCH = createPatchConfiguredFeature("clover_patch", BWGBlocks.CLOVER_PATCH, 5);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CLOVER_PATCH = createFlowerConfiguredFeature("clover_patch", BWGBlocks.CLOVER_PATCH, 5);
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_PATCH = createFlowerConfiguredFeature("flower_patch", BWGBlocks.FLOWER_PATCH);
     public static final ResourceKey<ConfiguredFeature<?, ?>> LEAF_PILE = createPatchConfiguredFeature("leaf_pile", BWGBlocks.LEAF_PILE, 15);
 
@@ -429,7 +429,11 @@ public class BWGOverworldVegetationConfiguredFeatures {
     }
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createFlowerConfiguredFeature(String id, Supplier<? extends Block> flowerBlock) {
-        return ConfiguredFeaturesUtil.createConfiguredFeature(id, Feature.FLOWER, () -> VegetationFeatures.grassPatch(SimpleStateProvider.simple(flowerBlock.get().defaultBlockState()), 15));
+        return createFlowerConfiguredFeature(id, flowerBlock, 15);
+    }
+
+    private static ResourceKey<ConfiguredFeature<?, ?>> createFlowerConfiguredFeature(String id, Supplier<? extends Block> flowerBlock, int tries) {
+        return ConfiguredFeaturesUtil.createConfiguredFeature(id, Feature.FLOWER, () -> VegetationFeatures.grassPatch(SimpleStateProvider.simple(flowerBlock.get().defaultBlockState()), tries));
     }
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createPatchConfiguredFeature(String id, Supplier<? extends Block> block, int tries) {
