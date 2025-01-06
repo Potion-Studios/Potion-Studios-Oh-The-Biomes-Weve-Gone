@@ -1,8 +1,6 @@
 package net.potionstudios.biomeswevegone.forge;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import net.minecraft.core.BlockPos;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.AxeItem;
@@ -24,8 +22,6 @@ import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
-import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
-import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldVegationPlacedFeatures;
 
 import java.util.HashMap;
 import java.util.List;
@@ -45,7 +41,7 @@ public class VanillaCompatForge {
         ToolInteractions.registerFlattenables(ShovelItem.FLATTENABLES::put);
     }
 
-    public static void registerVanillaCompatEvents(IEventBus bus) {
+    public static void registerVanillaCompatEvents(final IEventBus bus) {
         bus.addListener(VanillaCompatForge::registerTillables);
         bus.addListener(VanillaCompatForge::registerFuels);
         if (!BWGTradesConfig.INSTANCE.trades.disableTrades.value()) {
@@ -111,16 +107,7 @@ public class VanillaCompatForge {
      * @see BonemealEvent
      */
     private static void onBoneMealUse(final BonemealEvent event) {
-        if (event.getLevel().isClientSide()) return;
-        ServerLevel level = (ServerLevel) event.getLevel();
-        BlockPos pos = event.getPos();
-        if (event.getBlock().is(Blocks.GRASS_BLOCK))
-            if (level.getBiome(pos).is(BWGBiomes.PRAIRIE)) {
-                BoneMealHandler.grassBoneMealHandler(level, pos.above(), BWGBlocks.PRAIRIE_GRASS.get(), BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_BONEMEAL, false);
-                event.setResult(Event.Result.ALLOW);
-            } else if (level.getBiome(pos).is(BWGBiomes.ALLIUM_SHRUBLAND)) {
-                BoneMealHandler.grassBoneMealHandler(level, pos.above(), Blocks.GRASS, VegetationPlacements.GRASS_BONEMEAL, true);
-                event.setResult(Event.Result.ALLOW);
-            }
+        if (!event.getLevel().isClientSide() && BoneMealHandler.bwgBoneMealHandler((ServerLevel) event.getLevel(), event.getPos(), event.getBlock()))
+            event.setResult(Event.Result.ALLOW);
     }
 }
