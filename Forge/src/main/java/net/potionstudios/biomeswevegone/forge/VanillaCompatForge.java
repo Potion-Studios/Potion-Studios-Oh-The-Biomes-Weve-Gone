@@ -107,7 +107,7 @@ public class VanillaCompatForge {
      * @see BonemealEvent
      */
     private static void onBoneMealUse(final BonemealEvent event) {
-        if (!event.getLevel().isClientSide() && BoneMealHandler.bwgBoneMealHandler((ServerLevel) event.getLevel(), event.getPos(), event.getBlock()))
+        if (!event.getLevel().isClientSide() && BoneMealHandler.bwgBoneMealEventHandler((ServerLevel) event.getLevel(), event.getPos(), event.getBlock()))
             event.setResult(Event.Result.ALLOW);
     }
 }

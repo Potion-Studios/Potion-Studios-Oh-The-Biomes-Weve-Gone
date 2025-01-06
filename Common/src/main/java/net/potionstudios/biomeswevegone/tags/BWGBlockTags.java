@@ -26,7 +26,6 @@ public class BWGBlockTags {
     public static final TagKey<Block> AMARANTH = create("flowers/amaranth");
     public static final TagKey<Block> SAGES = create("flowers/sages");
     public static final TagKey<Block> DAFFODILS = create("flowers/daffodils");
-    public static final TagKey<Block> GRASS = create("grass");
 
     private static TagKey<Block> create(String name) {
         return TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name));
