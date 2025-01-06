@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -13,12 +14,25 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
+import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldVegationPlacedFeatures;
 
 import java.util.List;
 import java.util.Optional;
 
 public final class BoneMealHandler {
-    public static boolean grassBoneMealHandler(ServerLevel level, BlockPos blockPos, Block grass, ResourceKey<PlacedFeature> placedFeatureResourceKey, boolean randomizeFlower) {
+
+    public static boolean bwgBoneMealHandler(ServerLevel level, BlockPos blockPos, BlockState grass) {
+        if (grass.is(Blocks.GRASS_BLOCK))
+            if (level.getBiome(blockPos).is(BWGBiomes.PRAIRIE))
+                return grassBoneMealHandler(level, blockPos.above(), BWGBlocks.PRAIRIE_GRASS.get(), BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_BONEMEAL, false);
+            else if (level.getBiome(blockPos).is(BWGBiomes.ALLIUM_SHRUBLAND))
+                return grassBoneMealHandler(level, blockPos.above(), Blocks.SHORT_GRASS, VegetationPlacements.GRASS_BONEMEAL, true);
+        return false;
+    }
+
+    private static boolean grassBoneMealHandler(ServerLevel level, BlockPos blockPos, Block grass, ResourceKey<PlacedFeature> placedFeatureResourceKey, boolean randomizeFlower) {
         BlockState blockState = grass.defaultBlockState();
         Optional<Holder.Reference<PlacedFeature>> optional = level.registryAccess()
                 .registryOrThrow(Registries.PLACED_FEATURE)

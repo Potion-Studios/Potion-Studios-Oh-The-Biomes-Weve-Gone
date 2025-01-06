@@ -1,8 +1,6 @@
 package net.potionstudios.biomeswevegone.neoforge;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import net.minecraft.core.BlockPos;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -27,8 +25,6 @@ import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
-import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
-import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldVegationPlacedFeatures;
 
 import java.util.HashMap;
 import java.util.List;
@@ -122,13 +118,7 @@ public class VanillaCompatNeoForge {
      * @see BonemealEvent
      */
     private static void onBoneMealUse(final BonemealEvent event) {
-        if (event.getLevel().isClientSide()) return;
-        ServerLevel level = (ServerLevel) event.getLevel();
-        BlockPos pos = event.getPos();
-        if (event.getState().is(Blocks.GRASS_BLOCK))
-            if (level.getBiome(pos).is(BWGBiomes.PRAIRIE))
-                event.setSuccessful(BoneMealHandler.grassBoneMealHandler(level, pos.above(), BWGBlocks.PRAIRIE_GRASS.get(), BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_BONEMEAL, false));
-            else if (level.getBiome(pos).is(BWGBiomes.ALLIUM_SHRUBLAND))
-                event.setSuccessful(BoneMealHandler.grassBoneMealHandler(level, pos.above(), Blocks.SHORT_GRASS, VegetationPlacements.GRASS_BONEMEAL, true));
+        if (!event.getLevel().isClientSide() && BoneMealHandler.bwgBoneMealHandler((ServerLevel) event.getLevel(), event.getPos(), event.getState()))
+            event.setSuccessful(true);
     }
 }
