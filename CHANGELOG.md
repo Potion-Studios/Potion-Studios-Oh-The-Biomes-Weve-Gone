@@ -3,7 +3,7 @@
 - Add Missing Spirit Roots LootTable/Drops
 - BoneMealing The Hydrange Hedge block will now Drop Hydrangea Hedges
 - Fix BWG Planks not being shown to craft specific wood set crafting tables
-- BoneMealing Grassblocks in Allium Shrubland, Amaranth Grassland, Coconino Meadow, Crimson Tundra, Enchanted Tangle, Orchard, Pumpkin Valley, Sakura Grove, Temperate Grove will have the chance of flowers from that biome growing
+- BoneMealing Grass Block/Lush Grass Block/Overgrown Stone/Dacite will now grow not just grass but any flower from that biomes flower pool
 
 # 2.3.0 -> Major Internal Changes and Refactors
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer)

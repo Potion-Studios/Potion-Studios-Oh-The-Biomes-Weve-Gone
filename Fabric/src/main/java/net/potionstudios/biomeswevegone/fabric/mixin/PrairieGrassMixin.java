@@ -20,7 +20,7 @@ public abstract class PrairieGrassMixin {
      */
     @Inject(method = "performBonemeal", at = @At("HEAD"), cancellable = true)
     private void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state, CallbackInfo ci) {
-        if (BoneMealHandler.bwgBoneMealHandler(level, pos, state))
+        if (BoneMealHandler.bwgBoneMealEventHandler(level, pos, state))
             ci.cancel();
     }
 }

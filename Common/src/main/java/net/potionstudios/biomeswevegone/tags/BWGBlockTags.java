@@ -27,7 +27,6 @@ public class BWGBlockTags {
     public static final TagKey<Block> AMARANTH = create("flowers/amaranth");
     public static final TagKey<Block> SAGES = create("flowers/sages");
     public static final TagKey<Block> DAFFODILS = create("flowers/daffodils");
-    public static final TagKey<Block> GRASS = create("grass");
 
     /** Storage Blocks **/
     public static final TagKey<Block> STORAGE_BLOCKS_ALLIUM = createCommon("storage_blocks/allium");

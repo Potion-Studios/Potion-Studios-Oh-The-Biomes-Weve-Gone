@@ -1,10 +1,12 @@
 package net.potionstudios.biomeswevegone.world.level.block.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.potionstudios.biomeswevegone.util.BoneMealHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
@@ -30,5 +32,10 @@ public class BWGSpreadableBlock extends GrassBlock implements BonemealableBlock 
 					level.setBlockAndUpdate(blockpos, blockstate.setValue(SNOWY, level.getBlockState(blockpos.above()).is(Blocks.SNOW)));
 			}
 		}
+	}
+
+	@Override
+	public void performBonemeal(@NotNull ServerLevel level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
+		BoneMealHandler.grassBoneMealHandler(level, pos.above(), this, VegetationPlacements.GRASS_BONEMEAL, true, this);
 	}
 }
