@@ -1,3 +1,5 @@
+# 1.5.1
+
 # 1.5.0 -> Major Internal Changes and Refactors
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer) (#172)
 - Generalize Particle, Block and Item Color Registrations
