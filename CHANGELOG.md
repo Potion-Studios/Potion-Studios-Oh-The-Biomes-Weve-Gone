@@ -1,4 +1,5 @@
 # 1.5.1
+- Make Tall Allium and Allium Flower Bush make Magenta Dye to match Vanilla
 
 # 1.5.0 -> Major Internal Changes and Refactors
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer) (#172)
