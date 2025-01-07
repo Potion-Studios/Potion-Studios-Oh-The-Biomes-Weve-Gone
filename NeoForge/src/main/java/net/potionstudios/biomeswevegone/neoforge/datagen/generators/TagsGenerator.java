@@ -5,6 +5,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.*;
 import net.minecraft.tags.*;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.common.Tags;
@@ -345,6 +346,8 @@ public class TagsGenerator {
             tag(Tags.Items.CROPS_PUMPKIN).add(BWGBlocks.PALE_PUMPKIN.get().asItem());
             tag(ItemTags.EQUIPPABLE_ENCHANTABLE).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
             tag(ItemTags.VANISHING_ENCHANTABLE).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
+
+            tag(BWGItemTags.VANILLA_PLANKS).add(Items.ACACIA_PLANKS, Items.BIRCH_PLANKS, Items.CRIMSON_PLANKS, Items.DARK_OAK_PLANKS, Items.JUNGLE_PLANKS, Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.WARPED_PLANKS, Items.CHERRY_PLANKS, Items.MANGROVE_PLANKS, Items.BAMBOO_PLANKS, Items.CRIMSON_PLANKS);
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
     }

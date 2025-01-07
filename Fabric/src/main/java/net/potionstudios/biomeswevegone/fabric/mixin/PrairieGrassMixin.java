@@ -1,16 +1,11 @@
 package net.potionstudios.biomeswevegone.fabric.mixin;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GrassBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
-import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
-import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
-import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldVegationPlacedFeatures;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -25,13 +20,7 @@ public abstract class PrairieGrassMixin {
      */
     @Inject(method = "performBonemeal", at = @At("HEAD"), cancellable = true)
     private void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state, CallbackInfo ci) {
-        boolean cancel = false;
-        if (state.is(Blocks.GRASS_BLOCK))
-            if (level.getBiome(pos).is(BWGBiomes.PRAIRIE))
-                cancel = BoneMealHandler.grassBoneMealHandler(level, pos.above(), BWGBlocks.PRAIRIE_GRASS.get(), BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_BONEMEAL, false);
-            else if (level.getBiome(pos).is(BWGBiomes.ALLIUM_SHRUBLAND))
-                cancel = BoneMealHandler.grassBoneMealHandler(level, pos.above(), Blocks.SHORT_GRASS, VegetationPlacements.GRASS_BONEMEAL, true);
-        if (cancel)
+        if (BoneMealHandler.bwgBoneMealEventHandler(level, pos, state))
             ci.cancel();
     }
 }

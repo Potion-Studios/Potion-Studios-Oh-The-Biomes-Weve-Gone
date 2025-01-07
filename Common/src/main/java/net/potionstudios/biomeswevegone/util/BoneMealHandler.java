@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -13,12 +14,26 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.potionstudios.biomeswevegone.tags.BWGBiomeTags;
+import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
+import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldVegationPlacedFeatures;
 
 import java.util.List;
 import java.util.Optional;
 
 public final class BoneMealHandler {
-    public static boolean grassBoneMealHandler(ServerLevel level, BlockPos blockPos, Block grass, ResourceKey<PlacedFeature> placedFeatureResourceKey, boolean randomizeFlower) {
+
+    public static boolean bwgBoneMealEventHandler(ServerLevel level, BlockPos blockPos, BlockState state) {
+        if (state.is(Blocks.GRASS_BLOCK))
+            if (level.getBiome(blockPos).is(BWGBiomes.PRAIRIE))
+                return grassBoneMealHandler(level, blockPos.above(), BWGBlocks.PRAIRIE_GRASS.get(), BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_BONEMEAL, false, Blocks.GRASS_BLOCK);
+            else if (level.getBiome(blockPos).is(BWGBiomeTags.OVERWORLD))
+                return grassBoneMealHandler(level, blockPos.above(), Blocks.SHORT_GRASS, VegetationPlacements.GRASS_BONEMEAL, true, Blocks.GRASS_BLOCK);
+        return false;
+    }
+
+    public static boolean grassBoneMealHandler(ServerLevel level, BlockPos blockPos, Block grass, ResourceKey<PlacedFeature> placedFeatureResourceKey, boolean randomizeFlower, Block grassBlock) {
         BlockState blockState = grass.defaultBlockState();
         Optional<Holder.Reference<PlacedFeature>> optional = level.registryAccess()
                 .registryOrThrow(Registries.PLACED_FEATURE)
@@ -30,7 +45,7 @@ public final class BoneMealHandler {
             RandomSource random = level.getRandom();
             for (int j = 0; j < i / 16; ++j) {
                 blockPos2 = blockPos2.offset(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
-                if (!level.getBlockState(blockPos2.below()).is(Blocks.GRASS_BLOCK) || level.getBlockState(blockPos2).isCollisionShapeFullBlock(level, blockPos2))
+                if (!level.getBlockState(blockPos2.below()).is(grassBlock) || level.getBlockState(blockPos2).isCollisionShapeFullBlock(level, blockPos2))
                     continue label49;
             }
 
