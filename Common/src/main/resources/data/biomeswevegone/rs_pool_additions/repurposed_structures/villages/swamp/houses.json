@@ -1,0 +1,15 @@
+{
+  "target_pool": "repurposed_structures:villages/swamp/houses",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 11,
+      "element": {
+        "location": "biomeswevegone:repurposed_structures/villages/swamp/forager",
+        "processors": "repurposed_structures:villages/swamp/mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

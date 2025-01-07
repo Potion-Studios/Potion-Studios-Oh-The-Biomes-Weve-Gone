@@ -1,0 +1,15 @@
+{
+  "target_pool": "repurposed_structures:villages/mushroom/houses",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 18,
+      "element": {
+        "location": "biomeswevegone:repurposed_structures/villages/mushroom/forager",
+        "processors": "repurposed_structures:villages/mushroom/general_randomizer",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}
