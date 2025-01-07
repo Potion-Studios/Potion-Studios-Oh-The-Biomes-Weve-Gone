@@ -29,7 +29,7 @@ public final class BoneMealHandler {
             if (level.getBiome(blockPos).is(BWGBiomes.PRAIRIE))
                 return grassBoneMealHandler(level, blockPos.above(), BWGBlocks.PRAIRIE_GRASS.get(), BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_BONEMEAL, false, Blocks.GRASS_BLOCK);
             else if (level.getBiome(blockPos).is(BWGBiomeTags.OVERWORLD))
-                return grassBoneMealHandler(level, blockPos.above(), Blocks.SHORT_GRASS, VegetationPlacements.GRASS_BONEMEAL, true, Blocks.GRASS_BLOCK);
+                return grassBoneMealHandler(level, blockPos.above(), Blocks.GRASS, VegetationPlacements.GRASS_BONEMEAL, true, Blocks.GRASS_BLOCK);
         return false;
     }
 
