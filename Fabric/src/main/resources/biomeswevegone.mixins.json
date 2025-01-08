@@ -11,7 +11,7 @@
     "CropBlockMixin",
     "EnderManMixin",
     "PitcherCropBlockMixin",
-    "PrairieGrassMixin",
+    "GrassBlockBoneMealMixin",
     "StemBlockMixin"
   ],
   "injectors": {

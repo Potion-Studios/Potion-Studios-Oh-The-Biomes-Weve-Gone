@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GrassBlock.class)
-public abstract class PrairieGrassMixin {
+public abstract class GrassBlockBoneMealMixin {
     /**
      * @reason Allows for Bonemealing of Prairie Grass to spawn Prairie Grass and other features.
      * @see GrassBlock#performBonemeal(ServerLevel, RandomSource, BlockPos, BlockState)
