@@ -9,7 +9,7 @@
     "AttachedStemBlockMixin",
     "CropBlockMixin",
 	"PitcherCropBlockMixin",
-    "PrairieGrassMixin",
+    "GrassBlockBoneMealMixin",
     "StemBlockMixin"
   ],
   "injectors": {
