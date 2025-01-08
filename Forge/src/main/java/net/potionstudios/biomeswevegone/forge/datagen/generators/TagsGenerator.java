@@ -304,6 +304,7 @@ public class TagsGenerator {
             tag(Tags.Items.MUSHROOMS).add(BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem());
             tag(Tags.Items.CROPS).add(BWGItems.ODDION_BULB.get());
             tag(BWGItemTags.MUSHROOMS).add(Items.BROWN_MUSHROOM, Items.RED_MUSHROOM, BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem()).addOptionalTag(Tags.Items.MUSHROOMS);
+            tag(BWGItemTags.VANILLA_PLANKS).add(Items.ACACIA_PLANKS, Items.BIRCH_PLANKS, Items.CRIMSON_PLANKS, Items.DARK_OAK_PLANKS, Items.JUNGLE_PLANKS, Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.WARPED_PLANKS, Items.CHERRY_PLANKS, Items.MANGROVE_PLANKS, Items.BAMBOO_PLANKS, Items.CRIMSON_PLANKS);
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
     }

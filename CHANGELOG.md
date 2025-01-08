@@ -1,6 +1,9 @@
 # 1.5.1
 - Make Tall Allium and Allium Flower Bush make Magenta Dye to match Vanilla
 - BoneMealing The Hydrange Hedge block will now Drop Hydrangea Hedges
+- BoneMealing Grass Block/Lush Grass Block/Overgrown Stone/Dacite will now grow not just grass but any flower from that biomes flower pool
+- Add Built-in Support for Repurposed Structures (Adds Forager Houses to Villages) (Credits: TelepathicGrunt)
+- Fix BWG Planks not being shown to craft specific wood set crafting tables
 
 # 1.5.0 -> Major Internal Changes and Refactors
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer) (#172)
