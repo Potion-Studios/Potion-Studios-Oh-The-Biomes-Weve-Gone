@@ -1,0 +1,15 @@
+{
+  "target_pool": "repurposed_structures:villages/jungle/houses",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 13,
+      "element": {
+        "location": "biomeswevegone:repurposed_structures/villages/jungle/forager",
+        "processors": "repurposed_structures:villages/jungle/mossify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

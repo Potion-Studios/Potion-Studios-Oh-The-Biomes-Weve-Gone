@@ -1,0 +1,99 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "biomeswevegone:weeping_milkcap"
+          },
+          "input_predicate": {
+            "block": "biomeswevegone:wood_blewit",
+            "probability": 0.2,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "biomeswevegone:green_mushroom"
+          },
+          "input_predicate": {
+            "block": "biomeswevegone:wood_blewit",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "age": "0"
+            },
+            "Name": "biomeswevegone:white_puffball"
+          },
+          "input_predicate": {
+            "block": "biomeswevegone:wood_blewit",
+            "probability": 0.135,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "age": "1"
+            },
+            "Name": "biomeswevegone:white_puffball"
+          },
+          "input_predicate": {
+            "block": "biomeswevegone:wood_blewit",
+            "probability": 0.135,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "age": "2"
+            },
+            "Name": "biomeswevegone:white_puffball"
+          },
+          "input_predicate": {
+            "block": "biomeswevegone:wood_blewit",
+            "probability": 0.135,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "age": "3"
+            },
+            "Name": "biomeswevegone:white_puffball"
+          },
+          "input_predicate": {
+            "block": "biomeswevegone:wood_blewit",
+            "probability": 0.135,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    }
+  ]
+}

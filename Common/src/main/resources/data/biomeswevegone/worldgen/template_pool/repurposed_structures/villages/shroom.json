@@ -1,0 +1,14 @@
+{
+  "fallback": "biomeswevegone:repurposed_structures/villages/shroom",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "biomeswevegone:repurposed_structures/villages/shroom",
+        "processors": "biomeswevegone:repurposed_structures/villages/shroom",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
