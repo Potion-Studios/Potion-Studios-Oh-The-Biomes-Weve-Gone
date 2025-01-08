@@ -6,6 +6,7 @@
 - BoneMealing Grass Block/Lush Grass Block/Overgrown Stone/Dacite will now grow not just grass but any flower from that biomes flower pool
 - Make Tall Allium and Allium Flower Bush make Magenta Dye to match Vanilla
 - Add Built-in Support for Repurposed Structures (Adds Forager Houses to Villages) (NeoForge & Fabric) (Credits: TelepathicGrunt)
+- Add Pale Pumpkin to Pale Pumpkin Seeds Recipe
 
 # 2.3.0 -> Major Internal Changes and Refactors
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer)

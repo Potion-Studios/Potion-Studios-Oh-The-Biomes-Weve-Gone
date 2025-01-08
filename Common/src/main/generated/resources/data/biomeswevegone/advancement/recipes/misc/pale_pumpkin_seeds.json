@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pale_pumpkin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:pale_pumpkin"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:pale_pumpkin_seeds"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_pale_pumpkin"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:pale_pumpkin_seeds"
+    ]
+  }
+}

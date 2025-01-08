@@ -427,6 +427,8 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(BWGBlocks.CARVED_PALE_PUMPKIN.get()), has(BWGBlocks.CARVED_PALE_PUMPKIN.get()))
                 .save(recipeOutput, BiomesWeveGone.id("pale_jack_o_lantern_from_soul_fruit"));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BWGItems.PALE_PUMPKIN_SEEDS.get(), 4).requires(BWGBlocks.PALE_PUMPKIN.get()).unlockedBy(getHasName(BWGBlocks.PALE_PUMPKIN.get()), has(BWGBlocks.PALE_PUMPKIN.get())).save(recipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.SOUL_TORCH, 4)
                 .define('X', Ingredient.of(Items.COAL, Items.CHARCOAL))
                 .define('#', Items.STICK)
