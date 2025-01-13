@@ -1,3 +1,5 @@
+# 2.3.2
+
 # 2.3.1
 - Add Missing Spanish (Chile) Language Keys
 - Add Missing Spirit Roots LootTable/Drops
