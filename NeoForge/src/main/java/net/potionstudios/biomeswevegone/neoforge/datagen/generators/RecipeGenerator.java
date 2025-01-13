@@ -148,10 +148,9 @@ public class RecipeGenerator extends RecipeProvider {
                 .save(recipeOutput, BiomesWeveGone.id("cooked_oddion_bulb_from_smoker"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, BWGItems.ALLIUM_ODDION_SOUP.get())
-                .define('#', Items.MILK_BUCKET)
+                .define('#', BWGItems.COOKED_ODDION_BULB.get())
                 .define('X', Items.BOWL)
-                .define('Y', BWGItems.COOKED_ODDION_BULB.get())
-                .pattern("#Y")
+                .pattern("##")
                 .pattern("X ")
                 .unlockedBy(getHasName(BWGItems.COOKED_ODDION_BULB.get()), has(BWGItems.COOKED_ODDION_BULB.get()))
                 .save(recipeOutput);

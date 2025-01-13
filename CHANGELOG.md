@@ -1,4 +1,5 @@
 # 2.3.2
+- Remove Milk from Allium Oddion Soup Recipe, Change Nutrition value from 9 to 8
 
 # 2.3.1
 - Add Missing Spanish (Chile) Language Keys
