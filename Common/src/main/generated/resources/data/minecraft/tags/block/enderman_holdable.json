@@ -1,6 +1,14 @@
 {
   "values": [
+    "biomeswevegone:black_sand",
+    "biomeswevegone:blue_sand",
     "biomeswevegone:carved_pale_pumpkin",
-    "biomeswevegone:pale_pumpkin"
+    "biomeswevegone:green_mushroom",
+    "biomeswevegone:pale_pumpkin",
+    "biomeswevegone:pink_sand",
+    "biomeswevegone:purple_sand",
+    "biomeswevegone:weeping_milkcap",
+    "biomeswevegone:white_sand",
+    "biomeswevegone:windswept_sand"
   ]
 }
