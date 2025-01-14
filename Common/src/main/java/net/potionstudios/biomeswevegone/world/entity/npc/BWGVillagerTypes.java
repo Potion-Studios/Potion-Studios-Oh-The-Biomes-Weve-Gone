@@ -11,13 +11,14 @@ import java.util.function.Supplier;
 public class BWGVillagerTypes {
 
 	public static final Supplier<VillagerType> SKYRIS = register("skyris");
+	public static final Supplier<VillagerType> SALEM = register("salem");
 
 	public static void setVillagerBWGBiomes() {
 		VillagerType.BY_BIOME.put(BWGBiomes.MOJAVE_DESERT, VillagerType.DESERT);
 		VillagerType.BY_BIOME.put(BWGBiomes.WINDSWEPT_DESERT, VillagerType.DESERT);
 		VillagerType.BY_BIOME.put(BWGBiomes.TROPICAL_RAINFOREST, VillagerType.JUNGLE);
-		VillagerType.BY_BIOME.put(BWGBiomes.WEEPING_WITCH_FOREST, VillagerType.TAIGA);
 		VillagerType.BY_BIOME.put(BWGBiomes.SKYRIS_VALE, SKYRIS.get());
+		VillagerType.BY_BIOME.put(BWGBiomes.WEEPING_WITCH_FOREST, SALEM.get());
 	}
 
 	private static Supplier<VillagerType> register(String key) {
