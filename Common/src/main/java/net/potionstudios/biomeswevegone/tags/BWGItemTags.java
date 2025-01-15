@@ -30,6 +30,8 @@ public class BWGItemTags {
     public static final TagKey<Item> GLOWCANE_POWDER = create("glowcane_powder");
     public static final TagKey<Item> GLOWCANE_SHOOT = create("glowcane_shoot");
 
+    public static final TagKey<Item> RED_ROCK_BRICKS = create("red_rock_bricks");
+
     public static final TagKey<Item> STORAGE_BLOCKS_ALLIUM = createCommon("storage_blocks/allium");
     public static final TagKey<Item> STORAGE_BLOCKS_PINK_ALLIUM = createCommon("storage_blocks/pink_allium");
     public static final TagKey<Item> STORAGE_BLOCKS_WHITE_ALLIUM = createCommon("storage_blocks/white_allium");

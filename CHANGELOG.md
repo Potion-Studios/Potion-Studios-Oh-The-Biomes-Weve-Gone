@@ -5,6 +5,7 @@
 - Add BWG SandStone, Red Rock, Dacite, and Packed Ice Variants to Overworld Carver Replaceables
 - Add Soul Fruit to Piglin Repellents ItemTag
 - Add Palo Verde Logs Tag to Logs that Burn Tag
+- Add Red Rock Bricks Block and Item Tags
 
 # 2.3.1
 - Add Missing Spanish (Chile) Language Keys
