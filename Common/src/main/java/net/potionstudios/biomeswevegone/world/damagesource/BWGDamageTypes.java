@@ -11,6 +11,11 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 
 import java.util.Map;
 
+/**
+ * The damage types for Oh The Biomes We've Gone.
+ * @see DamageType
+ * @author Joseph T. McQuigg
+ */
 public interface BWGDamageTypes {
 
     Map<ResourceKey<DamageType>, DamageTypeFactory> DAMAGE_TYPE_FACTORIES = new Reference2ObjectOpenHashMap<>();

@@ -10,6 +10,11 @@ import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 
 import java.util.function.Supplier;
 
+/**
+ * The Point of Interest Types for Oh The Biomes We've Gone.
+ * @see PoiType
+ * @author Joseph T. McQuigg
+ */
 public class BWGPoiTypes {
 
     public static final ResourceKey<PoiType> FORAGER = register("forager", BWGBlocks.FORAGERS_TABLE, 1, 1);

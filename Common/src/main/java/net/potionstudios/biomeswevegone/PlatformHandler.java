@@ -59,6 +59,11 @@ public interface PlatformHandler {
 
 	/**
 	 * Register POI Type
+	 * @see PoiType
+	 * @param id The id/name of the POI Type
+	 * @param block The block to be used for the POI Type
+	 * @param validRange The max range of the POI Type
+	 * @return Supplier of the PoiType
 	 */
 	default Supplier<PoiType> registerPOIType(String id, Supplier<Block> block, int maxTickets, int validRange) {
 		return register(BuiltInRegistries.POINT_OF_INTEREST_TYPE, id, () -> new PoiType(PoiTypes.getBlockStates(block.get()), maxTickets, validRange));
@@ -137,8 +142,24 @@ public interface PlatformHandler {
 		return loadedService;
 	}
 
+	/**
+	 * Registers a value with the specified name and registry
+	 * @param registry The registry to register the value with
+	 * @param name The name of the value
+	 * @param value the value to be registered
+	 * @return Supplier of the value
+	 * @param <T> The type of the value
+	 */
 	<T> Supplier<T> register(Registry<? super T> registry, String name, Supplier<T> value);
 
+	/**
+	 * Registers a value with the specified name and registry and returns a Holder.Reference of the value
+	 * @param registry The registry to register the value with
+	 * @param name The name of the value
+	 * @param value the value to be registered
+	 * @return Supplier of a Holder.Reference of the value
+	 * @param <T> The type of the value
+	 */
 	<T> Supplier<Holder.Reference<T>> registerForHolder(Registry<T> registry, String name, Supplier<T> value);
 
 	enum Platform {
