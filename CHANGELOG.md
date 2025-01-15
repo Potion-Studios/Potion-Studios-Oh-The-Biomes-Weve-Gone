@@ -4,6 +4,7 @@
 - Add BlueBerry Bush to Fall Damage Resetting BlockTag
 - Add BWG SandStone, Red Rock, Dacite, and Packed Ice Variants to Overworld Carver Replaceables
 - Add Soul Fruit to Piglin Repellents ItemTag
+- Add Palo Verde Logs Tag to Logs that Burn Tag
 
 # 2.3.1
 - Add Missing Spanish (Chile) Language Keys

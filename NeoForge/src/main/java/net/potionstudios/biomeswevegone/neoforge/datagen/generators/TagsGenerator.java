@@ -101,6 +101,7 @@ public class TagsGenerator {
 
             tag(BWGBlockTags.PALO_VERDE_LOGS).add(BWGWood.PALO_VERDE_LOG.get(), BWGWood.STRIPPED_PALO_VERDE_LOG.get(), BWGWood.PALO_VERDE_WOOD.get(), BWGWood.STRIPPED_PALO_VERDE_WOOD.get());
             tag(BlockTags.LOGS).addTag(BWGBlockTags.PALO_VERDE_LOGS);
+            tag(BlockTags.LOGS_THAT_BURN).addTag(BWGBlockTags.PALO_VERDE_LOGS);
 
             BWGWood.WOOD.forEach(blocks -> {
                 if (blocks.get() instanceof FlowerPotBlock)
