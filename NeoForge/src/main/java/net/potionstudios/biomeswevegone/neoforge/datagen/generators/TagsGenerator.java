@@ -21,6 +21,7 @@ import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.GlowCaneBlock;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
@@ -144,6 +145,7 @@ public class TagsGenerator {
                     BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get(), BWGWood.FLOWERING_JACARANDA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.FLOWERING_ORCHARD_LEAVES.get(), BWGWood.FLOWERING_BAOBAB_LEAVES.get());
 
             tag(BWGBlockTags.RED_ROCK_BRICKS).add(BWGBlocks.RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.CHISELED_RED_ROCK_BRICKS_SET.getBase());
+            tag(BWGBlockTags.GLOW_BOTTLE).add(BWGBlocks.BLUE_GLOW_BOTTLE.get(), BWGBlocks.GREEN_GLOW_BOTTLE.get(), BWGBlocks.RED_GLOW_BOTTLE.get(), BWGBlocks.YELLOW_GLOW_BOTTLE.get());
 
             tag(BWGBlockTags.BLACK_ICE).add(BWGBlocks.BLACK_ICE.get(), BWGBlocks.PACKED_BLACK_ICE.get());
             tag(BWGBlockTags.BOREALIS_ICE).add(BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
@@ -211,6 +213,7 @@ public class TagsGenerator {
             else if (object instanceof LeavesBlock) tag(BlockTags.LEAVES).add(object);
             else if (object instanceof CampfireBlock) tag(BlockTags.CAMPFIRES).add(object);
             else if (object instanceof FlowerPotBlock) tag(BlockTags.FLOWER_POTS).add(object);
+            else if (object instanceof GlowCaneBlock) tag(BWGBlockTags.GLOWCANE).add(object);
             SoundType type = object.defaultBlockState().getSoundType();
             if (type == SoundType.STONE || type == SoundType.DEEPSLATE)
                 tag(BlockTags.MINEABLE_WITH_PICKAXE).add(object);
@@ -283,6 +286,7 @@ public class TagsGenerator {
             copy(BlockTags.LEAVES, ItemTags.LEAVES);
             copy(BlockTags.WOOL_CARPETS, ItemTags.WOOL_CARPETS);
             copy(BWGBlockTags.RED_ROCK_BRICKS, BWGItemTags.RED_ROCK_BRICKS);
+            copy(BWGBlockTags.GLOW_BOTTLE, BWGItemTags.GLOW_BOTTLE);
 
             BWGSandSet.getSandSets().forEach(set -> {
                 copy(set.getSandstoneBlocksTag(), set.getSandstoneBlocksItemTag());

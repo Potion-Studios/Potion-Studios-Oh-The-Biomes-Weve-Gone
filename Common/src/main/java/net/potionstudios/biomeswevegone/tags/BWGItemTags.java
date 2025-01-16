@@ -27,10 +27,12 @@ public class BWGItemTags {
     public static final TagKey<Item> AMARANTH = create("flowers/amaranth");
     public static final TagKey<Item> SAGES = create("flowers/sages");
     public static final TagKey<Item> DAFFODILS = create("flowers/daffodils");
-    public static final TagKey<Item> GLOWCANE_POWDER = create("glowcane_powder");
-    public static final TagKey<Item> GLOWCANE_SHOOT = create("glowcane_shoot");
 
     public static final TagKey<Item> RED_ROCK_BRICKS = create("red_rock_bricks");
+
+    public static final TagKey<Item> GLOWCANE_POWDER = create("glowcane_powder");
+    public static final TagKey<Item> GLOWCANE_SHOOT = create("glowcane_shoot");
+    public static final TagKey<Item> GLOW_BOTTLE = create("glow_bottle");
 
     public static final TagKey<Item> STORAGE_BLOCKS_ALLIUM = createCommon("storage_blocks/allium");
     public static final TagKey<Item> STORAGE_BLOCKS_PINK_ALLIUM = createCommon("storage_blocks/pink_allium");

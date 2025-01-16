@@ -134,7 +134,6 @@ public class BWGBlocks {
     public static final Supplier<TallFlowerBlock> BLUE_ROSE_BUSH = registerTallFlower("blue_rose_bush", MapColor.COLOR_BLUE);
     public static final Supplier<Block> ROSE_PETAL_BLOCK = registerCubeAllBlockItem("rose_petal_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.AZALEA)));
 
-
     /** Tulips */
     public static final FlowerBlockFeature CYAN_TULIP = registerFlower("cyan_tulip", MapColor.COLOR_CYAN, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
     public static final FlowerBlockFeature GREEN_TULIP = registerFlower("green_tulip", MapColor.COLOR_GREEN, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
@@ -206,6 +205,7 @@ public class BWGBlocks {
     public static final Supplier<FluorescentCattailPlantBlock> FLUORESCENT_CATTAIL = registerBlock("fluorescent_cattail", () -> new FluorescentCattailPlantBlock(() -> BWGItems.FLUORESCENT_CATTAIL_SPROUT));
     public static final Supplier<CattailSproutBlock> FLUORESCENT_CATTAIL_SPROUT = registerBlock("fluorescent_cattail_sprout", () -> new CattailSproutBlock(FLUORESCENT_CATTAIL));
 
+    /** GlowCane and Bottles */
     public static final Supplier<GlowCaneBlock> BLUE_GLOWCANE = registerBlock("blue_glowcane", () -> new GlowCaneBlock(() -> BWGItems.BLUE_GLOWCANE_SHOOT));
     public static final Supplier<GlowCaneBlock> GREEN_GLOWCANE = registerBlock("green_glowcane", () -> new GlowCaneBlock(() -> BWGItems.GREEN_GLOWCANE_SHOOT));
     public static final Supplier<GlowCaneBlock> RED_GLOWCANE = registerBlock("red_glowcane", () -> new GlowCaneBlock(() -> BWGItems.RED_GLOWCANE_SHOOT));
