@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_red_rock_bricks": {
+    "has_tag": {
       "conditions": {
         "items": [
           {
-            "items": "biomeswevegone:red_rock_bricks"
+            "items": "#biomeswevegone:red_rock_bricks"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_red_rock_bricks"
+      "has_tag"
     ]
   ],
   "rewards": {

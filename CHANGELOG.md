@@ -8,6 +8,7 @@
 - Add Red Rock Bricks Block and Item Tags
 - Add Glow Cane Block Tag
 - Add Glow Bottle Block and Item Tags
+- Fix Incorrect Chiseled Red Rock Bricks Recipe
 
 # 2.3.1
 - Add Missing Spanish (Chile) Language Keys

@@ -221,7 +221,9 @@ public class RecipeGenerator extends RecipeProvider {
                 .group("mossy_red_rock_bricks")
                 .unlockedBy(getHasName(Items.MOSS_BLOCK), has(Items.MOSS_BLOCK))
                 .save(recipeOutput, getConversionRecipeName(BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase(), Items.MOSS_BLOCK));
-        chiseled(recipeOutput, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.RED_ROCK_BRICKS_SET.getBase());
+        chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_RED_ROCK_BRICKS_SET.getBase(), Ingredient.of(BWGBlocks.RED_ROCK_BRICKS_SET.getSlab()))
+                .unlockedBy("has_tag", has(BWGItemTags.RED_ROCK_BRICKS))
+                .save(recipeOutput);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.ROCKY_STONE_SET.getBase(), 2)
                 .requires(Items.COBBLESTONE)
                 .requires(Items.STONE)
