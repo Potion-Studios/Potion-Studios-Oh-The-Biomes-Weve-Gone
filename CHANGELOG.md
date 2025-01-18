@@ -1,4 +1,5 @@
 # 1.5.2
+- Remove Milk from Allium Oddion Soup Recipe, Change Nutrition value from 9 to 8
 
 # 1.5.1
 - Make Tall Allium and Allium Flower Bush make Magenta Dye to match Vanilla

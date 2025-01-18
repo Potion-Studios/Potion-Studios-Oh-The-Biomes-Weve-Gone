@@ -141,13 +141,12 @@ public class RecipeGenerator extends RecipeProvider {
                         .save(writer, BiomesWeveGone.id("cooked_oddion_bulb_from_smoker"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, BWGItems.ALLIUM_ODDION_SOUP.get())
-                        .define('#', Items.MILK_BUCKET)
-                        .define('X', Items.BOWL)
-                        .define('Y', BWGItems.COOKED_ODDION_BULB.get())
-                        .pattern("#Y")
-                        .pattern("X ")
-                        .unlockedBy(getHasName(BWGItems.COOKED_ODDION_BULB.get()), has(BWGItems.COOKED_ODDION_BULB.get()))
-                        .save(writer);
+                .define('#', BWGItems.COOKED_ODDION_BULB.get())
+                .define('X', Items.BOWL)
+                .pattern("##")
+                .pattern("X ")
+                .unlockedBy(getHasName(BWGItems.COOKED_ODDION_BULB.get()), has(BWGItems.COOKED_ODDION_BULB.get()))
+                .save(writer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, BWGItems.BLOOMING_ODDION.get())
                         .define('#', Items.EGG)
@@ -156,7 +155,7 @@ public class RecipeGenerator extends RecipeProvider {
                         .pattern("X#X")
                         .pattern(" Y ")
                         .unlockedBy(getHasName(BWGItems.COOKED_ODDION_BULB.get()), has(BWGItems.COOKED_ODDION_BULB.get()))
-                                                                .save(writer);
+                        .save(writer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BREWING, BWGItems.ALOE_VERA_JUICE.get(), 4)
                         .requires(BWGBlocks.ALOE_VERA.get())

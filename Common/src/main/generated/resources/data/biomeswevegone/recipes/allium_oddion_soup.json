@@ -3,17 +3,14 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "minecraft:milk_bucket"
+      "item": "biomeswevegone:cooked_oddion_bulb"
     },
     "X": {
       "item": "minecraft:bowl"
-    },
-    "Y": {
-      "item": "biomeswevegone:cooked_oddion_bulb"
     }
   },
   "pattern": [
-    "#Y",
+    "##",
     "X "
   ],
   "result": {
