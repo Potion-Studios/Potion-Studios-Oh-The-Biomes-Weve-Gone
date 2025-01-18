@@ -6,6 +6,7 @@
 - Add Palo Verde Logs Tag to Logs that Burn Tag
 - Add Red Rock Bricks Block and Item Tags
 - Fix Incorrect Chiseled Red Rock Bricks Recipe
+- Fix Red Wool from Rose Petal Block Recipe having path typo
 
 # 1.5.1
 - Make Tall Allium and Allium Flower Bush make Magenta Dye to match Vanilla
