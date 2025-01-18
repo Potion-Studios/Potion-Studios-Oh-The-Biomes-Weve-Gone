@@ -138,6 +138,7 @@ public class TagsGenerator {
                     BWGBlocks.FLOWERING_JACARANDA_BUSH.get(), BWGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH.get(), BWGWood.FLOWERING_PALO_VERDE_LEAVES.get(), BWGWood.FLOWERING_SKYRIS_LEAVES.get(), BWGWood.FLOWERING_IRONWOOD_LEAVES.get(),
                     BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get(), BWGWood.FLOWERING_JACARANDA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.FLOWERING_ORCHARD_LEAVES.get(), BWGWood.FLOWERING_BAOBAB_LEAVES.get());
 
+            tag(BWGBlockTags.RED_ROCK_BRICKS).add(BWGBlocks.RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.CHISELED_RED_ROCK_BRICKS_SET.getBase());
             tag(BWGBlockTags.BLACK_ICE).add(BWGBlocks.BLACK_ICE.get(), BWGBlocks.PACKED_BLACK_ICE.get());
             tag(BWGBlockTags.BOREALIS_ICE).add(BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
             tag(BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
@@ -265,6 +266,7 @@ public class TagsGenerator {
             copy(Tags.Blocks.SAND, Tags.Items.SAND);
             copy(BWGBlockTags.BLACK_ICE, BWGItemTags.BLACK_ICE);
             copy(BWGBlockTags.BOREALIS_ICE, BWGItemTags.BOREALIS_ICE);
+            copy(BWGBlockTags.RED_ROCK_BRICKS, BWGItemTags.RED_ROCK_BRICKS);
 
             BWGBlocks.BLOCKS.stream().filter(entry -> entry.get() instanceof FlowerBlock || entry.get() instanceof TallFlowerBlock).forEach(
                     entry -> {
