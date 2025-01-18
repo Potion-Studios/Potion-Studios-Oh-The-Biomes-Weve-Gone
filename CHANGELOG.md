@@ -1,3 +1,6 @@
+# 2.4.0 -> The Village Update
+- Add Custom Biomes We've gone Villager Types to each of our Villages
+
 # 2.3.8
 - Fix Flower Dye Recipes
 - Add BlueBerries to Blue Dye Recipe
