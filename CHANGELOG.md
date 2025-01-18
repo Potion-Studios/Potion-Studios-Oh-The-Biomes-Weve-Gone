@@ -1,3 +1,6 @@
+# 2.4.0 -> The Village Update
+- Add Custom Biomes We've gone Villager Types to each of our Villages
+
 # 2.3.6
 - Fix Vine like blocks not being compostable on Forge
 - Sync biomeswevegone:temperate tag to c:is_temperate/overworld
