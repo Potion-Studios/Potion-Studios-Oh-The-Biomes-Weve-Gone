@@ -1,5 +1,8 @@
 # 1.5.2
 - Remove Milk from Allium Oddion Soup Recipe, Change Nutrition value from 9 to 8
+- Add BWG Sand Blocks and Mushrooms to Enderman Holdable BlockTag
+- Add BlueBerry Bush to Fall Damage Resetting BlockTag
+- Add BWG SandStone, Red Rock, Dacite, and Packed Ice Variants to Overworld Carver Replaceables
 
 # 1.5.1
 - Make Tall Allium and Allium Flower Bush make Magenta Dye to match Vanilla

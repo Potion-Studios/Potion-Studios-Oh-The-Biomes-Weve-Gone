@@ -150,8 +150,9 @@ public class TagsGenerator {
             tag(BlockTags.DIRT).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.PEAT.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get());
             tag(BlockTags.CLIMBABLE).add(BWGBlocks.SKYRIS_VINE.get()).add(BWGBlocks.POISON_IVY.get());
             tag(BlockTags.OVERWORLD_CARVER_REPLACEABLES)
-                    .add(BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(),
-                            BWGBlocks.ROCKY_STONE_SET.getBase(), BWGBlocks.MOSSY_STONE_SET.getBase(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PEAT.get());
+                    .add(BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.MOSSY_STONE_SET.getBase(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PEAT.get(),
+                            BWGBlocks.RED_ROCK_SET.getBase(), BWGBlocks.DACITE_SET.getBase(), BWGBlocks.ROCKY_STONE_SET.getBase(), BWGBlocks.PACKED_BLACK_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get(),
+                            BWGBlocks.WINDSWEPT_SAND_SET.getSandstone(), BWGBlocks.BLACK_SAND_SET.getSandstone(), BWGBlocks.WHITE_SAND_SET.getSandstone(), BWGBlocks.BLUE_SAND_SET.getSandstone(), BWGBlocks.PURPLE_SAND_SET.getSandstone(), BWGBlocks.PINK_SAND_SET.getSandstone());
             tag(BlockTags.CROPS).add(BWGBlocks.ODDION_CROP.get());
             tag(BlockTags.BEE_GROWABLES).add(BWGBlocks.BLUEBERRY_BUSH.get());
             tag(BlockTags.SNIFFER_DIGGABLE_BLOCK).add(BWGBlocks.LUSH_DIRT_PATH.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.SANDY_DIRT_PATH.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PEAT.get());
@@ -161,6 +162,9 @@ public class TagsGenerator {
             tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
             tag(BlockTags.REPLACEABLE).add(BWGBlocks.PRAIRIE_GRASS.get(), BWGBlocks.TALL_PRAIRIE_GRASS.get(), BWGBlocks.BEACH_GRASS.get(), BWGBlocks.TALL_BEACH_GRASS.get(), BWGBlocks.SKYRIS_VINE.get());
             tag(BlockTags.SAND).add(BWGBlocks.SANDY_DIRT.get(), BWGBlocks.CRACKED_SAND.get());
+            tag(BlockTags.ENDERMAN_HOLDABLE).add(BWGBlocks.WINDSWEPT_SAND_SET.getSand(), BWGBlocks.BLACK_SAND_SET.getSand(), BWGBlocks.WHITE_SAND_SET.getSand(), BWGBlocks.BLUE_SAND_SET.getSand(), BWGBlocks.PURPLE_SAND_SET.getSand(), BWGBlocks.PINK_SAND_SET.getSand(),
+                    BWGBlocks.GREEN_MUSHROOM.get(), BWGBlocks.WEEPING_MILKCAP.get());
+            tag(BlockTags.FALL_DAMAGE_RESETTING).add(BWGBlocks.BLUEBERRY_BUSH.get());
 
             // Entity Integration Tags
             tag(BlockTags.ANIMALS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.PEAT.get());

@@ -1,12 +1,22 @@
 {
   "values": [
+    "biomeswevegone:black_sandstone",
+    "biomeswevegone:blue_sandstone",
+    "biomeswevegone:dacite",
     "biomeswevegone:lush_dirt",
     "biomeswevegone:mossy_stone",
     "biomeswevegone:overgrown_dacite",
     "biomeswevegone:overgrown_stone",
+    "biomeswevegone:packed_black_ice",
+    "biomeswevegone:packed_borealis_ice",
     "biomeswevegone:peat",
+    "biomeswevegone:pink_sandstone",
     "biomeswevegone:podzol_dacite",
+    "biomeswevegone:purple_sandstone",
+    "biomeswevegone:red_rock",
     "biomeswevegone:rocky_stone",
-    "biomeswevegone:sandy_dirt"
+    "biomeswevegone:sandy_dirt",
+    "biomeswevegone:white_sandstone",
+    "biomeswevegone:windswept_sandstone"
   ]
 }
