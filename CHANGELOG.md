@@ -3,6 +3,7 @@
 - Add BWG Sand Blocks and Mushrooms to Enderman Holdable BlockTag
 - Add BlueBerry Bush to Fall Damage Resetting BlockTag
 - Add BWG SandStone, Red Rock, Dacite, and Packed Ice Variants to Overworld Carver Replaceables
+- Add Palo Verde Logs Tag to Logs that Burn Tag
 
 # 1.5.1
 - Make Tall Allium and Allium Flower Bush make Magenta Dye to match Vanilla
