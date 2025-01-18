@@ -9,6 +9,7 @@
 - Add Glow Cane Block Tag
 - Add Glow Bottle Block and Item Tags
 - Fix Incorrect Chiseled Red Rock Bricks Recipe
+- Fix Red Wool from Rose Petal Block Recipe having path typo
 
 # 2.3.1
 - Add Missing Spanish (Chile) Language Keys

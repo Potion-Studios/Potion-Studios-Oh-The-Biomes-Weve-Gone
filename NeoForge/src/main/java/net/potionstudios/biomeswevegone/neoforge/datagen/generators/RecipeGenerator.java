@@ -331,7 +331,7 @@ public class RecipeGenerator extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.RED_WOOL)
                 .requires(BWGBlocks.ROSE_PETAL_BLOCK.get(), 9)
                 .unlockedBy(getHasName(BWGBlocks.ROSE_PETAL_BLOCK.get()), has(BWGBlocks.ROSE_PETAL_BLOCK.get()))
-                .save(recipeOutput, BiomesWeveGone.id("red_wool_from_rose__petal_block"));
+                .save(recipeOutput, BiomesWeveGone.id("red_wool_from_rose_petal_block"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.SANDY_DIRT.get(), 4)
                 .requires(Items.SAND, 2)

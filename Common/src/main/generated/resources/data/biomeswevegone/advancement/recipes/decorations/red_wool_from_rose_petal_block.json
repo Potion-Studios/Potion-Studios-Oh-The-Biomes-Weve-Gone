@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomeswevegone:red_wool_from_rose__petal_block"
+        "recipe": "biomeswevegone:red_wool_from_rose_petal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "biomeswevegone:red_wool_from_rose__petal_block"
+      "biomeswevegone:red_wool_from_rose_petal_block"
     ]
   }
 }
