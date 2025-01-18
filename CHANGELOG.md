@@ -1,3 +1,5 @@
+# 1.5.2
+
 # 1.5.1
 - Make Tall Allium and Allium Flower Bush make Magenta Dye to match Vanilla
 - BoneMealing The Hydrange Hedge block will now Drop Hydrangea Hedges
