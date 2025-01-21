@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.function.Supplier;
 
 @AutoService(PlatformHandler.class)
-public class FabricPlatformHandler implements PlatformHandler {
+public final class FabricPlatformHandler implements PlatformHandler {
 	@Override
 	public Platform getPlatform() {
 		return Platform.FABRIC;

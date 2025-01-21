@@ -47,7 +47,7 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 @AutoService(PlatformHandler.class)
-public class ForgePlatformHandler implements PlatformHandler {
+public final class ForgePlatformHandler implements PlatformHandler {
 	@Override
 	public Platform getPlatform() {
 		return Platform.FORGE;
@@ -128,7 +128,7 @@ public class ForgePlatformHandler implements PlatformHandler {
 				.build());
 	}
 
-	public static final Map<ResourceKey<?>, DeferredRegister> CACHED = new Reference2ObjectOpenHashMap<>();
+	private static final Map<ResourceKey<?>, DeferredRegister> CACHED = new Reference2ObjectOpenHashMap<>();
 
 	@Override
 	public <T> Supplier<T> register(Registry<? super T> registry, String name, Supplier<T> value) {
@@ -154,7 +154,7 @@ public class ForgePlatformHandler implements PlatformHandler {
 		});
 	}
 
-	public static void register(IEventBus bus) {
+	public static void register(final IEventBus bus) {
 		ENTITY_TYPES.register(bus);
 		PARTICLES.register(bus);
 		CACHED.values().forEach(deferredRegister -> deferredRegister.register(bus));
