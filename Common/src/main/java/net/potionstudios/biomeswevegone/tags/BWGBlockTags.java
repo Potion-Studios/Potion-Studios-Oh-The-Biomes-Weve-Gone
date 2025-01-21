@@ -10,7 +10,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
  * @see net.minecraft.tags.BlockTags
  * @author Joseph T. McQuigg
  */
-public class BWGBlockTags {
+public final class BWGBlockTags {
     public static final TagKey<Block> PALO_VERDE_LOGS = create("palo_verde_logs");
     public static final TagKey<Block> BLACK_ICE = create("black_ice");
     public static final TagKey<Block> BOREALIS_ICE = create("borealis_ice");
