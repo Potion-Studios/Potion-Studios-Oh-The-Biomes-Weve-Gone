@@ -10,11 +10,11 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
  * @see net.minecraft.tags.StructureTags
  * @author Joseph T. McQuigg
  */
-public class BWGStructureTags {
+public interface BWGStructureTags {
 
-	public static final TagKey<Structure> PRAIRIE_HOUSES = create("prairie_houses");
-	public static final TagKey<Structure> ASPEN_MANORS = create("aspen_manors");
-	public static final TagKey<Structure> VILLAGE = create("village");
+	TagKey<Structure> PRAIRIE_HOUSES = create("prairie_houses");
+	TagKey<Structure> ASPEN_MANORS = create("aspen_manors");
+	TagKey<Structure> VILLAGE = create("village");
 
 	private static TagKey<Structure> create(String name) {
 		return TagKey.create(Registries.STRUCTURE, BiomesWeveGone.id(name));

@@ -11,7 +11,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
  * @see net.minecraft.tags.ItemTags
  * @author Joseph T. McQuigg
  */
-public class BWGItemTags {
+public final class BWGItemTags {
     public static final TagKey<Item> SHEARS = create("shears");
 
     public static final TagKey<Item> BLACK_ICE = create("black_ice");

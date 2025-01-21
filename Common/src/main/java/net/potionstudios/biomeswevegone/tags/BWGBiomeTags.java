@@ -15,7 +15,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
  * @author Joseph T. McQuigg
  */
 @SuppressWarnings("JavadocReference")
-public class BWGBiomeTags {
+public final class BWGBiomeTags {
 
     public static final TagKey<Biome> SHARPENED_ROCKS = create("sharpened_rocks");
     public static final TagKey<Biome> IRONWOOD_GOUR_PLATEAU = create("ironwood_gour_plateau");
