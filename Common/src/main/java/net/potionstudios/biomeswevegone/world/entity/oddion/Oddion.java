@@ -34,6 +34,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -87,6 +88,10 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     public Oddion(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
         this.onionTime = 6000;
+    }
+
+    public Oddion(Level level) {
+        this(BWGEntities.ODDION.get(), level);
     }
 
     @Override

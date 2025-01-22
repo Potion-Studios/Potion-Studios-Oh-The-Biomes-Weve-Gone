@@ -20,7 +20,6 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.oddion.Oddion;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
@@ -59,13 +58,13 @@ public class OddionCrop extends BWGBerryBush {
     }
 
     @Override
-    public void randomTick(BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         if (state.getValue(HATCHING)) {
             if (shouldHatch(level, state)) {
                 spawnOddion(level, pos);
             } else {
                 level.setBlockAndUpdate(pos, state.setValue(TIMER, state.getValue(TIMER) + 1));
-                if (level.isClientSide) {
+                if (level.isClientSide()) {
                     level.addParticle(ParticleTypes.HAPPY_VILLAGER, (double)pos.getX() + 0.5, (double)pos.getY() + 0.5, (double)pos.getZ() + 0.5, 0.0, 0.0, 0.0);
                     level.playSound(null, pos, SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1, 1);
                 }
@@ -86,7 +85,7 @@ public class OddionCrop extends BWGBerryBush {
     }
 
     private void spawnOddion(Level level, BlockPos pos) {
-        Oddion oddion = new Oddion(BWGEntities.ODDION.get(), level);
+        Oddion oddion = new Oddion(level);
         oddion.setPos(pos.getX(), pos.getY(), pos.getZ());
         level.addFreshEntity(oddion);
         level.destroyBlock(pos, true);
