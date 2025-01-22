@@ -3,7 +3,6 @@ package net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden;
 import net.minecraft.resources.ResourceLocation;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
-import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.constant.DataTickets;
@@ -15,26 +14,26 @@ import software.bernie.geckolib.model.data.EntityModelData;
  * @see GeoModel
  * @author YaBoiChips
  */
-class PumpkinWardenModel<T extends GeoAnimatable> extends GeoModel<T> {
+class PumpkinWardenModel<T extends PumpkinWarden> extends GeoModel<T> {
 
     @Override
-    public ResourceLocation getModelResource(T object) {
+    public ResourceLocation getModelResource(T pumpkinWarden) {
         return BiomesWeveGone.id("geo/pumpkinwarden.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(T object) {
-        return ((PumpkinWarden) object).isHiding() ? BiomesWeveGone.id("textures/entity/pumpkin_warden/" + ((PumpkinWarden) object).getVariant().getName() + "_hiding.png") : BiomesWeveGone.id("textures/entity/pumpkin_warden/" + ((PumpkinWarden) object).getVariant().getName() + ".png");
+    public ResourceLocation getTextureResource(T pumpkinWarden) {
+        return pumpkinWarden.isHiding() ? BiomesWeveGone.id("textures/entity/pumpkin_warden/" + pumpkinWarden.getVariant().getName() + "_hiding.png") : BiomesWeveGone.id("textures/entity/pumpkin_warden/" + pumpkinWarden.getVariant().getName() + ".png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(T animatable) {
+    public ResourceLocation getAnimationResource(T pumpkinWarden) {
         return BiomesWeveGone.id("animations/pumpkinwarden.animation.json");
     }
 
     @Override
-    public void setCustomAnimations(T entity, long uniqueID, AnimationState<T> customPredicate) {
-        super.setCustomAnimations(entity, uniqueID, customPredicate);
+    public void setCustomAnimations(T pumpkinWarden, long uniqueID, AnimationState<T> customPredicate) {
+        super.setCustomAnimations(pumpkinWarden, uniqueID, customPredicate);
         GeoBone head = this.getAnimationProcessor().getBone("Head");
         EntityModelData extraData = customPredicate.getData(DataTickets.ENTITY_MODEL_DATA);
         head.setPivotX(extraData.headPitch() * ((float) Math.PI / 180F));
