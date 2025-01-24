@@ -1,4 +1,5 @@
 # 1.5.3
+- Add ModMenu Support (Fabric)
 - Fix Oddion Despawning
 - Make Poison Ivy and Skyris Vine copy Vanilla Vine Properties
 - Remove Replacement Recipe for Vanilla Crafting Table
