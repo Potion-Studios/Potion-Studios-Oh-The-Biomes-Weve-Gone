@@ -1,4 +1,5 @@
 # 2.3.3
+- Add ModMenu Support (Fabric) 
 
 # 2.3.2
 - Remove Milk from Allium Oddion Soup Recipe, Change Nutrition value from 9 to 8

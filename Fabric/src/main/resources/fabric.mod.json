@@ -12,10 +12,11 @@
   ],
   "contact": {
     "homepage": "https://potionstudios.net/",
-    "sources": "https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone"
+    "sources": "https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone",
+    "issues": "https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone/issues"
   },
   "license": "All Rights Reserved",
-  "icon": "OTBWG.png",
+  "icon": "small_icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -42,5 +43,12 @@
   },
   "suggests": {
     "WTHIT": ">=8.15.0"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.com/invite/vP3PBGvgdW"
+      }
+    }
   }
 }
