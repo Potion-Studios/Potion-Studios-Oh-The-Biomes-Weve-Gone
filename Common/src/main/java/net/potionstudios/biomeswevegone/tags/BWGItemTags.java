@@ -56,9 +56,6 @@ public final class BWGItemTags {
     public static final TagKey<Item> MAKES_WHITE_DYE = create("dye/makes_white_dye");
     public static final TagKey<Item> MAKES_YELLOW_DYE = create("dye/makes_yellow_dye");
 
-    public static final TagKey<Item> VANILLA_PLANKS = TagKey.create(Registries.ITEM, ResourceLocation.withDefaultNamespace("vanilla_planks"));
-
-
     private static TagKey<Item> create(String name) {
         return TagKey.create(Registries.ITEM, BiomesWeveGone.id(name));
     }
