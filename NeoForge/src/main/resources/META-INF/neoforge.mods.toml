@@ -17,7 +17,7 @@ displayURL="https://potionstudios.net/"
 [[dependencies.biomeswevegone]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.1,)"
+versionRange = "[21.1.114,)"
 ordering = "NONE"
 side = "BOTH"
 
