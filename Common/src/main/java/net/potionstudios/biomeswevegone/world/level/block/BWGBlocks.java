@@ -232,7 +232,7 @@ public class BWGBlocks {
     public static final Supplier<PinkPetalsBlock> YELLOW_SAKURA_PETALS = registerBlockItem("yellow_sakura_petals", () -> new PinkPetalsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_PETALS).mapColor(MapColor.COLOR_YELLOW)));
 
     public static final Supplier<PoisonIvyBlock> POISON_IVY = registerBlockItem("poison_ivy", PoisonIvyBlock::new);
-    public static final Supplier<VineBlock> SKYRIS_VINE = registerBlockItem("skyris_vine", () -> new VineBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.2f).randomTicks().noCollission()));
+    public static final Supplier<VineBlock> SKYRIS_VINE = registerBlockItem("skyris_vine", () -> new VineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.VINE)));
 
     public static final Supplier<TreeBranchBlock> WITCH_HAZEL_BRANCH = registerBlockItem("witch_hazel_branch", TreeBranchBlock::new);
     public static final Supplier<WitchHazelBlossomBlock> WITCH_HAZEL_BLOSSOM = registerBlockItem("witch_hazel_blossom", WitchHazelBlossomBlock::new);

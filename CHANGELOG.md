@@ -2,6 +2,7 @@
 - Add ModMenu Support (Fabric) 
 - Fix Oddion Despawning 
 - Give ManOWar Custom Persistence
+- Make Poison Ivy and Skyris Vine copy Vanilla Vine Properties
 
 # 2.3.2
 - Remove Milk from Allium Oddion Soup Recipe, Change Nutrition value from 9 to 8
