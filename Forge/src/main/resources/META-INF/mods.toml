@@ -7,7 +7,7 @@ license = "All Rights Reserved"
 modId = "biomeswevegone"
 version = "${version}"
 displayName = "Oh The Biomes We've Gone"
-logoFile="OTBWG.png"
+logoFile = "OTBWG.png"
 authors = "Joseph T. McQuigg (JT122406), AOCAWOL, YaBoiChips, Corgi Taco"
 description = '''
 Sequel to Oh The Biomes You'll Go, this mod adds a variety of new biomes to the game.

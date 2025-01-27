@@ -442,7 +442,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     private static class ManOWarRandomMovementGoal extends Goal {
         private final ManOWar mano;
 
-        public ManOWarRandomMovementGoal(ManOWar mano) {
+        private ManOWarRandomMovementGoal(ManOWar mano) {
             this.mano = mano;
         }
 

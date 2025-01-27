@@ -98,6 +98,8 @@ public class LangGenerator extends LanguageProvider {
 
         add(death("inQuicksand"), "%s tried to swim in the desert");
         add(death("cattailExplosion"), "%s got too curious and put a cattail in a campfire");
+
+        add("tooltip.waila.hatch_chance", "Hatch Chance: %s");
     }
 
     private static String advancement(String key) {
