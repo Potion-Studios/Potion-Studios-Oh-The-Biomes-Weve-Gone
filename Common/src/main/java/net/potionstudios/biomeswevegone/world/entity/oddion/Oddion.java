@@ -88,6 +88,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     public Oddion(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
         this.onionTime = 6000;
+        setPersistenceRequired();
     }
 
     public Oddion(Level level) {

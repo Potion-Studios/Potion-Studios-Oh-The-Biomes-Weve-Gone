@@ -1,4 +1,5 @@
 # 1.5.3
+- Fix Oddion Despawning
 - Make Poison Ivy and Skyris Vine copy Vanilla Vine Properties
 - Remove Replacement Recipe for Vanilla Crafting Table
 - Give ManOWar Custom Persistence
