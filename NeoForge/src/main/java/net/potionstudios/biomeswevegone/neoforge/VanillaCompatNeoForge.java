@@ -29,8 +29,6 @@ import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
-import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
-import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldVegationPlacedFeatures;
 
 import java.util.HashMap;
 import java.util.List;
@@ -47,6 +45,7 @@ public class VanillaCompatNeoForge {
         });
         BlockFeatures.registerFlammable(((FireBlock) Blocks.FIRE)::setFlammable);
         ToolInteractions.registerFlattenables(ShovelItem.FLATTENABLES::put);
+        //BWGVillagerTypes.setVillagerBiomes(VillagerType.BY_BIOME::put);
     }
 
     public static void registerVanillaCompatEvents(final IEventBus bus) {
