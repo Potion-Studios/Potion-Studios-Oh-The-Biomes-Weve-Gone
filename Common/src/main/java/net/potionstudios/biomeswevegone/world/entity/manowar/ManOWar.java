@@ -384,6 +384,11 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     @Override
+    public boolean requiresCustomPersistence() {
+        return super.requiresCustomPersistence() || this.fromBucket();
+    }
+
+    @Override
     public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
         return !this.fromBucket() && !this.hasCustomName();
     }
