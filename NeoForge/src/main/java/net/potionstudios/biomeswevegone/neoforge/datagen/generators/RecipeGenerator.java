@@ -63,7 +63,7 @@ public class RecipeGenerator extends RecipeProvider {
                     .save(recipeOutput);
             hangingSign(recipeOutput, set.hangingSignItem(), set.strippedLogStem());
             woodenBoat(recipeOutput, set.boatItem().get(), set.planks());
-            chestBoat(recipeOutput, set.chestBoatItem().get(), set.planks());
+            chestBoat(recipeOutput, set.chestBoatItem().get(), set.boatItem().get());
         });
 
         woodFromLogs(recipeOutput, BWGWood.PALO_VERDE_WOOD.get(), BWGWood.PALO_VERDE_LOG.get());
