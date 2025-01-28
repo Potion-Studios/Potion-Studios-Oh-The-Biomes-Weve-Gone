@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.tags;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -48,9 +47,6 @@ public final class BWGItemTags {
     public static final TagKey<Item> MAKES_YELLOW_DYE = create("dye/makes_yellow_dye");
 
     public static final TagKey<Item> MUSHROOMS = create("mushrooms");
-
-    public static final TagKey<Item> VANILLA_PLANKS = TagKey.create(Registries.ITEM, new ResourceLocation("vanilla_planks"));
-
 
     private static TagKey<Item> create(String name) {
         return TagKey.create(Registries.ITEM, BiomesWeveGone.id(name));

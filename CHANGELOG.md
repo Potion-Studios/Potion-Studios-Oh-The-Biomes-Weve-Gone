@@ -1,5 +1,6 @@
 # 1.5.3
 - Make Poison Ivy and Skyris Vine copy Vanilla Vine Properties
+- Remove Replacement Recipe for Vanilla Crafting Table
 
 # 1.5.2
 - Remove Milk from Allium Oddion Soup Recipe, Change Nutrition value from 9 to 8
