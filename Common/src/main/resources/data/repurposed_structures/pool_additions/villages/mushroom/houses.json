@@ -1,5 +1,5 @@
 {
-  "target_pool": "repurposed_structures:villages/mushroom/houses",
+  "name": "repurposed_structures:villages/mushroom/houses",
   "fallback": "minecraft:empty",
   "elements": [
     {

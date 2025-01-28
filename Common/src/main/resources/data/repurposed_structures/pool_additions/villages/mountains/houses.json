@@ -1,5 +1,5 @@
 {
-  "target_pool": "repurposed_structures:villages/mountains/houses",
+  "name": "repurposed_structures:villages/mountains/houses",
   "fallback": "minecraft:empty",
   "elements": [
     {

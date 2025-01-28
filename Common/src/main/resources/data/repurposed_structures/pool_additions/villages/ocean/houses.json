@@ -1,5 +1,5 @@
 {
-  "target_pool": "repurposed_structures:villages/ocean/houses",
+  "name": "repurposed_structures:villages/ocean/houses",
   "fallback": "minecraft:empty",
   "elements": [
     {

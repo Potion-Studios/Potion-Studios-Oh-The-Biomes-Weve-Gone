@@ -1,5 +1,4 @@
 {
-  "target_structure": "repurposed_structures:village_giant_taiga",
   "pieces_spawn_counts": [
     {
       "nbt_piece_name": "biomeswevegone:repurposed_structures/villages/giant_taiga/forager",
