@@ -1,5 +1,5 @@
 {
-  "target_pool": "repurposed_structures:villages/giant_taiga/houses",
+  "name": "repurposed_structures:villages/giant_taiga/houses",
   "fallback": "minecraft:empty",
   "elements": [
     {

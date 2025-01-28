@@ -1,5 +1,5 @@
 {
-  "target_pool": "repurposed_structures:villages/badlands/houses",
+  "name": "repurposed_structures:villages/badlands/houses",
   "fallback": "minecraft:empty",
   "elements": [
     {

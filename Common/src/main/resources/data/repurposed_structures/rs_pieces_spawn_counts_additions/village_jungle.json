@@ -1,5 +1,4 @@
 {
-  "target_structure": "repurposed_structures:village_jungle",
   "pieces_spawn_counts": [
     {
       "nbt_piece_name": "biomeswevegone:repurposed_structures/villages/jungle/forager",

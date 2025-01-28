@@ -1,5 +1,5 @@
 {
-  "target_pool": "repurposed_structures:villages/swamp/houses",
+  "name": "repurposed_structures:villages/swamp/houses",
   "fallback": "minecraft:empty",
   "elements": [
     {
