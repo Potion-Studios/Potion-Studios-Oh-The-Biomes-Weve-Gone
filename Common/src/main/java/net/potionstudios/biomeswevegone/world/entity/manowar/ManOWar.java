@@ -321,17 +321,13 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
         return Colors.byIndex((getRawColor() >> 16) & Byte.MAX_VALUE);
     }
 
-    public static Colors getRandColor(RandomSource rand) {
-        int i = rand.nextInt(5);
-        if (i <= 0) {
-            return Colors.MAGENTA;
-        } else if (i <= 2) {
-            return Colors.BLUE;
-        } else if (i == 3) {
-            return Colors.PURPLE;
-        } else {
-            return Colors.RAINBOW;
-        }
+    private static Colors getRandColor(RandomSource rand) {
+        return switch (rand.nextInt(5)) {
+            case 0 -> Colors.MAGENTA;
+            case 1 -> Colors.PURPLE;
+            case 2 -> Colors.RAINBOW;
+            default -> Colors.BLUE;
+        };
     }
 
     @Override

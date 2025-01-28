@@ -6,7 +6,8 @@
 - Remove Replacement Recipe for Vanilla Crafting Table
 - Fix Oddion Crop interactions being incorrect
 - Add WTHIT Support for BWG Saplings, StemBlocks, and Oddion Crop
-- Fix Chest Boat Recipes being incorrect
+- Fix Chest Boat Recipes being incorrect 
+- Improve ManOWar Color Selection Logic
 
 # 2.3.2
 - Remove Milk from Allium Oddion Soup Recipe, Change Nutrition value from 9 to 8
