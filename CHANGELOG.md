@@ -6,6 +6,7 @@
 - Give ManOWar Custom Persistence
 - Fix Chest Boat Recipes being incorrect
 - Improve ManOWar Color Selection Logic
+- Add WTHIT Support for BWG Saplings, StemBlocks, and Oddion Crop
 
 # 1.5.2
 - Remove Milk from Allium Oddion Soup Recipe, Change Nutrition value from 9 to 8

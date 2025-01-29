@@ -26,8 +26,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class OddionCrop extends BWGBerryBush {
 
-    private static final IntegerProperty TIMER = IntegerProperty.create("timer", 0, 10);
-    private static final BooleanProperty HATCHING = BooleanProperty.create("hatching");
+    public static final IntegerProperty TIMER = IntegerProperty.create("timer", 0, 10);
+    public static final BooleanProperty HATCHING = BooleanProperty.create("hatching");
 
     public OddionCrop() {
         super(() -> BWGItems.ODDION_BULB, false);
