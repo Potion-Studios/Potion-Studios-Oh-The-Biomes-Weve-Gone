@@ -71,10 +71,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
     @Override
     protected void defineSynchedData() {
+        super.defineSynchedData();
         this.entityData.define(DATA_CARRY_STATE, Blocks.AIR.defaultBlockState());
         this.entityData.define(HIDING, false);
         this.entityData.define(TIMER, 0);
-        super.defineSynchedData();
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -89,7 +89,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         this.goalSelector.addGoal(1, new DestroyNearestPumpkinGoal(this, 1));
         this.goalSelector.addGoal(5, new StayByBellGoal(this, 1, 5000));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        super.registerGoals();
     }
 
     @Override
@@ -98,8 +97,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public void checkDespawn() {
-    }
+    public void checkDespawn() {}
 
 
     @Override
@@ -123,7 +121,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     private static final RawAnimation WAVE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.wave");
 
 
-    private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
+    private <E extends GeoAnimatable> PlayState predicate(@NotNull AnimationState<E> event) {
         AnimationController<E> controller = event.getController();
         controller.transitionLength(0);
         if (this.isHiding()) {
@@ -182,6 +180,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         this.party = pIsPartying;
     }
 
+    @Override
     public void aiStep() {
         super.aiStep();
         if (this.jukebox == null || !this.jukebox.closerToCenterThan(this.position(), 10D) || !this.level().getBlockState(this.jukebox).is(Blocks.JUKEBOX)) {
@@ -276,13 +275,13 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
     public BlockState getCarriedBlock() {
         BlockState blockState = this.entityData.get(DATA_CARRY_STATE);
-        return blockState == Blocks.AIR.defaultBlockState() ? null : blockState;
+        return blockState.isAir() ? null : blockState;
     }
 
-    static class DestroyNearestPumpkinGoal extends MoveToBlockGoal {
+    private static class DestroyNearestPumpkinGoal extends MoveToBlockGoal {
         private final PumpkinWarden warden;
 
-        public DestroyNearestPumpkinGoal(PumpkinWarden mob, double speed) {
+        private DestroyNearestPumpkinGoal(PumpkinWarden mob, double speed) {
             super(mob, speed, 32);
             this.warden = mob;
         }
@@ -313,10 +312,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     }
 
 
-    static class ThrowItemAtCarvedPumpkinGoal extends MoveToBlockGoal {
+    private static class ThrowItemAtCarvedPumpkinGoal extends MoveToBlockGoal {
         private final PumpkinWarden warden;
 
-        public ThrowItemAtCarvedPumpkinGoal(PumpkinWarden mob, double speed) {
+        private ThrowItemAtCarvedPumpkinGoal(PumpkinWarden mob, double speed) {
             super(mob, speed, 32);
             this.warden = mob;
         }
@@ -351,10 +350,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         }
     }
 
-    static class StayByBellGoal extends MoveToBlockGoal {
-        public PumpkinWarden warden;
+    private static class StayByBellGoal extends MoveToBlockGoal {
+        private final PumpkinWarden warden;
 
-        public StayByBellGoal(PumpkinWarden pumpkinWarden, double speedModifier, int searchRange) {
+        private StayByBellGoal(PumpkinWarden pumpkinWarden, double speedModifier, int searchRange) {
             super(pumpkinWarden, speedModifier, searchRange);
             this.warden = pumpkinWarden;
         }
