@@ -5,13 +5,16 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,6 +23,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.oddion.Oddion;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
@@ -35,20 +39,22 @@ public class OddionCrop extends BWGBerryBush {
     }
 
     @Override
-    public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
-        if (player.getItemInHand(hand).is(Items.BONE_MEAL))
-            if (state.getValue(AGE) == MAX_AGE && !state.getValue(HATCHING)) {
-                BlockState blockState = state.cycle(HATCHING);
-                level.setBlockAndUpdate(pos, blockState);
-                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
-                level.addParticle(ParticleTypes.HAPPY_VILLAGER, (double)pos.getX() + 0.5, (double)pos.getY() + 0.5, (double)pos.getZ() + 0.5, 0.0, 0.0, 0.0);
-                level.playLocalSound(pos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.AMBIENT, 2 ,1, false);
+    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
+        if (state.getValue(AGE) == MAX_AGE) {
+            ItemStack stack = player.getItemInHand(hand);
+            if (stack.is(ItemTags.HOES) || (stack.isEmpty() && !state.getValue(HATCHING))) {
+                popResource(level, pos, new ItemStack(BWGItems.ODDION_BULB.get(), 2));
+                level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+                BlockState blockState = state.setValue(AGE, 1).setValue(TIMER, 0).setValue(HATCHING, false);
+                level.setBlock(pos, blockState, 2);
+                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));
                 return InteractionResult.sidedSuccess(level.isClientSide());
             }
+        }
         return InteractionResult.PASS;
     }
 
-    private boolean shouldHatch(Level level, BlockState state) {
+    private boolean shouldHatch(@NotNull Level level, @NotNull BlockState state) {
         return level.getRandom().nextInt(10 - state.getValue(TIMER)) == 0;
     }
 
@@ -82,14 +88,26 @@ public class OddionCrop extends BWGBerryBush {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
+    protected boolean mayPlaceOn(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
         return state.getBlock() instanceof FarmBlock;
     }
 
-    private void spawnOddion(Level level, BlockPos pos) {
+    private void spawnOddion(Level level, @NotNull BlockPos pos) {
         Oddion oddion = new Oddion(level);
         oddion.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
         level.addFreshEntity(oddion);
         level.destroyBlock(pos, true);
+    }
+
+    @Override
+    public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
+        return !state.getValue(HATCHING);
+    }
+
+    @Override
+    public void performBonemeal(@NotNull ServerLevel level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
+        if (state.getValue(AGE) == MAX_AGE)
+            level.setBlockAndUpdate(pos, state.setValue(HATCHING, true));
+        else super.performBonemeal(level, random, pos, state);
     }
 }
