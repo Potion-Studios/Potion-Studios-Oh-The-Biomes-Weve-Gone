@@ -49,34 +49,36 @@ public class OddionCrop extends BWGBerryBush {
     }
 
     private boolean shouldHatch(Level level, BlockState state) {
-        return level.random.nextInt(10 - state.getValue(TIMER)) == 0;
+        return level.getRandom().nextInt(10 - state.getValue(TIMER)) == 0;
     }
 
     @Override
     public boolean isRandomlyTicking(@NotNull BlockState state) {
-        return true;
+        return state.getValue(AGE) < MAX_AGE || state.getValue(HATCHING);
     }
 
     @Override
     public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         if (state.getValue(HATCHING)) {
-            if (shouldHatch(level, state)) {
+            if (shouldHatch(level, state))
                 spawnOddion(level, pos);
-            } else {
+            else {
                 level.setBlockAndUpdate(pos, state.setValue(TIMER, state.getValue(TIMER) + 1));
-                if (level.isClientSide()) {
-                    level.addParticle(ParticleTypes.HAPPY_VILLAGER, (double)pos.getX() + 0.5, (double)pos.getY() + 0.5, (double)pos.getZ() + 0.5, 0.0, 0.0, 0.0);
-                    level.playSound(null, pos, SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1, 1);
-                }
+                level.playSound(null, pos, SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1, 1);
             }
         }
         super.randomTick(state, level, pos, random);
     }
 
     @Override
+    public void animateTick(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull RandomSource random) {
+        if (state.getValue(HATCHING) && random.nextInt(6) == 0)
+            level.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5, pos.getY() + 0.6, pos.getZ() + 0.5, 0.0, 0.0, 0.0);
+    }
+
+    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(TIMER, HATCHING);
-        super.createBlockStateDefinition(builder);
+        super.createBlockStateDefinition(builder.add(TIMER, HATCHING));
     }
 
     @Override
@@ -86,7 +88,7 @@ public class OddionCrop extends BWGBerryBush {
 
     private void spawnOddion(Level level, BlockPos pos) {
         Oddion oddion = new Oddion(level);
-        oddion.setPos(pos.getX(), pos.getY(), pos.getZ());
+        oddion.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
         level.addFreshEntity(oddion);
         level.destroyBlock(pos, true);
     }
