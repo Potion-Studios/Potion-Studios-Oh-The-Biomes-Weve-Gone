@@ -8,6 +8,7 @@
 - Improve ManOWar Color Selection Logic
 - Add WTHIT Support for BWG Saplings, StemBlocks, and Oddion Crop
 - Fix Oddion Crop interactions being incorrect
+- Fix Repurposed Structures Compat not working
 
 # 1.5.2
 - Remove Milk from Allium Oddion Soup Recipe, Change Nutrition value from 9 to 8
