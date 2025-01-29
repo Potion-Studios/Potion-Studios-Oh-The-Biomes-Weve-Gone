@@ -24,9 +24,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LightLayer;
-import net.minecraft.world.level.block.AttachedStemBlock;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.StemGrownBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
@@ -47,9 +45,10 @@ import java.util.List;
 
 /**
  * The Pumpkin Warden Entity
+ *
+ * @author YaBoiChips
  * @see PathfinderMob
  * @see GeoEntity
- * @author YaBoiChips
  */
 public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
@@ -60,7 +59,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<Integer> TIMER = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<BlockState> DATA_CARRY_STATE = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.BLOCK_STATE);
 
-    public Goal moveGoal = new WaterAvoidingRandomStrollGoal(this, 1.0D,0.7F);
+    public Goal moveGoal = new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.7F);
     public Goal runGoal = new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D);
     public Goal lookGoal = new LookAtPlayerGoal(this, Player.class, 2.0F);
     public Goal randLookGoal = new RandomLookAroundGoal(this);
@@ -86,8 +85,8 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     protected void registerGoals() {
         this.goalSelector.addGoal(9, new FloatGoal(this));
         this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.PUMPKIN_PIE), false));
-        this.goalSelector.addGoal(3, new PumpkinWardenLeaveBlockGoal(this, 1, 32, 5));
-        this.goalSelector.addGoal(2, new PumpkinWardenTakeBlockGoal(this, 1, 32, 5));
+        this.goalSelector.addGoal(2, new ThrowItemAtCarvedPumpkinGoal(this, 1));
+        this.goalSelector.addGoal(1, new DestroyNearestPumpkinGoal(this, 1));
         this.goalSelector.addGoal(5, new StayByBellGoal(this, 1, 5000));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         super.registerGoals();
@@ -280,162 +279,75 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         return blockState == Blocks.AIR.defaultBlockState() ? null : blockState;
     }
 
-
-    static class PumpkinWardenTakeBlockGoal extends MoveToBlockGoal {
+    static class DestroyNearestPumpkinGoal extends MoveToBlockGoal {
         private final PumpkinWarden warden;
 
-        /**
-         * The delay until {@link PumpkinWardenTakeBlockGoal#findNearestBlock()}
-         * attempts to find for a new melon or pumpkin block nearby.
-         * This delay is counted in ticks and is continuously decremented until it hits
-         * 0, at which point a new nearest block will be searched for.
-         * The value of this field will be -1 if the goal has already found a
-         * valid target block.
-         *
-         * <p>This field mainly exists for performance reasons.
-         */
-        private int searchNearestBlockDelay = 0;
+        public DestroyNearestPumpkinGoal(PumpkinWarden mob, double speed) {
+            super(mob, speed, 32);
+            this.warden = mob;
+        }
 
-        public PumpkinWardenTakeBlockGoal(PumpkinWarden p, double speed, int range, int y) {
-            super(p, speed, range, y);
-            this.warden = p;
+        @Override
+        protected boolean isValidTarget(LevelReader level, BlockPos pos) {
+            return level.getBlockState(pos).is(Blocks.PUMPKIN) || level.getBlockState(pos).is(Blocks.MELON);
         }
 
         @Override
         public boolean canUse() {
-            if (this.searchNearestBlockDelay > 0) {
-                this.searchNearestBlockDelay--;
-            }
-            if (this.warden.getCarriedBlock() != null) {
-                return false;
-            }
-            return super.canUse();
+            return findNearestBlock() && this.warden.getCarriedBlock() == null;
         }
 
         @Override
-        protected boolean findNearestBlock() {
-            if (this.searchNearestBlockDelay > 0) {
-              return false;
-            } else if (this.searchNearestBlockDelay == -1 && this.isValidTarget(this.warden.level(), this.blockPos)) {
-                return true;
-            }
-            if (super.findNearestBlock()) {
-                this.searchNearestBlockDelay = -1;
-                return true;
-            } else {
-                this.searchNearestBlockDelay = 20;
-                return false;
-            }
-        }
-
-        @Override
-        public double acceptedDistance() {
-            return 0;
-        }
-
-        @Override
-        protected int nextStartTick(@NotNull PathfinderMob creature) {
-            return 0;
-        }
-
         public void tick() {
             super.tick();
-            if (this.isReachedTarget()) {
-                Level level = this.warden.level();
-                BlockState blockstate = level.getBlockState(this.blockPos);
-                if (blockstate.getBlock() instanceof StemGrownBlock) {
-                    level.removeBlock(this.blockPos, false);
+            if (isReachedTarget()) {
+                Level level = mob.level();
+                if (isValidTarget(level, blockPos)) {
+                    BlockState blockstate = level.getBlockState(this.blockPos);
+                    level.destroyBlock(blockPos, false, mob);
                     level.gameEvent(GameEvent.BLOCK_DESTROY, this.blockPos, GameEvent.Context.of(this.warden, blockstate));
                     this.warden.setCarriedBlock(blockstate.getBlock().defaultBlockState());
                 }
             }
         }
-
-        @Override
-        protected boolean isValidTarget(LevelReader level, @NotNull BlockPos pos) {
-            BlockState positionState = level.getBlockState(pos);
-            if (positionState.is(Blocks.PUMPKIN) || positionState.is(Blocks.MELON))
-                return level.getBlockState(pos.relative(Direction.Axis.X, 1)).getBlock() instanceof AttachedStemBlock || level.getBlockState(pos.relative(Direction.Axis.Z, 1)).getBlock() instanceof AttachedStemBlock;
-            return false;
-        }
     }
 
-    static class PumpkinWardenLeaveBlockGoal extends MoveToBlockGoal {
-        public PumpkinWarden warden;
 
-        /**
-         * The delay until {@link PumpkinWardenLeaveBlockGoal#findNearestBlock()}
-         * attempts to find for a new carved pumpkin block nearby.
-         * This delay is counted in ticks and is continuously decremented until it hits
-         * 0, at which point a new nearest block will be searched for.
-         * The value of this field will be -1 if the goal has already found a
-         * valid target block.
-         *
-         * <p>This field mainly exists for performance reasons.
-         */
-        private int searchNearestBlockDelay = 0;
+    static class ThrowItemAtCarvedPumpkinGoal extends MoveToBlockGoal {
+        private final PumpkinWarden warden;
 
-        public PumpkinWardenLeaveBlockGoal(PumpkinWarden warden, double speed, int range, int y) {
-            super(warden, speed, range, y);
-            this.warden = warden;
+        public ThrowItemAtCarvedPumpkinGoal(PumpkinWarden mob, double speed) {
+            super(mob, speed, 32);
+            this.warden = mob;
         }
 
         @Override
-        public double acceptedDistance() {
-            return 8D;
-        }
-
-        @Override
-        protected int nextStartTick(@NotNull PathfinderMob creature) {
-            return 0;
-        }
-
-        @Override
-        public boolean canContinueToUse() {
-            return (this.warden.getCarriedBlock() != null);
+        protected boolean isValidTarget(LevelReader level, BlockPos pos) {
+            return level.getBlockState(pos).is(Blocks.CARVED_PUMPKIN);
         }
 
         @Override
         public boolean canUse() {
-            if (this.searchNearestBlockDelay > 0) {
-                this.searchNearestBlockDelay--;
-            }
-            if (this.warden.getCarriedBlock() == null) {
-                return false;
-            }
-            return super.canUse();
+            return findNearestBlock() && this.warden.getCarriedBlock() != null;
         }
 
         @Override
-        protected boolean findNearestBlock() {
-            if (this.searchNearestBlockDelay > 0) {
-                return false;
-            } else if (this.searchNearestBlockDelay == -1 && this.isValidTarget(this.warden.level(), this.blockPos)) {
-                return true;
-            }
-            if (super.findNearestBlock()) {
-                this.searchNearestBlockDelay = -1;
-                return true;
-            } else {
-                this.searchNearestBlockDelay = 20;
-                return false;
-            }
-        }
-
         public void tick() {
             super.tick();
-            if (this.isReachedTarget()) {
-                if (this.warden.getCarriedBlock() != null) {
-                    BehaviorUtils.throwItem(this.warden, this.warden.getCarriedBlock().getBlock().asItem().getDefaultInstance(), new Vec3(this.blockPos.getX(), this.blockPos.getY(), this.blockPos.getZ()));
-                    this.warden.setCarriedBlock(null);
-                    this.stop();
+            if (isReachedTarget()) {
+                Level level = mob.level();
+                BlockState state = level.getBlockState(blockPos);
+                if (state.is(Blocks.CARVED_PUMPKIN)) {
+                    Direction facing = state.getValue(net.minecraft.world.level.block.CarvedPumpkinBlock.FACING);
+                    BlockPos frontPos = blockPos.relative(facing);
+                    if (mob.blockPosition().closerThan(frontPos, 2.5)) {
+                        if (this.warden.getCarriedBlock() != null) {
+                            BehaviorUtils.throwItem(this.warden, this.warden.getCarriedBlock().getBlock().asItem().getDefaultInstance(), new Vec3(this.blockPos.getX(), this.blockPos.getY(), this.blockPos.getZ()));
+                            this.warden.setCarriedBlock(null);
+                        }
+                    }
                 }
             }
-        }
-
-        @Override
-        protected boolean isValidTarget(LevelReader level, @NotNull BlockPos pos) {
-            return level.getBlockState(pos).is(Blocks.CARVED_PUMPKIN);
         }
     }
 
@@ -454,3 +366,4 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         }
     }
 }
+
