@@ -8,7 +8,7 @@
 - Add WTHIT Support for BWG Saplings, StemBlocks, and Oddion Crop
 - Fix Chest Boat Recipes being incorrect 
 - Improve ManOWar Color Selection Logic
-- Fied pumpkin warden farming goals
+- Fix pumpkin warden farming goals
 
 # 2.3.2
 - Remove Milk from Allium Oddion Soup Recipe, Change Nutrition value from 9 to 8
