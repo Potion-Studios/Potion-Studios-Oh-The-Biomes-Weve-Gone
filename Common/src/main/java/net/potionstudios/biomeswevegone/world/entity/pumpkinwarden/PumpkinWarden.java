@@ -78,12 +78,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
+        super.defineSynchedData(builder);
         builder.define(DATA_CARRY_STATE, Blocks.AIR.defaultBlockState());
         builder.define(HIDING, false);
         builder.define(TIMER, 0);
         builder.define(DATA_VARIANT, 0);
-        super.defineSynchedData(builder);
     }
 
     @Override
@@ -118,11 +118,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     @Override
-    public void checkDespawn() {
-    }
+    public void checkDespawn() {}
 
     @Override
-    protected @NotNull InteractionResult mobInteract(Player player, @NotNull InteractionHand hand) {
+    protected @NotNull InteractionResult mobInteract(@NotNull Player player, @NotNull InteractionHand hand) {
         ItemStack itemInHand = player.getItemInHand(hand);
         if (itemInHand.is(BWGBlocks.ROSE.getBlock().asItem())){
             if (player.level().isClientSide()) {
@@ -156,7 +155,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     private static final RawAnimation WAVE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.wave");
 
 
-    private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
+    private <E extends GeoAnimatable> PlayState predicate(@NotNull AnimationState<E> event) {
         AnimationController<E> controller = event.getController();
         controller.transitionLength(0);
         if (this.isHiding()) {
@@ -260,7 +259,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     @Override
-    public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+    public @Nullable SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
         this.setVariant(Variant.getSpawnVariant(level.getRandom()));
         return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
     }
@@ -317,7 +316,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     public BlockState getCarriedBlock() {
         BlockState blockState = this.entityData.get(DATA_CARRY_STATE);
-        return blockState == Blocks.AIR.defaultBlockState() ? null : blockState;
+        return blockState.isAir() ? null : blockState;
     }
 
     @Override
@@ -450,7 +449,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
             return BY_ID.apply(id);
         }
 
-        private static Variant getSpawnVariant(RandomSource random) {
+        private static Variant getSpawnVariant(@NotNull RandomSource random) {
             return random.nextFloat() < 0.05 ? Variant.PALE : Variant.DEFAULT;
         }
     }
