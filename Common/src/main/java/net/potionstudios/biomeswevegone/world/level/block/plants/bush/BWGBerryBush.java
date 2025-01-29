@@ -14,8 +14,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
@@ -24,7 +22,6 @@ import java.util.function.Supplier;
 
 public class BWGBerryBush extends SweetBerryBushBlock {
 
-    public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
     protected final Supplier<Supplier<Item>> item;
     private final boolean hurtEntityInside;
 
