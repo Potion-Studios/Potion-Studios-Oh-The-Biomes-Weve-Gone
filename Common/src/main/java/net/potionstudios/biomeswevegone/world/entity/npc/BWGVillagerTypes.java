@@ -11,6 +11,11 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
+/**
+ * Villager types for Oh The Biomes We've Gone
+ * @see VillagerType
+ * @author Joseph T. McQuigg
+ */
 public class BWGVillagerTypes {
 
 	public static final Supplier<VillagerType> SKYRIS = register("skyris");
