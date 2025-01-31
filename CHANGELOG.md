@@ -1,3 +1,5 @@
+# 2.3.4
+
 # 2.3.3
 - Add ModMenu Support (Fabric) 
 - Fix Oddion Despawning 
