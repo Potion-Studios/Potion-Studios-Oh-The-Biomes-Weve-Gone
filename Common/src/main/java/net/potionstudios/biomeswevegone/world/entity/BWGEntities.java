@@ -23,19 +23,19 @@ import java.util.function.Supplier;
  */
 public class BWGEntities {
 
-	public static final Supplier<EntityType<ManOWar>> MAN_O_WAR = createEntity("man_o_war", ManOWar::new, MobCategory.AMBIENT,0.6F, 1F);
-	public static final Supplier<EntityType<PumpkinWarden>> PUMPKIN_WARDEN = createEntity("pumpkin_warden", PumpkinWarden::new, MobCategory.AMBIENT,1F, 1.4F);
-	public static final Supplier<EntityType<Oddion>> ODDION = createEntity("oddion", Oddion::new, MobCategory.AMBIENT,0.4F, 0.4F);
+	public static final Supplier<EntityType<ManOWar>> MAN_O_WAR = createEntity("man_o_war", ManOWar::new, MobCategory.WATER_CREATURE,0.6F, 1F, 0.0F);
+	public static final Supplier<EntityType<PumpkinWarden>> PUMPKIN_WARDEN = createEntity("pumpkin_warden", PumpkinWarden::new, MobCategory.AMBIENT,0.64F, 1.1F, 0.9F);
+	public static final Supplier<EntityType<Oddion>> ODDION = createEntity("oddion", Oddion::new, MobCategory.CREATURE,0.5F, 0.75F, 0.37F);
 
-	public static final Supplier<EntityType<BWGBoatEntity>> BWG_BOAT = createEntity("boat", BWGBoatEntity::new, MobCategory.MISC, EntityType.BOAT.getWidth(), EntityType.BOAT.getHeight(), 10);
-	public static final Supplier<EntityType<BWGChestBoatEntity>> BWG_CHEST_BOAT = createEntity("chest_boat", BWGChestBoatEntity::new, MobCategory.MISC, EntityType.CHEST_BOAT.getWidth(), EntityType.CHEST_BOAT.getHeight(), 10);
+	public static final Supplier<EntityType<BWGBoatEntity>> BWG_BOAT = createEntity("boat", BWGBoatEntity::new, MobCategory.MISC, EntityType.BOAT.getWidth(), EntityType.BOAT.getHeight(), 0.5625F, EntityType.BOAT.clientTrackingRange());
+	public static final Supplier<EntityType<BWGChestBoatEntity>> BWG_CHEST_BOAT = createEntity("chest_boat", BWGChestBoatEntity::new, MobCategory.MISC, EntityType.CHEST_BOAT.getWidth(), EntityType.CHEST_BOAT.getHeight(), 0.5625F, EntityType.CHEST_BOAT.clientTrackingRange());
 
-	private static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height) {
-		return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.ENTITY_TYPE, id, ()-> EntityType.Builder.of(factory, category).sized(width, height).build(id));
+	private static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height, float eyeHeight) {
+		return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.ENTITY_TYPE, id, ()-> EntityType.Builder.of(factory, category).sized(width, height).eyeHeight(eyeHeight).build(id));
 	}
 
-	private static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height, int trackingRange) {
-		return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.ENTITY_TYPE, id, ()-> EntityType.Builder.of(factory, category).sized(width, height).clientTrackingRange(trackingRange).build(id));
+	private static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height, float eyeHeight, int trackingRange) {
+		return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.ENTITY_TYPE, id, ()-> EntityType.Builder.of(factory, category).sized(width, height).eyeHeight(eyeHeight).clientTrackingRange(trackingRange).build(id));
 	}
 
 	@SuppressWarnings("unchecked")

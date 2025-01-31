@@ -334,7 +334,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     }
 
     @Override
-    public void setVariant(Variant variant) {
+    public void setVariant(@NotNull Variant variant) {
         this.entityData.set(DATA_VARIANT, variant.getId());
     }
 
@@ -375,7 +375,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
             return BY_ID.apply(id);
         }
 
-        private static Variant getSpawnVariant(RandomSource random) {
+        private static Variant getSpawnVariant(@NotNull RandomSource random) {
             int i = random.nextInt(100);
             return i < 47 ? STANDARD : i < 94 ? PINK : ALBINO;
         }
