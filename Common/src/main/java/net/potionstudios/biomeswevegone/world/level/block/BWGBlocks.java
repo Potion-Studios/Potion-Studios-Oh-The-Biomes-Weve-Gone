@@ -308,7 +308,7 @@ public class BWGBlocks {
 
     public static <B extends Block> Supplier<B> registerBlockItemNoTab(String key, Supplier<B> blockSupplier) {
         Supplier<B> block = registerBlock(key, blockSupplier);
-        Supplier<Item> item = BWGItems.register(key, () -> new BlockItem(block.get(), new Item.Properties()));
+        BWGItems.register(key, () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
