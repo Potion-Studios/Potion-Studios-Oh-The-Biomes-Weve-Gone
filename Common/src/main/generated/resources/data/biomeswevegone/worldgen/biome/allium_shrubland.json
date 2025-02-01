@@ -136,9 +136,9 @@
       },
       {
         "type": "biomeswevegone:oddion",
-        "maxCount": 10,
+        "maxCount": 8,
         "minCount": 2,
-        "weight": 5
+        "weight": 10
       }
     ],
     "misc": [],

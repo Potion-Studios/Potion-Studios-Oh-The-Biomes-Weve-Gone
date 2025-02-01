@@ -75,7 +75,7 @@ class BWGOverworldBiomes {
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.plainsSpawns(spawnSettings);
-        addSpawn(spawnSettings, BWGEntities.ODDION.get(), 5, 2, 10);
+        addSpawn(spawnSettings, BWGEntities.ODDION.get(), 10, 2, 8);
 
         float temperature = 0.8F;
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
