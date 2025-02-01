@@ -40,7 +40,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoEntity;
-
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.animation.AnimationController;
@@ -89,7 +88,6 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     public Oddion(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
         this.onionTime = 6000;
-        setPersistenceRequired();
     }
 
     public Oddion(Level level) {
