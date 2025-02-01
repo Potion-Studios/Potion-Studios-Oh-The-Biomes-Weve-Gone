@@ -221,7 +221,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
             this.party = false;
             this.jukebox = null;
         }
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             if (!this.level().isDay()) {
                 this.setTimer(this.getTimer() + 1);
                 this.setHiding(true);
@@ -327,6 +327,18 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     @Override
     public @NotNull Variant getVariant() {
         return Variant.byId(this.entityData.get(DATA_VARIANT));
+    }
+
+    @Override
+    public @NotNull EntityDimensions getDimensions(@NotNull Pose pose) {
+        if (this.isHiding()) return this.getType().getDimensions().scale(1F, 0.5F);
+        else return super.getDimensions(pose);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        refreshDimensions();
     }
 
     private static class DestroyNearestPumpkinGoal extends MoveToBlockGoal {

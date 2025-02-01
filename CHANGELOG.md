@@ -5,6 +5,7 @@
 - Move Oddion to Entity Type Creature
   -This Change should fix large amounts of Oddions spawning in the same areas 
 - Move ManOWar to Entity Type Water Creature
+- Update Hitbox Size when pose changes for Oddion and Pumpkin warden
 
 # 2.3.3
 - Add ModMenu Support (Fabric) 

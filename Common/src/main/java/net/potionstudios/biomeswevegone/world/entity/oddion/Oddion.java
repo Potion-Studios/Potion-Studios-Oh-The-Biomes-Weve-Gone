@@ -175,6 +175,13 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
 //        super.tick();
 //    }
 
+
+    @Override
+    public void tick() {
+        super.tick();
+        refreshDimensions();
+    }
+
     @Override
     public void aiStep() {
         if (!this.level().isClientSide()) {
@@ -334,6 +341,12 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     @Override
     public void setVariant(@NotNull Variant variant) {
         this.entityData.set(DATA_VARIANT, variant.getId());
+    }
+
+    @Override
+    public @NotNull EntityDimensions getDimensions(@NotNull Pose pose) {
+        if (isGrounded()) return this.getType().getDimensions().scale(1F, 0.25F);
+        return super.getDimensions(pose);
     }
 
     @Override
