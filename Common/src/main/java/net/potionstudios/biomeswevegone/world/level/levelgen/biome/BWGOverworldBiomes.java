@@ -74,8 +74,8 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.GIANT_ALLIUMS);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
+        addSpawn(spawnSettings, BWGEntities.ODDION.get(), 18, 2, 8);
         BiomeDefaultFeatures.plainsSpawns(spawnSettings);
-        addSpawn(spawnSettings, BWGEntities.ODDION.get(), 10, 2, 8);
 
         float temperature = 0.8F;
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
@@ -509,7 +509,7 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addLushCavesVegetationFeatures(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        addSpawn(spawnSettings, BWGEntities.MAN_O_WAR.get(), 200, 50, 50);
+        addSpawn(spawnSettings, BWGEntities.MAN_O_WAR.get(), 180, 20, 50);
         BiomeDefaultFeatures.warmOceanSpawns(spawnSettings, 10, 4);
         float temperature = 1.0F;
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4445678).waterFogColor(270131).grassColorOverride(10275901).foliageColorOverride(10275901).waterFogColor(2835532).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();

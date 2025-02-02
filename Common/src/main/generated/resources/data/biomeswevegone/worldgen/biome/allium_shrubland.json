@@ -99,6 +99,12 @@
     "axolotls": [],
     "creature": [
       {
+        "type": "biomeswevegone:oddion",
+        "maxCount": 8,
+        "minCount": 2,
+        "weight": 18
+      },
+      {
         "type": "minecraft:sheep",
         "maxCount": 4,
         "minCount": 4,
@@ -133,12 +139,6 @@
         "maxCount": 3,
         "minCount": 1,
         "weight": 1
-      },
-      {
-        "type": "biomeswevegone:oddion",
-        "maxCount": 8,
-        "minCount": 2,
-        "weight": 10
       }
     ],
     "misc": [],

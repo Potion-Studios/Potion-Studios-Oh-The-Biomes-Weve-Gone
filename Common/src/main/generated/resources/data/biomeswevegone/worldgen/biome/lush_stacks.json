@@ -188,8 +188,8 @@
       {
         "type": "biomeswevegone:man_o_war",
         "maxCount": 50,
-        "minCount": 50,
-        "weight": 200
+        "minCount": 20,
+        "weight": 180
       },
       {
         "type": "minecraft:squid",
