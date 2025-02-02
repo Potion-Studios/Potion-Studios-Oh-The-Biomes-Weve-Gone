@@ -8,9 +8,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
@@ -187,7 +185,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
             this.party = false;
             this.jukebox = null;
         }
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             if (!this.level().isDay()) {
                 this.setTimer(this.getTimer() + 1);
                 this.setHiding(true);
@@ -222,6 +220,18 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         } else {
             this.setItemInHand(this.getUsedItemHand(), ItemStack.EMPTY);
         }
+    }
+
+    @Override
+    public @NotNull EntityDimensions getDimensions(@NotNull Pose pose) {
+        if (this.isHiding()) return this.getType().getDimensions().scale(1F, 0.5F);
+        else return super.getDimensions(pose);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        refreshDimensions();
     }
 
     @Override
