@@ -1,3 +1,5 @@
+# 2.3.5
+
 # 2.3.4
 - Give all BWG Entities Eye Heights
 - Increase Oddion Hitbox Size
