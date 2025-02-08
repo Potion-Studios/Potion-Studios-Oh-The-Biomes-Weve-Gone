@@ -2,6 +2,7 @@
 - Add Crafting Table Block and Item Tags
 - Update Many TreeGrowers to better match the tree they are growing
   - This includes making trees with large bases require 2x2 saplings
+- Mob Spawn Config Reload Command
 
 # 1.5.4
 - Increase Oddion Hitbox Size

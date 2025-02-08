@@ -9,7 +9,7 @@ import net.potionstudios.biomeswevegone.config.ConfigLoader;
  */
 public class BWGMobSpawnConfig {
 
-    public static final BWGSpawnConfig INSTANCE = ConfigLoader.loadConfig(BWGMobSpawnConfig.class, "mob_spawn").spawn;
+    public static BWGSpawnConfig INSTANCE = ConfigLoader.loadConfig(BWGMobSpawnConfig.class, "mob_spawn").spawn;
 
     public BWGSpawnConfig spawn = new BWGSpawnConfig();
 
