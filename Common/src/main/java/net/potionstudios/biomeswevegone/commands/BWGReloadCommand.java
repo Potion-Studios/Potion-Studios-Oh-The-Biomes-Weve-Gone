@@ -15,8 +15,16 @@ public class BWGReloadCommand {
 
 	public static void register(Consumer<LiteralArgumentBuilder<CommandSourceStack>> dispatcher) {
 		LiteralArgumentBuilder<CommandSourceStack> root = LiteralArgumentBuilder.literal(BiomesWeveGone.MOD_ID);
+		LiteralArgumentBuilder<CommandSourceStack> alt = LiteralArgumentBuilder.literal("bwg");
 
 		LiteralArgumentBuilder<CommandSourceStack> reload = LiteralArgumentBuilder.literal("reload");
+		reload.requires(commandSourceStack -> commandSourceStack.hasPermission(2));
+		reload.executes(context -> {
+			BWGMiscConfig.INSTANCE = ConfigLoader.loadConfig(BWGMiscConfig.class, "misc");
+			BWGMobSpawnConfig.INSTANCE = ConfigLoader.loadConfig(BWGMobSpawnConfig.class, "spawn").spawn;
+			context.getSource().sendSuccess(() -> Component.translatable("biomeswevegone.commands.reload.success").withStyle(ChatFormatting.GREEN), true);
+			return 1;
+		});
 
 		LiteralArgumentBuilder<CommandSourceStack> reloadMisc = LiteralArgumentBuilder.literal("misc");
 		reloadMisc.requires(commandSourceStack -> commandSourceStack.hasPermission(2));
@@ -36,6 +44,7 @@ public class BWGReloadCommand {
 
 		reload.then(reloadMisc).then(reloadSpawn);
 		dispatcher.accept(root.then(reload));
+		dispatcher.accept(alt.then(reload));
 	}
 
 }
