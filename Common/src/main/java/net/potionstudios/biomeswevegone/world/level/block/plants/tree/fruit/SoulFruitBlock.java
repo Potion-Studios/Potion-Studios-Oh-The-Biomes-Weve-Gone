@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.Vec3;
+import net.potionstudios.biomeswevegone.config.configs.BWGMiscConfig;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
@@ -45,10 +46,11 @@ public class SoulFruitBlock extends BWGFruitBlock {
 		super.randomTick(state, level, pos, random);
 		if (random.nextBoolean())
 			level.playSound(null, pos, BWGSounds.SOUL_FRUIT_WAIL.get(), SoundSource.BLOCKS, 0.5f, 1.0f);
+		if (!BWGMiscConfig.INSTANCE.soulFruit.ALLOW_SOUL_FRUIT_BLINDNESS.value()) return;
 		Vec3 center = pos.getCenter();
 		for (ServerPlayer player : level.getPlayers(player -> !player.isSpectator()))
-			if (center.closerThan(player.position(), 25))
-				player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 1200, 0, false, false));
+			if (center.closerThan(player.position(), BWGMiscConfig.INSTANCE.soulFruit.SOUL_FRUIT_BLINDNESS_RANGE.value()))
+				player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, BWGMiscConfig.INSTANCE.soulFruit.SOUL_FRUIT_BLINDNESS.value() * 20, 0, false, false));
 	}
 
 	@Override
