@@ -40,7 +40,6 @@ public class VanillaCompatNeoForge {
         });
         BlockFeatures.registerFlammable(((FireBlock) Blocks.FIRE)::setFlammable);
         ToolInteractions.registerFlattenables(ShovelItem.FLATTENABLES::put);
-        //BWGVillagerTypes.setVillagerBiomes(VillagerType.BY_BIOME::put);
     }
 
     public static void registerVanillaCompatEvents(final IEventBus bus) {
