@@ -1,5 +1,6 @@
 # 2.3.5
 - Make Soul Fruit Blindness Effect configurable
+- Add Misc and Mob Spawn Config Reload Commands
 
 # 2.3.4
 - Give all BWG Entities Eye Heights

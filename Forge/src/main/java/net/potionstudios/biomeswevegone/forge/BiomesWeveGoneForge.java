@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.forge;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.server.ServerAboutToStartEvent;
@@ -12,6 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.commands.BWGReloadCommand;
 import net.potionstudios.biomeswevegone.forge.loot.LootModifiersRegister;
 import net.potionstudios.biomeswevegone.forge.client.BiomesWeveGoneClientForge;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
@@ -38,6 +40,7 @@ public class BiomesWeveGoneForge {
         EVENT_BUS.addListener((ServerAboutToStartEvent event) -> BiomesWeveGone.serverStart(event.getServer()));
         MOD_BUS.addListener((EntityAttributeCreationEvent event) -> BWGEntities.registerEntityAttributes(event::put));
         MOD_BUS.addListener((SpawnPlacementRegisterEvent event) -> BWGEntities.registerSpawnPlacements((consumer) -> event.register(consumer.entityType(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), SpawnPlacementRegisterEvent.Operation.OR)));
+        EVENT_BUS.addListener((RegisterCommandsEvent event) -> BWGReloadCommand.register(event.getDispatcher()::register));
         VanillaCompatForge.registerVanillaCompatEvents(EVENT_BUS);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> BiomesWeveGoneClientForge.init(MOD_BUS));
         LootModifiersRegister.register(MOD_BUS);

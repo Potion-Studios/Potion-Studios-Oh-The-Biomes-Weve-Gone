@@ -5,7 +5,7 @@ import net.potionstudios.biomeswevegone.config.ConfigUtils;
 
 public class BWGMiscConfig {
 
-    public static final BWGMiscConfig INSTANCE = ConfigLoader.loadConfig(BWGMiscConfig.class, "misc");
+    public static BWGMiscConfig INSTANCE = ConfigLoader.loadConfig(BWGMiscConfig.class, "misc");
 
     public MISC misc = new MISC();
 
