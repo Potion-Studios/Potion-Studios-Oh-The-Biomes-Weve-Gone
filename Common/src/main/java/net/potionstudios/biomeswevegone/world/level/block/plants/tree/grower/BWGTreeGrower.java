@@ -12,7 +12,6 @@ import java.util.Optional;
 
 public class BWGTreeGrower extends TreeGrower {
 
-
     private final SimpleWeightedRandomList<ResourceKey<ConfiguredFeature<?, ?>>> keys;
 
     public BWGTreeGrower(String name, SimpleWeightedRandomList<ResourceKey<ConfiguredFeature<?, ?>>> keys) {
