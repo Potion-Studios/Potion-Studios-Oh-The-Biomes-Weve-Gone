@@ -17,4 +17,8 @@ public class BWGMobSpawnConfig {
         public boolean man_o_war = true;
         public boolean oddion = true;
     }
+
+    public static void reload() {
+        INSTANCE = ConfigLoader.loadConfig(BWGMobSpawnConfig.class, "mob_spawn").spawn;
+    }
 }

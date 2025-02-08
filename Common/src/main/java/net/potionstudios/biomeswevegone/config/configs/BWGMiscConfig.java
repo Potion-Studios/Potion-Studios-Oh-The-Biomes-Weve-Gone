@@ -21,4 +21,7 @@ public class BWGMiscConfig {
         public ConfigUtils.CommentValue<Integer> SOUL_FRUIT_BLINDNESS_RANGE = ConfigUtils.CommentValue.of("The range of the blindness effect from Soul Fruit in Blocks, Value must be > 0", 25);
     }
 
+    public static void reload() {
+        INSTANCE = ConfigLoader.loadConfig(BWGMiscConfig.class, "misc");
+    }
 }

@@ -5,7 +5,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.config.ConfigLoader;
 import net.potionstudios.biomeswevegone.config.configs.BWGMiscConfig;
 import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
 
@@ -20,8 +19,8 @@ public class BWGReloadCommand {
 		LiteralArgumentBuilder<CommandSourceStack> reload = LiteralArgumentBuilder.literal("reload");
 		reload.requires(commandSourceStack -> commandSourceStack.hasPermission(2));
 		reload.executes(context -> {
-			BWGMiscConfig.INSTANCE = ConfigLoader.loadConfig(BWGMiscConfig.class, "misc");
-			BWGMobSpawnConfig.INSTANCE = ConfigLoader.loadConfig(BWGMobSpawnConfig.class, "spawn").spawn;
+			BWGMiscConfig.reload();
+			BWGMobSpawnConfig.reload();
 			context.getSource().sendSuccess(() -> Component.translatable("biomeswevegone.commands.reload.success").withStyle(ChatFormatting.GREEN), true);
 			return 1;
 		});
@@ -29,7 +28,7 @@ public class BWGReloadCommand {
 		LiteralArgumentBuilder<CommandSourceStack> reloadMisc = LiteralArgumentBuilder.literal("misc");
 		reloadMisc.requires(commandSourceStack -> commandSourceStack.hasPermission(2));
 		reloadMisc.executes(context -> {
-			BWGMiscConfig.INSTANCE = ConfigLoader.loadConfig(BWGMiscConfig.class, "misc");
+			BWGMiscConfig.reload();
 			context.getSource().sendSuccess(() -> Component.translatable("biomeswevegone.commands.reload.misc.success").withStyle(ChatFormatting.GREEN), true);
 			return 1;
 		});
@@ -37,7 +36,7 @@ public class BWGReloadCommand {
 		LiteralArgumentBuilder<CommandSourceStack> reloadSpawn = LiteralArgumentBuilder.literal("spawn");
 		reloadSpawn.requires(commandSourceStack -> commandSourceStack.hasPermission(2));
 		reloadSpawn.executes(context -> {
-			BWGMobSpawnConfig.INSTANCE = ConfigLoader.loadConfig(BWGMobSpawnConfig.class, "spawn").spawn;
+			BWGMobSpawnConfig.reload();
 			context.getSource().sendSuccess(() -> Component.translatable("biomeswevegone.commands.reload.spawn.success").withStyle(ChatFormatting.GREEN), true);
 			return 1;
 		});
