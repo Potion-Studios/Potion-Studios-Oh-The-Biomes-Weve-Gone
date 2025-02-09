@@ -6,6 +6,7 @@ import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured.BWGOverworldTreeConfiguredFeatures;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
@@ -136,19 +137,19 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.PALM_TREE4, 1)
                     .build());
 
-    public static final Supplier<TreeGrower> PINE = () -> new BWGTreeGrower("pine",
-            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.PINE_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.PINE_TREE2, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.PINE_LARGE_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.PINE_LARGE_TREE2, 1)
-                    .build());
+    public static final Supplier<TreeGrower> PINE = () -> new TreeGrower("pine",
+            0.5f,
+            Optional.of(BWGOverworldTreeConfiguredFeatures.PINE_LARGE_TREE1),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.PINE_LARGE_TREE2),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.PINE_TREE1),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.PINE_TREE2),
+            Optional.empty(),
+            Optional.empty());
 
-    public static final Supplier<TreeGrower> RAINBOW_EUCALYPTUS = () -> new BWGTreeGrower("rainbow_eucalyptus",
-            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.RAINBOW_EUCALYPTUS_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.RAINBOW_EUCALYPTUS_LARGE_TREE1, 1)
-                    .build());
+    public static final Supplier<TreeGrower> RAINBOW_EUCALYPTUS = () -> new TreeGrower("rainbow_eucalyptus",
+            Optional.of(BWGOverworldTreeConfiguredFeatures.RAINBOW_EUCALYPTUS_LARGE_TREE1),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.RAINBOW_EUCALYPTUS_TREE1),
+                    Optional.empty());
 
     public static final Supplier<TreeGrower> REDWOOD = () -> new BWGTreeGrower("redwood",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
@@ -227,17 +228,23 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_BROWN_TREE3, 1)
                     .build());
 
-    public static final Supplier<TreeGrower> PALO_VERDE = () -> new BWGTreeGrower("palo_verde",
-            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.PALO_VERDE_TREE1,1)
-                    .add(BWGOverworldTreeConfiguredFeatures.PALO_VERDE_TREE2,1)
-                    .build());
+    public static final Supplier<TreeGrower> PALO_VERDE = () -> new TreeGrower("palo_verde",
+            0.5f,
+            Optional.empty(),
+            Optional.empty(),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.PALO_VERDE_TREE1),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.PALO_VERDE_TREE2),
+            Optional.empty(),
+            Optional.empty());
 
-    public static final Supplier<TreeGrower> ARAUCARIA = () -> new BWGTreeGrower("araucaria",
-            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.ARAUCARIA_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.ARAUCARIA_TREE2, 1)
-                    .build());
+    public static final Supplier<TreeGrower> ARAUCARIA = () -> new TreeGrower("araucaria",
+            0.5f,
+            Optional.empty(),
+            Optional.empty(),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.ARAUCARIA_TREE1),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.ARAUCARIA_TREE2),
+            Optional.empty(),
+            Optional.empty());
 
     public static final Supplier<TreeGrower> BLUE_SPRUCE = () -> new BWGTreeGrower("blue_spruce",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
@@ -392,17 +399,23 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.SPRUCE_YELLOW_TREE_LARGE1, 1)
                     .build());
 
-    public static final Supplier<TreeGrower> YUCCA = () -> new BWGTreeGrower("yucca",
-            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.YUCCA_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.YUCCA_TREE2, 1)
-                    .build());
+    public static final Supplier<TreeGrower> YUCCA = () -> new TreeGrower("yucca",
+            0.5f,
+            Optional.empty(),
+            Optional.empty(),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.YUCCA_TREE1),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.YUCCA_TREE2),
+            Optional.empty(),
+            Optional.empty());
 
-    public static final Supplier<TreeGrower> FIRECRACKER = () -> new BWGTreeGrower("firecracker",
-            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.FIRECRACKER_SHRUB, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.FIRECRACKER_SHRUB2, 1)
-                    .build());
+    public static final Supplier<TreeGrower> FIRECRACKER = () -> new TreeGrower("firecracker",
+            0.5f,
+            Optional.empty(),
+            Optional.empty(),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.FIRECRACKER_SHRUB),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.FIRECRACKER_SHRUB2),
+            Optional.empty(),
+            Optional.empty());
 
     public static final Supplier<TreeGrower> GIANT_ALLIUM = () -> new BWGTreeGrower("giant_allium",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
