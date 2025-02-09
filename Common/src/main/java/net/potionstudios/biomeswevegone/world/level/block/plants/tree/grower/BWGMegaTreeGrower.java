@@ -16,6 +16,10 @@ public class BWGMegaTreeGrower extends BWGTreeGrower {
         this.megaKeys = megaKeys;
     }
 
+    public BWGMegaTreeGrower(String name, SimpleWeightedRandomList<ResourceKey<ConfiguredFeature<?, ?>>> megaKeys) {
+        this(name, SimpleWeightedRandomList.empty(), megaKeys);
+    }
+
     @Nullable
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredMegaFeature(@NotNull RandomSource random) {

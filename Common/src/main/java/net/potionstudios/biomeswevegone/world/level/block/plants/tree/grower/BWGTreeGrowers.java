@@ -27,7 +27,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.ASPEN_TREE5, 2)
                     .build());
 
-    public static final Supplier<TreeGrower> BAOBAB = () -> new BWGMegaTreeGrower("baobab",SimpleWeightedRandomList.empty(),
+    public static final Supplier<TreeGrower> BAOBAB = () -> new BWGMegaTreeGrower("baobab",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.BAOBAB_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.BAOBAB_TREE2, 1)
@@ -48,7 +48,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.CIKA_TREE3, 1)
                     .build());
 
-    public static final Supplier<TreeGrower> CYPRESS = () -> new BWGMegaTreeGrower("cypress",SimpleWeightedRandomList.empty(),
+    public static final Supplier<TreeGrower> CYPRESS = () -> new BWGMegaTreeGrower("cypress",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.CYPRESS_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.CYPRESS_TREE2, 1)
