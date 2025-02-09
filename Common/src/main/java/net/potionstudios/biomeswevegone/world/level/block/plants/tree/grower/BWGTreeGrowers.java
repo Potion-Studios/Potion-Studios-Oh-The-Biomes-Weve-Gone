@@ -11,6 +11,7 @@ import java.util.function.Supplier;
 
 /**
  * Contains all the tree grower suppliers for the BWG trees.
+ * @see TreeGrower
  * @see BWGTreeGrower
  * @see BWGMegaTreeGrower
  * @author CorgiTaco, Joseph T. McQuigg
@@ -29,37 +30,41 @@ public class BWGTreeGrowers {
 
     public static final Supplier<TreeGrower> BAOBAB = () -> new BWGMegaTreeGrower("baobab",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.BAOBAB_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.BAOBAB_TREE2, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.BAOBAB_TREE3, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.BAOBAB_TREE1)
+                    .add(BWGOverworldTreeConfiguredFeatures.BAOBAB_TREE2)
+                    .add(BWGOverworldTreeConfiguredFeatures.BAOBAB_TREE3)
                     .build());
 
-    public static final Supplier<TreeGrower> BLUE_ENCHANTED = () -> new BWGTreeGrower("blue_enchanted",
-            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.BLUE_ENCHANTED_SAPLING_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.BLUE_ENCHANTED_SAPLING_TREE2, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.BLUE_ENCHANTED_SAPLING_TREE3, 1)
-                    .build());
+    public static final Supplier<TreeGrower> BLUE_ENCHANTED = () -> new TreeGrower("blue_enchanted",
+            0.5f,
+            Optional.of(BWGOverworldTreeConfiguredFeatures.BLUE_ENCHANTED_SAPLING_TREE3),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.BLUE_ENCHANTED_SAPLING_TREE1),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.BLUE_ENCHANTED_SAPLING_TREE2),
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty());
 
-    public static final Supplier<TreeGrower> CIKA = () -> new BWGTreeGrower("cika",
-            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.CIKA_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.CIKA_TREE2, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.CIKA_TREE3, 1)
-                    .build());
+    public static final Supplier<TreeGrower> CIKA = () -> new TreeGrower("cika",
+            0.5f,
+            Optional.of(BWGOverworldTreeConfiguredFeatures.CIKA_TREE3),
+            Optional.empty(),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.CIKA_TREE1),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.CIKA_TREE2),
+            Optional.empty(),
+            Optional.empty());
 
     public static final Supplier<TreeGrower> CYPRESS = () -> new BWGMegaTreeGrower("cypress",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.CYPRESS_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.CYPRESS_TREE2, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.CYPRESS_TREE3, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.CYPRESS_TREE1)
+                    .add(BWGOverworldTreeConfiguredFeatures.CYPRESS_TREE2)
+                    .add(BWGOverworldTreeConfiguredFeatures.CYPRESS_TREE3)
                     .build());
 
-    public static final Supplier<TreeGrower> EBONY = () -> new BWGTreeGrower("ebony",
+    public static final Supplier<TreeGrower> EBONY = () -> new BWGMegaTreeGrower("ebony",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.EBONY_BUSH1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.EBONY_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.EBONY_TREE2, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.EBONY_BUSH1)
+                    .add(BWGOverworldTreeConfiguredFeatures.EBONY_TREE1)
+                    .add(BWGOverworldTreeConfiguredFeatures.EBONY_TREE2)
                     .build());
 
     public static final Supplier<TreeGrower> FIR = () -> new BWGTreeGrower("fir",
