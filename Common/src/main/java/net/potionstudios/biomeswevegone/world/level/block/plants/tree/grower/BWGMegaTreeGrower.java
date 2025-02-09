@@ -18,7 +18,7 @@ public class BWGMegaTreeGrower extends BWGTreeGrower {
 
     @Nullable
     @Override
-    public ResourceKey<ConfiguredFeature<?, ?>> getConfiguredMegaFeature(@NotNull RandomSource random) {
+    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredMegaFeature(@NotNull RandomSource random) {
         return this.megaKeys.getRandomValue(random).orElse(null);
     }
 }
