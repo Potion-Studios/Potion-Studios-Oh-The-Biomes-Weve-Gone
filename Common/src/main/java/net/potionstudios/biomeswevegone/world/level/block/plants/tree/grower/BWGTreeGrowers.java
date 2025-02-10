@@ -79,20 +79,22 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.CONIFER_TREE8, 1)
                     .build());
 
-    public static final Supplier<TreeGrower> GREEN_ENCHANTED = () -> new BWGTreeGrower("green_enchanted",
-            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.GREEN_ENCHANTED_SAPLING_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.GREEN_ENCHANTED_SAPLING_TREE2, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.GREEN_ENCHANTED_SAPLING_TREE3, 1)
-                    .build());
+    public static final Supplier<TreeGrower> GREEN_ENCHANTED = () -> new TreeGrower("green_enchanted",
+            0.5f,
+            Optional.of(BWGOverworldTreeConfiguredFeatures.GREEN_ENCHANTED_SAPLING_TREE3),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.GREEN_ENCHANTED_SAPLING_TREE1),
+            Optional.of(BWGOverworldTreeConfiguredFeatures.GREEN_ENCHANTED_SAPLING_TREE2),
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty());
 
-    public static final Supplier<TreeGrower> HOLLY = () -> new BWGTreeGrower("holly",
+    public static final Supplier<TreeGrower> HOLLY = () -> new BWGMegaTreeGrower("holly",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.HOLLY_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.HOLLY_TREE2, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.HOLLY_TREE3, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.HOLLY_TREE4, 1)
-                    .build());
+                    .add(BWGOverworldTreeConfiguredFeatures.HOLLY_TREE1)
+                    .add(BWGOverworldTreeConfiguredFeatures.HOLLY_TREE2)
+                    .add(BWGOverworldTreeConfiguredFeatures.HOLLY_TREE4).build(),
+            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
+                    .add(BWGOverworldTreeConfiguredFeatures.HOLLY_TREE3).build());
 
     public static final Supplier<TreeGrower> IRONWOOD = () -> new BWGTreeGrower("ironwood",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
