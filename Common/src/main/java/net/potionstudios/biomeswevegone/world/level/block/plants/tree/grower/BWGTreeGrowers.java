@@ -222,22 +222,23 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.WILLOW_TREE4, 1)
                     .build());
 
-    public static final Supplier<TreeGrower> WITCH_HAZEL = () -> new BWGTreeGrower("witch_hazel",
-            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.WITCH_HAZEL1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.WITCH_HAZEL2, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.WITCH_HAZEL3, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.WITCH_HAZEL4, 1)
-                    .build());
+    public static final Supplier<TreeGrower> WITCH_HAZEL = () -> new TreeGrower("witch_hazel",
+                    0.5f,
+                    Optional.of(BWGOverworldTreeConfiguredFeatures.WITCH_HAZEL1),
+                    Optional.of(BWGOverworldTreeConfiguredFeatures.WITCH_HAZEL2),
+                    Optional.of(BWGOverworldTreeConfiguredFeatures.WITCH_HAZEL3),
+                    Optional.of(BWGOverworldTreeConfiguredFeatures.WITCH_HAZEL4),
+                    Optional.empty(),
+            Optional.empty());
 
     public static final Supplier<TreeGrower> ZELKOVA = () -> new BWGTreeGrower("zelkova",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_TREE2, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_TREE3, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_BROWN_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_BROWN_TREE2, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_BROWN_TREE3, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_TREE1)
+                    .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_TREE2)
+                    .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_TREE3)
+                    .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_BROWN_TREE1)
+                    .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_BROWN_TREE2)
+                    .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_BROWN_TREE3)
                     .build());
 
     public static final Supplier<TreeGrower> PALO_VERDE = () -> new TreeGrower("palo_verde",
