@@ -166,24 +166,28 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.REDWOOD_TREE3)
                     .build());
 
-    public static final Supplier<TreeGrower> WHITE_SAKURA = () -> new BWGTreeGrower("white_sakura",
+    public static final Supplier<TreeGrower> WHITE_SAKURA = () -> new BWGMegaTreeGrower("white_sakura",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE2, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE3, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE4, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE5, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE6, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE1)
+                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE2)
+                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE3)
+                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE6)
+                    .build(),
+            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
+                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE4)
+                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE5)
                     .build());
 
-    public static final Supplier<TreeGrower> YELLOW_SAKURA = () -> new BWGTreeGrower("yellow_sakura",
+    public static final Supplier<TreeGrower> YELLOW_SAKURA = () -> new BWGMegaTreeGrower("yellow_sakura",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
-                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE1, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE2, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE3, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE4, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE5, 1)
-                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE6, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE1)
+                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE2)
+                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE3)
+                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE6)
+                    .build(),
+            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
+                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE4)
+                    .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE5)
                     .build());
 
     public static final Supplier<TreeGrower> SKYRIS = () -> new BWGTreeGrower("skyris",
