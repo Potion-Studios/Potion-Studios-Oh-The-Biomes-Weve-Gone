@@ -1,3 +1,5 @@
+# 2.3.6
+
 # 2.3.5
 - Make Soul Fruit Blindness Effect configurable
 - Add Misc and Mob Spawn Config Reload Commands
