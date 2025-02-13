@@ -93,6 +93,7 @@ public class TagsGenerator {
                 tag(BlockTags.OVERWORLD_NATURAL_LOGS).add(set.logstem());
                 tag(BlockTags.LOGS).addTag(set.logBlockTag());
                 tag(BlockTags.LOGS_THAT_BURN).addTag(set.logBlockTag());
+                tag(BWGBlockTags.CRAFTING_TABLES).add(set.craftingTable());
             });
 
             tag(BWGBlockTags.PALO_VERDE_LOGS).add(BWGWood.PALO_VERDE_LOG.get(), BWGWood.STRIPPED_PALO_VERDE_LOG.get(), BWGWood.PALO_VERDE_WOOD.get(), BWGWood.STRIPPED_PALO_VERDE_WOOD.get());
@@ -267,6 +268,7 @@ public class TagsGenerator {
             copy(BWGBlockTags.BLACK_ICE, BWGItemTags.BLACK_ICE);
             copy(BWGBlockTags.BOREALIS_ICE, BWGItemTags.BOREALIS_ICE);
             copy(BWGBlockTags.RED_ROCK_BRICKS, BWGItemTags.RED_ROCK_BRICKS);
+            copy(BWGBlockTags.CRAFTING_TABLES, BWGItemTags.CRAFTING_TABLES);
 
             BWGBlocks.BLOCKS.stream().filter(entry -> entry.get() instanceof FlowerBlock || entry.get() instanceof TallFlowerBlock).forEach(
                     entry -> {

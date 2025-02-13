@@ -1,4 +1,5 @@
 # 1.5.5
+- Add Crafting Table Block and Item Tags
 
 # 1.5.4
 - Increase Oddion Hitbox Size

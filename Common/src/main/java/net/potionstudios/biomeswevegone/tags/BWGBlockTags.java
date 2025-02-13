@@ -29,6 +29,8 @@ public final class BWGBlockTags {
 
     public static final TagKey<Block> RED_ROCK_BRICKS = create("red_rock_bricks");
 
+    public static final TagKey<Block> CRAFTING_TABLES = create("crafting_tables");
+
     private static TagKey<Block> create(String name) {
         return TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name));
     }

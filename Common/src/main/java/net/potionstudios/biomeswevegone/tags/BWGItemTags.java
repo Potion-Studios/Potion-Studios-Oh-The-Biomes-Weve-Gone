@@ -48,6 +48,8 @@ public final class BWGItemTags {
 
     public static final TagKey<Item> MUSHROOMS = create("mushrooms");
 
+    public static final TagKey<Item> CRAFTING_TABLES = create("crafting_tables");
+
     private static TagKey<Item> create(String name) {
         return TagKey.create(Registries.ITEM, BiomesWeveGone.id(name));
     }
