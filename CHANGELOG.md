@@ -2,6 +2,7 @@
 - Make Soul Fruit Blindness Effect configurable
 - Add Misc and Mob Spawn Config Reload Commands
 - Update Many TreeGrowers to better match the tree they are growing
+  - This includes making trees with large bases require 2x2 saplings  
 
 # 2.3.4
 - Give all BWG Entities Eye Heights
