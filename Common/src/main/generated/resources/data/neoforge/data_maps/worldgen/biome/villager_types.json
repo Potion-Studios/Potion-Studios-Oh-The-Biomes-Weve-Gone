@@ -9,6 +9,9 @@
     "biomeswevegone:mojave_desert": {
       "villager_type": "minecraft:desert"
     },
+    "biomeswevegone:red_rock_valley": {
+      "villager_type": "biomeswevegone:red_rock"
+    },
     "biomeswevegone:skyrise_vale": {
       "villager_type": "biomeswevegone:skyris"
     },
