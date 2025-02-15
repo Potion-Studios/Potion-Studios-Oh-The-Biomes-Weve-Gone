@@ -26,6 +26,10 @@ public class BWGVillagerTypes {
 		consumer.accept(BWGBiomes.MOJAVE_DESERT, VillagerType.DESERT);
 		consumer.accept(BWGBiomes.WINDSWEPT_DESERT, VillagerType.DESERT);
 		consumer.accept(BWGBiomes.TROPICAL_RAINFOREST, VillagerType.JUNGLE);
+		consumer.accept(BWGBiomes.WHITE_MANGROVE_MARSHES, VillagerType.SWAMP);
+		consumer.accept(BWGBiomes.BAYOU, VillagerType.SWAMP);
+		consumer.accept(BWGBiomes.CYPRESS_SWAMPLANDS, VillagerType.SWAMP);
+		consumer.accept(BWGBiomes.PALE_BOG, VillagerType.SWAMP);
 		consumer.accept(BWGBiomes.RED_ROCK_VALLEY, RED_ROCK.get());
 		consumer.accept(BWGBiomes.SKYRIS_VALE, SKYRIS.get());
 		consumer.accept(BWGBiomes.WEEPING_WITCH_FOREST, SALEM.get());
