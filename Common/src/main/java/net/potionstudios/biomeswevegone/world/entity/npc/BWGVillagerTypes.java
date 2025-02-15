@@ -18,13 +18,15 @@ import java.util.function.Supplier;
  */
 public class BWGVillagerTypes {
 
-	public static final Supplier<VillagerType> SKYRIS = register("skyris");
+	public static final Supplier<VillagerType> RED_ROCK = register("red_rock");
 	public static final Supplier<VillagerType> SALEM = register("salem");
+	public static final Supplier<VillagerType> SKYRIS = register("skyris");
 
 	public static void setVillagerBiomes(BiConsumer<ResourceKey<Biome>, VillagerType> consumer) {
 		consumer.accept(BWGBiomes.MOJAVE_DESERT, VillagerType.DESERT);
 		consumer.accept(BWGBiomes.WINDSWEPT_DESERT, VillagerType.DESERT);
 		consumer.accept(BWGBiomes.TROPICAL_RAINFOREST, VillagerType.JUNGLE);
+		consumer.accept(BWGBiomes.RED_ROCK_VALLEY, RED_ROCK.get());
 		consumer.accept(BWGBiomes.SKYRIS_VALE, SKYRIS.get());
 		consumer.accept(BWGBiomes.WEEPING_WITCH_FOREST, SALEM.get());
 	}
