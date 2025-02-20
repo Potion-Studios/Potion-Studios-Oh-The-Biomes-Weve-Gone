@@ -1,4 +1,5 @@
 # 2.3.6
+- Fix Vine like blocks not being compostable on Forge
 
 # 2.3.5
 - Make Soul Fruit Blindness Effect configurable
