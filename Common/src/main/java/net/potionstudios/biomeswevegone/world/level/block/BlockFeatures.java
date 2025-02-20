@@ -30,7 +30,6 @@ public class BlockFeatures {
                 consumer.accept(block, 0.5F);
             else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock || block instanceof FlatVegetationBlock || block instanceof BWGPlacementBushBlock)
                 consumer.accept(block, 0.65F);
-
         });
 
         BWGWood.WOOD.forEach(entry -> {

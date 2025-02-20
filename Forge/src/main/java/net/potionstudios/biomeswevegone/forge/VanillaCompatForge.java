@@ -37,7 +37,7 @@ public class VanillaCompatForge {
             AxeItem.STRIPPABLES.put(block, stripped);
         });
         BlockFeatures.registerFlammable(((FireBlock) Blocks.FIRE)::setFlammable);
-        BlockFeatures.registerCompostables((item, chance) -> ComposterBlock.COMPOSTABLES.put(item, chance.floatValue()));
+        BlockFeatures.registerCompostables((item, chance) -> ComposterBlock.COMPOSTABLES.put(item.asItem(), chance.floatValue()));
         ToolInteractions.registerFlattenables(ShovelItem.FLATTENABLES::put);
     }
 

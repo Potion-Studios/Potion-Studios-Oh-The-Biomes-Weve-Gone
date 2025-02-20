@@ -1,4 +1,5 @@
 # 1.5.6
+- Fix Vine like blocks not being compostable on Forge
 
 # 1.5.5
 - Add Crafting Table Block and Item Tags
