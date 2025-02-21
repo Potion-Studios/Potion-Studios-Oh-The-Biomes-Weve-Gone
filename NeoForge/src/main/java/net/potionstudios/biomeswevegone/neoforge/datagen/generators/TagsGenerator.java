@@ -379,6 +379,7 @@ public class TagsGenerator {
 
             tag(Tags.Biomes.IS_HOT_OVERWORLD).addTag(BWGBiomeTags.HOT);
             tag(Tags.Biomes.IS_COLD_OVERWORLD).addTag(BWGBiomeTags.COLD);
+            tag(Tags.Biomes.IS_TEMPERATE_OVERWORLD).addTag(BWGBiomeTags.TEMPERATE);
             tag(Tags.Biomes.IS_WET_OVERWORLD).addTag(BWGBiomeTags.WET);
             tag(Tags.Biomes.IS_DRY_OVERWORLD).addTag(BWGBiomeTags.DRY);
             tag(Tags.Biomes.IS_SPARSE_VEGETATION_OVERWORLD).addTag(BWGBiomeTags.SPARSE);
