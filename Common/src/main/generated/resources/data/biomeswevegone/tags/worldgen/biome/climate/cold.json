@@ -1,8 +1,21 @@
 {
   "values": [
-    "biomeswevegone:crimson_tundra",
+    "biomeswevegone:black_forest",
+    "biomeswevegone:canadian_shield",
+    "biomeswevegone:cika_woods",
+    "biomeswevegone:coniferous_forest",
+    "biomeswevegone:dacite_ridges",
+    "biomeswevegone:dacite_shore",
     "biomeswevegone:eroded_borealis",
+    "biomeswevegone:fragment_jungle",
     "biomeswevegone:frosted_coniferous_forest",
-    "biomeswevegone:shattered_glacier"
+    "biomeswevegone:frosted_taiga",
+    "biomeswevegone:howling_peaks",
+    "biomeswevegone:maple_taiga",
+    "biomeswevegone:pumpkin_valley",
+    "biomeswevegone:shattered_glacier",
+    "biomeswevegone:skyrise_vale",
+    "biomeswevegone:weeping_witch_forest",
+    "biomeswevegone:zelkova_forest"
   ]
 }

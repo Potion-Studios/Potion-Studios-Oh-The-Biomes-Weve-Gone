@@ -1,6 +1,22 @@
 {
   "values": [
+    "biomeswevegone:allium_shrubland",
+    "biomeswevegone:amaranth_grassland",
+    "biomeswevegone:aspen_boreal",
+    "biomeswevegone:bayou",
+    "biomeswevegone:coconino_meadow",
+    "biomeswevegone:crimson_tundra",
+    "biomeswevegone:cypress_swamplands",
+    "biomeswevegone:ebony_woods",
+    "biomeswevegone:enchanted_tangle",
+    "biomeswevegone:forgotten_forest",
+    "biomeswevegone:orchard",
+    "biomeswevegone:overgrowth_woodlands",
+    "biomeswevegone:pale_bog",
     "biomeswevegone:prairie",
-    "biomeswevegone:temperate_grove"
+    "biomeswevegone:rose_fields",
+    "biomeswevegone:sakura_grove",
+    "biomeswevegone:temperate_grove",
+    "biomeswevegone:white_mangrove_marshes"
   ]
 }

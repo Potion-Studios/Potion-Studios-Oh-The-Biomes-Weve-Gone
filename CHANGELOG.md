@@ -1,6 +1,7 @@
 # 2.3.6
 - Fix Vine like blocks not being compostable on Forge
 - Sync biomeswevegone:temperate tag to c:is_temperate/overworld
+- Match all BWG Biomes to Climate Tags Based on Temperature
 
 # 2.3.5
 - Make Soul Fruit Blindness Effect configurable

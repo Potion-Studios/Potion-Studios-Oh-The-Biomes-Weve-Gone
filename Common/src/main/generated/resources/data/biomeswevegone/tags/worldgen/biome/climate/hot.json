@@ -1,10 +1,22 @@
 {
   "values": [
+    "biomeswevegone:araucaria_savanna",
     "biomeswevegone:atacama_outback",
+    "biomeswevegone:baobab_savanna",
+    "biomeswevegone:basalt_barrera",
+    "biomeswevegone:crag_gardens",
+    "biomeswevegone:dead_sea",
+    "biomeswevegone:firecracker_chaparral",
+    "biomeswevegone:ironwood_gour",
+    "biomeswevegone:jacaranda_jungle",
+    "biomeswevegone:lush_stacks",
     "biomeswevegone:mojave_desert",
+    "biomeswevegone:rainbow_beach",
     "biomeswevegone:red_rock_valley",
+    "biomeswevegone:redwood_thicket",
     "biomeswevegone:rugged_badlands",
     "biomeswevegone:sierra_badlands",
+    "biomeswevegone:tropical_rainforest",
     "biomeswevegone:windswept_desert"
   ]
 }

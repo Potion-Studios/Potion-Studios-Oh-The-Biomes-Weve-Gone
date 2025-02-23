@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.neoforge.datagen.generators;
 
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.*;
@@ -372,7 +373,13 @@ public class TagsGenerator {
 
         @Override
         protected void addTags(HolderLookup.@NotNull Provider provider) {
-            BWGBiomes.BIOME_FACTORIES.keySet().stream().sorted().toList().forEach(biome -> tag(BWGBiomeTags.OVERWORLD).add(biome));
+            BWGBiomes.BIOME_FACTORIES.keySet().stream().sorted().toList().forEach(biome -> {
+                tag(BWGBiomeTags.OVERWORLD).add(biome);
+                float temperature = provider.asGetterLookup().lookupOrThrow(Registries.BIOME).getOrThrow(biome).value().getBaseTemperature();
+                if (temperature > 0.8F) tag(BWGBiomeTags.HOT).add(biome);
+                else if (temperature < 0.5F) tag(BWGBiomeTags.COLD).add(biome);
+                else tag(BWGBiomeTags.TEMPERATE).add(biome);
+            });
             BWGBiomes.BIOMES_BY_TAG.forEach((tag, biome) -> tag(tag).add(biome));
 
             tag(BiomeTags.IS_OVERWORLD).addTag(BWGBiomeTags.OVERWORLD);
