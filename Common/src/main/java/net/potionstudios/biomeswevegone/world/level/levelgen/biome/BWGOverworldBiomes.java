@@ -1240,26 +1240,6 @@ class BWGOverworldBiomes {
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.1F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10855786).foliageColorOverride(10855786).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    protected static Biome canyon(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
-//        addRawGeneration(generationSettings, BWGPlacedFeatures.CANYON);
-
-        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        addSpawn(spawnSettings, EntityType.RABBIT, 4, 2, 3);
-        addSpawn(spawnSettings, EntityType.BAT, 10, 8, 8);
-        addSpawn(spawnSettings, EntityType.SPIDER, 100, 4, 4);
-        addSpawn(spawnSettings, EntityType.HUSK, 95, 4, 4);
-        addSpawn(spawnSettings, EntityType.ZOMBIE_VILLAGER, 5, 1, 1);
-        addSpawn(spawnSettings, EntityType.SKELETON, 100, 4, 4);
-        addSpawn(spawnSettings, EntityType.CREEPER, 100, 4, 4);
-        addSpawn(spawnSettings, EntityType.SLIME, 100, 4, 4);
-        addSpawn(spawnSettings, EntityType.ENDERMAN, 10, 1, 4);
-        addSpawn(spawnSettings, EntityType.WITCH, 5, 1, 1);
-
-        float temperature = 1.2F;
-        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.1F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10855786).foliageColorOverride(10855786).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
-    }
-
     protected static Biome ironwoodGour(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 
@@ -1449,35 +1429,6 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.RAINFOREST_TREES);
         BWGOverworldDefaultFeatures.addBWGTropicFlowers(generationSettings);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.DELPHINIUM);
-//        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
-        BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
-
-        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.baseJungleSpawns(spawnSettings);
-        addSpawn(spawnSettings, EntityType.PARROT, 40, 1, 2);
-        addSpawn(spawnSettings, EntityType.BAT, 10, 8, 8);
-        addSpawn(spawnSettings, EntityType.OCELOT, 2, 1, 1);
-
-        float temperature = 0.95F;
-        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10145074).foliageColorOverride(10145074).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
-    }
-
-    protected static Biome tropicalIsland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
-
-        BiomeDefaultFeatures.addLightBambooVegetation(generationSettings);
-        BiomeDefaultFeatures.addSparseJungleTrees(generationSettings);
-        BiomeDefaultFeatures.addJungleGrass(generationSettings);
-        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
-        BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        BiomeDefaultFeatures.addSparseJungleMelons(generationSettings);
-
-        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.SPARSE_ENCHANTED_TREES);
-        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.RAINFOREST_TREES);
-        BWGOverworldDefaultFeatures.addBWGTropicFlowers(generationSettings);
-        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.DELPHINIUM);
-        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.CYAN_PITCHER_PLANT);
-        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.MAGENTA_PITCHER_PLANT);
 //        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 

@@ -38,7 +38,6 @@ public abstract class ChunkStatusTasksMixin {
 
         Function<BlockPos, Holder<Biome>> biomeGetter = pos -> biomeCache.computeIfAbsent(ChunkPos.asLong(pos), key -> new Long2ObjectOpenHashMap<>()).computeIfAbsent(ChunkPos.asLong(pos.getX(), pos.getZ()), key1 -> biomeManager.getBiome(pos));
         CragGardenExtension.runCragGardenExtension(biomeGetter, chunk, serverLevel.getSeed(), worldGenRegion.registryAccess().registryOrThrow(Registries.NOISE).getOrThrow(Noises.SURFACE), worldGenRegion.registryAccess().registryOrThrow(Registries.NOISE).getOrThrow(Noises.SURFACE_SECONDARY));
-//        TropicalIslandExtension.runTropicalIslandExtension(worldGenRegion::getBiome, chunkAccess, serverLevel.getSeed());
         BasaltBarreraExtension.runBasaltBarreraExtension(biomeGetter, chunk, worldGenRegion, worldGenContext.generator());
     }
 }

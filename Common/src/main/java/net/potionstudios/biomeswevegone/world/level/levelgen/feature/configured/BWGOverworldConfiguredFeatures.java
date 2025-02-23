@@ -109,11 +109,6 @@ public class BWGOverworldConfiguredFeatures {
             )
     );
 
-//    public static final ResourceKey<ConfiguredFeature<?, ?>> CANYON = ConfiguredFeaturesUtil.createConfiguredFeature("canyon",
-//            BWGFeatures.CANYON,
-//            () -> FeatureConfiguration.NONE
-//    );
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> VINE_PROCESSOR = ConfiguredFeaturesUtil.createConfiguredFeature("vine_processor",
             BWGFeatures.VINE_PROCESSOR,
             () -> FeatureConfiguration.NONE

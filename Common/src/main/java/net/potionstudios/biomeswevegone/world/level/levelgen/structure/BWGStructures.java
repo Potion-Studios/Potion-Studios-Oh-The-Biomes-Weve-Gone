@@ -285,12 +285,6 @@ public class BWGStructures {
                     Heightmap.Types.WORLD_SURFACE_WG
             )));
 
-//    public static final ResourceKey<Structure> CANYON = register("canyon", (structureFactoryBootstapContext) ->
-//            new CanyonStructure(
-//                    structure(structureFactoryBootstapContext.lookup(Registries.BIOME).getOrThrow(BWGBiomeTags.CANYON), GenerationStep.Decoration.RAW_GENERATION, TerrainAdjustment.NONE)
-//            )
-//    );
-
     private static ResourceKey<Structure> register(String id, StructureFactory factory) {
         ResourceKey<Structure> structureSetResourceKey = BiomesWeveGone.key(Registries.STRUCTURE, id);
         STRUCTURE_FACTORIES.put(structureSetResourceKey, factory);

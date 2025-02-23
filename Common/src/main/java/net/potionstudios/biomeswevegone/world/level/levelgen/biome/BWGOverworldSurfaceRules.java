@@ -111,12 +111,6 @@ public class BWGOverworldSurfaceRules {
 
     private static final SurfaceRules.RuleSource CANADIAN_SHIELD = biomeAbovePreliminarySurface(BWGBiomes.CANADIAN_SHIELD, OVERGROWN_STONE_STONE_SURFACE);
 
-//    private static final SurfaceRules.RuleSource CANYON = makeifTrueRule(BWGBiomes.CANYON, SurfaceRules.sequence(
-//            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.TERRACOTTA),
-//            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.TERRACOTTA),
-//            makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), Blocks.TERRACOTTA)
-//    ));
-
     private static final SurfaceRules.RuleSource CIKA_WOODS = biomeAbovePreliminarySurface(BWGBiomes.CIKA_WOODS, SurfaceRules.sequence(
             NOISE_COARSE_DIRT,
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), PODZOL_DIRT_SURFACE)
@@ -382,16 +376,6 @@ public class BWGOverworldSurfaceRules {
             PEAT_SURFACE
     ));
 
-//    private static final SurfaceRules.RuleSource TROPICAL_ISLAND = biomeAbovePreliminarySurface(BWGBiomes.TROPICAL_ISLAND, SurfaceRules.sequence(
-//            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
-//                    SurfaceRules.sequence(
-//                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.MOSS_BLOCK),
-//                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.MOSS_BLOCK)
-//                    )),
-//            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), PODZOL_DIRT_SURFACE),
-//            LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE
-//    ));
-
     private static final SurfaceRules.RuleSource BLACK_ICE_BANDS = biomeAbovePreliminarySurface(BWGBiomes.SHATTERED_GLACIER, new BandsRuleSource(SimpleWeightedRandomList.<BlockState>builder().add(BWGBlocks.PACKED_BLACK_ICE.get().defaultBlockState(), 3).add(BWGBlocks.BLACK_ICE.get().defaultBlockState(), 1).build(), UniformInt.of(1, 5), UniformInt.of(20, 40), 1, 10));
 //    public static final SurfaceRules.RuleSource BOREALIS_ICE_BANDS = biomeAbovePreliminarySurface(BWGBiomes.ERODED_BOREALIS, new BandsRuleSource(SimpleWeightedRandomList.<BlockState>builder().add(BWGBlocks.PACKED_BOREALIS_ICE.get().defaultBlockState(), 3).add(BWGBlocks.BOREALIS_ICE.get().defaultBlockState(), 1).build(), UniformInt.of(1, 5), UniformInt.of(20, 40), 1, 10));
 
@@ -411,7 +395,6 @@ public class BWGOverworldSurfaceRules {
                 BLACK_FOREST,
                 BLACK_ICE_BANDS,
                 CANADIAN_SHIELD,
-//                CANYON,
                 CIKA_WOODS,
                 COCONINO_MEADOW,
                 CONIFEROUS_FOREST,
@@ -445,7 +428,6 @@ public class BWGOverworldSurfaceRules {
                 SKYRIS_VALE,
                 WEEPING_WITCH_FOREST,
                 WINDSWEPT_DESERT
-//                TROPICAL_ISLAND,
         );
     }
 
