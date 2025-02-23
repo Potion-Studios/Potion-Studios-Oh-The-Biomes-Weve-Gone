@@ -1,5 +1,8 @@
 # 1.5.6
 - Fix Vine like blocks not being compostable on Forge
+- Fix ManOWar Air Supply being different when spawned in on land
+  - Normal Conditions ManOWar will die on land after 5 minutes
+  - If the biome is marked as a dry biome the ManOWar will die sooner (random between 1 and 5 minutes) (BWG Biomes Only)
 
 # 1.5.5
 - Add Crafting Table Block and Item Tags

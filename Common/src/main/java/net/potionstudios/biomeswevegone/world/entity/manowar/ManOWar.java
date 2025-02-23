@@ -33,6 +33,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
+import net.potionstudios.biomeswevegone.tags.BWGBiomeTags;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
@@ -105,7 +106,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
                 this.hurt(this.damageSources().drown(), 2.0F);
             }
         } else {
-            this.setAirSupply(300);
+            this.setAirSupply(getMaxAirSupply());
         }
     }
 
@@ -137,7 +138,10 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     @Override
     public int getMaxAirSupply() {
-        return 6000;
+        int base = 6000;  // 5 minutes
+        if (level().getBiome(blockPosition()).is(BWGBiomeTags.DRY))
+            return base / getRandom().nextInt(1, 4);
+        return base;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
