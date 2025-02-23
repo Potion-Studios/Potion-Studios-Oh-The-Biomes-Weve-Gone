@@ -34,6 +34,11 @@ public final class BWGItemTags {
     public static final TagKey<Item> GLOWCANE_SHOOT = create("glowcane_shoot");
     public static final TagKey<Item> GLOW_BOTTLE = create("glow_bottle");
 
+    /** Saplings **/
+    public static final TagKey<Item> OAK_SAPLINGS = create("saplings/oak");
+    public static final TagKey<Item> SPRUCE_SAPLINGS = create("saplings/spruce");
+    public static final TagKey<Item> BIRCH_SAPLINGS = create("saplings/birch");
+
     public static final TagKey<Item> STORAGE_BLOCKS_ALLIUM = createCommon("storage_blocks/allium");
     public static final TagKey<Item> STORAGE_BLOCKS_PINK_ALLIUM = createCommon("storage_blocks/pink_allium");
     public static final TagKey<Item> STORAGE_BLOCKS_WHITE_ALLIUM = createCommon("storage_blocks/white_allium");

@@ -33,6 +33,11 @@ public final class BWGBlockTags {
     public static final TagKey<Block> GLOWCANE = create("glowcane");
     public static final TagKey<Block> GLOW_BOTTLE = create("glow_bottle");
 
+    /** Saplings **/
+    public static final TagKey<Block> OAK_SAPLINGS = create("saplings/oak");
+    public static final TagKey<Block> SPRUCE_SAPLINGS = create("saplings/spruce");
+    public static final TagKey<Block> BIRCH_SAPLINGS = create("saplings/birch");
+
     /** Storage Blocks **/
     public static final TagKey<Block> STORAGE_BLOCKS_ALLIUM = createCommon("storage_blocks/allium");
     public static final TagKey<Block> STORAGE_BLOCKS_PINK_ALLIUM = createCommon("storage_blocks/pink_allium");
