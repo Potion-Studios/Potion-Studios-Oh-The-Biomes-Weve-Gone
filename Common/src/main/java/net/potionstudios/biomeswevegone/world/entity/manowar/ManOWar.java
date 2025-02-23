@@ -2,15 +2,19 @@ package net.potionstudios.biomeswevegone.world.entity.manowar;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
@@ -33,6 +37,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
@@ -96,7 +101,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
                 this.hurt(this.damageSources().drown(), 2.0F);
             }
         } else {
-            this.setAirSupply(300);
+            this.setAirSupply(getMaxAirSupply());
         }
     }
 
@@ -126,9 +131,14 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
         return BWGMobSpawnConfig.INSTANCE.man_o_war && pos.getY() <= (world.getSeaLevel() - 2) && world.getFluidState(pos.below()).is(FluidTags.WATER);
     }
 
+    private static final TagKey<Biome> DRY_BIOMES = TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "is_dry"));
+
     @Override
     public int getMaxAirSupply() {
-        return 6000;
+        int base = 6000;  // 5 minutes
+        if (level().getBiome(blockPosition()).is(DRY_BIOMES))
+            return base / getRandom().nextInt(1, 4);
+        return base;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

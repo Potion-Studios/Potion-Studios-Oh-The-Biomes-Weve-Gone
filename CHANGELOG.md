@@ -3,6 +3,9 @@
 - Sync biomeswevegone:temperate tag to c:is_temperate/overworld
 - Match all BWG Biomes to Climate Tags Based on Temperature
 - Full Serene Seasons Compatability
+- Fix ManOWar Air Supply being different when spawned in on land
+  - Normal Conditions ManOWar will die on land after 5 minutes
+  - If the biome is marked as a dry biome the ManOWar will die sooner (random between 1 and 5 minutes)
 
 # 2.3.5
 - Make Soul Fruit Blindness Effect configurable
