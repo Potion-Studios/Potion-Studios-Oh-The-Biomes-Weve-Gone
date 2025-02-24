@@ -49,7 +49,7 @@ dependencies {
     modLocalRuntime("mcp.mobius.waila:wthit:fabric-${project.properties["WTHIT"]}")
     modLocalRuntime("lol.bai:badpackets:fabric-${project.properties["badPackets"]}")
 
-    modLocalRuntime("maven.modrinth:cyanide:jCWZy4Gl")
+    modLocalRuntime("maven.modrinth:cyanide:XqTNiiKd")
 }
 
 tasks {

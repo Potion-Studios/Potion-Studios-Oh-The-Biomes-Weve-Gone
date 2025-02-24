@@ -181,6 +181,25 @@ public class TagsGenerator {
             tag(BlockTags.FROG_PREFER_JUMP_TO).add(BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.TINY_LILY_PADS.get());
             tag(BlockTags.SNAPS_GOAT_HORN).add(BWGBlocks.PACKED_BLACK_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
 
+            tag(BWGBlockTags.OAK_SAPLINGS).add(BWGWood.BROWN_OAK_SAPLING.getBlock(), BWGWood.ORANGE_OAK_SAPLING.getBlock(), BWGWood.RED_OAK_SAPLING.getBlock());
+            tag(BWGBlockTags.SPRUCE_SAPLINGS).add(BWGWood.BLUE_SPRUCE_SAPLING.getBlock(), BWGWood.RED_SPRUCE_SAPLING.getBlock(), BWGWood.YELLOW_SPRUCE_SAPLING.getBlock(), BWGWood.ORANGE_SPRUCE_SAPLING.getBlock());
+            tag(BWGBlockTags.BIRCH_SAPLINGS).add(BWGWood.YELLOW_BIRCH_SAPLING.getBlock(), BWGWood.ORANGE_BIRCH_SAPLING.getBlock(), BWGWood.RED_BIRCH_SAPLING.getBlock(), BWGWood.BROWN_BIRCH_SAPLING.getBlock());
+
+
+            //Serene Seasons
+            tag(ModTags.Blocks.YEAR_ROUND_CROPS).add(BWGBlocks.GREEN_MUSHROOM.get(), BWGBlocks.WEEPING_MILKCAP.get(), BWGBlocks.WOOD_BLEWIT.get(), BWGWood.ASPEN.sapling().getBlock(), BWGWood.RED_MAPLE_SAPLING.getBlock())
+                    .addTag(BWGBlockTags.OAK_SAPLINGS);
+            tag(ModTags.Blocks.AUTUMN_CROPS).add(BWGWood.CYPRESS.sapling().getBlock(), BWGWood.EBONY.sapling().getBlock(), BWGWood.FIR.sapling().getBlock(), BWGWood.HOLLY.sapling().getBlock(), BWGWood.JACARANDA.sapling().getBlock(), BWGWood.INDIGO_JACARANDA_SAPLING.getBlock(), BWGWood.MAPLE.sapling().getBlock(), BWGWood.SILVER_MAPLE_SAPLING.getBlock(), BWGWood.PINE.sapling().getBlock(),
+                            BWGWood.WILLOW.sapling().getBlock(), BWGWood.WITCH_HAZEL.sapling().getBlock(), BWGWood.ZELKOVA.sapling().getBlock(), BWGWood.BROWN_ZELKOVA_SAPLING.getBlock(), BWGWood.IRONWOOD.sapling().getBlock(), BWGWood.SKYRIS.sapling().getBlock(), BWGWood.CIKA.sapling().getBlock(), BWGWood.ORCHARD_SAPLING.getBlock(), BWGWood.YUCCA_SAPLING.getBlock())
+                    .addTag(BWGBlockTags.SPRUCE_SAPLINGS).addTag(BWGBlockTags.BIRCH_SAPLINGS);
+            tag(ModTags.Blocks.SPRING_CROPS).add(BWGBlocks.ODDION_CROP.get(), BWGBlocks.BLUEBERRY_BUSH.get(), BWGWood.YELLOW_SAKURA_SAPLING.getBlock(), BWGWood.WHITE_SAKURA_SAPLING.getBlock(), BWGWood.CYPRESS.sapling().getBlock(), BWGWood.FIR.sapling().getBlock(), BWGWood.EBONY.sapling().getBlock(), BWGWood.HOLLY.sapling().getBlock(),
+                            BWGWood.JACARANDA.sapling().getBlock(), BWGWood.INDIGO_JACARANDA_SAPLING.getBlock(), BWGWood.MAHOGANY.sapling().getBlock(), BWGWood.MAPLE.sapling().getBlock(), BWGWood.SILVER_MAPLE_SAPLING.getBlock(), BWGWood.PALM.sapling().getBlock(), BWGWood.PINE.sapling().getBlock(), BWGWood.REDWOOD.sapling().getBlock(), BWGWood.WHITE_MANGROVE.sapling().getBlock(), BWGWood.WILLOW.sapling().getBlock(),
+                            BWGWood.WITCH_HAZEL.sapling().getBlock(), BWGWood.ZELKOVA.sapling().getBlock(), BWGWood.BROWN_ZELKOVA_SAPLING.getBlock(), BWGWood.IRONWOOD.sapling().getBlock(), BWGWood.RAINBOW_EUCALYPTUS.sapling().getBlock(), BWGWood.ARAUCARIA_SAPLING.getBlock(), BWGWood.ORCHARD_SAPLING.getBlock(), BWGWood.YUCCA_SAPLING.getBlock())
+                    .addTag(BWGBlockTags.SPRUCE_SAPLINGS).addTag(BWGBlockTags.BIRCH_SAPLINGS);
+            tag(ModTags.Blocks.SUMMER_CROPS).add(BWGBlocks.ODDION_CROP.get(), BWGBlocks.BLUEBERRY_BUSH.get(), BWGWood.BAOBAB.sapling().getBlock(), BWGWood.JACARANDA.sapling().getBlock(), BWGWood.INDIGO_JACARANDA_SAPLING.getBlock(), BWGWood.MAHOGANY.sapling().getBlock(), BWGWood.PALM.sapling().getBlock(), BWGWood.REDWOOD.sapling().getBlock(), BWGWood.WHITE_MANGROVE.sapling().getBlock(),
+                            BWGWood.PALO_VERDE_SAPLING.getBlock(), BWGWood.RAINBOW_EUCALYPTUS.sapling().getBlock(), BWGWood.GREEN_ENCHANTED.sapling().getBlock(), BWGWood.BLUE_ENCHANTED.sapling().getBlock(), BWGWood.ARAUCARIA_SAPLING.getBlock(), BWGWood.ORCHARD_SAPLING.getBlock(), BWGWood.YUCCA_SAPLING.getBlock());
+            tag(ModTags.Blocks.WINTER_CROPS).add(BWGWood.SKYRIS.sapling().getBlock()).addTag(BWGBlockTags.SPRUCE_SAPLINGS);
+
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
 
@@ -270,6 +289,10 @@ public class TagsGenerator {
             copy(BWGBlockTags.RED_ROCK_BRICKS, BWGItemTags.RED_ROCK_BRICKS);
             copy(BWGBlockTags.CRAFTING_TABLES, BWGItemTags.CRAFTING_TABLES);
 
+            copy(BWGBlockTags.OAK_SAPLINGS, BWGItemTags.OAK_SAPLINGS);
+            copy(BWGBlockTags.SPRUCE_SAPLINGS, BWGItemTags.SPRUCE_SAPLINGS);
+            copy(BWGBlockTags.BIRCH_SAPLINGS, BWGItemTags.BIRCH_SAPLINGS);
+
             BWGBlocks.BLOCKS.stream().filter(entry -> entry.get() instanceof FlowerBlock || entry.get() instanceof TallFlowerBlock).forEach(
                     entry -> {
                         Block block = entry.get();
@@ -313,6 +336,18 @@ public class TagsGenerator {
             tag(Tags.Items.MUSHROOMS).add(BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem());
             tag(Tags.Items.CROPS).add(BWGItems.ODDION_BULB.get());
             tag(BWGItemTags.MUSHROOMS).add(Items.BROWN_MUSHROOM, Items.RED_MUSHROOM, BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem()).addOptionalTag(Tags.Items.MUSHROOMS);
+
+            //Serene Seasons
+            tag(ModTags.Items.YEAR_ROUND_CROPS).add(BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem(), BWGWood.ASPEN.sapling().getBlock().asItem(), BWGWood.RED_MAPLE_SAPLING.getBlock().asItem()).addTag(BWGItemTags.OAK_SAPLINGS);
+            tag(ModTags.Items.AUTUMN_CROPS).add(BWGWood.CYPRESS.sapling().getBlock().asItem(), BWGWood.EBONY.sapling().getBlock().asItem(), BWGWood.FIR.sapling().getBlock().asItem(), BWGWood.HOLLY.sapling().getBlock().asItem(), BWGWood.JACARANDA.sapling().getBlock().asItem(), BWGWood.INDIGO_JACARANDA_SAPLING.getBlock().asItem(), BWGWood.MAPLE.sapling().getBlock().asItem(), BWGWood.SILVER_MAPLE_SAPLING.getBlock().asItem(), BWGWood.PINE.sapling().getBlock().asItem(),
+                    BWGWood.WILLOW.sapling().getBlock().asItem(), BWGWood.WITCH_HAZEL.sapling().getBlock().asItem(), BWGWood.ZELKOVA.sapling().getBlock().asItem(), BWGWood.BROWN_ZELKOVA_SAPLING.getBlock().asItem(), BWGWood.IRONWOOD.sapling().getBlock().asItem(), BWGWood.SKYRIS.sapling().getBlock().asItem(), BWGWood.CIKA.sapling().getBlock().asItem(), BWGWood.ORCHARD_SAPLING.getBlock().asItem(), BWGWood.YUCCA_SAPLING.getBlock().asItem()).addTag(BWGItemTags.BIRCH_SAPLINGS).addTag(BWGItemTags.SPRUCE_SAPLINGS);
+            tag(ModTags.Items.SPRING_CROPS).add(BWGItems.ODDION_BULB.get(), BWGWood.YELLOW_SAKURA_SAPLING.getBlock().asItem(), BWGWood.WHITE_SAKURA_SAPLING.getBlock().asItem(), BWGWood.CYPRESS.sapling().getBlock().asItem(), BWGWood.FIR.sapling().getBlock().asItem(), BWGWood.EBONY.sapling().getBlock().asItem(), BWGWood.HOLLY.sapling().getBlock().asItem(),
+                    BWGWood.JACARANDA.sapling().getBlock().asItem(), BWGWood.INDIGO_JACARANDA_SAPLING.getBlock().asItem(), BWGWood.MAHOGANY.sapling().getBlock().asItem(), BWGWood.MAPLE.sapling().getBlock().asItem(), BWGWood.SILVER_MAPLE_SAPLING.getBlock().asItem(), BWGWood.PALM.sapling().getBlock().asItem(), BWGWood.PINE.sapling().getBlock().asItem(), BWGWood.REDWOOD.sapling().getBlock().asItem(), BWGWood.WHITE_MANGROVE.sapling().getBlock().asItem(), BWGWood.WILLOW.sapling().getBlock().asItem(),
+                    BWGWood.WITCH_HAZEL.sapling().getBlock().asItem(), BWGWood.ZELKOVA.sapling().getBlock().asItem(), BWGWood.BROWN_ZELKOVA_SAPLING.getBlock().asItem(), BWGWood.IRONWOOD.sapling().getBlock().asItem(), BWGWood.RAINBOW_EUCALYPTUS.sapling().getBlock().asItem(), BWGWood.ARAUCARIA_SAPLING.getBlock().asItem(), BWGWood.ORCHARD_SAPLING.getBlock().asItem(), BWGWood.YUCCA_SAPLING.getBlock().asItem()).addTag(BWGItemTags.BIRCH_SAPLINGS).addTag(BWGItemTags.SPRUCE_SAPLINGS);
+            tag(ModTags.Items.SUMMER_CROPS).add(BWGItems.ODDION_BULB.get(), BWGItems.BLUEBERRIES.get(), BWGWood.BAOBAB.sapling().getBlock().asItem(), BWGWood.JACARANDA.sapling().getBlock().asItem(), BWGWood.INDIGO_JACARANDA_SAPLING.getBlock().asItem(), BWGWood.MAHOGANY.sapling().getBlock().asItem(), BWGWood.PALM.sapling().getBlock().asItem(), BWGWood.REDWOOD.sapling().getBlock().asItem(), BWGWood.WHITE_MANGROVE.sapling().getBlock().asItem(),
+                    BWGWood.PALO_VERDE_SAPLING.getBlock().asItem(), BWGWood.RAINBOW_EUCALYPTUS.sapling().getBlock().asItem(), BWGWood.GREEN_ENCHANTED.sapling().getBlock().asItem(), BWGWood.BLUE_ENCHANTED.sapling().getBlock().asItem(), BWGWood.ARAUCARIA_SAPLING.getBlock().asItem(), BWGWood.ORCHARD_SAPLING.getBlock().asItem(), BWGWood.YUCCA_SAPLING.getBlock().asItem());
+            tag(ModTags.Items.WINTER_CROPS).add(BWGWood.SKYRIS.sapling().getBlock().asItem()).addTag(BWGItemTags.SPRUCE_SAPLINGS);
+
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
     }

@@ -68,9 +68,10 @@ dependencies {
     modLocalRuntime("mcp.mobius.waila:wthit:forge-${project.properties["WTHIT"]}")
     modLocalRuntime("lol.bai:badpackets:forge-${project.properties["badPackets"]}")
 
-    modLocalRuntime("maven.modrinth:cyanide:4.1.0")
+    modLocalRuntime("maven.modrinth:cyanide:4.1.1")
 
-    modApi("com.github.glitchfiend:SereneSeasons:$minecraftVersion-9.0.0.46") { isTransitive = false}
+    modApi("com.github.glitchfiend:SereneSeasons-forge:$minecraftVersion-9.1.0.1")
+    modLocalRuntime("com.github.glitchfiend:GlitchCore-forge:$minecraftVersion-0.0.1.1")
 }
 
 tasks {

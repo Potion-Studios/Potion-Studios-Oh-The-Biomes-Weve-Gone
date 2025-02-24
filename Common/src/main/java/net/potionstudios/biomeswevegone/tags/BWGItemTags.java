@@ -29,6 +29,11 @@ public final class BWGItemTags {
 
     public static final TagKey<Item> RED_ROCK_BRICKS = create("red_rock_bricks");
 
+    /** Saplings **/
+    public static final TagKey<Item> OAK_SAPLINGS = create("saplings/oak");
+    public static final TagKey<Item> SPRUCE_SAPLINGS = create("saplings/spruce");
+    public static final TagKey<Item> BIRCH_SAPLINGS = create("saplings/birch");
+
     public static final TagKey<Item> MAKES_BLACK_DYE = create("dye/makes_black_dye");
     public static final TagKey<Item> MAKES_BLUE_DYE = create("dye/makes_blue_dye");
     public static final TagKey<Item> MAKES_BROWN_DYE = create("dye/makes_brown_dye");

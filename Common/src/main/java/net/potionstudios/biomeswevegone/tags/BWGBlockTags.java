@@ -31,6 +31,11 @@ public final class BWGBlockTags {
 
     public static final TagKey<Block> CRAFTING_TABLES = create("crafting_tables");
 
+    /** Saplings **/
+    public static final TagKey<Block> OAK_SAPLINGS = create("saplings/oak");
+    public static final TagKey<Block> SPRUCE_SAPLINGS = create("saplings/spruce");
+    public static final TagKey<Block> BIRCH_SAPLINGS = create("saplings/birch");
+
     private static TagKey<Block> create(String name) {
         return TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name));
     }
