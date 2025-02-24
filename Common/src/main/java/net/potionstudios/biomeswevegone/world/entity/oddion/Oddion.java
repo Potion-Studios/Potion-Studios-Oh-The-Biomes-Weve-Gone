@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -125,14 +126,14 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
         this.setVariant(Variant.byId(compound.getInt("Variant")));
     }
 
-    public static boolean checkOddionSpawnRules(EntityType<? extends Oddion> entity, LevelAccessor world, MobSpawnType spawnType, BlockPos pos, RandomSource rand) {
+    public static boolean checkOddionSpawnRules(EntityType<? extends Oddion> entity, LevelAccessor world, EntitySpawnReason spawnType, BlockPos pos, RandomSource rand) {
         return BWGMobSpawnConfig.INSTANCE.oddion && world.getBlockState(pos.below()).is(BlockTags.DIRT);
     }
 
     @Override
-    public @Nullable SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+    public @Nullable SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull EntitySpawnReason spawnReason, @Nullable SpawnGroupData spawnGroupData) {
         this.setVariant(Variant.getSpawnVariant(level.getRandom()));
-        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+        return super.finalizeSpawn(level, difficulty, spawnReason, spawnGroupData);
     }
 
     @Override
@@ -184,24 +185,24 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
 
     @Override
     public void aiStep() {
-        if (!this.level().isClientSide()) {
+        if (level() instanceof ServerLevel serverLevel) {
             if (--this.onionTime <= 0) {
                 this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-                this.spawnAtLocation(BWGItems.ODDION_BULB.get());
+                this.spawnAtLocation(serverLevel, BWGItems.ODDION_BULB.get());
                 this.gameEvent(GameEvent.ENTITY_PLACE);
                 this.onionTime = 6000;
             }
             if (!isGrounded()) {
-                if (this.jukebox == null || !this.jukebox.closerToCenterThan(this.position(), 3.46) || !this.level().getBlockState(this.jukebox).is(Blocks.JUKEBOX)) {
+                if (this.jukebox == null || !this.jukebox.closerToCenterThan(this.position(), 3.46) || !serverLevel.getBlockState(this.jukebox).is(Blocks.JUKEBOX)) {
                     this.setPartying(false);
                     this.jukebox = null;
                 }
                 checkGoals();
                 if (getRisingTime() > 0)
                     setRisingTimer(getRisingTime() - 1);
-                if (this.level().getEntitiesOfClass(Player.class, new AABB(this.blockPosition()).inflate(8)).isEmpty())
+                if (serverLevel.getEntitiesOfClass(Player.class, new AABB(this.blockPosition()).inflate(8)).isEmpty())
                     setGroundingTimer(getGroundingTime() + 1);
-            } else if (!this.level().getEntitiesOfClass(Player.class, new AABB(this.blockPosition()).inflate(3)).isEmpty()) {
+            } else if (!serverLevel.getEntitiesOfClass(Player.class, new AABB(this.blockPosition()).inflate(3)).isEmpty()) {
                 this.setGrounded(false);
                 setRisingTimer(20);
             }

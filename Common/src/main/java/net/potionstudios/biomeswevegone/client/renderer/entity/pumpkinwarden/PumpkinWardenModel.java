@@ -3,11 +3,13 @@ package net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden;
 import net.minecraft.resources.ResourceLocation;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
+import software.bernie.geckolib.renderer.GeoRenderer;
 
 /**
  * Pumpkin Warden Model
@@ -17,12 +19,12 @@ import software.bernie.geckolib.model.data.EntityModelData;
 class PumpkinWardenModel<T extends PumpkinWarden> extends GeoModel<T> {
 
     @Override
-    public ResourceLocation getModelResource(T pumpkinWarden) {
+    public ResourceLocation getModelResource(T pumpkinWarden, @Nullable GeoRenderer<T> renderer) {
         return BiomesWeveGone.id("geo/pumpkinwarden.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(T pumpkinWarden) {
+    public ResourceLocation getTextureResource(T pumpkinWarden, @Nullable GeoRenderer<T> renderer) {
         return pumpkinWarden.isHiding() ? BiomesWeveGone.id("textures/entity/pumpkin_warden/" + pumpkinWarden.getVariant().getName() + "_hiding.png") : BiomesWeveGone.id("textures/entity/pumpkin_warden/" + pumpkinWarden.getVariant().getName() + ".png");
     }
 

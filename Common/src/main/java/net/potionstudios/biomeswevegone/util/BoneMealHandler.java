@@ -36,8 +36,8 @@ public final class BoneMealHandler {
     public static boolean grassBoneMealHandler(ServerLevel level, BlockPos blockPos, Block grass, ResourceKey<PlacedFeature> placedFeatureResourceKey, boolean randomizeFlower, Block grassBlock) {
         BlockState blockState = grass.defaultBlockState();
         Optional<Holder.Reference<PlacedFeature>> optional = level.registryAccess()
-                .registryOrThrow(Registries.PLACED_FEATURE)
-                .getHolder(placedFeatureResourceKey);
+                .lookupOrThrow(Registries.PLACED_FEATURE)
+                .get(placedFeatureResourceKey);
 
         label49:
         for(int i = 0; i < 128; ++i) {

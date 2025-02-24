@@ -35,11 +35,11 @@
   ],
   "depends": {
     "fabric": "*",
-    "minecraft": ">=1.21.1",
-    "terrablender": ">=4.1.0.0",
+    "minecraft": ">=1.21.4",
+    "terrablender": ">=4.3.0.0",
     "corgilib": ">=5.0.0.2",
     "ohthetreesyoullgrow": ">=5.0.3",
-    "geckolib": ">=4.6"
+    "geckolib": ">=4.8"
   },
   "suggests": {
     "WTHIT": ">=8.15.0"

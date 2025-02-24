@@ -81,7 +81,7 @@ public class GlowCaneBlock extends SugarCaneBlock implements SimpleWaterloggedBl
     }
 
     @Override
-    public @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
+    protected @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean includeData) {
         return this.shoot.get().get().getDefaultInstance();
     }
 

@@ -24,7 +24,7 @@ side = "BOTH"
 [[dependencies.biomeswevegone]]
 modId = "terrablender"
 mandatory = true
-versionRange = "[4.1.0.0,)"
+versionRange = "[4.3.0.0,)"
 ordering = "AFTER"
 side = "BOTH"
 
@@ -45,6 +45,6 @@ side = "BOTH"
 [[dependencies.biomeswevegone]]
 modId = "geckolib"
 mandatory = true
-versionRange = "[4.6,)"
+versionRange = "[4.8,)"
 ordering = "AFTER"
 side = "BOTH"

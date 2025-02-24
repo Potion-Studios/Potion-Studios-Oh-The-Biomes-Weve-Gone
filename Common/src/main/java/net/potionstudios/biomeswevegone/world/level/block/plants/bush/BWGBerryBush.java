@@ -36,7 +36,7 @@ public class BWGBerryBush extends SweetBerryBushBlock {
     }
 
     @Override
-    public @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
+    protected @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean includeData) {
         return item.get().get().getDefaultInstance();
     }
 
@@ -50,7 +50,7 @@ public class BWGBerryBush extends SweetBerryBushBlock {
             BlockState blockState = state.setValue(AGE, 1);
             level.setBlock(pos, blockState, 2);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));
-            return InteractionResult.sidedSuccess(level.isClientSide());
+            return InteractionResult.SUCCESS;
         }
         return InteractionResult.PASS;
     }

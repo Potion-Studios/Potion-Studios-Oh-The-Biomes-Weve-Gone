@@ -34,7 +34,7 @@ public class BWGFarmLandBlock extends FarmBlock {
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+    public @NotNull BlockState getStateForPlacement(BlockPlaceContext context) {
         return !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos())
                 ? dirt.get().defaultBlockState() : super.getStateForPlacement(context);
     }

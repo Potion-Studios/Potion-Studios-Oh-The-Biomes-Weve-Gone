@@ -12,7 +12,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
@@ -127,7 +126,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
         return false;
     }
 
-    public static boolean checkManOWarSpawnRules(EntityType<? extends ManOWar> entity, LevelAccessor world, MobSpawnType spawnType, BlockPos pos, RandomSource rand) {
+    public static boolean checkManOWarSpawnRules(EntityType<? extends ManOWar> entity, LevelAccessor world, EntitySpawnReason spawnType, BlockPos pos, RandomSource rand) {
         return BWGMobSpawnConfig.INSTANCE.man_o_war && pos.getY() <= (world.getSeaLevel() - 2) && world.getFluidState(pos.below()).is(FluidTags.WATER);
     }
 
@@ -154,16 +153,16 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     @Override
     public void playerTouch(@NotNull Player player) {
-        if (player instanceof ServerPlayer && player.hurt(player.damageSources().mobAttack(this), (float) (1))) {
+        if (player instanceof ServerPlayer serverPlayer && serverPlayer.hurt(serverPlayer.damageSources().mobAttack(this), (float) (1))) {
             RandomSource rand = player.getRandom();
             int i = rand.nextInt(4);
             if (i <= 2) {
-                player.addEffect(new MobEffectInstance(MobEffects.POISON, 600, 2), this);
+                serverPlayer.addEffect(new MobEffectInstance(MobEffects.POISON, 600, 2), this);
             } else {
-                player.addEffect(new MobEffectInstance(MobEffects.POISON, 200), this);
+                serverPlayer.addEffect(new MobEffectInstance(MobEffects.POISON, 200), this);
             }
-            if (player.hasEffect(MobEffects.UNLUCK)) {
-                player.kill();
+            if (serverPlayer.hasEffect(MobEffects.UNLUCK)) {
+                serverPlayer.kill(serverPlayer.serverLevel());
             }
         }
     }
@@ -206,20 +205,20 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     @Override
-    public @NotNull SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
-        spawnGroupData = super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
-        if (spawnType == MobSpawnType.BUCKET) {
+    public @NotNull SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull EntitySpawnReason spawnReason, @Nullable SpawnGroupData spawnGroupData) {
+        spawnGroupData = super.finalizeSpawn(level, difficulty, spawnReason, spawnGroupData);
+        if (spawnReason == EntitySpawnReason.BUCKET) {
             this.setBaby(true);
             return spawnGroupData;
         }
-        this.setColor(getRandColor(random));
+        this.setColor(getRandColor(level.getRandom()));
         return spawnGroupData;
     }
 
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(@NotNull ServerLevel serverLevel, @NotNull AgeableMob ageableMob) {
-        ManOWar manOWar = BWGEntities.MAN_O_WAR.get().create(serverLevel);
+        ManOWar manOWar = BWGEntities.MAN_O_WAR.get().create(serverLevel, EntitySpawnReason.BREEDING);
         manOWar.setColor(getRandColor(serverLevel.getRandom()));
         return manOWar;
     }

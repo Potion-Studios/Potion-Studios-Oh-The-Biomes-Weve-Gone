@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone.client;
 
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.block.BlockColors;
-import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -16,7 +15,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.util.FastColor;
+import net.minecraft.util.ARGB;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.FoliageColor;
@@ -45,7 +44,6 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import java.awt.*;
 import java.util.Objects;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -136,19 +134,9 @@ public class BiomesWeveGoneClient {
         consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageWaterColor(view, pos) : -1, new Block[] {BWGBlocks.CARVED_BARREL_CACTUS.get()});
         consumer.accept((state, view, pos, tintIndex) -> {
             int age = state.getValue(StemBlock.AGE);
-            return FastColor.ARGB32.color(age * 32, 255 - age, age *4);
+            return ARGB.color(age * 32, 255 - age, age *4);
         }, new Block[] {BWGBlocks.PALE_PUMPKIN_STEM.get()});
         consumer.accept((state, view, pos, tintIndex) -> -2046180, new Block[] {BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get()});
-    }
-
-    /**
-     * Registers the item colors.
-     * @see ItemColors
-     */
-    public static void registerBlockItemColors(Consumer<Block[]> consumer) {
-        consumer.accept(new Block[]{BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.CLOVER_PATCH.get(), BWGBlocks.LEAF_PILE.get(), BWGBlocks.POISON_IVY.get()
-                , BWGWood.MAHOGANY.leaves(), BWGWood.WILLOW.leaves(), BWGWood.MAPLE.leaves(), BWGWood.YUCCA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.RIPE_YUCCA_LEAVES.get(),
-                BWGWood.CYPRESS.leaves(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get()});
     }
     
     private static final ImprovedNoise NOISE = new ImprovedNoise(new XoroshiroRandomSource(1));

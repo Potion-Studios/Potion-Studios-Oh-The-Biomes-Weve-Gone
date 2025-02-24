@@ -10,7 +10,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.*;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -20,8 +19,6 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGF
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.GlowCaneBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.CattailSproutBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
-
-import java.util.Objects;
 
 /**
  * Initializes the Fabric client.
@@ -40,10 +37,6 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
         BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> ParticleFactoryRegistry.getInstance().register(type, spriteProviderFactory::apply));
         BiomesWeveGoneClient.registerLayerDefinitions((a, b) -> EntityModelLayerRegistry.registerModelLayer(a, b::get));
         BiomesWeveGoneClient.registerBlockColors(ColorProviderRegistry.BLOCK::register);
-        BiomesWeveGoneClient.registerBlockItemColors(consumer -> ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-            Block block = ((BlockItem) stack.getItem()).getBlock();
-            return Objects.requireNonNull(ColorProviderRegistry.BLOCK.get(block)).getColor(block.defaultBlockState(), null, null, tintIndex);
-        }, consumer));
     }
 
     /**

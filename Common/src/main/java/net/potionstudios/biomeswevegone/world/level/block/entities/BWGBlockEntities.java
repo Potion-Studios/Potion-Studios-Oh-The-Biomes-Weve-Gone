@@ -1,6 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.block.entities;
 
-import net.minecraft.world.level.block.SignBlock;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -10,25 +10,26 @@ import net.potionstudios.biomeswevegone.world.level.block.entities.sign.BWGSignB
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BWGBlockEntities {
-    public static final Supplier<BlockEntityType<BWGSignBlockEntity>> SIGNS = register("sign", () -> BlockEntityType.Builder.of(
+    public static final Supplier<BlockEntityType<BWGSignBlockEntity>> SIGNS = register("sign", () -> new BlockEntityType<BWGSignBlockEntity>(
             BWGSignBlockEntity::new,
             Stream.concat(
                     BWGWoodSet.woodsets().stream().map(BWGWoodSet::sign),
                     BWGWoodSet.woodsets().stream().map(BWGWoodSet::wallSign)
-            ).toArray(SignBlock[]::new)));
+            ).collect(Collectors.toSet())));
 
-    public static final Supplier<BlockEntityType<BWGHangingSignBlockEntity>> HANGING_SIGNS = register("hanging_sign", () -> BlockEntityType.Builder.of(
+    public static final Supplier<BlockEntityType<BWGHangingSignBlockEntity>> HANGING_SIGNS = register("hanging_sign", () -> new BlockEntityType<BWGHangingSignBlockEntity>(
        BWGHangingSignBlockEntity::new,
        Stream.concat(
                BWGWoodSet.woodsets().stream().map(BWGWoodSet::hangingSign),
                BWGWoodSet.woodsets().stream().map(BWGWoodSet::wallHangingSign)
-       ).toArray(SignBlock[]::new)));
+       ).collect(Collectors.toSet())));
 
-    private static <T extends BlockEntity> Supplier<BlockEntityType<T>> register(String key, Supplier<BlockEntityType.Builder<T>> builder) {
-        return PlatformHandler.PLATFORM_HANDLER.registerBlockEntity(key, builder);
+    private static <T extends BlockEntity> Supplier<BlockEntityType<T>> register(String key, Supplier<BlockEntityType<T>> blockEntity) {
+        return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, key, blockEntity);
     }
 
     public static void blockEntities() {

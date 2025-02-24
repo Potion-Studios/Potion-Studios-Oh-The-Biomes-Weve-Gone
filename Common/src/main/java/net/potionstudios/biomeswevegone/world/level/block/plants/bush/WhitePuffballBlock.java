@@ -37,7 +37,7 @@ public class WhitePuffballBlock extends BWGBerryBush {
 
 	@Override
 	protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
-		return state.isSolidRender(level, pos);
+		return state.isSolidRender();
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class WhitePuffballBlock extends BWGBerryBush {
             BlockState blockState = state.setValue(AGE, 0);
             level.setBlock(pos, blockState, 2);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));
-            return InteractionResult.sidedSuccess(level.isClientSide());
+            return InteractionResult.SUCCESS;
 		}
 		return InteractionResult.PASS;
 	}

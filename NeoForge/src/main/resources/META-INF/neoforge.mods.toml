@@ -17,21 +17,21 @@ displayURL="https://potionstudios.net/"
 [[dependencies.biomeswevegone]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.1,)"
+versionRange = "[21.4,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.biomeswevegone]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.1,)"
+versionRange = "[1.21.4,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.biomeswevegone]]
 modId = "terrablender"
 type = "required"
-versionRange = "[4.1.0.0,)"
+versionRange = "[4.3.0.0,)"
 ordering = "AFTER"
 side = "BOTH"
 
@@ -52,7 +52,7 @@ side = "BOTH"
 [[dependencies.biomeswevegone]]
 modId = "geckolib"
 type = "required"
-versionRange = "[4.6,)"
+versionRange = "[4.8,)"
 ordering = "AFTER"
 side = "BOTH"
 

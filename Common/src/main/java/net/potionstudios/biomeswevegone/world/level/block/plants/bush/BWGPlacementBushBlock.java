@@ -33,7 +33,7 @@ public class BWGPlacementBushBlock extends BushBlock {
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         if (SHAPE == null) return super.getShape(state, level, pos, context);
-        Vec3 Vector3d = state.getOffset(level, pos);
+        Vec3 Vector3d = state.getOffset(pos);
         return SHAPE.move(Vector3d.x(), Vector3d.y(), Vector3d.z());
     }
 

@@ -67,7 +67,7 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
     }
 
     @Override
-    public @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
+    protected @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean includeData) {
         return sprout.get().get().getDefaultInstance();
     }
 

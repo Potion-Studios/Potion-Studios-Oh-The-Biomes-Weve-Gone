@@ -28,7 +28,7 @@ public class BWGCraftingTable extends CraftingTableBlock {
     }
 
     @Override
-    public MenuProvider getMenuProvider(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos) {
+    public @NotNull MenuProvider getMenuProvider(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos) {
         return new SimpleMenuProvider((i, inventory, player) -> new WorkBenchContainer(i, inventory, ContainerLevelAccess.create(level, pos), this), CONTAINER_TITLE);
     }
 }

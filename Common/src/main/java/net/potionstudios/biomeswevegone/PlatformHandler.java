@@ -13,8 +13,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Fluid;
@@ -49,15 +47,6 @@ public interface PlatformHandler {
 	Path configPath();
 
 	/**
-	 * Registers a block entity with the specified parameters
-	 * @see BlockEntityType
-	 * @param key The id/name of the block entity
-	 * @param builder The builder for the block entity
-	 * @return Supplier of the BlockEntityType
-	 */
-	<T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.Builder<T>> builder);
-
-	/**
 	 * Register POI Type
 	 * @see PoiType
 	 * @param id The id/name of the POI Type
@@ -67,18 +56,6 @@ public interface PlatformHandler {
 	 */
 	default Supplier<PoiType> registerPOIType(String id, Supplier<Block> block, int maxTickets, int validRange) {
 		return register(BuiltInRegistries.POINT_OF_INTEREST_TYPE, id, () -> new PoiType(PoiTypes.getBlockStates(block.get()), maxTickets, validRange));
-	}
-
-	/**
-	 * Creates a spawn egg with the specified parameters
-	 * @see SpawnEggItem
-	 * @param entity The entity to be spawned from the spawn egg
-	 * @param backgroundColor The background color of the spawn egg
-	 * @param highlightColor The highlight color of the spawn egg
-	 * @return Supplier of the SpawnEggItem
-	 */
-	default Supplier<SpawnEggItem> createSpawnEgg(Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
-		return () -> new SpawnEggItem(entity.get(), backgroundColor, highlightColor, new Item.Properties());
 	}
 
 	/**

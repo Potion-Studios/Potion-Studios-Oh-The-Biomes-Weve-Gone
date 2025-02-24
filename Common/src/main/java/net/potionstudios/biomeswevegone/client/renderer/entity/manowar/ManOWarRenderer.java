@@ -5,6 +5,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.util.Mth;
 import net.potionstudios.biomeswevegone.world.entity.manowar.ManOWar;
 import org.jetbrains.annotations.NotNull;
@@ -43,7 +44,7 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
     }
 
     @Override
-    protected float getShadowRadius(@NotNull T entity) {
-	    return entity.isBaby() ? 0.5f : 0.8f;
+    protected float getShadowRadius(@NotNull EntityRenderState renderState) {
+        return 0.8f;//entity.isBaby() ? 0.5f : 0.8f;
     }
 }

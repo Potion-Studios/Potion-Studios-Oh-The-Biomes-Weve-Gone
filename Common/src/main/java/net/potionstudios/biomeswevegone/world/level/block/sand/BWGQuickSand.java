@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.ColorRGBA;
 import net.minecraft.util.Mth;
@@ -32,7 +33,7 @@ public class BWGQuickSand extends ColoredFallingBlock {
 	}
 
 	@Override
-	public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
+	protected @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state) {
 		return Shapes.empty();
 	}
 
@@ -57,11 +58,11 @@ public class BWGQuickSand extends ColoredFallingBlock {
 			}
 			BlockPos headPos = new BlockPos(entity.getBlockX(), (int) entity.getEyeY(), entity.getBlockZ());
 			if (level.getBlockState(headPos).getBlock() instanceof BWGQuickSand)
-				entity.hurt(new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(BWGDamageTypes.IN_QUICKSAND)), 0.5F);
+				entity.hurt(new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(BWGDamageTypes.IN_QUICKSAND)), 0.5F);
 		}
 
-		if (!level.isClientSide) {
-			if (entity.isOnFire() && (level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING) || entity instanceof Player) && entity.mayInteract(level, pos)) {
+		if (level instanceof ServerLevel serverLevel) {
+			if (entity.isOnFire() && (serverLevel.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING) || entity instanceof Player) && entity.mayInteract(serverLevel, pos)) {
 				level.destroyBlock(pos, false);
 			}
 

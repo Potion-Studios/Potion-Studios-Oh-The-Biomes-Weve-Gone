@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -20,10 +21,11 @@ public class PoisonIvyBlock extends VineBlock {
     }
 
     @Override
-    public void entityInside(@NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
-        if (level.getDifficulty() != Difficulty.PEACEFUL)
-            if (entity instanceof LivingEntity livingentity)
-                if (!livingentity.isInvulnerableTo(entity.damageSources().magic()) && !livingentity.hasEffect(MobEffects.POISON))
-                    livingentity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
+    public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
+        if (level instanceof ServerLevel serverLevel)
+            if (level.getDifficulty() != Difficulty.PEACEFUL)
+                if (entity instanceof LivingEntity livingentity)
+                    if (!livingentity.isInvulnerableTo(serverLevel, entity.damageSources().magic()) && !livingentity.hasEffect(MobEffects.POISON))
+                        livingentity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
     }
 }
