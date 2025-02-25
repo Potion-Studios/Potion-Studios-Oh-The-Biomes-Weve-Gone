@@ -38,7 +38,7 @@
     "minecraft": ">=1.21.4",
     "terrablender": ">=4.3.0.0",
     "corgilib": ">=5.0.0.2",
-    "ohthetreesyoullgrow": ">=5.0.3",
+    "ohthetreesyoullgrow": ">=6.0.0",
     "geckolib": ">=4.8"
   },
   "suggests": {

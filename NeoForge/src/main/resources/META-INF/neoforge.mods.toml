@@ -45,7 +45,7 @@ side = "BOTH"
 [[dependencies.biomeswevegone]]
 modId = "ohthetreesyoullgrow"
 type = "required"
-versionRange = "[5.0.3,)"
+versionRange = "[6.0.0,)"
 ordering = "AFTER"
 side = "BOTH"
 

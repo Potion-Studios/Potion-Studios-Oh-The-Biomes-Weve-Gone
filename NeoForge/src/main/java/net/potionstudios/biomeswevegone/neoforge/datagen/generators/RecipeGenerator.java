@@ -15,7 +15,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.common.Tags;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
@@ -187,8 +186,8 @@ public class RecipeGenerator extends RecipeProvider {
         threeByThreePacker(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.PACKED_BLACK_ICE.get(), BWGBlocks.BLACK_ICE.get());
         threeByThreePacker(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.PACKED_BOREALIS_ICE.get(), BWGBlocks.BOREALIS_ICE.get());
 
-        twoByTwoPackertoFourWithStoneCutting(recipeOutput, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.RED_ROCK_SET.getBase());
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase())
+        twoByTwoPackertoFourWithStoneCutting(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.RED_ROCK_SET.getBase());
+        ShapelessRecipeBuilder.shapeless(itemRegistry, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase())
                 .requires(BWGBlocks.RED_ROCK_BRICKS_SET.getBase())
                 .requires(Items.VINE)
                 .group("mossy_red_rock_bricks")
@@ -432,14 +431,14 @@ public class RecipeGenerator extends RecipeProvider {
                 entry -> {
                     Block block = entry.get();
                     Item dye = DyeItem.byColor(DyeColor.byId(block.defaultMapColor().id));
-                    oneToOneConversionRecipe(output, dye, block, getItemName(dye), block instanceof TallFlowerBlock ? 2 : 1);
+                    oneToOneConversionRecipe(dye, block, getItemName(dye), block instanceof TallFlowerBlock ? 2 : 1);
                 }
         );
 
-        oneToOneConversionRecipe(output, Items.BLUE_DYE, BWGItems.BLUE_GLOWCANE_POWDER.get(), getItemName(Items.BLUE_DYE));
-        oneToOneConversionRecipe(output, Items.GREEN_DYE, BWGItems.GREEN_GLOWCANE_POWDER.get(), getItemName(Items.GREEN_DYE));
-        oneToOneConversionRecipe(output, Items.RED_DYE, BWGItems.RED_GLOWCANE_POWDER.get(), getItemName(Items.RED_DYE));
-        oneToOneConversionRecipe(output, Items.YELLOW_DYE, BWGItems.YELLOW_GLOWCANE_POWDER.get(), getItemName(Items.YELLOW_DYE));
+        oneToOneConversionRecipe(Items.BLUE_DYE, BWGItems.BLUE_GLOWCANE_POWDER.get(), getItemName(Items.BLUE_DYE));
+        oneToOneConversionRecipe(Items.GREEN_DYE, BWGItems.GREEN_GLOWCANE_POWDER.get(), getItemName(Items.GREEN_DYE));
+        oneToOneConversionRecipe(Items.RED_DYE, BWGItems.RED_GLOWCANE_POWDER.get(), getItemName(Items.RED_DYE));
+        oneToOneConversionRecipe(Items.YELLOW_DYE, BWGItems.YELLOW_GLOWCANE_POWDER.get(), getItemName(Items.YELLOW_DYE));
     }
 
     private void sandToGlass(BWGSandSet set, Item glass) {
