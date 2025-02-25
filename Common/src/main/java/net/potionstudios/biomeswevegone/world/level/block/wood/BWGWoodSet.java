@@ -4,6 +4,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
@@ -96,43 +97,43 @@ public class BWGWoodSet {
     protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, LogStem logstem, @Nullable Supplier<TreeGrower> saplingGrower, boolean leaves, boolean glowLeaves, @Nullable TagKey<Block> saplingPlantAbleOn) {
         this.woodType = PlatformHandler.PLATFORM_HANDLER.createWoodType(blockSetType.name(), blockSetType);
         this.name = blockSetType.name().replace(BiomesWeveGone.MOD_ID + ":", "");
-        this.planks = BWGWood.registerBlockItem(name + "_planks", () -> new Block(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
-        this.slab = BWGWood.registerBlockItem(name + "_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
-        this.stairs = BWGWood.registerBlockItem(name + "_stairs", () -> new StairBlock(planks.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(planks.get())));
+        this.planks = BWGWood.registerBlockItem(name + "_planks", () -> new Block(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava().setId(key(name + "_planks"))));
+        this.slab = BWGWood.registerBlockItem(name + "_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava().setId(key(name + "_slab"))));
+        this.stairs = BWGWood.registerBlockItem(name + "_stairs", () -> new StairBlock(planks.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(planks.get()).setId(key(name + "_stairs"))));
         this.logstemEnum = logstem;
-        this.logstem = BWGWood.registerBlockItem(name + "_" + logstem.getName(), () -> new RotatedPillarBlock(Blocks.logProperties(mapColor, mapColor, SoundType.WOOD)));
-        this.strippedLogStem = BWGWood.registerBlockItem("stripped_" + name + "_" + logstem.getName(), () -> new RotatedPillarBlock(Blocks.logProperties(mapColor, mapColor, SoundType.WOOD)));
-        this.wood = BWGWood.registerBlockItem(name + "_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
-        this.strippedWood = BWGWood.registerBlockItem("stripped_" + name + "_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
-        this.sign = BWGWood.register(name + "_sign", () ->  new BWGStandingSignBlock(BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), woodType));
-        this.wallSign = BWGWood.register(name + "_wall_sign", () -> new BWGWallSignBlock(Blocks.wallVariant(sign(), true).mapColor(mapColor).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), this.woodType));
-        this.signItem = BWGItems.register(name + "_sign", () -> new SignItem(sign.get(), wallSign.get(), new Item.Properties().stacksTo(16)));
+        this.logstem = BWGWood.registerBlockItem(name + "_" + logstem.getName(), () -> new RotatedPillarBlock(Blocks.logProperties(mapColor, mapColor, SoundType.WOOD).setId(key(name + "_" + logstem.getName()))));
+        this.strippedLogStem = BWGWood.registerBlockItem("stripped_" + name + "_" + logstem.getName(), () -> new RotatedPillarBlock(Blocks.logProperties(mapColor, mapColor, SoundType.WOOD).setId(key("stripped_" + name + "_" + logstem.getName()))));
+        this.wood = BWGWood.registerBlockItem(name + "_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava().setId(key(name + "_wood"))));
+        this.strippedWood = BWGWood.registerBlockItem("stripped_" + name + "_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava().setId(key("stripped_" + name + "_wood"))));
+        this.sign = BWGWood.register(name + "_sign", () ->  new BWGStandingSignBlock(BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava().setId(key(name + "_sign")), woodType));
+        this.wallSign = BWGWood.register(name + "_wall_sign", () -> new BWGWallSignBlock(Blocks.wallVariant(sign(), true).mapColor(mapColor).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava().setId(key(name + "_wall_sign")), this.woodType));
+        this.signItem = BWGItems.register(name + "_sign", () -> new SignItem(sign.get(), wallSign.get(), new Item.Properties().stacksTo(16).setId(keyItem(name + "_sign"))));
         BWGWood.WOOD_BLOCK_ITEMS.add(signItem);
-        this.hangingSign = BWGWood.register(name + "_hanging_sign", () -> new BWGCeilingHangingSignBlock(BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), woodType));
-        this.wallHangingSign = BWGWood.register(name + "_wall_hanging_sign", () -> new BWGWallHangingSignBlock(Blocks.wallVariant(hangingSign(), true).mapColor(mapColor).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), woodType));
-        this.hangingSignItem = BWGItems.register(name + "_hanging_sign", () -> new HangingSignItem(hangingSign.get(), wallHangingSign.get(), new Item.Properties().stacksTo(16)));
+        this.hangingSign = BWGWood.register(name + "_hanging_sign", () -> new BWGCeilingHangingSignBlock(BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava().setId(key(name + "_hanging_sign")), woodType));
+        this.wallHangingSign = BWGWood.register(name + "_wall_hanging_sign", () -> new BWGWallHangingSignBlock(Blocks.wallVariant(hangingSign(), true).mapColor(mapColor).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava().setId(key(name + "_wall_hanging_sign")), woodType));
+        this.hangingSignItem = BWGItems.register(name + "_hanging_sign", () -> new HangingSignItem(hangingSign.get(), wallHangingSign.get(), new Item.Properties().stacksTo(16).setId(keyItem(name + "_hanging_sign"))));
         BWGWood.WOOD_BLOCK_ITEMS.add(hangingSignItem);
-        this.pressurePlate = BWGWood.registerBlockItem(name + "_pressure_plate", () -> new PressurePlateBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(0.5F).ignitedByLava().pushReaction(PushReaction.DESTROY)));
-        this.trapdoor = BWGWood.registerBlockItem(name + "_trapdoor", () -> new TrapDoorBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().isValidSpawn(Blocks::never).ignitedByLava()));
+        this.pressurePlate = BWGWood.registerBlockItem(name + "_pressure_plate", () -> new PressurePlateBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(0.5F).ignitedByLava().pushReaction(PushReaction.DESTROY).setId(key(name + "_pressure_plate"))));
+        this.trapdoor = BWGWood.registerBlockItem(name + "_trapdoor", () -> new TrapDoorBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().isValidSpawn(Blocks::never).ignitedByLava().setId(key(name + "_trapdoor"))));
         this.button = BWGWood.registerBlockItem(name + "_button", () -> new ButtonBlock(woodType.setType(), 30, Blocks.buttonProperties()));
-        this.fenceGate = BWGWood.registerBlockItem(name + "_fence_gate", () -> new FenceGateBlock(woodType, BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava()));
-        this.fence = BWGWood.registerBlockItem(name + "_fence", () -> new FenceBlock(BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava().sound(SoundType.WOOD)));
-        this.door = BWGWood.registerBlockItem(name + "_door", () -> new DoorBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY)));
-        this.bookshelf = BWGWood.registerBlockItem(name + "_bookshelf", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BOOKSHELF).mapColor(mapColor)));
+        this.fenceGate = BWGWood.registerBlockItem(name + "_fence_gate", () -> new FenceGateBlock(woodType, BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava().setId(key(name + "_fence_gate"))));
+        this.fence = BWGWood.registerBlockItem(name + "_fence", () -> new FenceBlock(BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava().sound(SoundType.WOOD).setId(key(name + "_fence"))));
+        this.door = BWGWood.registerBlockItem(name + "_door", () -> new DoorBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY).setId(key(name + "_door"))));
+        this.bookshelf = BWGWood.registerBlockItem(name + "_bookshelf", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BOOKSHELF).mapColor(mapColor).setId(key(name + "_bookshelf"))));
         this.craftingTable = BWGWood.registerBlockItem(name + "_crafting_table", () -> new BWGCraftingTable(mapColor));
         if (saplingGrower != null) this.sapling = BWGWood.createSapling(name, saplingGrower, saplingPlantAbleOn);
 
         if (leaves) {
-            if (glowLeaves) this.leaves = BWGWood.registerBlockItem(name + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).lightLevel(level -> 8).mapColor(mapColor)));
-            else this.leaves = BWGWood.registerBlockItem(name + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor)));
+            if (glowLeaves) this.leaves = BWGWood.registerBlockItem(name + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).lightLevel(level -> 8).mapColor(mapColor).setId(key(name + "_leaves"))));
+            else this.leaves = BWGWood.registerBlockItem(name + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor).setId(key(name + "_leaves"))));
         }
 
         this.boat = BWGEntities.createEntity(name + "_boat", (type, level) -> new Boat(type, level, boatItem()), MobCategory.MISC, EntityType.OAK_BOAT.getWidth(), EntityType.OAK_BOAT.getHeight(), 0.5625F, 10);
         this.chestBoat = BWGEntities.createEntity(name + "_chest_boat", (type, level) -> new ChestBoat(type, level, chestBoatItem()), MobCategory.MISC, EntityType.OAK_CHEST_BOAT.getWidth(), EntityType.OAK_CHEST_BOAT.getHeight(), 0.5625F, 10);
 
 
-        this.boatItem = BWGWood.registerItem(name + "_boat", () -> new BoatItem(boat.get(), new Item.Properties().stacksTo(1)));
-        this.chestBoatItem = BWGWood.registerItem(name + "_chest_boat", () -> new BoatItem(chestBoat.get(), new Item.Properties().stacksTo(1)));
+        this.boatItem = BWGWood.registerItem(name + "_boat", () -> new BoatItem(boat.get(), new Item.Properties().stacksTo(1).setId(keyItem(name + "_boat"))));
+        this.chestBoatItem = BWGWood.registerItem(name + "_chest_boat", () -> new BoatItem(chestBoat.get(), new Item.Properties().stacksTo(1).setId(keyItem(name + "_chest_boat"))));
 
         this.logBlockTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name + "_logs"));
         this.logItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id(name + "_logs"));
@@ -331,5 +332,13 @@ public class BWGWoodSet {
         public String getName() {
             return name;
         }
+    }
+
+    private static ResourceKey<Block> key(String name) {
+        return BiomesWeveGone.key(Registries.BLOCK, name);
+    }
+
+    private static ResourceKey<Item> keyItem(String name) {
+        return BiomesWeveGone.key(Registries.ITEM, name);
     }
 }
