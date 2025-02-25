@@ -3,7 +3,6 @@ package net.potionstudios.biomeswevegone.client;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.model.BoatModel;
-import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.particle.ParticleProvider;
@@ -11,6 +10,7 @@ import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.*;
+import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.BlockPos;
@@ -30,9 +30,7 @@ import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.client.particle.particles.FallingLeafParticle;
 import net.potionstudios.biomeswevegone.client.particle.particles.FireFlyParticle;
-import net.potionstudios.biomeswevegone.client.renderer.entity.boat.BWGBoatRenderer;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
-import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
 import net.potionstudios.biomeswevegone.client.renderer.entity.manowar.ManOWarRenderer;
 import net.potionstudios.biomeswevegone.client.renderer.entity.oddion.OddionRenderer;
 import net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden.PumpkinWardenRenderer;
@@ -79,8 +77,10 @@ public class BiomesWeveGoneClient {
         consumer.accept(BWGEntities.MAN_O_WAR.get(), ManOWarRenderer::new);
         consumer.accept(BWGEntities.PUMPKIN_WARDEN.get(), PumpkinWardenRenderer::new);
         consumer.accept(BWGEntities.ODDION.get(), OddionRenderer::new);
-        consumer.accept(BWGEntities.BWG_BOAT.get(), context -> new BWGBoatRenderer(context, false));
-        consumer.accept(BWGEntities.BWG_CHEST_BOAT.get(), context -> new BWGBoatRenderer(context, true));
+        BWGWoodSet.woodsets().forEach(set -> {
+            consumer.accept(set.boat().get(), context -> new BoatRenderer(context, set.boatModelLayer()));
+            consumer.accept(set.chestBoat().get(), context -> new BoatRenderer(context, set.chestBoatModelLayer()));
+        });
     }
 
     /**
@@ -95,13 +95,13 @@ public class BiomesWeveGoneClient {
 
     /**
      * Registers the layer definitions for the boat models.
-     * @see BWGBoatRenderer
+     * @see BoatModel
      */
     public static void registerLayerDefinitions(BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> consumer) {
-        for (BWGBoatEntity.Type type : BWGBoatEntity.Type.values()) {
-            consumer.accept(BWGBoatRenderer.createBoatModelName(type), BoatModel::createBodyModel);
-            consumer.accept(BWGBoatRenderer.createChestBoatModelName(type), ChestBoatModel::createBodyModel);
-        }
+        BWGWoodSet.woodsets().forEach(set -> {
+            consumer.accept(set.boatModelLayer(), BoatModel::createBoatModel);
+            consumer.accept(set.chestBoatModelLayer(), BoatModel::createChestBoatModel);
+        });
     }
 
     /**

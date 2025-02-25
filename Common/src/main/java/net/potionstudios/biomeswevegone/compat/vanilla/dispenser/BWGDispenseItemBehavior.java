@@ -1,10 +1,7 @@
 package net.potionstudios.biomeswevegone.compat.vanilla.dispenser;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.dispenser.BlockSource;
-import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
-import net.minecraft.core.dispenser.EquipmentDispenseItemBehavior;
-import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
+import net.minecraft.core.dispenser.*;
 import net.minecraft.world.item.DispensibleContainerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -12,9 +9,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -24,10 +21,10 @@ import org.jetbrains.annotations.NotNull;
  */
 public class BWGDispenseItemBehavior {
 	public static void registerDispenseItemBehavior() {
-		for (BWGBoatEntity.Type type : BWGBoatEntity.Type.values()) {
-			DispenserBlock.registerBehavior(type.getBoatItem().get(), new BWGBoatDispenseItemBehavior(type));
-			DispenserBlock.registerBehavior(type.getChestBoatItem().get(), new BWGBoatDispenseItemBehavior(type, true));
-		}
+		BWGWoodSet.woodsets().forEach(set -> {
+			DispenserBlock.registerBehavior(set.boatItem().get(), new BoatDispenseItemBehavior(set.boat().get()));
+			DispenserBlock.registerBehavior(set.chestBoatItem().get(), new BoatDispenseItemBehavior(set.chestBoat().get()));
+		});
 
 		DispenserBlock.registerBehavior(BWGItems.MAN_O_WAR_BUCKET.get(), new DefaultDispenseItemBehavior() {
 			private final DefaultDispenseItemBehavior defaultDispenseItemBehavior = new DefaultDispenseItemBehavior();
