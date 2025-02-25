@@ -1,3 +1,5 @@
+# 2.3.7
+
 # 2.3.6
 - Fix Vine like blocks not being compostable on Forge
 - Sync biomeswevegone:temperate tag to c:is_temperate/overworld
