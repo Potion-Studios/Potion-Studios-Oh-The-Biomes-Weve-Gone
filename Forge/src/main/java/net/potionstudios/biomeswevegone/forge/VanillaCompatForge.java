@@ -2,9 +2,16 @@ package net.potionstudios.biomeswevegone.forge;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.block.*;
@@ -13,6 +20,7 @@ import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.brewing.BrewingRecipeRegisterEvent;
 import net.minecraftforge.event.entity.living.EnderManAngerEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
@@ -21,7 +29,9 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
+import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -56,6 +66,7 @@ public class VanillaCompatForge {
         bus.addListener(VanillaCompatForge::registerBrewingRecipes);
         bus.addListener(VanillaCompatForge::onBoneMealUse);
         bus.addListener(VanillaCompatForge::onEnderManAnger);
+        bus.addListener(VanillaCompatForge::onVillagerInteract);
     }
 
     /**
@@ -132,5 +143,28 @@ public class VanillaCompatForge {
     private static void onBoneMealUse(final BonemealEvent event) {
         if (!event.getLevel().isClientSide() && BoneMealHandler.bwgBoneMealEventHandler((ServerLevel) event.getLevel(), event.getPos(), event.getBlock()))
             event.setResult(Event.Result.ALLOW);
+    }
+
+    /**
+     * Handle villager interaction.
+     * @see PlayerInteractEvent.EntityInteractSpecific
+     */
+    private static void onVillagerInteract(final PlayerInteractEvent.EntityInteractSpecific event) {
+        if (event.getTarget() instanceof Villager villager && villager.isBaby() && villager.hasEffect(MobEffects.WEAKNESS)) {
+            ItemStack stack = event.getItemStack();
+            if (stack.is(Items.CARVED_PUMPKIN) || stack.is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem())) {
+                if (event.getLevel() instanceof ServerLevel serverLevel) {
+                    PumpkinWarden warden = BWGEntities.PUMPKIN_WARDEN.get().create(serverLevel);
+                    warden.setPos(villager.position());
+                    if (stack.is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem()))
+                        warden.setVariant(PumpkinWarden.Variant.PALE);
+                    serverLevel.addFreshEntity(warden);
+                    serverLevel.playSound(null, villager.blockPosition(), SoundEvents.ZOMBIE_VILLAGER_CURE, SoundSource.NEUTRAL, 1, 1);
+                    villager.remove(Entity.RemovalReason.DISCARDED);
+                    stack.shrink(1);
+                    event.setResult(Event.Result.DENY);
+                }
+            }
+        }
     }
 }
