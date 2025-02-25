@@ -8,7 +8,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.*;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -293,41 +292,6 @@ public class TagsGenerator {
             copy(BWGBlockTags.SPRUCE_SAPLINGS, BWGItemTags.SPRUCE_SAPLINGS);
             copy(BWGBlockTags.BIRCH_SAPLINGS, BWGItemTags.BIRCH_SAPLINGS);
 
-            BWGBlocks.BLOCKS.stream().filter(entry -> entry.get() instanceof FlowerBlock || entry.get() instanceof TallFlowerBlock).forEach(
-                    entry -> {
-                        Block block = entry.get();
-                        if (block.defaultMapColor() == MapColor.COLOR_BLACK)
-                            tag(BWGItemTags.MAKES_BLACK_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_BLUE)
-                            tag(BWGItemTags.MAKES_BLUE_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_BROWN)
-                            tag(BWGItemTags.MAKES_BROWN_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_CYAN)
-                            tag(BWGItemTags.MAKES_CYAN_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_GRAY)
-                            tag(BWGItemTags.MAKES_GRAY_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_GREEN)
-                            tag(BWGItemTags.MAKES_GREEN_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_LIGHT_BLUE)
-                            tag(BWGItemTags.MAKES_LIGHT_BLUE_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_LIGHT_GRAY)
-                            tag(BWGItemTags.MAKES_LIGHT_GRAY_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_MAGENTA)
-                            tag(BWGItemTags.MAKES_MAGENTA_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_ORANGE)
-                            tag(BWGItemTags.MAKES_ORANGE_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_PINK)
-                            tag(BWGItemTags.MAKES_PINK_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_PURPLE)
-                            tag(BWGItemTags.MAKES_PURPLE_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_RED)
-                            tag(BWGItemTags.MAKES_RED_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.TERRACOTTA_WHITE)
-                            tag(BWGItemTags.MAKES_WHITE_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_YELLOW)
-                            tag(BWGItemTags.MAKES_YELLOW_DYE).add(block.asItem());
-                    }
-            );
             copy(BWGBlockTags.PALO_VERDE_LOGS, BWGItemTags.PALO_VERDE_LOGS);
             tag(BWGItemTags.SHEARS).addOptionalTag(Tags.Items.SHEARS).addOptionalTag(new ResourceLocation("c", "shears"));
             tag(ItemTags.MUSIC_DISCS).add(BWGItems.MUSIC_DISC_PIXIE_CLUB.get());

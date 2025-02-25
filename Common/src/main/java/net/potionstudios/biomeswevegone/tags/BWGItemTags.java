@@ -34,23 +34,6 @@ public final class BWGItemTags {
     public static final TagKey<Item> SPRUCE_SAPLINGS = create("saplings/spruce");
     public static final TagKey<Item> BIRCH_SAPLINGS = create("saplings/birch");
 
-    public static final TagKey<Item> MAKES_BLACK_DYE = create("dye/makes_black_dye");
-    public static final TagKey<Item> MAKES_BLUE_DYE = create("dye/makes_blue_dye");
-    public static final TagKey<Item> MAKES_BROWN_DYE = create("dye/makes_brown_dye");
-    public static final TagKey<Item> MAKES_CYAN_DYE = create("dye/makes_cyan_dye");
-    public static final TagKey<Item> MAKES_GRAY_DYE = create("dye/makes_gray_dye");
-    public static final TagKey<Item> MAKES_GREEN_DYE = create("dye/makes_green_dye");
-    public static final TagKey<Item> MAKES_LIGHT_BLUE_DYE = create("dye/makes_light_blue_dye");
-    public static final TagKey<Item> MAKES_LIGHT_GRAY_DYE = create("dye/makes_light_gray_dye");
-    public static final TagKey<Item> MAKES_LIME_DYE = create("dye/makes_lime_dye");
-    public static final TagKey<Item> MAKES_MAGENTA_DYE = create("dye/makes_magenta_dye");
-    public static final TagKey<Item> MAKES_ORANGE_DYE = create("dye/makes_orange_dye");
-    public static final TagKey<Item> MAKES_PINK_DYE = create("dye/makes_pink_dye");
-    public static final TagKey<Item> MAKES_PURPLE_DYE = create("dye/makes_purple_dye");
-    public static final TagKey<Item> MAKES_RED_DYE = create("dye/makes_red_dye");
-    public static final TagKey<Item> MAKES_WHITE_DYE = create("dye/makes_white_dye");
-    public static final TagKey<Item> MAKES_YELLOW_DYE = create("dye/makes_yellow_dye");
-
     public static final TagKey<Item> MUSHROOMS = create("mushrooms");
 
     public static final TagKey<Item> CRAFTING_TABLES = create("crafting_tables");

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:white_dye_from_winter_succulent"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_winter_succulent": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "biomeswevegone:winter_succulent"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_winter_succulent",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:white_dye_from_winter_succulent"
+    ]
+  },
+  "sends_telemetry_event": false
+}

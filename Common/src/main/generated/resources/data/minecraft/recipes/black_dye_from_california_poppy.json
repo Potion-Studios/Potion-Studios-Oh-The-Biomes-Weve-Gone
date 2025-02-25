@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "black_dye",
+  "ingredients": [
+    {
+      "item": "biomeswevegone:california_poppy"
+    }
+  ],
+  "result": {
+    "item": "minecraft:black_dye"
+  }
+}

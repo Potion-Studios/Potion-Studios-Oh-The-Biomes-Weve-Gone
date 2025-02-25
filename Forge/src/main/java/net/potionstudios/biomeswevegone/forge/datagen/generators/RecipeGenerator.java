@@ -3,12 +3,16 @@ package net.potionstudios.biomeswevegone.forge.datagen.generators;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.TallFlowerBlock;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -176,23 +180,6 @@ public class RecipeGenerator extends RecipeProvider {
         threeByThreePacker(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.PACKED_BLACK_ICE.get(), BWGBlocks.BLACK_ICE.get());
         threeByThreePacker(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.PACKED_BOREALIS_ICE.get(), BWGBlocks.BOREALIS_ICE.get());
 
-        dyeTagRecipe(writer, Items.BLACK_DYE, BWGItemTags.MAKES_BLACK_DYE);
-        dyeTagRecipe(writer, Items.BLUE_DYE, BWGItemTags.MAKES_BLUE_DYE);
-        //dyeTagRecipe(writer, Items.BROWN_DYE, BWGItemTags.MAKES_BROWN_DYE);
-        dyeTagRecipe(writer, Items.CYAN_DYE, BWGItemTags.MAKES_CYAN_DYE);
-        //dyeTagRecipe(writer, Items.GRAY_DYE, BWGItemTags.MAKES_GRAY_DYE);
-        dyeTagRecipe(writer, Items.GREEN_DYE, BWGItemTags.MAKES_GREEN_DYE);
-        //dyeTagRecipe(writer, Items.LIGHT_BLUE_DYE, BWGItemTags.MAKES_LIGHT_BLUE_DYE);
-        //dyeTagRecipe(writer, Items.LIGHT_GRAY_DYE, BWGItemTags.MAKES_LIGHT_GRAY_DYE);
-        //dyeTagRecipe(writer, Items.LIME_DYE, BWGItemTags.MAKES_LIME_DYE);
-        dyeTagRecipe(writer, Items.MAGENTA_DYE, BWGItemTags.MAKES_MAGENTA_DYE);
-        dyeTagRecipe(writer, Items.ORANGE_DYE, BWGItemTags.MAKES_ORANGE_DYE);
-        dyeTagRecipe(writer, Items.PURPLE_DYE, BWGItemTags.MAKES_PURPLE_DYE);
-        dyeTagRecipe(writer, Items.RED_DYE, BWGItemTags.MAKES_RED_DYE);
-        dyeTagRecipe(writer, Items.WHITE_DYE, BWGItemTags.MAKES_WHITE_DYE);
-        dyeTagRecipe(writer, Items.YELLOW_DYE, BWGItemTags.MAKES_YELLOW_DYE);
-        dyeTagRecipe(writer, Items.PINK_DYE, BWGItemTags.MAKES_PINK_DYE);
-
         twoByTwoPackertoFourWithStoneCutting(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.RED_ROCK_SET.getBase());
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase())
                 .requires(BWGBlocks.RED_ROCK_BRICKS_SET.getBase())
@@ -331,6 +318,14 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern("XX")
                 .unlockedBy("has_mushrooms", has(BWGItemTags.MUSHROOMS))
                 .save(writer);
+
+        BWGBlocks.BLOCKS.stream().filter(entry -> entry.get() instanceof FlowerBlock || entry.get() instanceof TallFlowerBlock).forEach(
+                entry -> {
+                    Block block = entry.get();
+                    Item dye = DyeItem.byColor(DyeColor.byId(block.defaultMapColor().id));
+                    oneToOneConversionRecipe(writer, dye, block, getItemName(dye), block instanceof TallFlowerBlock ? 2 : 1);
+                }
+        );
     }
 
     private static void sandToGlass(Consumer<FinishedRecipe> finishedRecipeConsumer, BWGSandSet set, Item glass) {
@@ -366,11 +361,4 @@ public class RecipeGenerator extends RecipeProvider {
                 .save(finishedRecipeConsumer);
     }
 
-    private static void dyeTagRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer, Item dye, TagKey<Item> tag) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, dye)
-                .requires(tag)
-                .unlockedBy(tag.toString(), has(tag))
-                .group(getHasName(dye).replace("has_", ""))
-                .save(finishedRecipeConsumer, BiomesWeveGone.id(getHasName(dye).replace("has_", "")+ "_from_bwg_tag"));
-    }
 }
