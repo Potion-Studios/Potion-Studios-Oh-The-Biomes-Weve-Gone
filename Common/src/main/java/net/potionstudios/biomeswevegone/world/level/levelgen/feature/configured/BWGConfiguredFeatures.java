@@ -26,7 +26,7 @@ public class BWGConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLACK_ICE = ConfiguredFeaturesUtil.createConfiguredFeature("black_ice", Feature.SIMPLE_BLOCK, () -> new SimpleBlockConfiguration(BlockStateProvider.simple(BWGBlocks.BLACK_ICE.get().defaultBlockState())));
     public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_MUD = ConfiguredFeaturesUtil.createConfiguredFeature("disk_mud",
             Feature.DISK,
-            () -> new DiskConfiguration(new RuleBasedBlockStateProvider(BlockStateProvider.simple(Blocks.MUD), ImmutableList.of(new RuleBasedBlockStateProvider.Rule(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.AIR), BlockStateProvider.simple(Blocks.MUD)))), BlockPredicate.matchesBlocks(Blocks.DIRT, Blocks.CLAY), UniformInt.of(2, 6), 2)
+            () -> new DiskConfiguration(new RuleBasedBlockStateProvider(BlockStateProvider.simple(Blocks.MUD), ImmutableList.of(new RuleBasedBlockStateProvider.Rule(BlockPredicate.matchesBlocks(Direction.DOWN.getUnitVec3i(), Blocks.AIR), BlockStateProvider.simple(Blocks.MUD)))), BlockPredicate.matchesBlocks(Blocks.DIRT, Blocks.CLAY), UniformInt.of(2, 6), 2)
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BASALT_DELTA = ConfiguredFeaturesUtil.createConfiguredFeature("delta", Feature.DELTA_FEATURE, () -> new DeltaFeatureConfiguration(Blocks.WATER.defaultBlockState(), Blocks.WATER.defaultBlockState(), UniformInt.of(3, 4), UniformInt.of(0, 2)));
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_BASALT_COLUMN = ConfiguredFeaturesUtil.createConfiguredFeature("small_basalt_columns", Feature.BASALT_COLUMNS, () -> new ColumnFeatureConfiguration(UniformInt.of(0, 1), UniformInt.of(1, 1)));

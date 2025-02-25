@@ -116,8 +116,8 @@ public class GourPlateauStructure extends Structure {
             for (int chunkZ = -(SectionPos.blockToSectionCoord(arenaFloorRadius) + 1); chunkZ <= SectionPos.blockToSectionCoord(arenaFloorRadius) + 1; chunkZ++) {
                 BlockPos chunkWorldPos = new BlockPos(SectionPos.sectionToBlockCoord(context.chunkPos().x + chunkX), arenaOrigin.getY(), SectionPos.sectionToBlockCoord(context.chunkPos().z + chunkZ));
                 BoundingBox boundingBox = new BoundingBox(
-                        chunkWorldPos.getX(), levelHeightAccessor.getMinBuildHeight(), chunkWorldPos.getZ(),
-                        chunkWorldPos.getX() + 15, levelHeightAccessor.getMaxBuildHeight(), chunkWorldPos.getZ() + 15
+                        chunkWorldPos.getX(), levelHeightAccessor.getMinY(), chunkWorldPos.getZ(),
+                        chunkWorldPos.getX() + 15, levelHeightAccessor.getMaxY(), chunkWorldPos.getZ() + 15
                 );
                 piecesBuilder.addPiece(new GourPlateauPiece(arenaOrigin, arenaFloorRadius, topY, boundingBox));
             }

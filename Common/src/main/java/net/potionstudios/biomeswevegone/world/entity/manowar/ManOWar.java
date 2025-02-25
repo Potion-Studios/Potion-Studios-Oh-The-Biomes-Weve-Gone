@@ -153,7 +153,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     @Override
     public void playerTouch(@NotNull Player player) {
-        if (player instanceof ServerPlayer serverPlayer && serverPlayer.hurt(serverPlayer.damageSources().mobAttack(this), (float) (1))) {
+        if (player instanceof ServerPlayer serverPlayer && serverPlayer.hurtServer(serverPlayer.serverLevel(), serverPlayer.damageSources().mobAttack(this), (float) (1))) {
             RandomSource rand = player.getRandom();
             int i = rand.nextInt(4);
             if (i <= 2) {

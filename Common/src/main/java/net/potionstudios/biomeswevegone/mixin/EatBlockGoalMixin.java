@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.EatBlockGoal;
 import net.minecraft.world.level.GameRules;
@@ -39,13 +40,15 @@ public abstract class EatBlockGoalMixin {
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/core/BlockPos;below()Lnet/minecraft/core/BlockPos;"))
     private void tick(CallbackInfo ci, @Local BlockPos blockPos) {
-        BlockPos below = blockPos.below();
-        if (level.getBlockState(below).is(BWGBlocks.LUSH_GRASS_BLOCK.get()))
-            if (level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
-                level.levelEvent(2001, below, Block.getId(BWGBlocks.LUSH_GRASS_BLOCK.get().defaultBlockState()));
-                level.setBlock(below, BWGBlocks.LUSH_DIRT.get().defaultBlockState(), 2);
-                mob.ate();
-            }
+        if (level instanceof ServerLevel serverLevel) {
+            BlockPos below = blockPos.below();
+            if (serverLevel.getBlockState(below).is(BWGBlocks.LUSH_GRASS_BLOCK.get()))
+                if (serverLevel.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
+                    serverLevel.levelEvent(2001, below, Block.getId(BWGBlocks.LUSH_GRASS_BLOCK.get().defaultBlockState()));
+                    serverLevel.setBlock(below, BWGBlocks.LUSH_DIRT.get().defaultBlockState(), 2);
+                    mob.ate();
+                }
+        }
     }
 
 }

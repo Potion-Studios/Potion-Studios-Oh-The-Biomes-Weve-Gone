@@ -45,6 +45,6 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
 
     @Override
     protected float getShadowRadius(@NotNull EntityRenderState renderState) {
-        return 0.8f;//entity.isBaby() ? 0.5f : 0.8f;
+        return getAnimatable().isBaby() ? 0.5f : 0.8f;
     }
 }

@@ -3,8 +3,8 @@ package net.potionstudios.biomeswevegone.compat.vanilla.dispenser;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.core.dispenser.EquipmentDispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.DispensibleContainerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -58,7 +58,7 @@ public class BWGDispenseItemBehavior {
 
 					item.shrink(1);
 					this.setSuccess(true);
-				} else this.setSuccess(ArmorItem.dispenseArmor(blockSource, item));
+				} else this.setSuccess(EquipmentDispenseItemBehavior.dispenseEquipment(blockSource, item));
 
 				return item;
 			}

@@ -38,10 +38,10 @@ public class PlaceInVillage {
      */
     private static void addBuildingToPool(@NotNull MinecraftServer server, ResourceLocation poolRL, ResourceKey<StructureProcessorList> processorList, ResourceLocation nbtPieceRL, StructureTemplatePool.Projection projection, int weight) {
         RegistryAccess.Frozen serverRegistry = server.registryAccess();
-        Registry<StructureTemplatePool> templatePoolRegistry = serverRegistry.registry(Registries.TEMPLATE_POOL).orElseThrow();
-        Registry<StructureProcessorList> processorListRegistry = serverRegistry.registry(Registries.PROCESSOR_LIST).orElseThrow();
-        StructureTemplatePool pool = templatePoolRegistry.get(poolRL);
-        Holder<StructureProcessorList> processorList1 = processorListRegistry.getHolderOrThrow(processorList);
+        Registry<StructureTemplatePool> templatePoolRegistry = serverRegistry.lookupOrThrow(Registries.TEMPLATE_POOL);
+        Registry<StructureProcessorList> processorListRegistry = serverRegistry.lookupOrThrow(Registries.PROCESSOR_LIST);
+        StructureTemplatePool pool = templatePoolRegistry.getValue(poolRL);
+        Holder<StructureProcessorList> processorList1 = processorListRegistry.getOrThrow(processorList);
         if (pool == null) return;
 
         SinglePoolElement piece = SinglePoolElement.single(nbtPieceRL.toString(), processorList1).apply(projection);

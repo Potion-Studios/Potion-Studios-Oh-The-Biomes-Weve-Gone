@@ -54,7 +54,7 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
     public BWGFruitBlock(Properties properties, Supplier<Supplier<Item>> fruit, String leaves) {
         super(properties);
         this.fruit = fruit;
-        this.leaves = Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.get(BiomesWeveGone.id(leaves)));
+        this.leaves = Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.getValue(BiomesWeveGone.id(leaves)));
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
@@ -66,7 +66,7 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
     }
 
     private BWGFruitBlock(Properties properties, ResourceLocation fruitLocation, ResourceLocation leavesLocation) {
-        this(properties, Suppliers.memoize(() -> () -> BuiltInRegistries.ITEM.get(fruitLocation)), Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.get(leavesLocation)));
+        this(properties, Suppliers.memoize(() -> () -> BuiltInRegistries.ITEM.getValue(fruitLocation)), Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.getValue(leavesLocation)));
     }
 
     public BWGFruitBlock(Supplier<Supplier<Item>> fruit, String leaves) {

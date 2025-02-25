@@ -46,7 +46,7 @@ public class LushBlocksProcessorFeature extends Feature<NoneFeatureConfiguration
             for (int z = 0; z < 16; z++) {
                 int height = chunk.getHeight(Heightmap.Types.WORLD_SURFACE_WG, x, z);
 
-                for (int y = height; y > chunk.getMinBuildHeight(); y--) {
+                for (int y = height; y > chunk.getMinY(); y--) {
                     mutableBlockPos.set(minWorldX + x, y, minWorldZ + z);
                     BlockState blockState = chunk.getBlockState(mutableBlockPos);
 

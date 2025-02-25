@@ -124,7 +124,7 @@ public class LargeLakePiece extends StructurePiece {
         }
 
 
-        SectionPos sectionPos = SectionPos.of(chunkPos, worldGenLevel.getMinSection());
+        SectionPos sectionPos = SectionPos.of(chunkPos, worldGenLevel.getMinSectionY());
         BlockPos blockPos = sectionPos.origin();
 
         Predicate<BlockPos> test = blockPos1 -> {
