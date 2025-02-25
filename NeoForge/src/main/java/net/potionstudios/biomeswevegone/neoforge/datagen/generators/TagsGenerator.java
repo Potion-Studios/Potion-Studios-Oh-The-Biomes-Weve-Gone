@@ -324,47 +324,8 @@ public class TagsGenerator {
             copy(BWGBlockTags.SPRUCE_SAPLINGS, BWGItemTags.SPRUCE_SAPLINGS);
             copy(BWGBlockTags.BIRCH_SAPLINGS, BWGItemTags.BIRCH_SAPLINGS);
 
-            BWGBlocks.BLOCKS.stream().filter(entry -> entry.get() instanceof FlowerBlock || entry.get() instanceof TallFlowerBlock).forEach(
-                    entry -> {
-                        Block block = entry.get();
-                        if (block.defaultMapColor() == MapColor.COLOR_BLACK)
-                            tag(BWGItemTags.MAKES_BLACK_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_BLUE)
-                            tag(BWGItemTags.MAKES_BLUE_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_BROWN)
-                            tag(BWGItemTags.MAKES_BROWN_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_CYAN)
-                            tag(BWGItemTags.MAKES_CYAN_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_GRAY)
-                            tag(BWGItemTags.MAKES_GRAY_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_GREEN)
-                            tag(BWGItemTags.MAKES_GREEN_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_LIGHT_BLUE)
-                            tag(BWGItemTags.MAKES_LIGHT_BLUE_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_LIGHT_GRAY)
-                            tag(BWGItemTags.MAKES_LIGHT_GRAY_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_MAGENTA)
-                            tag(BWGItemTags.MAKES_MAGENTA_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_ORANGE)
-                            tag(BWGItemTags.MAKES_ORANGE_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_PINK)
-                            tag(BWGItemTags.MAKES_PINK_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_PURPLE)
-                            tag(BWGItemTags.MAKES_PURPLE_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_RED)
-                            tag(BWGItemTags.MAKES_RED_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.TERRACOTTA_WHITE)
-                            tag(BWGItemTags.MAKES_WHITE_DYE).add(block.asItem());
-                        else if (block.defaultMapColor() == MapColor.COLOR_YELLOW)
-                            tag(BWGItemTags.MAKES_YELLOW_DYE).add(block.asItem());
-                    }
-            );
             tag(BWGItemTags.GLOWCANE_POWDER).add(BWGItems.BLUE_GLOWCANE_POWDER.get(), BWGItems.GREEN_GLOWCANE_POWDER.get(), BWGItems.RED_GLOWCANE_POWDER.get(), BWGItems.YELLOW_GLOWCANE_POWDER.get());
             tag(BWGItemTags.GLOWCANE_SHOOT).add(BWGItems.BLUE_GLOWCANE_SHOOT.get(), BWGItems.GREEN_GLOWCANE_SHOOT.get(), BWGItems.RED_GLOWCANE_SHOOT.get(), BWGItems.YELLOW_GLOWCANE_SHOOT.get());
-            tag(BWGItemTags.MAKES_RED_DYE).add(BWGItems.RED_GLOWCANE_POWDER.get());
-            tag(BWGItemTags.MAKES_YELLOW_DYE).add(BWGItems.YELLOW_GLOWCANE_POWDER.get());
-            tag(BWGItemTags.MAKES_GREEN_DYE).add(BWGItems.GREEN_GLOWCANE_POWDER.get());
-            tag(BWGItemTags.MAKES_BLUE_DYE).add(BWGItems.BLUE_GLOWCANE_POWDER.get());
             copy(BWGBlockTags.PALO_VERDE_LOGS, BWGItemTags.PALO_VERDE_LOGS);
             tag(BWGItemTags.SHEARS).addOptionalTag(Tags.Items.TOOLS_SHEAR);
             tag(Tags.Items.MUSIC_DISCS).add(BWGItems.MUSIC_DISC_PIXIE_CLUB.get());

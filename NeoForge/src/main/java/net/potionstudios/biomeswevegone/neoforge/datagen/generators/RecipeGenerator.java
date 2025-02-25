@@ -7,12 +7,14 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.common.Tags;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
@@ -181,23 +183,6 @@ public class RecipeGenerator extends RecipeProvider {
 
         threeByThreePacker(recipeOutput, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.PACKED_BLACK_ICE.get(), BWGBlocks.BLACK_ICE.get());
         threeByThreePacker(recipeOutput, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.PACKED_BOREALIS_ICE.get(), BWGBlocks.BOREALIS_ICE.get());
-
-        dyeTagRecipe(recipeOutput, Items.BLACK_DYE, BWGItemTags.MAKES_BLACK_DYE);
-        dyeTagRecipe(recipeOutput, Items.BLUE_DYE, BWGItemTags.MAKES_BLUE_DYE);
-        //dyeTagRecipe(recipeOutput, Items.BROWN_DYE, BWGItemTags.MAKES_BROWN_DYE);
-        dyeTagRecipe(recipeOutput, Items.CYAN_DYE, BWGItemTags.MAKES_CYAN_DYE);
-        //dyeTagRecipe(recipeOutput, Items.GRAY_DYE, BWGItemTags.MAKES_GRAY_DYE);
-        dyeTagRecipe(recipeOutput, Items.GREEN_DYE, BWGItemTags.MAKES_GREEN_DYE);
-        //dyeTagRecipe(recipeOutput, Items.LIGHT_BLUE_DYE, BWGItemTags.MAKES_LIGHT_BLUE_DYE);
-        //dyeTagRecipe(recipeOutput, Items.LIGHT_GRAY_DYE, BWGItemTags.MAKES_LIGHT_GRAY_DYE);
-        //dyeTagRecipe(recipeOutput, Items.LIME_DYE, BWGItemTags.MAKES_LIME_DYE);
-        dyeTagRecipe(recipeOutput, Items.MAGENTA_DYE, BWGItemTags.MAKES_MAGENTA_DYE);
-        dyeTagRecipe(recipeOutput, Items.ORANGE_DYE, BWGItemTags.MAKES_ORANGE_DYE);
-        dyeTagRecipe(recipeOutput, Items.PURPLE_DYE, BWGItemTags.MAKES_PURPLE_DYE);
-        dyeTagRecipe(recipeOutput, Items.RED_DYE, BWGItemTags.MAKES_RED_DYE);
-        dyeTagRecipe(recipeOutput, Items.WHITE_DYE, BWGItemTags.MAKES_WHITE_DYE);
-        dyeTagRecipe(recipeOutput, Items.YELLOW_DYE, BWGItemTags.MAKES_YELLOW_DYE);
-        dyeTagRecipe(recipeOutput, Items.PINK_DYE, BWGItemTags.MAKES_PINK_DYE);
 
         twoByTwoPackertoFourWithStoneCutting(recipeOutput, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.RED_ROCK_SET.getBase());
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase())
@@ -439,6 +424,19 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern("###")
                 .unlockedBy(getHasName(BWGItems.SOUL_FRUIT.get()), has(BWGItems.SOUL_FRUIT.get()))
                 .save(recipeOutput);
+
+        BWGBlocks.BLOCKS.stream().filter(entry -> entry.get() instanceof FlowerBlock || entry.get() instanceof TallFlowerBlock).forEach(
+                entry -> {
+                    Block block = entry.get();
+                    Item dye = DyeItem.byColor(DyeColor.byId(block.defaultMapColor().id));
+                    oneToOneConversionRecipe(recipeOutput, dye, block, getItemName(dye), block instanceof TallFlowerBlock ? 2 : 1);
+                }
+        );
+
+        oneToOneConversionRecipe(recipeOutput, Items.BLUE_DYE, BWGItems.BLUE_GLOWCANE_POWDER.get(), getItemName(Items.BLUE_DYE));
+        oneToOneConversionRecipe(recipeOutput, Items.GREEN_DYE, BWGItems.GREEN_GLOWCANE_POWDER.get(), getItemName(Items.GREEN_DYE));
+        oneToOneConversionRecipe(recipeOutput, Items.RED_DYE, BWGItems.RED_GLOWCANE_POWDER.get(), getItemName(Items.RED_DYE));
+        oneToOneConversionRecipe(recipeOutput, Items.YELLOW_DYE, BWGItems.YELLOW_GLOWCANE_POWDER.get(), getItemName(Items.YELLOW_DYE));
     }
 
     private static void sandToGlass(RecipeOutput finishedRecipeConsumer, BWGSandSet set, Item glass) {
@@ -473,12 +471,4 @@ public class RecipeGenerator extends RecipeProvider {
 				.unlockedBy(getHasName(ingredient), has(ingredient))
 				.save(finishedRecipeConsumer);
 	}
-
-    private static void dyeTagRecipe(RecipeOutput finishedRecipeConsumer, Item dye, TagKey<Item> tag) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, dye)
-                .requires(tag)
-                .unlockedBy(tag.toString(), has(tag))
-                .group(getHasName(dye).replace("has_", ""))
-                .save(finishedRecipeConsumer, BiomesWeveGone.id(getHasName(dye).replace("has_", "")+ "_from_bwg_tag"));
-    }
 }

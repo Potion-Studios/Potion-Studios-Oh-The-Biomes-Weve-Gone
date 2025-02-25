@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_magenta_pitcher_plant": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:magenta_pitcher_plant"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:white_dye_from_magenta_pitcher_plant"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_magenta_pitcher_plant"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:white_dye_from_magenta_pitcher_plant"
+    ]
+  }
+}

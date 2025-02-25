@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rose": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:rose"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:white_dye_from_rose"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rose"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:white_dye_from_rose"
+    ]
+  }
+}
