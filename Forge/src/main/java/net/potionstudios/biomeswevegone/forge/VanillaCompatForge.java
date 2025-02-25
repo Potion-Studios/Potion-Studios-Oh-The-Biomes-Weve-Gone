@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.player.BonemealEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
@@ -19,6 +20,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
+import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
@@ -50,6 +52,7 @@ public class VanillaCompatForge {
                 bus.addListener(VanillaCompatForge::onWanderingTrade);
         }
         bus.addListener(VanillaCompatForge::onBoneMealUse);
+        bus.addListener(VanillaCompatForge::onVillagerInteract);
     }
 
     /**
@@ -109,5 +112,13 @@ public class VanillaCompatForge {
     private static void onBoneMealUse(final BonemealEvent event) {
         if (!event.getLevel().isClientSide() && BoneMealHandler.bwgBoneMealEventHandler((ServerLevel) event.getLevel(), event.getPos(), event.getBlock()))
             event.setResult(Event.Result.ALLOW);
+    }
+
+    /**
+     * Handle villager interaction.
+     * @see PlayerInteractEvent.EntityInteractSpecific
+     */
+    private static void onVillagerInteract(final PlayerInteractEvent.EntityInteractSpecific event) {
+        event.setResult(PumpkinWarden.villagerToPumpkinWarden(event.getTarget(), event.getItemStack(), event.getLevel()) ? Event.Result.DENY : Event.Result.DEFAULT);
     }
 }

@@ -1,4 +1,5 @@
 # 1.5.7
+- Add Right-Clicking on Baby Villager With Weakness Potion with a Carved Pumpkin to turn them into a Pumpkin Warden
 
 # 1.5.6
 - Fix Vine like blocks not being compostable on Forge

@@ -5,9 +5,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -15,6 +18,7 @@ import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -27,6 +31,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -373,6 +379,23 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
             List<BlockState> blockStates = level.getBlockStates(new AABB(warden.blockPosition()).inflate(30)).toList();
             return !blockStates.get(warden.random.nextInt(blockStates.size())).isAir();
         }
+    }
+
+    public static boolean villagerToPumpkinWarden(Entity entity, ItemStack stack, Level level) {
+        if (entity instanceof Villager villager && villager.isBaby() && villager.hasEffect(MobEffects.WEAKNESS)) {
+            if (stack.is(Items.CARVED_PUMPKIN)) {
+                if (level instanceof ServerLevel serverLevel) {
+                    PumpkinWarden warden = BWGEntities.PUMPKIN_WARDEN.get().create(serverLevel);
+                    warden.setPos(villager.position());
+                    serverLevel.addFreshEntity(warden);
+                    serverLevel.playSound(null, villager.blockPosition(), SoundEvents.ZOMBIE_VILLAGER_CURE, SoundSource.NEUTRAL, 1, 1);
+                    villager.remove(Entity.RemovalReason.DISCARDED);
+                    stack.shrink(1);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
 
