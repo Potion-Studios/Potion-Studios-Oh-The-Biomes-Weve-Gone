@@ -4,6 +4,7 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.animal.SnowGolem;
@@ -48,14 +49,14 @@ public class PaleCarvedPumpkinBlock extends CarvedPumpkinBlock {
     private void trySpawnGolem(Level level, BlockPos pos) {
         BlockPattern.BlockPatternMatch blockPatternMatch = this.getOrCreateSnowGolemFull().find(level, pos);
         if (blockPatternMatch != null) {
-            SnowGolem snowGolem = EntityType.SNOW_GOLEM.create(level);
+            SnowGolem snowGolem = EntityType.SNOW_GOLEM.create(level, EntitySpawnReason.TRIGGERED);
             if (snowGolem != null) {
                 spawnGolemInWorld(level, blockPatternMatch, snowGolem, blockPatternMatch.getBlock(0, 2, 0).getPos());
             }
         } else {
             BlockPattern.BlockPatternMatch blockPatternMatch2 = this.getOrCreateIronGolemFull().find(level, pos);
             if (blockPatternMatch2 != null) {
-                IronGolem ironGolem = EntityType.IRON_GOLEM.create(level);
+                IronGolem ironGolem = EntityType.IRON_GOLEM.create(level, EntitySpawnReason.TRIGGERED);
                 if (ironGolem != null) {
                     ironGolem.setPlayerCreated(true);
                     spawnGolemInWorld(level, blockPatternMatch2, ironGolem, blockPatternMatch2.getBlock(1, 2, 0).getPos());

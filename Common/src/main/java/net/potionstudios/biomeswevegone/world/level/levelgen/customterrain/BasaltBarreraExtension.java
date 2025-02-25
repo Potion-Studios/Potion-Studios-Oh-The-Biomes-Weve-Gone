@@ -40,7 +40,7 @@ public class BasaltBarreraExtension {
                 int worldX = pos.getBlockX(x);
                 int worldZ = pos.getBlockZ(z);
                 int landHeight = (chunk.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, worldX, worldZ) / 10) * 10;
-                if (chunk.getMinBuildHeight() >= landHeight) {
+                if (chunk.getMinY() >= landHeight) {
                     continue;
                 }
 

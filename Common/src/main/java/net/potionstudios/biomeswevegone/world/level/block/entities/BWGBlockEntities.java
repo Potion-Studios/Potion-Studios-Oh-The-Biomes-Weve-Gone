@@ -14,14 +14,14 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BWGBlockEntities {
-    public static final Supplier<BlockEntityType<BWGSignBlockEntity>> SIGNS = register("sign", () -> new BlockEntityType<BWGSignBlockEntity>(
+    public static final Supplier<BlockEntityType<BWGSignBlockEntity>> SIGNS = register("sign", () -> new BlockEntityType<>(
             BWGSignBlockEntity::new,
             Stream.concat(
                     BWGWoodSet.woodsets().stream().map(BWGWoodSet::sign),
                     BWGWoodSet.woodsets().stream().map(BWGWoodSet::wallSign)
             ).collect(Collectors.toSet())));
 
-    public static final Supplier<BlockEntityType<BWGHangingSignBlockEntity>> HANGING_SIGNS = register("hanging_sign", () -> new BlockEntityType<BWGHangingSignBlockEntity>(
+    public static final Supplier<BlockEntityType<BWGHangingSignBlockEntity>> HANGING_SIGNS = register("hanging_sign", () -> new BlockEntityType<>(
        BWGHangingSignBlockEntity::new,
        Stream.concat(
                BWGWoodSet.woodsets().stream().map(BWGWoodSet::hangingSign),

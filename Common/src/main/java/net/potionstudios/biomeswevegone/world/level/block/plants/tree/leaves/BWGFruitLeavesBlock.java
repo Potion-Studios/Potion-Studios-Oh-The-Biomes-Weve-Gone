@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -50,11 +50,11 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
     }
 
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+    protected @NotNull InteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (player.isCreative() && !level.isClientSide())
             if (stack.getItem().getDefaultInstance().is(fruitBlock.get().getFruit()) && level.getBlockState(pos.below()).isAir()) {
                 placeFruit(level, pos.below());
-                return ItemInteractionResult.SUCCESS;
+                return InteractionResult.SUCCESS;
             }
         return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
     }

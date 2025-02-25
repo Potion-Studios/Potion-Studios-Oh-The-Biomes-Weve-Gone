@@ -7,7 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -63,31 +63,31 @@ public class CarvedBarrelCactusBlock extends BWGCactusBlock {
 	}
 
 	@Override
-	protected @NotNull ItemInteractionResult useItemOn(ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+	protected @NotNull InteractionResult useItemOn(ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
 		if (stack.is(Items.WATER_BUCKET)) {
 			player.setItemInHand(hand, new ItemStack(Items.BUCKET));
 			level.playSound(null, pos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1, 1);
 			level.gameEvent(null, GameEvent.FLUID_PLACE, pos);
 			level.setBlockAndUpdate(pos, state.setValue(LIQUID, LiquidType.WATER));
-			return ItemInteractionResult.SUCCESS;
+			return InteractionResult.SUCCESS;
 		} else if (stack.is(Items.HONEY_BOTTLE)) {
 			player.setItemInHand(hand, new ItemStack(Items.GLASS_BOTTLE));
 			level.playSound(null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1, 1);
 			level.gameEvent(null, GameEvent.FLUID_PLACE, pos);
 			level.setBlockAndUpdate(pos, state.setValue(LIQUID, LiquidType.HONEY));
-			return ItemInteractionResult.SUCCESS;
+			return InteractionResult.SUCCESS;
 		} else if (stack.is(Items.BUCKET) && state.getValue(LIQUID).equals(LiquidType.WATER)) {
 			player.setItemInHand(hand, new ItemStack(Items.WATER_BUCKET));
 			level.playSound(null, pos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 1, 1);
 			level.gameEvent(player, GameEvent.FLUID_PICKUP, pos);
 			level.setBlockAndUpdate(pos, state.setValue(LIQUID, LiquidType.EMPTY));
-			return ItemInteractionResult.SUCCESS;
+			return InteractionResult.SUCCESS;
 		} else if (stack.is(Items.GLASS_BOTTLE) && state.getValue(LIQUID).equals(LiquidType.HONEY)) {
 			player.setItemInHand(hand, new ItemStack(Items.HONEY_BOTTLE));
 			level.playSound(null, pos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 1, 1);
 			level.gameEvent(player, GameEvent.FLUID_PICKUP, pos);
 			level.setBlockAndUpdate(pos, state.setValue(LIQUID, LiquidType.EMPTY));
-			return ItemInteractionResult.SUCCESS;
+			return InteractionResult.SUCCESS;
 		}
 		return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
 	}

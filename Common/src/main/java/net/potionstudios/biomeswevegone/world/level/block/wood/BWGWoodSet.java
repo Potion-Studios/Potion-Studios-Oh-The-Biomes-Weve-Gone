@@ -91,13 +91,13 @@ public class BWGWoodSet {
         this.slab = BWGWood.registerBlockItem(name + "_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
         this.stairs = BWGWood.registerBlockItem(name + "_stairs", () -> new StairBlock(planks.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(planks.get())));
         this.logstemEnum = logstem;
-        this.logstem = BWGWood.registerBlockItem(name + "_" + logstem.getName(), () -> (RotatedPillarBlock) Blocks.log(mapColor, mapColor));
-        this.strippedLogStem = BWGWood.registerBlockItem("stripped_" + name + "_" + logstem.getName(), () -> (RotatedPillarBlock) Blocks.log(mapColor, mapColor));
+        this.logstem = BWGWood.registerBlockItem(name + "_" + logstem.getName(), () -> new RotatedPillarBlock(Blocks.logProperties(mapColor, mapColor, SoundType.WOOD)));
+        this.strippedLogStem = BWGWood.registerBlockItem("stripped_" + name + "_" + logstem.getName(), () -> new RotatedPillarBlock(Blocks.logProperties(mapColor, mapColor, SoundType.WOOD)));
         this.wood = BWGWood.registerBlockItem(name + "_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
         this.strippedWood = BWGWood.registerBlockItem("stripped_" + name + "_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
         this.sign = BWGWood.register(name + "_sign", () ->  new BWGStandingSignBlock(BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), woodType));
         this.wallSign = BWGWood.register(name + "_wall_sign", () -> new BWGWallSignBlock(BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).dropsLike(sign.get()).ignitedByLava(), woodType));
-        this.signItem = BWGItems.register(name + "_sign", () -> new SignItem(new Item.Properties().stacksTo(16), sign.get(), wallSign.get()));
+        this.signItem = BWGItems.register(name + "_sign", () -> new SignItem(sign.get(), wallSign.get(), new Item.Properties().stacksTo(16)));
         BWGWood.WOOD_BLOCK_ITEMS.add(signItem);
         this.hangingSign = BWGWood.register(name + "_hanging_sign", () -> new BWGCeilingHangingSignBlock(BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), woodType));
         this.wallHangingSign = BWGWood.register(name + "_wall_hanging_sign", () -> new BWGWallHangingSignBlock(BlockBehaviour.Properties.of().mapColor(mapColor).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).dropsLike(hangingSign.get()).ignitedByLava(), woodType));
@@ -105,7 +105,7 @@ public class BWGWoodSet {
         BWGWood.WOOD_BLOCK_ITEMS.add(hangingSignItem);
         this.pressurePlate = BWGWood.registerBlockItem(name + "_pressure_plate", () -> new PressurePlateBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(0.5F).ignitedByLava().pushReaction(PushReaction.DESTROY)));
         this.trapdoor = BWGWood.registerBlockItem(name + "_trapdoor", () -> new TrapDoorBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().isValidSpawn(Blocks::never).ignitedByLava()));
-        this.button = BWGWood.registerBlockItem(name + "_button", () -> (ButtonBlock) Blocks.woodenButton(woodType.setType()));
+        this.button = BWGWood.registerBlockItem(name + "_button", () -> new ButtonBlock(woodType.setType(), 30, Blocks.buttonProperties()));
         this.fenceGate = BWGWood.registerBlockItem(name + "_fence_gate", () -> new FenceGateBlock(woodType, BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava()));
         this.fence = BWGWood.registerBlockItem(name + "_fence", () -> new FenceBlock(BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava().sound(SoundType.WOOD)));
         this.door = BWGWood.registerBlockItem(name + "_door", () -> new DoorBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY)));

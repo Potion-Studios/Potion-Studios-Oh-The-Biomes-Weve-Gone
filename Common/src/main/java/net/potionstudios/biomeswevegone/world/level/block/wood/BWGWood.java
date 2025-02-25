@@ -73,9 +73,9 @@ public class BWGWood {
     public static final BWGWoodSet WITCH_HAZEL = new BWGWoodSet("witch_hazel", MapColor.COLOR_GREEN, BWGTreeGrowers.WITCH_HAZEL);
     public static final BWGWoodSet ZELKOVA = new BWGWoodSet("zelkova", MapColor.COLOR_ORANGE, BWGTreeGrowers.ZELKOVA);
 
-    public static final Supplier<RotatedPillarBlock> PALO_VERDE_LOG = registerBlockItem("palo_verde_log", () -> (RotatedPillarBlock) Blocks.log(MapColor.COLOR_GREEN, MapColor.COLOR_GREEN));
+    public static final Supplier<RotatedPillarBlock> PALO_VERDE_LOG = registerBlockItem("palo_verde_log", () -> new RotatedPillarBlock(Blocks.logProperties(MapColor.COLOR_GREEN, MapColor.COLOR_GREEN, SoundType.WOOD)));
     public static final Supplier<RotatedPillarBlock> PALO_VERDE_WOOD = registerBlockItem("palo_verde_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
-    public static final Supplier<RotatedPillarBlock> STRIPPED_PALO_VERDE_LOG = registerBlockItem("stripped_palo_verde_log", () -> (RotatedPillarBlock) Blocks.log(MapColor.COLOR_GREEN, MapColor.COLOR_GREEN));
+    public static final Supplier<RotatedPillarBlock> STRIPPED_PALO_VERDE_LOG = registerBlockItem("stripped_palo_verde_log", () -> new RotatedPillarBlock(Blocks.logProperties(MapColor.COLOR_GREEN, MapColor.COLOR_GREEN, SoundType.WOOD)));
     public static final Supplier<RotatedPillarBlock> STRIPPED_PALO_VERDE_WOOD = registerBlockItem("stripped_palo_verde_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
 
     public static final Supplier<LeavesBlock> PALO_VERDE_LEAVES = registerBlockItem("palo_verde_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
