@@ -6,22 +6,13 @@ import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.*;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.npc.Villager;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -53,7 +44,7 @@ public class VanillaCompatFabric {
                 registerWanderingTrades();
         }
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> BWGBrewingRecipes.buildBrewingRecipes(builder::addMix));
-        registerVillagerInteraction();
+        UseEntityCallback.EVENT.register(((player, level, interactionHand, entity, entityHitResult) -> PumpkinWarden.villagerToPumpkinWarden(player, player.getItemInHand(interactionHand), level) ? InteractionResult.SUCCESS : InteractionResult.PASS));
     }
 
     private static void registerFuels() {
@@ -102,27 +93,5 @@ public class VanillaCompatFabric {
                     for (MerchantOffer offer : offers) factory.add((trader, random) -> offer);
                 })
         );
-    }
-
-    private static void registerVillagerInteraction() {
-        UseEntityCallback.EVENT.register(((player, level, interactionHand, entity, entityHitResult) -> {
-            if (entity instanceof Villager villager && villager.isBaby() && villager.hasEffect(MobEffects.WEAKNESS)) {
-                ItemStack stack = player.getItemInHand(interactionHand);
-                if (stack.is(Items.CARVED_PUMPKIN) || stack.is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem())) {
-                    if (level instanceof ServerLevel serverLevel) {
-                        PumpkinWarden warden = BWGEntities.PUMPKIN_WARDEN.get().create(serverLevel);
-                        warden.setPos(villager.position());
-                        if (stack.is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem()))
-                            warden.setVariant(PumpkinWarden.Variant.PALE);
-                        serverLevel.addFreshEntity(warden);
-                        serverLevel.playSound(null, villager.blockPosition(), SoundEvents.ZOMBIE_VILLAGER_CURE, SoundSource.NEUTRAL, 1, 1);
-                        villager.remove(Entity.RemovalReason.DISCARDED);
-                        stack.shrink(1);
-                        return InteractionResult.SUCCESS;
-                    }
-                }
-            }
-            return InteractionResult.PASS;
-        }));
     }
 }
