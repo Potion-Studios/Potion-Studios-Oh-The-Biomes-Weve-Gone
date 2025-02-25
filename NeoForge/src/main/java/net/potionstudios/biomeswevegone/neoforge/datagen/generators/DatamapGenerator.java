@@ -13,6 +13,7 @@ import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -28,7 +29,7 @@ public class DatamapGenerator extends DataMapProvider {
     }
 
     @Override
-    protected void gather() {
+    protected void gather(HolderLookup.@NotNull Provider arg) {
         builder(NeoForgeDataMaps.FURNACE_FUELS)
                 .add(id(BWGBlocks.PEAT.get().asItem()), new FurnaceFuel(1200), false)
                 .conditions(new ModLoadedCondition(BiomesWeveGone.MOD_ID));

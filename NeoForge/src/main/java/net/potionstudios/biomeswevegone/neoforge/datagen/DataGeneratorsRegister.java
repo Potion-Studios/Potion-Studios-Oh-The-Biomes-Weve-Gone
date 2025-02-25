@@ -1,6 +1,5 @@
 package net.potionstudios.biomeswevegone.neoforge.datagen;
 
-import com.google.common.collect.ImmutableList;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.RegistrySetBuilder;
@@ -10,9 +9,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.common.world.BiomeModifiers;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
@@ -47,24 +44,23 @@ class DataGeneratorsRegister {
     @SubscribeEvent
     protected static void gatherData(final GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
-        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
         DatapackBuiltinEntriesProvider datapackBuiltinEntriesProvider = new DatapackBuiltinEntriesProvider(output, lookupProvider, BUILDER, Set.of(BiomesWeveGone.MOD_ID));
-        generator.addProvider(event.includeServer(), datapackBuiltinEntriesProvider);
+        generator.addProvider(true, datapackBuiltinEntriesProvider);
         lookupProvider = datapackBuiltinEntriesProvider.getRegistryProvider();
 
-        ModelGenerators.init(generator, event.includeClient(), output, existingFileHelper);
-        generator.addProvider(event.includeClient(), new LangGenerator(output, "en_us"));
-        generator.addProvider(event.includeServer(), new RecipeGenerator(output, lookupProvider));
-        generator.addProvider(event.includeServer(), new LootGenerator(output, lookupProvider));
-        generator.addProvider(event.includeServer(), new GlobalLootModifiersGenerator(output, lookupProvider));
+        ModelGenerators.init(generator, true, output);
+        generator.addProvider(true, new LangGenerator(output, "en_us"));
+        generator.addProvider(true, new RecipeGenerator.RecipeGeneratorRunner(output, lookupProvider));
+        generator.addProvider(true, new LootGenerator(output, lookupProvider));
+        generator.addProvider(true, new GlobalLootModifiersGenerator(output, lookupProvider));
         BWGBiomeModifiers.init();
-        TagsGenerator.init(generator, event.includeServer(), output, lookupProvider, existingFileHelper);
-        generator.addProvider(event.includeServer(), new AdvancementProvider(output, lookupProvider, existingFileHelper, ImmutableList.of(new AdvancementGenerator())));
-        generator.addProvider(event.includeClient(), new ParticleDescriptionGenerator(output, existingFileHelper));
-        generator.addProvider(event.includeClient(), new SoundDefinitionsGenerator(output, existingFileHelper));
-        generator.addProvider(event.includeServer(), new DatamapGenerator(output, lookupProvider));
+        TagsGenerator.init(generator, true, output, lookupProvider);
+        generator.addProvider(true, new AdvancementGenerator(output, lookupProvider));
+        generator.addProvider(true, new ParticleDescriptionGenerator(output));
+        generator.addProvider(true, new SoundDefinitionsGenerator(output));
+        generator.addProvider(true, new DatamapGenerator(output, lookupProvider));
     }
 
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()

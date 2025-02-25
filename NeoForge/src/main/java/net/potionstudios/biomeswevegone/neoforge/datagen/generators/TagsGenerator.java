@@ -9,7 +9,6 @@ import net.minecraft.tags.*;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.BWGBiomeTags;
 import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
@@ -27,7 +26,6 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructures;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import sereneseasons.init.ModTags;
 
 import java.util.*;
@@ -39,14 +37,14 @@ import java.util.concurrent.CompletableFuture;
  */
 public class TagsGenerator {
 
-    public static void init(DataGenerator generator, boolean run, PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper helper) {
-        BlockTagGenerator BlockTags = generator.addProvider(run, new BlockTagGenerator(output, lookupProvider, helper));
-        generator.addProvider(run, new ItemTagGenerator(output, lookupProvider, BlockTags, helper));
-        generator.addProvider(run, new BiomeTagGenerator(output, lookupProvider, helper));
-        generator.addProvider(run, new StructureTagGenerator(output, lookupProvider, helper));
-        generator.addProvider(run, new EntityTypeTagGenerator(output, lookupProvider, helper));
-        generator.addProvider(run, new PoiTagGenerator(output, lookupProvider, helper));
-        generator.addProvider(run, new DamageTypeTagGenerator(output, lookupProvider, helper));
+    public static void init(DataGenerator generator, boolean run, PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        BlockTagGenerator BlockTags = generator.addProvider(run, new BlockTagGenerator(output, lookupProvider));
+        generator.addProvider(run, new ItemTagGenerator(output, lookupProvider, BlockTags));
+        generator.addProvider(run, new BiomeTagGenerator(output, lookupProvider));
+        generator.addProvider(run, new StructureTagGenerator(output, lookupProvider));
+        generator.addProvider(run, new EntityTypeTagGenerator(output, lookupProvider));
+        generator.addProvider(run, new PoiTagGenerator(output, lookupProvider));
+        generator.addProvider(run, new DamageTypeTagGenerator(output, lookupProvider));
     }
 
     private static void sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(Map<?, TagBuilder> tags) {
@@ -67,8 +65,8 @@ public class TagsGenerator {
      */
     @SuppressWarnings("DataFlowIssue")
     private static class BlockTagGenerator extends BlockTagsProvider {
-        private BlockTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-            super(output, lookupProvider, BiomesWeveGone.MOD_ID, existingFileHelper);
+        private BlockTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+            super(output, lookupProvider, BiomesWeveGone.MOD_ID);
         }
 
         @Override
@@ -228,7 +226,7 @@ public class TagsGenerator {
             else if (object instanceof WallBlock) tag(BlockTags.WALLS).add(object);
             else if (object instanceof ColoredFallingBlock) tag(BlockTags.SAND).add(object);
             //else if (object instanceof FlowerBlock) tag(BlockTags.SMALL_FLOWERS).add(object);
-            else if (object instanceof TallFlowerBlock) tag(BlockTags.TALL_FLOWERS).add(object);
+            //else if (object instanceof TallFlowerBlock) tag(BlockTags.TALL_FLOWERS).add(object);
             else if (object instanceof LeavesBlock) tag(BlockTags.LEAVES).add(object);
             else if (object instanceof CampfireBlock) tag(BlockTags.CAMPFIRES).add(object);
             else if (object instanceof FlowerPotBlock) tag(BlockTags.FLOWER_POTS).add(object);
@@ -250,8 +248,8 @@ public class TagsGenerator {
      */
     private static class ItemTagGenerator extends ItemTagsProvider {
 
-        private ItemTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, BlockTagGenerator blockTagGenerator, @Nullable ExistingFileHelper existingFileHelper) {
-            super(arg, completableFuture, blockTagGenerator.contentsGetter(), BiomesWeveGone.MOD_ID, existingFileHelper);
+        private ItemTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, BlockTagGenerator blockTagGenerator) {
+            super(arg, completableFuture, blockTagGenerator.contentsGetter(), BiomesWeveGone.MOD_ID);
         }
 
         @SuppressWarnings("DataFlowIssue")
@@ -299,9 +297,8 @@ public class TagsGenerator {
             copy(BWGBlockTags.STORAGE_BLOCKS_WHITE_ALLIUM, BWGItemTags.STORAGE_BLOCKS_WHITE_ALLIUM);
             copy(BWGBlockTags.STORAGE_BLOCKS_ROSE, BWGItemTags.STORAGE_BLOCKS_ROSE);
             copy(Tags.Blocks.STORAGE_BLOCKS, Tags.Items.STORAGE_BLOCKS);
-            copy(BlockTags.FLOWERS, ItemTags.FLOWERS);
+            //copy(BlockTags.FLOWERS, ItemTags.FLOWERS);
             copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
-            copy(BlockTags.TALL_FLOWERS, ItemTags.TALL_FLOWERS);
             copy(BlockTags.SAPLINGS, ItemTags.SAPLINGS);
             copy(BlockTags.LEAVES, ItemTags.LEAVES);
             copy(BlockTags.WOOL_CARPETS, ItemTags.WOOL_CARPETS);
@@ -384,15 +381,15 @@ public class TagsGenerator {
 
 
     private static class BiomeTagGenerator extends BiomeTagsProvider {
-        private BiomeTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
-            super(arg, completableFuture, BiomesWeveGone.MOD_ID, existingFileHelper);
+        private BiomeTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture) {
+            super(arg, completableFuture, BiomesWeveGone.MOD_ID);
         }
 
         @Override
         protected void addTags(HolderLookup.@NotNull Provider provider) {
             BWGBiomes.BIOME_FACTORIES.keySet().stream().sorted().toList().forEach(biome -> {
                 tag(BWGBiomeTags.OVERWORLD).add(biome);
-                float temperature = provider.asGetterLookup().lookupOrThrow(Registries.BIOME).getOrThrow(biome).value().getBaseTemperature();
+                float temperature = provider.lookupOrThrow(Registries.BIOME).getOrThrow(biome).value().getBaseTemperature();
                 if (temperature > 0.8F) tag(BWGBiomeTags.HOT).add(biome);
                 else if (temperature < 0.5F) tag(BWGBiomeTags.COLD).add(biome);
                 else tag(BWGBiomeTags.TEMPERATE).add(biome);
@@ -465,8 +462,8 @@ public class TagsGenerator {
 
     private static class StructureTagGenerator extends StructureTagsProvider {
 
-        private StructureTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
-            super(arg, completableFuture, BiomesWeveGone.MOD_ID, existingFileHelper);
+        private StructureTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture) {
+            super(arg, completableFuture, BiomesWeveGone.MOD_ID);
         }
 
         @Override
@@ -485,8 +482,8 @@ public class TagsGenerator {
 
     private static class EntityTypeTagGenerator extends EntityTypeTagsProvider {
 
-        private EntityTypeTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
-            super(arg, completableFuture, BiomesWeveGone.MOD_ID, existingFileHelper);
+        private EntityTypeTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture) {
+            super(arg, completableFuture, BiomesWeveGone.MOD_ID);
         }
 
         @Override
@@ -499,8 +496,8 @@ public class TagsGenerator {
 
     private static class PoiTagGenerator extends PoiTypeTagsProvider {
 
-        private PoiTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
-            super(arg, completableFuture, BiomesWeveGone.MOD_ID, existingFileHelper);
+        private PoiTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture) {
+            super(arg, completableFuture, BiomesWeveGone.MOD_ID);
         }
 
         @Override
@@ -511,8 +508,8 @@ public class TagsGenerator {
 
     private static class DamageTypeTagGenerator extends DamageTypeTagsProvider {
 
-        private DamageTypeTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
-            super(arg, completableFuture, BiomesWeveGone.MOD_ID, existingFileHelper);
+        private DamageTypeTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture) {
+            super(arg, completableFuture, BiomesWeveGone.MOD_ID);
         }
 
         @Override
