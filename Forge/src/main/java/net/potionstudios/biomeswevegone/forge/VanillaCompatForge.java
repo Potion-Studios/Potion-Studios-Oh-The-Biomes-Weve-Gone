@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone.forge;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
@@ -11,7 +10,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.brewing.BrewingRecipeRegisterEvent;
-import net.minecraftforge.event.entity.living.EnderManAngerEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
@@ -57,7 +55,7 @@ public class VanillaCompatForge {
         }
         bus.addListener(VanillaCompatForge::registerBrewingRecipes);
         bus.addListener(VanillaCompatForge::onBoneMealUse);
-        bus.addListener(VanillaCompatForge::onEnderManAnger);
+        //bus.addListener(VanillaCompatForge::onEnderManAnger);
         bus.addListener(VanillaCompatForge::onVillagerInteract);
     }
 
@@ -122,11 +120,10 @@ public class VanillaCompatForge {
     /**
      * Handle Enderman anger.
      * @see EnderManAngerEvent
-     */
     private static void onEnderManAnger(final EnderManAngerEvent event) {
         if (event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem()))
             event.setCanceled(true);
-    }
+    }*/
 
     /**
      * Handle bone meal use.

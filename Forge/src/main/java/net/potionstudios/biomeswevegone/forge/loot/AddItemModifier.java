@@ -7,6 +7,7 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
@@ -41,9 +42,9 @@ public class AddItemModifier extends LootModifier {
     }
 
     @Override
-    protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> objectArrayList, LootContext arg) {
+    protected @NotNull ObjectArrayList<ItemStack> doApply(LootTable arg, ObjectArrayList<ItemStack> objectArrayList, LootContext arg2) {
         for(LootItemCondition condition : this.conditions)
-            if(!condition.test(arg)) return objectArrayList;
+            if(!condition.test(arg2)) return objectArrayList;
 
         items.forEach(item -> objectArrayList.add(new ItemStack(item)));
         return objectArrayList;
