@@ -110,87 +110,87 @@ public class BWGBlocks {
     public static final Supplier<MushroomBlock> WOOD_BLEWIT = registerBlockItem("wood_blewit", () -> new BWGMushroomBlock(BlockBehaviour.Properties.of().noCollission().mapColor(MapColor.DIRT).sound(SoundType.STEM).strength(0.2F), BWGBlockTags.BWG_MUSHROOM_PLACEABLE, BWGOverworldVegetationConfiguredFeatures.HUGE_WOOD_BLEWIT1, Block.box(5.0, 0.0, 5.0, 11.0, 7.0, 11.0)));
 
     /** Alliums */
-    public static final Supplier<TallFlowerBlock> TALL_ALLIUM = registerTallFlower("tall_allium", MapColor.COLOR_MAGENTA, BWGTreeGrowers.GIANT_ALLIUM);
-    public static final FlowerBlockFeature ALLIUM_FLOWER_BUSH = registerFlower("allium_flower_bush", MapColor.COLOR_MAGENTA, Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_ALLIUM);
+    public static final Supplier<TallFlowerBlock> TALL_ALLIUM = registerTallFlower("tall_allium", BWGTreeGrowers.GIANT_ALLIUM);
+    public static final FlowerBlockFeature ALLIUM_FLOWER_BUSH = registerFlower("allium_flower_bush", Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_ALLIUM);
     public static final Supplier<Block> ALLIUM_PETAL_BLOCK = registerBasicBlockWithItem("allium_petal_block", BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.COLOR_MAGENTA).sound(SoundType.AZALEA));
-    public static final FlowerBlockFeature PINK_ALLIUM = registerFlower("pink_allium", MapColor.COLOR_PINK, Block.box(5.0, 0.0, 5.0, 11.0, 14.0, 11.0));
-    public static final Supplier<TallFlowerBlock> TALL_PINK_ALLIUM = registerTallFlower("tall_pink_allium", MapColor.COLOR_PINK, BWGTreeGrowers.GIANT_PINK_ALLIUM);
-    public static final FlowerBlockFeature PINK_ALLIUM_FLOWER_BUSH = registerFlower("pink_allium_flower_bush", MapColor.COLOR_PINK, Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_PINK_ALLIUM);
+    public static final FlowerBlockFeature PINK_ALLIUM = registerFlower("pink_allium", Block.box(5.0, 0.0, 5.0, 11.0, 14.0, 11.0));
+    public static final Supplier<TallFlowerBlock> TALL_PINK_ALLIUM = registerTallFlower("tall_pink_allium", BWGTreeGrowers.GIANT_PINK_ALLIUM);
+    public static final FlowerBlockFeature PINK_ALLIUM_FLOWER_BUSH = registerFlower("pink_allium_flower_bush", Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_PINK_ALLIUM);
     public static final Supplier<Block> PINK_ALLIUM_PETAL_BLOCK = registerBasicBlockWithItem("pink_allium_petal_block", BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.COLOR_PINK).sound(SoundType.AZALEA));
-    public static final FlowerBlockFeature WHITE_ALLIUM = registerFlower("white_allium", MapColor.TERRACOTTA_WHITE, Block.box(5.0, 0.0, 5.0, 11.0, 14.0, 11.0));
-    public static final Supplier<TallFlowerBlock> TALL_WHITE_ALLIUM = registerTallFlower("tall_white_allium", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.GIANT_WHITE_ALLIUM);
-    public static final FlowerBlockFeature WHITE_ALLIUM_FLOWER_BUSH = registerFlower("white_allium_flower_bush", MapColor.TERRACOTTA_WHITE, Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_WHITE_ALLIUM);
+    public static final FlowerBlockFeature WHITE_ALLIUM = registerFlower("white_allium", Block.box(5.0, 0.0, 5.0, 11.0, 14.0, 11.0));
+    public static final Supplier<TallFlowerBlock> TALL_WHITE_ALLIUM = registerTallFlower("tall_white_allium", BWGTreeGrowers.GIANT_WHITE_ALLIUM);
+    public static final FlowerBlockFeature WHITE_ALLIUM_FLOWER_BUSH = registerFlower("white_allium_flower_bush", Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_WHITE_ALLIUM);
     public static final Supplier<Block> WHITE_ALLIUM_PETAL_BLOCK = registerBasicBlockWithItem("white_allium_petal_block", BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.AZALEA));
 
     /** Glowing Pitcher Plants */
-    public static final Supplier<TallFlowerBlock> CYAN_PITCHER_PLANT = registerTallGlowingFlower("cyan_pitcher_plant", MapColor.COLOR_CYAN);
-    public static final Supplier<TallFlowerBlock> MAGENTA_PITCHER_PLANT = registerTallGlowingFlower("magenta_pitcher_plant", MapColor.COLOR_MAGENTA);
+    public static final Supplier<TallFlowerBlock> CYAN_PITCHER_PLANT = registerTallGlowingFlower("cyan_pitcher_plant");
+    public static final Supplier<TallFlowerBlock> MAGENTA_PITCHER_PLANT = registerTallGlowingFlower("magenta_pitcher_plant");
 
     /** Roses */
-    public static final FlowerBlockFeature ROSE = registerFlower("rose", MapColor.COLOR_RED, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final FlowerBlockFeature OSIRIA_ROSE = registerFlower("osiria_rose", MapColor.COLOR_RED, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final FlowerBlockFeature BLACK_ROSE = registerFlower("black_rose", MapColor.COLOR_BLACK, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final FlowerBlockFeature CYAN_ROSE = registerFlower("cyan_rose", MapColor.COLOR_CYAN, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final Supplier<TallFlowerBlock> BLUE_ROSE_BUSH = registerTallFlower("blue_rose_bush", MapColor.COLOR_BLUE);
+    public static final FlowerBlockFeature ROSE = registerFlower("rose", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
+    public static final FlowerBlockFeature OSIRIA_ROSE = registerFlower("osiria_rose", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
+    public static final FlowerBlockFeature BLACK_ROSE = registerFlower("black_rose", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
+    public static final FlowerBlockFeature CYAN_ROSE = registerFlower("cyan_rose", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
+    public static final Supplier<TallFlowerBlock> BLUE_ROSE_BUSH = registerTallFlower("blue_rose_bush");
     public static final Supplier<Block> ROSE_PETAL_BLOCK = registerBasicBlockWithItem("rose_petal_block", BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.AZALEA));
 
     /** Tulips */
-    public static final FlowerBlockFeature CYAN_TULIP = registerFlower("cyan_tulip", MapColor.COLOR_CYAN, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final FlowerBlockFeature GREEN_TULIP = registerFlower("green_tulip", MapColor.COLOR_GREEN, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final FlowerBlockFeature MAGENTA_TULIP = registerFlower("magenta_tulip", MapColor.COLOR_MAGENTA, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final FlowerBlockFeature PURPLE_TULIP = registerFlower("purple_tulip", MapColor.COLOR_PURPLE, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final FlowerBlockFeature YELLOW_TULIP = registerFlower("yellow_tulip", MapColor.COLOR_YELLOW, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
+    public static final FlowerBlockFeature CYAN_TULIP = registerFlower("cyan_tulip", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
+    public static final FlowerBlockFeature GREEN_TULIP = registerFlower("green_tulip", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
+    public static final FlowerBlockFeature MAGENTA_TULIP = registerFlower("magenta_tulip", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
+    public static final FlowerBlockFeature PURPLE_TULIP = registerFlower("purple_tulip", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
+    public static final FlowerBlockFeature YELLOW_TULIP = registerFlower("yellow_tulip", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
 
     /** Amaranth */
-    public static final FlowerBlockFeature AMARANTH = registerFlower("amaranth", MapColor.COLOR_PURPLE, Block.box(2.0, 0.0, 2.0, 14.0, 15.0, 14.0));
-    public static final FlowerBlockFeature CYAN_AMARANTH = registerFlower("cyan_amaranth", MapColor.COLOR_CYAN, Block.box(2.0, 0.0, 2.0, 14.0, 15.0, 14.0));
-    public static final FlowerBlockFeature MAGENTA_AMARANTH = registerFlower("magenta_amaranth", MapColor.COLOR_MAGENTA, Block.box(2.0, 0.0, 2.0, 14.0, 15.0, 14.0));
-    public static final FlowerBlockFeature ORANGE_AMARANTH = registerFlower("orange_amaranth", MapColor.COLOR_ORANGE, Block.box(2.0, 0.0, 2.0, 14.0, 15.0, 14.0));
-    public static final FlowerBlockFeature PURPLE_AMARANTH = registerFlower("purple_amaranth", MapColor.COLOR_PURPLE, Block.box(2.0, 0.0, 2.0, 14.0, 15.0, 14.0));
+    public static final FlowerBlockFeature AMARANTH = registerFlower("amaranth", Block.box(2.0, 0.0, 2.0, 14.0, 15.0, 14.0));
+    public static final FlowerBlockFeature CYAN_AMARANTH = registerFlower("cyan_amaranth", Block.box(2.0, 0.0, 2.0, 14.0, 15.0, 14.0));
+    public static final FlowerBlockFeature MAGENTA_AMARANTH = registerFlower("magenta_amaranth", Block.box(2.0, 0.0, 2.0, 14.0, 15.0, 14.0));
+    public static final FlowerBlockFeature ORANGE_AMARANTH = registerFlower("orange_amaranth", Block.box(2.0, 0.0, 2.0, 14.0, 15.0, 14.0));
+    public static final FlowerBlockFeature PURPLE_AMARANTH = registerFlower("purple_amaranth", Block.box(2.0, 0.0, 2.0, 14.0, 15.0, 14.0));
 
     /** Sages */
-    public static final FlowerBlockFeature BLUE_SAGE = registerFlower("blue_sage", MapColor.COLOR_BLUE, Block.box(4.0, 0.0, 4.0, 12.0, 13.0, 12.0));
-    public static final FlowerBlockFeature PURPLE_SAGE = registerFlower("purple_sage", MapColor.COLOR_PURPLE, Block.box(4.0, 0.0, 4.0, 12.0, 13.0, 12.0));
-    public static final FlowerBlockFeature WHITE_SAGE = registerFlower("white_sage", MapColor.TERRACOTTA_WHITE, Block.box(4.0, 0.0, 4.0, 12.0, 13.0, 12.0));
+    public static final FlowerBlockFeature BLUE_SAGE = registerFlower("blue_sage", Block.box(4.0, 0.0, 4.0, 12.0, 13.0, 12.0));
+    public static final FlowerBlockFeature PURPLE_SAGE = registerFlower("purple_sage", Block.box(4.0, 0.0, 4.0, 12.0, 13.0, 12.0));
+    public static final FlowerBlockFeature WHITE_SAGE = registerFlower("white_sage", Block.box(4.0, 0.0, 4.0, 12.0, 13.0, 12.0));
 
     /** Daffodils */
-    public static final FlowerBlockFeature DAFFODIL = registerFlower("daffodil", MapColor.COLOR_RED, Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
-    public static final FlowerBlockFeature PINK_DAFFODIL = registerFlower("pink_daffodil", MapColor.COLOR_PINK, Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
-    public static final FlowerBlockFeature YELLOW_DAFFODIL = registerFlower("yellow_daffodil", MapColor.COLOR_YELLOW, Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
+    public static final FlowerBlockFeature DAFFODIL = registerFlower("daffodil", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
+    public static final FlowerBlockFeature PINK_DAFFODIL = registerFlower("pink_daffodil", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
+    public static final FlowerBlockFeature YELLOW_DAFFODIL = registerFlower("yellow_daffodil", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
 
     /** Anemones */
-    public static final FlowerBlockFeature PINK_ANEMONE = registerFlower("pink_anemone", MapColor.COLOR_PINK, Block.box(1.0, 0.0, 1.0, 15.0, 10.0, 15.0));
-    public static final FlowerBlockFeature WHITE_ANEMONE = registerFlower("white_anemone", MapColor.TERRACOTTA_WHITE, Block.box(1.0, 0.0, 1.0, 15.0, 10.0, 15.0));
+    public static final FlowerBlockFeature PINK_ANEMONE = registerFlower("pink_anemone", Block.box(1.0, 0.0, 1.0, 15.0, 10.0, 15.0));
+    public static final FlowerBlockFeature WHITE_ANEMONE = registerFlower("white_anemone", Block.box(1.0, 0.0, 1.0, 15.0, 10.0, 15.0));
 
    /** Bellflowers */
-    public static final FlowerBlockFeature ALPINE_BELLFLOWER = registerFlower("alpine_bellflower", MapColor.COLOR_PURPLE, Block.box(2.0, 0.0, 2.0, 14.0, 12.0, 14.0));
-    public static final FlowerBlockFeature LAZARUS_BELLFLOWER = registerFlower("lazarus_bellflower", MapColor.COLOR_RED, Block.box(2.0, 0.0, 2.0, 14.0, 14.0, 14.0));
+    public static final FlowerBlockFeature ALPINE_BELLFLOWER = registerFlower("alpine_bellflower", Block.box(2.0, 0.0, 2.0, 14.0, 12.0, 14.0));
+    public static final FlowerBlockFeature LAZARUS_BELLFLOWER = registerFlower("lazarus_bellflower", Block.box(2.0, 0.0, 2.0, 14.0, 14.0, 14.0));
 
     /** Leather Flowers */
-    public static final FlowerBlockFeature PEACH_LEATHER_FLOWER = registerFlower("peach_leather_flower", MapColor.COLOR_PINK, Block.box(5.0, 0.0, 5.0, 11.0, 16.0, 11.0));
-    public static final FlowerBlockFeature VIOLET_LEATHER_FLOWER = registerFlower("violet_leather_flower", MapColor.COLOR_LIGHT_GREEN, Block.box(5.0, 0.0, 5.0, 11.0, 16.0, 11.0));
+    public static final FlowerBlockFeature PEACH_LEATHER_FLOWER = registerFlower("peach_leather_flower", Block.box(5.0, 0.0, 5.0, 11.0, 16.0, 11.0));
+    public static final FlowerBlockFeature VIOLET_LEATHER_FLOWER = registerFlower("violet_leather_flower", Block.box(5.0, 0.0, 5.0, 11.0, 16.0, 11.0));
 
     /** Other Flowers */
-    public static final FlowerBlockFeature ANGELICA = registerFlower("angelica", MapColor.TERRACOTTA_WHITE, Block.box(4.0, 0.0, 4.0, 12.0, 15.0, 12.0));
-    public static final FlowerBlockFeature BEGONIA = registerFlower("begonia", MapColor.COLOR_RED, Block.box(4.0, 0.0, 4.0, 12.0, 13.0, 12.0));
-    public static final FlowerBlockFeature BISTORT = registerFlower("bistort", MapColor.TERRACOTTA_WHITE, Block.box(4.0, 0.0, 4.0, 12.0, 16.0, 12.0));
-    public static final FlowerBlockFeature CALIFORNIA_POPPY = registerFlower("california_poppy", MapColor.COLOR_ORANGE);
-    public static final FlowerBlockFeature CROCUS = registerFlower("crocus", MapColor.COLOR_PURPLE, Block.box(0.0, 0.0, 0.0, 16.0, 12.0, 16.0));
-    public static final Supplier<TallFlowerBlock> DELPHINIUM = registerTallFlower("delphinium", MapColor.COLOR_PURPLE);
-    public static final FlowerBlockFeature FAIRY_SLIPPER = registerFlower("fairy_slipper", BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).noOcclusion().mapColor(MapColor.COLOR_PINK).lightLevel((level) -> 8), Block.box(1.0, 0.0, 1.0, 15.0, 14.0, 15.0));
-    public static final Supplier<TallFlowerBlock> FOXGLOVE = registerTallFlower("foxglove", MapColor.COLOR_ORANGE);
-    public static final FlowerBlockFeature GUZMANIA = registerFlower("guzmania", MapColor.COLOR_YELLOW, Block.box(4.0, 0.0, 4.0, 12.0, 15.0, 12.0));
-    public static final FlowerBlockFeature INCAN_LILY = registerFlower("incan_lily", MapColor.COLOR_PINK);
-    public static final FlowerBlockFeature IRIS = registerFlower("iris", MapColor.COLOR_PURPLE, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final Supplier<TallFlowerBlock> JAPANESE_ORCHID = registerTallFlower("japanese_orchid", MapColor.TERRACOTTA_WHITE);
-    public static final FlowerBlockFeature KOVAN_FLOWER = registerFlower("kovan_flower", MapColor.COLOR_RED);
-    public static final FlowerBlockFeature LOLLIPOP_FLOWER = registerFlower("lollipop_flower", MapColor.COLOR_YELLOW, Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0));
-    public static final FlowerBlockFeature ORANGE_DAISY = registerFlower("orange_daisy", MapColor.COLOR_ORANGE, Block.box(5.0, 0.0, 5.0, 11.0, 14.0, 11.0));
-    public static final FlowerBlockFeature PROTEA_FLOWER = registerFlower("protea_flower", MapColor.COLOR_RED, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final FlowerBlockFeature RICHEA = registerFlower("richea", MapColor.COLOR_RED);
-    public static final FlowerBlockFeature SILVER_VASE_FLOWER = registerFlower("silver_vase_flower", MapColor.TERRACOTTA_WHITE);
-    public static final FlowerBlockFeature HORSEWEED = registerFlower("horseweed", MapColor.COLOR_YELLOW, Block.box(4.0, 0.0, 4.0, 12.0, 15.0, 12.0));
-    public static final FlowerBlockFeature WINTER_SUCCULENT = registerFlower("winter_succulent", MapColor.COLOR_GREEN);
+    public static final FlowerBlockFeature ANGELICA = registerFlower("angelica", Block.box(4.0, 0.0, 4.0, 12.0, 15.0, 12.0));
+    public static final FlowerBlockFeature BEGONIA = registerFlower("begonia", Block.box(4.0, 0.0, 4.0, 12.0, 13.0, 12.0));
+    public static final FlowerBlockFeature BISTORT = registerFlower("bistort", Block.box(4.0, 0.0, 4.0, 12.0, 16.0, 12.0));
+    public static final FlowerBlockFeature CALIFORNIA_POPPY = registerFlower("california_poppy");
+    public static final FlowerBlockFeature CROCUS = registerFlower("crocus", Block.box(0.0, 0.0, 0.0, 16.0, 12.0, 16.0));
+    public static final Supplier<TallFlowerBlock> DELPHINIUM = registerTallFlower("delphinium");
+    public static final FlowerBlockFeature FAIRY_SLIPPER = registerFlower("fairy_slipper", BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).noOcclusion().lightLevel((level) -> 8), Block.box(1.0, 0.0, 1.0, 15.0, 14.0, 15.0));
+    public static final Supplier<TallFlowerBlock> FOXGLOVE = registerTallFlower("foxglove");
+    public static final FlowerBlockFeature GUZMANIA = registerFlower("guzmania", Block.box(4.0, 0.0, 4.0, 12.0, 15.0, 12.0));
+    public static final FlowerBlockFeature INCAN_LILY = registerFlower("incan_lily");
+    public static final FlowerBlockFeature IRIS = registerFlower("iris", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
+    public static final Supplier<TallFlowerBlock> JAPANESE_ORCHID = registerTallFlower("japanese_orchid");
+    public static final FlowerBlockFeature KOVAN_FLOWER = registerFlower("kovan_flower");
+    public static final FlowerBlockFeature LOLLIPOP_FLOWER = registerFlower("lollipop_flower", Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0));
+    public static final FlowerBlockFeature ORANGE_DAISY = registerFlower("orange_daisy", Block.box(5.0, 0.0, 5.0, 11.0, 14.0, 11.0));
+    public static final FlowerBlockFeature PROTEA_FLOWER = registerFlower("protea_flower", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
+    public static final FlowerBlockFeature RICHEA = registerFlower("richea");
+    public static final FlowerBlockFeature SILVER_VASE_FLOWER = registerFlower("silver_vase_flower");
+    public static final FlowerBlockFeature HORSEWEED = registerFlower("horseweed", Block.box(4.0, 0.0, 4.0, 12.0, 15.0, 12.0));
+    public static final FlowerBlockFeature WINTER_SUCCULENT = registerFlower("winter_succulent");
 
     /** Snowy Plants */
     public static final PottedBlock SNOWDROPS = createPottedVariant("snowdrops", () -> new BWGPlacementBushBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), Block.box(2.0D, 0.0D, 2.0D, 14.0D, 14.0D, 14.0D), BWGBlockTags.SNOWY_PLANT_PLACEABLE));
@@ -294,18 +294,18 @@ public class BWGBlocks {
     public static final Supplier<EquipableCarvedPalePumpkinBlock> CARVED_PALE_PUMPKIN = registerBlockItem("carved_pale_pumpkin", EquipableCarvedPalePumpkinBlock::new);
     public static final Supplier<PaleCarvedPumpkinBlock> PALE_JACK_O_LANTERN = registerBlockItem("pale_jack_o_lantern", PaleCarvedPumpkinBlock::new);
 
-    private static FlowerBlockFeature registerFlower(String key, MapColor mapColor) {
-        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).mapColor(mapColor).noOcclusion()));
+    private static FlowerBlockFeature registerFlower(String key) {
+        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).noOcclusion()));
         return new FlowerBlockFeature(key, flower);
     }
 
-    private static FlowerBlockFeature registerFlower(String key, MapColor mapColor, VoxelShape shape) {
-        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).mapColor(mapColor).noOcclusion(), BlockTags.DIRT, shape));
+    private static FlowerBlockFeature registerFlower(String key, VoxelShape shape) {
+        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).noOcclusion(), BlockTags.DIRT, shape));
         return new FlowerBlockFeature(key, flower);
     }
 
-    private static FlowerBlockFeature registerFlower(String key, MapColor mapColor, VoxelShape shape, Supplier<? extends Block> growAble) {
-        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGBonemealableFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).mapColor(mapColor).noOcclusion(), BlockTags.DIRT, shape, growAble));
+    private static FlowerBlockFeature registerFlower(String key, VoxelShape shape, Supplier<? extends Block> growAble) {
+        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGBonemealableFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).noOcclusion(), BlockTags.DIRT, shape, growAble));
         return new FlowerBlockFeature(key, flower);
     }
 
@@ -314,16 +314,16 @@ public class BWGBlocks {
         return new FlowerBlockFeature(key, flower);
     }
 
-    private static Supplier<TallFlowerBlock> registerTallFlower(String key, MapColor mapColor) {
-        return registerBlockItem(key, () -> new BWGTallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER).mapColor(mapColor).noOcclusion()));
+    private static Supplier<TallFlowerBlock> registerTallFlower(String key) {
+        return registerBlockItem(key, () -> new BWGTallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER).noOcclusion()));
     }
 
-    private static Supplier<TallFlowerBlock> registerTallFlower(String key, MapColor mapColor, Supplier<TreeGrower> treeGrower) {
-        return registerBlockItem(key, () -> new BWGTallFlowerBlockTreeGrower(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER).mapColor(mapColor).noOcclusion(), treeGrower));
+    private static Supplier<TallFlowerBlock> registerTallFlower(String key, Supplier<TreeGrower> treeGrower) {
+        return registerBlockItem(key, () -> new BWGTallFlowerBlockTreeGrower(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER).noOcclusion(), treeGrower));
     }
 
-    private static Supplier<TallFlowerBlock> registerTallGlowingFlower(String key, MapColor mapColor) {
-        return registerBlockItem(key, () -> new BWGTallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER).mapColor(mapColor).lightLevel(state -> 10).noOcclusion()));
+    private static Supplier<TallFlowerBlock> registerTallGlowingFlower(String key) {
+        return registerBlockItem(key, () -> new BWGTallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER).lightLevel(state -> 10).noOcclusion()));
     }
 
     public static Supplier<Block> registerBasicBlockWithItem(String key, BlockBehaviour.Properties properties) {
