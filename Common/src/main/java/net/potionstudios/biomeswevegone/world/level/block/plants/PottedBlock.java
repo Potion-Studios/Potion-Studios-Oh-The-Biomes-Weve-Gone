@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants;
 
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.potionstudios.biomeswevegone.PlatformHandler;
@@ -31,6 +32,10 @@ public class PottedBlock {
 
     public Block getBlock() {
         return block.get();
+    }
+
+    public Item getItem() {
+        return block.get().asItem();
     }
 
     public Block getPottedBlock() {

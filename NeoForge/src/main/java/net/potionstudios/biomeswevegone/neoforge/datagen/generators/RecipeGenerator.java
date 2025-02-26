@@ -26,6 +26,7 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -425,80 +426,32 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(BWGItems.SOUL_FRUIT.get()), has(BWGItems.SOUL_FRUIT.get()))
                 .save(recipeOutput);
 
-        oneToOneConversionRecipe(recipeOutput, Items.BLUE_DYE, BWGItems.BLUEBERRIES.get(), getItemName(Items.BLUE_DYE));
+        oneToOneConversionRecipe(recipeOutput, Items.BLACK_DYE, BWGItemTags.MAKES_BLACK_DYE);
+        oneToOneConversionRecipe(recipeOutput, Items.BLUE_DYE, BWGItemTags.MAKES_BLUE_DYE);
+        oneToOneConversionRecipe(recipeOutput, Items.CYAN_DYE, BWGItemTags.MAKES_CYAN_DYE);
+        oneToOneConversionRecipe(recipeOutput, Items.GREEN_DYE, BWGItemTags.MAKES_GREEN_DYE);
+        oneToOneConversionRecipe(recipeOutput, Items.LIGHT_BLUE_DYE, BWGItemTags.MAKES_LIGHT_BLUE_DYE);
+        oneToOneConversionRecipe(recipeOutput, Items.LIME_DYE, BWGItemTags.MAKES_LIME_DYE);
+        oneToOneConversionRecipe(recipeOutput, Items.MAGENTA_DYE, BWGItemTags.MAKES_MAGENTA_DYE);
+        oneToOneConversionRecipe(recipeOutput, Items.ORANGE_DYE, BWGItemTags.MAKES_ORANGE_DYE);
+        oneToOneConversionRecipe(recipeOutput, Items.PINK_DYE, BWGItemTags.MAKES_PINK_DYE);
+        oneToOneConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGItemTags.MAKES_PURPLE_DYE);
+        oneToOneConversionRecipe(recipeOutput, Items.RED_DYE, BWGItemTags.MAKES_RED_DYE);
+        oneToOneConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGItemTags.MAKES_WHITE_DYE);
+        oneToOneConversionRecipe(recipeOutput, Items.YELLOW_DYE, BWGItemTags.MAKES_YELLOW_DYE);
 
-        oneToOneConversionRecipe(recipeOutput, Items.MAGENTA_DYE, BWGBlocks.TALL_ALLIUM.get(), getItemName(Items.MAGENTA_DYE), 2);
-        oneToOneConversionRecipe(recipeOutput, Items.MAGENTA_DYE, BWGBlocks.ALLIUM_FLOWER_BUSH.getBlock(), getItemName(Items.MAGENTA_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.PINK_DYE, BWGBlocks.PINK_ALLIUM.getBlock(), getItemName(Items.PINK_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.PINK_DYE, BWGBlocks.TALL_PINK_ALLIUM.get(), getItemName(Items.PINK_DYE), 2);
-        oneToOneConversionRecipe(recipeOutput, Items.PINK_DYE, BWGBlocks.PINK_ALLIUM_FLOWER_BUSH.getBlock(), getItemName(Items.PINK_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGBlocks.WHITE_ALLIUM.getBlock(), getItemName(Items.WHITE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGBlocks.TALL_WHITE_ALLIUM.get(), getItemName(Items.WHITE_DYE), 2);
-        oneToOneConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGBlocks.WHITE_ALLIUM_FLOWER_BUSH.getBlock(), getItemName(Items.WHITE_DYE));
+        oneToTwoConversionRecipe(recipeOutput, Items.BLUE_DYE, BWGItemTags.MAKES_2_BLUE_DYE);
+        oneToTwoConversionRecipe(recipeOutput, Items.CYAN_DYE, BWGItemTags.MAKES_2_CYAN_DYE);
+        oneToTwoConversionRecipe(recipeOutput, Items.PINK_DYE, BWGItemTags.MAKES_2_PINK_DYE);
+        oneToTwoConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGItemTags.MAKES_2_PURPLE_DYE);
+    }
 
-        oneToOneConversionRecipe(recipeOutput, Items.CYAN_DYE, BWGBlocks.CYAN_PITCHER_PLANT.get(), getItemName(Items.CYAN_DYE), 2);
-        oneToOneConversionRecipe(recipeOutput, Items.MAGENTA_DYE, BWGBlocks.MAGENTA_PITCHER_PLANT.get(), getItemName(Items.MAGENTA_DYE), 2);
+    private static void oneToOneConversionRecipe(RecipeOutput recipeOutput, ItemLike result, TagKey<Item> ingredient) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, 1).requires(ingredient).group(getItemName(result)).unlockedBy("has_dye_tag", has(ingredient)).save(recipeOutput, getItemName(result) + "_from_bwg_dye_tag");
+    }
 
-        oneToOneConversionRecipe(recipeOutput, Items.RED_DYE, BWGBlocks.ROSE.getBlock(), getItemName(Items.RED_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.RED_DYE, BWGBlocks.OSIRIA_ROSE.getBlock(), getItemName(Items.RED_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.BLACK_DYE, BWGBlocks.BLACK_ROSE.getBlock(), getItemName(Items.BLACK_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.CYAN_DYE, BWGBlocks.CYAN_ROSE.getBlock(), getItemName(Items.CYAN_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.BLUE_DYE, BWGBlocks.BLUE_ROSE_BUSH.get(), getItemName(Items.BLUE_DYE), 2);
-
-        oneToOneConversionRecipe(recipeOutput, Items.CYAN_DYE, BWGBlocks.CYAN_TULIP.getBlock(), getItemName(Items.CYAN_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.GREEN_DYE, BWGBlocks.GREEN_TULIP.getBlock(), getItemName(Items.GREEN_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.MAGENTA_DYE, BWGBlocks.MAGENTA_TULIP.getBlock(), getItemName(Items.MAGENTA_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGBlocks.PURPLE_TULIP.getBlock(), getItemName(Items.PURPLE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.YELLOW_DYE, BWGBlocks.YELLOW_TULIP.getBlock(), getItemName(Items.YELLOW_DYE));
-
-        oneToOneConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGBlocks.AMARANTH.getBlock(), getItemName(Items.PURPLE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.CYAN_DYE, BWGBlocks.CYAN_AMARANTH.getBlock(), getItemName(Items.CYAN_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.MAGENTA_DYE, BWGBlocks.MAGENTA_AMARANTH.getBlock(), getItemName(Items.MAGENTA_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.ORANGE_DYE, BWGBlocks.ORANGE_AMARANTH.getBlock(), getItemName(Items.ORANGE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGBlocks.PURPLE_AMARANTH.getBlock(), getItemName(Items.PURPLE_DYE));
-
-        oneToOneConversionRecipe(recipeOutput, Items.BLUE_DYE, BWGBlocks.BLUE_SAGE.getBlock(), getItemName(Items.BLUE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGBlocks.PURPLE_SAGE.getBlock(), getItemName(Items.PURPLE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGBlocks.WHITE_SAGE.getBlock(), getItemName(Items.WHITE_DYE));
-
-        oneToOneConversionRecipe(recipeOutput, Items.RED_DYE, BWGBlocks.DAFFODIL.getBlock(), getItemName(Items.RED_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.PINK_DYE, BWGBlocks.PINK_DAFFODIL.getBlock(), getItemName(Items.PINK_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.YELLOW_DYE, BWGBlocks.YELLOW_DAFFODIL.getBlock(), getItemName(Items.YELLOW_DYE));
-
-        oneToOneConversionRecipe(recipeOutput, Items.PINK_DYE, BWGBlocks.PINK_ANEMONE.getBlock(), getItemName(Items.PINK_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGBlocks.WHITE_ANEMONE.getBlock(), getItemName(Items.WHITE_DYE));
-
-        oneToOneConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGBlocks.ALPINE_BELLFLOWER.getBlock(), getItemName(Items.PURPLE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.RED_DYE, BWGBlocks.LAZARUS_BELLFLOWER.getBlock(), getItemName(Items.RED_DYE));
-
-        oneToOneConversionRecipe(recipeOutput, Items.PINK_DYE, BWGBlocks.PEACH_LEATHER_FLOWER.getBlock(), getItemName(Items.PINK_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.BLUE_DYE, BWGBlocks.VIOLET_LEATHER_FLOWER.getBlock(), getItemName(Items.BLUE_DYE));
-
-        oneToOneConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGBlocks.ANGELICA.getBlock(), getItemName(Items.WHITE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.RED_DYE, BWGBlocks.BEGONIA.getBlock(), getItemName(Items.RED_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGBlocks.BISTORT.getBlock(), getItemName(Items.WHITE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.ORANGE_DYE, BWGBlocks.CALIFORNIA_POPPY.getBlock(), getItemName(Items.ORANGE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGBlocks.CROCUS.getBlock(), getItemName(Items.PURPLE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGBlocks.DELPHINIUM.get(), getItemName(Items.PURPLE_DYE), 2);
-        oneToOneConversionRecipe(recipeOutput, Items.PINK_DYE, BWGBlocks.FAIRY_SLIPPER.getBlock(), getItemName(Items.PINK_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.ORANGE_DYE, BWGBlocks.FOXGLOVE.get(), getItemName(Items.ORANGE_DYE), 2);
-        oneToOneConversionRecipe(recipeOutput, Items.YELLOW_DYE, BWGBlocks.GUZMANIA.getBlock(), getItemName(Items.YELLOW_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.PINK_DYE, BWGBlocks.INCAN_LILY.getBlock(), getItemName(Items.PINK_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGBlocks.IRIS.getBlock(), getItemName(Items.PURPLE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGBlocks.JAPANESE_ORCHID.get(), getItemName(Items.WHITE_DYE), 2);
-        oneToOneConversionRecipe(recipeOutput, Items.RED_DYE, BWGBlocks.KOVAN_FLOWER.getBlock(), getItemName(Items.RED_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.YELLOW_DYE, BWGBlocks.LOLLIPOP_FLOWER.getBlock(), getItemName(Items.YELLOW_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.ORANGE_DYE, BWGBlocks.ORANGE_DAISY.getBlock(), getItemName(Items.ORANGE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.RED_DYE, BWGBlocks.PROTEA_FLOWER.getBlock(), getItemName(Items.RED_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.RED_DYE, BWGBlocks.RICHEA.getBlock(), getItemName(Items.RED_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGBlocks.SILVER_VASE_FLOWER.getBlock(), getItemName(Items.WHITE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.YELLOW_DYE, BWGBlocks.HORSEWEED.getBlock(), getItemName(Items.YELLOW_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.GREEN_DYE, BWGBlocks.WINTER_SUCCULENT.getBlock(), getItemName(Items.GREEN_DYE));
-
-        oneToOneConversionRecipe(recipeOutput, Items.BLUE_DYE, BWGItems.BLUE_GLOWCANE_POWDER.get(), getItemName(Items.BLUE_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.GREEN_DYE, BWGItems.GREEN_GLOWCANE_POWDER.get(), getItemName(Items.GREEN_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.RED_DYE, BWGItems.RED_GLOWCANE_POWDER.get(), getItemName(Items.RED_DYE));
-        oneToOneConversionRecipe(recipeOutput, Items.YELLOW_DYE, BWGItems.YELLOW_GLOWCANE_POWDER.get(), getItemName(Items.YELLOW_DYE));
+    private static void oneToTwoConversionRecipe(RecipeOutput recipeOutput, ItemLike result, TagKey<Item> ingredient) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, 2).requires(ingredient).group(getItemName(result)).unlockedBy("has_2_dye_tag", has(ingredient)).save(recipeOutput, getItemName(result) + "_from_bwg_2_dye_tag");
     }
 
     private static void sandToGlass(RecipeOutput finishedRecipeConsumer, BWGSandSet set, Item glass) {
