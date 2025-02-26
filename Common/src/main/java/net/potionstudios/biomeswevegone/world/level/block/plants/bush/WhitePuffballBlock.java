@@ -27,7 +27,7 @@ public class WhitePuffballBlock extends BWGBerryBush {
 	private static final VoxelShape MID_GROWTH_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
 	public WhitePuffballBlock() {
-		super(() -> BWGItems.WHITE_PUFFBALL_SPORES, false);
+		super(() -> BWGItems.WHITE_PUFFBALL_SPORES, false, "white_puffball");
 	}
 
 	@Override

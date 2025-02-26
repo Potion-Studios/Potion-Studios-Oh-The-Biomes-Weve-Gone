@@ -31,7 +31,7 @@ side = "BOTH"
 [[dependencies.biomeswevegone]]
 modId = "corgilib"
 mandatory = true
-versionRange = "[5.0.0.2,)"
+versionRange = "[6.0.0.0,)"
 ordering = "AFTER"
 side = "BOTH"
 

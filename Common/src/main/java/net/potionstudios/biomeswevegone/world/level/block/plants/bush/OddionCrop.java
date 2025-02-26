@@ -33,7 +33,7 @@ public class OddionCrop extends BWGBerryBush {
     public static final BooleanProperty HATCHING = BooleanProperty.create("hatching");
 
     public OddionCrop() {
-        super(() -> BWGItems.ODDION_BULB, false);
+        super(() -> BWGItems.ODDION_BULB, false, "oddion_crop");
         this.registerDefaultState(this.stateDefinition.any().setValue(HATCHING, false).setValue(TIMER, 0));
     }
 

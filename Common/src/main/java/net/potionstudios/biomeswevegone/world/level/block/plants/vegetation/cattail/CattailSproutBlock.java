@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cat
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,8 +31,8 @@ public class CattailSproutBlock extends Block implements SimpleWaterloggedBlock,
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     private final Supplier<? extends CattailPlantBlock> cattailBlock;
 
-    public CattailSproutBlock(Supplier<? extends CattailPlantBlock> cattailBlock) {
-        super(BlockBehaviour.Properties.of().noCollission().noCollission().randomTicks().sound(SoundType.WET_GRASS).strength(0.0F));
+    public CattailSproutBlock(Supplier<? extends CattailPlantBlock> cattailBlock, String id) {
+        super(BlockBehaviour.Properties.of().noCollission().noCollission().randomTicks().sound(SoundType.WET_GRASS).strength(0.0F).setId(BiomesWeveGone.key(Registries.BLOCK, id)));
         this.cattailBlock = cattailBlock;
         this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false));
     }

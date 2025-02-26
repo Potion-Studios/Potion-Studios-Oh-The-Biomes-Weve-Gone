@@ -6,6 +6,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -69,8 +70,8 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
         this(properties, Suppliers.memoize(() -> () -> BuiltInRegistries.ITEM.getValue(fruitLocation)), Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.getValue(leavesLocation)));
     }
 
-    public BWGFruitBlock(Supplier<Supplier<Item>> fruit, String leaves) {
-        this(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY), fruit, leaves);
+    public BWGFruitBlock(Supplier<Supplier<Item>> fruit, String leaves, String id) {
+        this(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY).setId(BiomesWeveGone.key(Registries.BLOCK, id)), fruit, leaves);
     }
 
     @Override

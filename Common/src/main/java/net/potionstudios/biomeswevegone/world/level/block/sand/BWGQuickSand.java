@@ -24,12 +24,13 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.damagesource.BWGDamageTypes;
 import org.jetbrains.annotations.NotNull;
 
 public class BWGQuickSand extends ColoredFallingBlock {
-	public BWGQuickSand(int dustColor) {
-		super(new ColorRGBA(dustColor), BlockBehaviour.Properties.ofFullCopy(Blocks.SAND).noCollission().isValidSpawn(Blocks::never));
+	public BWGQuickSand(int dustColor, String id) {
+		super(new ColorRGBA(dustColor), BlockBehaviour.Properties.ofFullCopy(Blocks.SAND).noCollission().isValidSpawn(Blocks::never).setId(BiomesWeveGone.key(Registries.BLOCK, id)));
 	}
 
 	@Override

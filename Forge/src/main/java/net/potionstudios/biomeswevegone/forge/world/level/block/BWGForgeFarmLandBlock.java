@@ -18,8 +18,8 @@ import java.util.function.Supplier;
  * @see IForgeBlock
  */
 public class BWGForgeFarmLandBlock extends BWGFarmLandBlock implements IForgeBlock {
-    public BWGForgeFarmLandBlock(Supplier<Block> dirt) {
-        super(dirt);
+    public BWGForgeFarmLandBlock(Supplier<Block> dirt, String id) {
+        super(dirt, id);
     }
 
     @Override

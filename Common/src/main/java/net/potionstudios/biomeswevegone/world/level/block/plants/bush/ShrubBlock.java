@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.bush;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
@@ -20,6 +21,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.Vec3;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,10 +31,10 @@ public class ShrubBlock extends BushBlock implements BonemealableBlock {
 
 	private static final IntegerProperty STAGE = BlockStateProperties.STAGE;
 	private final @Nullable Supplier<TreeGrower> treeGrower;
-	private static final MapCodec<ShrubBlock> CODEC = MapCodec.unit(() -> new ShrubBlock(null));
+	private static final MapCodec<ShrubBlock> CODEC = MapCodec.unit(() -> new ShrubBlock(null, ""));
 
-	public ShrubBlock(@Nullable Supplier<TreeGrower> treeGrower) {
-		super(BlockBehaviour.Properties.of().noCollission().noOcclusion().sound(SoundType.SWEET_BERRY_BUSH).mapColor(MapColor.COLOR_GREEN));
+	public ShrubBlock(@Nullable Supplier<TreeGrower> treeGrower, String id) {
+		super(BlockBehaviour.Properties.of().noCollission().noOcclusion().sound(SoundType.SWEET_BERRY_BUSH).mapColor(MapColor.COLOR_GREEN).setId(BiomesWeveGone.key(Registries.BLOCK, id)));
 		this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, 0));
 		this.treeGrower = treeGrower;
 	}

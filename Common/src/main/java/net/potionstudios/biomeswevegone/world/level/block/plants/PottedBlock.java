@@ -19,7 +19,7 @@ public class PottedBlock {
     }
 
     public PottedBlock(String id, @NotNull Supplier<? extends Block> block) {
-        this(block, BWGBlocks.registerBlock("potted_" + id, PlatformHandler.PLATFORM_HANDLER.createPottedBlock(block)));
+        this(block, BWGBlocks.registerBlock("potted_" + id, PlatformHandler.PLATFORM_HANDLER.createPottedBlock(block, "potted_" + id)));
     }
 
     public Supplier<? extends Block> getBlockSupplier() {

@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.world.level.block.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -10,6 +11,7 @@ import net.minecraft.world.level.block.DirtPathBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
@@ -18,8 +20,8 @@ public class BWGDirtPathBlock extends DirtPathBlock {
 
     private final Supplier<? extends Block> dirtBlock;
 
-    public BWGDirtPathBlock(Supplier<? extends Block> dirtBlock) {
-        super(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT_PATH));
+    public BWGDirtPathBlock(Supplier<? extends Block> dirtBlock, String id) {
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT_PATH).setId(BiomesWeveGone.key(Registries.BLOCK, id)));
         this.dirtBlock = dirtBlock;
     }
 

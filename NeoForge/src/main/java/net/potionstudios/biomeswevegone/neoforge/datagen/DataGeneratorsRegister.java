@@ -42,7 +42,7 @@ import java.util.stream.Collectors;
 class DataGeneratorsRegister {
 
     @SubscribeEvent
-    protected static void gatherData(final GatherDataEvent event) {
+    protected static void gatherData(final GatherDataEvent.Server event) {
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
@@ -50,7 +50,7 @@ class DataGeneratorsRegister {
         generator.addProvider(true, datapackBuiltinEntriesProvider);
         lookupProvider = datapackBuiltinEntriesProvider.getRegistryProvider();
 
-        ModelGenerators.init(generator, true, output);
+        //ModelGenerators.init(generator, true, output);
         generator.addProvider(true, new LangGenerator(output, "en_us"));
         generator.addProvider(true, new RecipeGenerator.RecipeGeneratorRunner(output, lookupProvider));
         generator.addProvider(true, new LootGenerator(output, lookupProvider));

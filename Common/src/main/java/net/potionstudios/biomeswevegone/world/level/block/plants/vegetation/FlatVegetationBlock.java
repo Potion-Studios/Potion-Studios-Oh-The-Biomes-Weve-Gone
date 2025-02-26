@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -11,6 +12,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,8 +37,8 @@ public class FlatVegetationBlock extends BushBlock {
         return CODEC;
     }
 
-    public FlatVegetationBlock() {
-        this(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS));
+    public FlatVegetationBlock(String id) {
+        this(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).setId(BiomesWeveGone.key(Registries.BLOCK, id)));
     }
 
     @Override

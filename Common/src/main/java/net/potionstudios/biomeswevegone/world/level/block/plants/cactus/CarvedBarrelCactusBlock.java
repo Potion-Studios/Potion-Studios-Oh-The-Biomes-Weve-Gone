@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.cactus;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -26,6 +27,7 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
 
 public class CarvedBarrelCactusBlock extends BWGCactusBlock {
@@ -33,7 +35,7 @@ public class CarvedBarrelCactusBlock extends BWGCactusBlock {
 	public static final EnumProperty<LiquidType> LIQUID = EnumProperty.create("liquid", LiquidType.class);
 
 	public CarvedBarrelCactusBlock() {
-		super(BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS).noOcclusion());
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS).noOcclusion().setId(BiomesWeveGone.key(Registries.BLOCK, "carved_barrel_cactus")));
 		this.registerDefaultState(this.stateDefinition.any().setValue(LIQUID, LiquidType.EMPTY));
 	}
 

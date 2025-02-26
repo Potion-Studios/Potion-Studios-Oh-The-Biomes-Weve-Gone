@@ -23,7 +23,7 @@ public class BWGBlockSet {
     private final Supplier<WallBlock> wall;
 
     public BWGBlockSet(String name, BlockBehaviour.Properties properties) {
-        this.base = BWGBlocks.registerBasicBlockWithItem(name, properties.setId(key(name)));
+        this.base = BWGBlocks.registerBasicBlockWithItem(name, properties);
         this.slab = BWGBlocks.registerBlockItem(name + "_slab", () -> new SlabBlock(properties.setId(key(name + "_slab"))));
         this.stairs = BWGBlocks.registerBlockItem(name + "_stairs", () -> new StairBlock(base.get().defaultBlockState(), properties.setId(key(name + "_stairs"))));
         this.wall = BWGBlocks.registerBlockItem(name + "_wall", () -> new WallBlock(properties.setId(key(name + "_wall"))));
@@ -31,7 +31,7 @@ public class BWGBlockSet {
     }
 
     public BWGBlockSet(String name, String alt, BlockBehaviour.Properties properties) {
-        this.base = BWGBlocks.registerBasicBlockWithItem(name, properties.setId(key(name)));
+        this.base = BWGBlocks.registerBasicBlockWithItem(name, properties);
         this.slab = BWGBlocks.registerBlockItem(alt + "_slab", () -> new SlabBlock(properties.setId(key(alt + "_slab"))));
         this.stairs = BWGBlocks.registerBlockItem(alt + "_stairs", () -> new StairBlock(base.get().defaultBlockState(), properties.setId(key(alt + "_stairs"))));
         this.wall = BWGBlocks.registerBlockItem(alt + "_wall", () -> new WallBlock(properties.setId(key(alt + "_wall"))));
@@ -48,7 +48,7 @@ public class BWGBlockSet {
 
     public BWGBlockSet(String name, MapColor color) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(color);
-        this.base = BWGBlocks.registerBasicBlockWithItem(name, properties.setId(key(name)));
+        this.base = BWGBlocks.registerBasicBlockWithItem(name, properties);
         this.slab = BWGBlocks.registerBlockItem(name + "_slab", () -> new SlabBlock(properties.setId(key(name + "_slab"))));
         this.stairs = BWGBlocks.registerBlockItem(name + "_stairs", () -> new StairBlock(base.get().defaultBlockState(), properties.setId(key(name + "_stairs"))));
         this.wall = BWGBlocks.registerBlockItem(name + "_wall", () -> new WallBlock(properties.setId(key(name + "_wall"))));
@@ -57,7 +57,7 @@ public class BWGBlockSet {
 
     public BWGBlockSet(String name, String alt, MapColor color) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(color);
-        this.base = BWGBlocks.registerBasicBlockWithItem(name, properties.setId(key(name)));
+        this.base = BWGBlocks.registerBasicBlockWithItem(name, properties);
         this.slab = BWGBlocks.registerBlockItem(alt + "_slab", () -> new SlabBlock(properties.setId(key(alt + "_slab"))));
         this.stairs = BWGBlocks.registerBlockItem(alt + "_stairs", () -> new StairBlock(base.get().defaultBlockState(), properties.setId(key(alt + "_stairs"))));
         this.wall = BWGBlocks.registerBlockItem(alt + "_wall", () -> new WallBlock(properties.setId(key(alt + "_wall"))));

@@ -63,12 +63,14 @@ public interface PlatformHandler {
 
 	/**
 	 * Registers a potted block with the specified block
-	 * @see FlowerPotBlock
+	 *
 	 * @param block The block to be potted
+	 * @param name
 	 * @return Supplier of the FlowerPotBlock
+	 * @see FlowerPotBlock
 	 */
-	default Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block) {
-		return () -> new FlowerPotBlock(block.get(), FlowerPotBlock.Properties.ofFullCopy(Blocks.FLOWER_POT));
+	default Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block, String name) {
+		return () -> new FlowerPotBlock(block.get(), FlowerPotBlock.Properties.ofFullCopy(Blocks.FLOWER_POT).setId(BiomesWeveGone.key(Registries.BLOCK, name)));
 	}
 
 	/**
@@ -83,8 +85,8 @@ public interface PlatformHandler {
 		return () -> new MobBucketItem(entity.get(), fluid.get(), sound.get(), new Item.Properties().stacksTo(1).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY).setId(BiomesWeveGone.key(Registries.ITEM, entity.get().getDescriptionId() + "_bucket")));
 	}
 
-	default Supplier<BWGFarmLandBlock> bwgFarmLandBlock(Supplier<Block> dirt) {
-		return () -> new BWGFarmLandBlock(dirt);
+	default Supplier<BWGFarmLandBlock> bwgFarmLandBlock(Supplier<Block> dirt, String id) {
+		return () -> new BWGFarmLandBlock(dirt, id);
 	}
 
 	/**

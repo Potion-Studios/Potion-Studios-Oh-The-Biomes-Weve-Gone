@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
@@ -26,7 +28,7 @@ import org.jetbrains.annotations.NotNull;
 public class BloomingAloeVeraBlock extends DoublePlantBlock {
     public BloomingAloeVeraBlock() {
         super(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.0f).sound(SoundType.WET_GRASS)
-                .noOcclusion().noCollission().pushReaction(PushReaction.DESTROY));
+                .noOcclusion().noCollission().pushReaction(PushReaction.DESTROY).setId(BiomesWeveGone.key(Registries.BLOCK, "blooming_aloe_vera_block")));
     }
 
     @Override

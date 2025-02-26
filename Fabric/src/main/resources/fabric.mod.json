@@ -37,12 +37,12 @@
     "fabric": "*",
     "minecraft": ">=1.21.4",
     "terrablender": ">=4.3.0.0",
-    "corgilib": ">=5.0.0.2",
+    "corgilib": ">=6.0.0.0",
     "ohthetreesyoullgrow": ">=6.0.0",
     "geckolib": ">=4.8"
   },
   "suggests": {
-    "WTHIT": ">=8.15.0"
+    "WTHIT": ">=14.1.4"
   },
   "custom": {
     "modmenu": {

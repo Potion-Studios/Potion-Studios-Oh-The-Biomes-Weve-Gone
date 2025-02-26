@@ -80,8 +80,8 @@ public class BWGWoodSet {
     private final Supplier<Item> chestBoatItem;
     private final Supplier<EntityType<Boat>> boat;
     private final Supplier<EntityType<ChestBoat>> chestBoat;
-    private final ModelLayerLocation boatModelLayer = new ModelLayerLocation(BiomesWeveGone.id("boat/" + name()), "main");
-    private final ModelLayerLocation chestBoatModelLayer = new ModelLayerLocation(BiomesWeveGone.id("boat/" + name() + "_chest"), "main");
+    private final ModelLayerLocation boatModelLayer;
+    private final ModelLayerLocation chestBoatModelLayer;
 
     private BlockFamily family = null;
 
@@ -115,12 +115,12 @@ public class BWGWoodSet {
         BWGWood.WOOD_BLOCK_ITEMS.add(hangingSignItem);
         this.pressurePlate = BWGWood.registerBlockItem(name + "_pressure_plate", () -> new PressurePlateBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(0.5F).ignitedByLava().pushReaction(PushReaction.DESTROY).setId(key(name + "_pressure_plate"))));
         this.trapdoor = BWGWood.registerBlockItem(name + "_trapdoor", () -> new TrapDoorBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().isValidSpawn(Blocks::never).ignitedByLava().setId(key(name + "_trapdoor"))));
-        this.button = BWGWood.registerBlockItem(name + "_button", () -> new ButtonBlock(woodType.setType(), 30, Blocks.buttonProperties()));
+        this.button = BWGWood.registerBlockItem(name + "_button", () -> new ButtonBlock(woodType.setType(), 30, Blocks.buttonProperties().setId(key(name + "_button"))));
         this.fenceGate = BWGWood.registerBlockItem(name + "_fence_gate", () -> new FenceGateBlock(woodType, BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava().setId(key(name + "_fence_gate"))));
         this.fence = BWGWood.registerBlockItem(name + "_fence", () -> new FenceBlock(BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava().sound(SoundType.WOOD).setId(key(name + "_fence"))));
         this.door = BWGWood.registerBlockItem(name + "_door", () -> new DoorBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY).setId(key(name + "_door"))));
         this.bookshelf = BWGWood.registerBlockItem(name + "_bookshelf", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BOOKSHELF).mapColor(mapColor).setId(key(name + "_bookshelf"))));
-        this.craftingTable = BWGWood.registerBlockItem(name + "_crafting_table", () -> new BWGCraftingTable(mapColor));
+        this.craftingTable = BWGWood.registerBlockItem(name + "_crafting_table", () -> new BWGCraftingTable(mapColor, name + "_crafting_table"));
         if (saplingGrower != null) this.sapling = BWGWood.createSapling(name, saplingGrower, saplingPlantAbleOn);
 
         if (leaves) {
@@ -137,6 +137,9 @@ public class BWGWoodSet {
 
         this.logBlockTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name + "_logs"));
         this.logItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id(name + "_logs"));
+
+        this.boatModelLayer = new ModelLayerLocation(BiomesWeveGone.id("boat/" + name), "main");
+        this.chestBoatModelLayer = new ModelLayerLocation(BiomesWeveGone.id("boat/" + name + "_chest"), "main");
         woodSets.add(this);
     }
 

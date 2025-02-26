@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.world.item.custom.PowderItem;
 import org.jetbrains.annotations.NotNull;
@@ -29,7 +31,7 @@ public class FluorescentCattailPlantBlock extends CattailPlantBlock {
 	public static final EnumProperty<ColorProperty> COLOR = EnumProperty.create("color", ColorProperty.class);
 
 	public FluorescentCattailPlantBlock(Supplier<Supplier<Item>> sprout) {
-		super(BlockBehaviour.Properties.of().noCollission().noCollission().sound(SoundType.WET_GRASS).strength(0.0F).lightLevel(level -> 12), sprout);
+		super(BlockBehaviour.Properties.of().noCollission().noCollission().sound(SoundType.WET_GRASS).strength(0.0F).lightLevel(level -> 12).setId(BiomesWeveGone.key(Registries.BLOCK, "fluorescent_cattail")), sprout);
 		this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false).setValue(COLOR, ColorProperty.NO_COLOR));
 	}
 

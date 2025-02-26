@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
@@ -16,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
 
@@ -25,7 +27,7 @@ public class AloeVeraBlock extends BushBlock implements BonemealableBlock {
 
     public AloeVeraBlock() {
         this(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.0f).sound(SoundType.WET_GRASS)
-                .noOcclusion().noCollission().randomTicks().pushReaction(PushReaction.DESTROY));
+                .noOcclusion().noCollission().randomTicks().pushReaction(PushReaction.DESTROY).setId(BiomesWeveGone.key(Registries.BLOCK, "aloe_vera_block")));
     }
 
     public AloeVeraBlock(Properties properties) {

@@ -8,7 +8,6 @@
   "mixins": [
     "AttachedStemBlockMixin",
     "CropBlockMixin",
-    "EnderManMixin",
     "PitcherCropBlockMixin",
     "GrassBlockBoneMealMixin",
     "StemBlockMixin"

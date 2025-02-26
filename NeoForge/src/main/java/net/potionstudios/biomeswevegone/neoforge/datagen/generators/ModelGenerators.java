@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone.neoforge.datagen.generators;
 
+/*
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.DataGenerator;
@@ -41,7 +42,7 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
  * @see ItemModelProvider
  * @see BlockModelProvider
  * @author Joseph T. McQuigg
- */
+
 public class ModelGenerators {
 
     public static void init(DataGenerator generator, boolean run, PackOutput output, ExistingFileHelper exFileHelper) {
@@ -52,7 +53,7 @@ public class ModelGenerators {
     /**
      * Used to generate models for items.
      * @see ItemModelProvider
-     */
+
     private static class ItemModelGenerators extends ItemModelProvider {
 
         private ItemModelGenerators(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -107,7 +108,7 @@ public class ModelGenerators {
     /**
      * Used to generate models for blocks.
      * @see BlockStateProvider
-     */
+
     private static class BlockModelGenerators extends BlockStateProvider {
 
         private BlockModelGenerators(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -578,4 +579,5 @@ public class ModelGenerators {
         }
     }
 }
+ */
 

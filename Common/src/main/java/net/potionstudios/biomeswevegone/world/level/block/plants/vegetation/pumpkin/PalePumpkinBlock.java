@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.pum
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -20,6 +21,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -27,7 +29,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class PalePumpkinBlock extends PumpkinBlock {
     public PalePumpkinBlock() {
-        super(BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN).setId(BiomesWeveGone.key(Registries.BLOCK, "pale_pumpkin")));
     }
 
     @Override

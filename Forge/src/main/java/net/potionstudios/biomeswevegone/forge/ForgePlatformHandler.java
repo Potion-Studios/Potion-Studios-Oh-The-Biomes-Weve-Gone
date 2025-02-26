@@ -57,8 +57,8 @@ public final class ForgePlatformHandler implements PlatformHandler {
 	private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, BiomesWeveGone.MOD_ID);
 
 	@Override
-	public Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block) {
-		return () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, block, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT));
+	public Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block, String name) {
+		return () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, block, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT).setId(BiomesWeveGone.key(Registries.BLOCK, name)));
 	}
 
 	@Override
@@ -67,8 +67,8 @@ public final class ForgePlatformHandler implements PlatformHandler {
 	}
 
 	@Override
-	public Supplier<BWGFarmLandBlock> bwgFarmLandBlock(Supplier<Block> dirt) {
-		return () -> new BWGForgeFarmLandBlock(dirt);
+	public Supplier<BWGFarmLandBlock> bwgFarmLandBlock(Supplier<Block> dirt, String id) {
+		return () -> new BWGForgeFarmLandBlock(dirt, id);
 	}
 
 	@Override
