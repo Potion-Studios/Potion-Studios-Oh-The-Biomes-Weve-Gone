@@ -105,15 +105,15 @@ public class BWGBlocks {
     /** Alliums */
     public static final Supplier<TallFlowerBlock> TALL_ALLIUM = registerTallFlower("tall_allium", MapColor.COLOR_MAGENTA, BWGTreeGrowers.GIANT_ALLIUM);
     public static final FlowerBlockFeature ALLIUM_FLOWER_BUSH = registerFlower("allium_flower_bush", MapColor.COLOR_MAGENTA, Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_ALLIUM);
-    public static final Supplier<Block> ALLIUM_PETAL_BLOCK = registerCubeAllBlockItem("allium_petal_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).mapColor(MapColor.COLOR_MAGENTA).sound(SoundType.AZALEA)));
+    public static final Supplier<Block> ALLIUM_PETAL_BLOCK = registerBasicBlockWithItem("allium_petal_block", BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).mapColor(MapColor.COLOR_MAGENTA).sound(SoundType.AZALEA));
     public static final FlowerBlockFeature PINK_ALLIUM = registerFlower("pink_allium", MapColor.COLOR_PINK, Block.box(5.0, 0.0, 5.0, 11.0, 14.0, 11.0));
     public static final Supplier<TallFlowerBlock> TALL_PINK_ALLIUM = registerTallFlower("tall_pink_allium", MapColor.COLOR_PINK, BWGTreeGrowers.GIANT_PINK_ALLIUM);
     public static final FlowerBlockFeature PINK_ALLIUM_FLOWER_BUSH = registerFlower("pink_allium_flower_bush", MapColor.COLOR_PINK, Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_PINK_ALLIUM);
-    public static final Supplier<Block> PINK_ALLIUM_PETAL_BLOCK = registerCubeAllBlockItem("pink_allium_petal_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).mapColor(MapColor.COLOR_PINK).sound(SoundType.AZALEA)));
+    public static final Supplier<Block> PINK_ALLIUM_PETAL_BLOCK = registerBasicBlockWithItem("pink_allium_petal_block", BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).mapColor(MapColor.COLOR_PINK).sound(SoundType.AZALEA));
     public static final FlowerBlockFeature WHITE_ALLIUM = registerFlower("white_allium", MapColor.TERRACOTTA_WHITE, Block.box(5.0, 0.0, 5.0, 11.0, 14.0, 11.0));
     public static final Supplier<TallFlowerBlock> TALL_WHITE_ALLIUM = registerTallFlower("tall_white_allium", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.GIANT_WHITE_ALLIUM);
     public static final FlowerBlockFeature WHITE_ALLIUM_FLOWER_BUSH = registerFlower("white_allium_flower_bush", MapColor.TERRACOTTA_WHITE, Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_WHITE_ALLIUM);
-    public static final Supplier<Block> WHITE_ALLIUM_PETAL_BLOCK = registerCubeAllBlockItem("white_allium_petal_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.AZALEA)));
+    public static final Supplier<Block> WHITE_ALLIUM_PETAL_BLOCK = registerBasicBlockWithItem("white_allium_petal_block", BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.AZALEA));
 
     /** Glowing Pitcher Plants */
     public static final Supplier<TallFlowerBlock> CYAN_PITCHER_PLANT = registerTallGlowingFlower("cyan_pitcher_plant", MapColor.COLOR_CYAN);
@@ -125,7 +125,7 @@ public class BWGBlocks {
     public static final FlowerBlockFeature BLACK_ROSE = registerFlower("black_rose", MapColor.COLOR_BLACK, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
     public static final FlowerBlockFeature CYAN_ROSE = registerFlower("cyan_rose", MapColor.COLOR_CYAN, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
     public static final Supplier<TallFlowerBlock> BLUE_ROSE_BUSH = registerTallFlower("blue_rose_bush", MapColor.COLOR_BLUE);
-    public static final Supplier<Block> ROSE_PETAL_BLOCK = registerCubeAllBlockItem("rose_petal_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.AZALEA)));
+    public static final Supplier<Block> ROSE_PETAL_BLOCK = registerBasicBlockWithItem("rose_petal_block", BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.AZALEA));
 
 
     /** Tulips */
