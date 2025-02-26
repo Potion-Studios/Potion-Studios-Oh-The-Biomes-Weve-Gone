@@ -332,14 +332,14 @@ public class BWGBlocks {
 
     public static <B extends Block> Supplier<B> registerBlockItem(String key, Supplier<B> blockSupplier) {
         Supplier<B> block = registerBlock(key, blockSupplier);
-        Supplier<Item> item = BWGItems.register(key, () -> new BlockItem(block.get(), new Item.Properties().setId(BiomesWeveGone.key(Registries.ITEM, key))));
+        Supplier<Item> item = BWGItems.register(key, properties -> new BlockItem(block.get(), properties), new Item.Properties());
         BLOCK_ITEMS.add(item);
         return block;
     }
 
     public static <B extends Block> Supplier<B> registerBlockItemNoTab(String key, Supplier<B> blockSupplier) {
         Supplier<B> block = registerBlock(key, blockSupplier);
-        BWGItems.register(key, () -> new BlockItem(block.get(), new Item.Properties().setId(BiomesWeveGone.key(Registries.ITEM, key))));
+        BWGItems.register(key, properties -> new BlockItem(block.get(), properties), new Item.Properties());
         return block;
     }
 

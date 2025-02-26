@@ -30,6 +30,7 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.tree.leaves.BWG
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.sapling.BWGSaplingBlock;
 
 import java.util.ArrayList;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
@@ -181,13 +182,13 @@ public class BWGWood {
     private static <B extends Block> Supplier<B> registerNonSetBlockItem(String key, Supplier<B> blockSupplier) {
         Supplier<B> block = register(key, blockSupplier);
         NONSET_WOOD.add(block);
-        registerItem(key, () -> new BlockItem(block.get(), new Item.Properties().setId(keyItem(key))));
+        registerItem(key, properties -> new BlockItem(block.get(), properties), new Item.Properties());
         return block;
     } 
     
     protected static <B extends Block> Supplier<B> registerBlockItem(String key, Supplier<B> blockSupplier) {
         Supplier<B> block = register(key, blockSupplier);
-        registerItem(key, () -> new BlockItem(block.get(), new Item.Properties().setId(keyItem(key))));
+        registerItem(key, properties -> new BlockItem(block.get(), properties), new Item.Properties());
         return block;
     }
 
@@ -197,8 +198,8 @@ public class BWGWood {
         return block;
     }
 
-    protected static <I extends Item> Supplier<I> registerItem(String id, Supplier<I> item) {
-        Supplier<I> supplier = BWGItems.register(id, item);
+    protected static <I extends Item> Supplier<I> registerItem(String id, Function<Item.Properties, I> item, Item.Properties properties) {
+        Supplier<I> supplier = BWGItems.register(id, item, properties);
         WOOD_BLOCK_ITEMS.add(supplier);
         return supplier;
     }

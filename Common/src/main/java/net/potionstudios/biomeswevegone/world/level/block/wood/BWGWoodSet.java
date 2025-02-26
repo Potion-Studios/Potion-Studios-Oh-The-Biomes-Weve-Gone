@@ -107,11 +107,11 @@ public class BWGWoodSet {
         this.strippedWood = BWGWood.registerBlockItem("stripped_" + name + "_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava().setId(key("stripped_" + name + "_wood"))));
         this.sign = BWGWood.register(name + "_sign", () ->  new BWGStandingSignBlock(BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava().setId(key(name + "_sign")), woodType));
         this.wallSign = BWGWood.register(name + "_wall_sign", () -> new BWGWallSignBlock(Blocks.wallVariant(sign(), true).mapColor(mapColor).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava().setId(key(name + "_wall_sign")), this.woodType));
-        this.signItem = BWGItems.register(name + "_sign", () -> new SignItem(sign.get(), wallSign.get(), new Item.Properties().stacksTo(16).setId(keyItem(name + "_sign"))));
+        this.signItem = BWGItems.register(name + "_sign", properties -> new SignItem(sign.get(), wallSign.get(), properties), new Item.Properties().stacksTo(16));
         BWGWood.WOOD_BLOCK_ITEMS.add(signItem);
         this.hangingSign = BWGWood.register(name + "_hanging_sign", () -> new BWGCeilingHangingSignBlock(BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava().setId(key(name + "_hanging_sign")), woodType));
         this.wallHangingSign = BWGWood.register(name + "_wall_hanging_sign", () -> new BWGWallHangingSignBlock(Blocks.wallVariant(hangingSign(), true).mapColor(mapColor).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava().setId(key(name + "_wall_hanging_sign")), woodType));
-        this.hangingSignItem = BWGItems.register(name + "_hanging_sign", () -> new HangingSignItem(hangingSign.get(), wallHangingSign.get(), new Item.Properties().stacksTo(16).setId(keyItem(name + "_hanging_sign"))));
+        this.hangingSignItem = BWGItems.register(name + "_hanging_sign", properties -> new HangingSignItem(hangingSign.get(), wallHangingSign.get(), properties), new Item.Properties().stacksTo(16));
         BWGWood.WOOD_BLOCK_ITEMS.add(hangingSignItem);
         this.pressurePlate = BWGWood.registerBlockItem(name + "_pressure_plate", () -> new PressurePlateBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(0.5F).ignitedByLava().pushReaction(PushReaction.DESTROY).setId(key(name + "_pressure_plate"))));
         this.trapdoor = BWGWood.registerBlockItem(name + "_trapdoor", () -> new TrapDoorBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().isValidSpawn(Blocks::never).ignitedByLava().setId(key(name + "_trapdoor"))));
@@ -132,8 +132,8 @@ public class BWGWoodSet {
         this.chestBoat = BWGEntities.createEntity(name + "_chest_boat", (type, level) -> new ChestBoat(type, level, chestBoatItem()), MobCategory.MISC, EntityType.OAK_CHEST_BOAT.getWidth(), EntityType.OAK_CHEST_BOAT.getHeight(), 0.5625F, 10);
 
 
-        this.boatItem = BWGWood.registerItem(name + "_boat", () -> new BoatItem(boat.get(), new Item.Properties().stacksTo(1).setId(keyItem(name + "_boat"))));
-        this.chestBoatItem = BWGWood.registerItem(name + "_chest_boat", () -> new BoatItem(chestBoat.get(), new Item.Properties().stacksTo(1).setId(keyItem(name + "_chest_boat"))));
+        this.boatItem = BWGWood.registerItem(name + "_boat", properties -> new BoatItem(boat.get(), properties), new Item.Properties().stacksTo(1));
+        this.chestBoatItem = BWGWood.registerItem(name + "_chest_boat", properties -> new BoatItem(chestBoat.get(), properties), new Item.Properties().stacksTo(1));
 
         this.logBlockTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name + "_logs"));
         this.logItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id(name + "_logs"));
@@ -339,9 +339,5 @@ public class BWGWoodSet {
 
     private static ResourceKey<Block> key(String name) {
         return BiomesWeveGone.key(Registries.BLOCK, name);
-    }
-
-    private static ResourceKey<Item> keyItem(String name) {
-        return BiomesWeveGone.key(Registries.ITEM, name);
     }
 }
