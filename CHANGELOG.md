@@ -1,7 +1,8 @@
 # 2.3.8
 - Fix Flower Dye Recipes
 - Add BlueBerries to Blue Dye Recipe
-- Improve Incan Lily Hitbox
+- Improve a bunch of flowers hitboxes
+- Update French (fr_fr) Translations (Credits: Brandcraf06)
 
 # 2.3.7
 - Add Right-Clicking on Baby Villager With Weakness Potion with a Carved Pumpkin to turn them into a Pumpkin Warden

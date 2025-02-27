@@ -127,10 +127,10 @@ public class BWGBlocks {
     public static final Supplier<TallFlowerBlock> MAGENTA_PITCHER_PLANT = registerTallGlowingFlower("magenta_pitcher_plant");
 
     /** Roses */
-    public static final FlowerBlockFeature ROSE = registerFlower("rose", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final FlowerBlockFeature OSIRIA_ROSE = registerFlower("osiria_rose", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final FlowerBlockFeature BLACK_ROSE = registerFlower("black_rose", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final FlowerBlockFeature CYAN_ROSE = registerFlower("cyan_rose", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
+    public static final FlowerBlockFeature ROSE = registerFlower("rose", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
+    public static final FlowerBlockFeature OSIRIA_ROSE = registerFlower("osiria_rose", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
+    public static final FlowerBlockFeature BLACK_ROSE = registerFlower("black_rose", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
+    public static final FlowerBlockFeature CYAN_ROSE = registerFlower("cyan_rose", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
     public static final Supplier<TallFlowerBlock> BLUE_ROSE_BUSH = registerTallFlower("blue_rose_bush");
     public static final Supplier<Block> ROSE_PETAL_BLOCK = registerBasicBlockWithItem("rose_petal_block", BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.AZALEA));
 
@@ -159,8 +159,8 @@ public class BWGBlocks {
     public static final FlowerBlockFeature YELLOW_DAFFODIL = registerFlower("yellow_daffodil", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
 
     /** Anemones */
-    public static final FlowerBlockFeature PINK_ANEMONE = registerFlower("pink_anemone", Block.box(1.0, 0.0, 1.0, 15.0, 10.0, 15.0));
-    public static final FlowerBlockFeature WHITE_ANEMONE = registerFlower("white_anemone", Block.box(1.0, 0.0, 1.0, 15.0, 10.0, 15.0));
+    public static final FlowerBlockFeature PINK_ANEMONE = registerFlower("pink_anemone", Block.box(1.0, 0.0, 1.0, 15.0, 8.0, 15.0));
+    public static final FlowerBlockFeature WHITE_ANEMONE = registerFlower("white_anemone", Block.box(1.0, 0.0, 1.0, 15.0, 8.0, 15.0));
 
    /** Bellflowers */
     public static final FlowerBlockFeature ALPINE_BELLFLOWER = registerFlower("alpine_bellflower", Block.box(2.0, 0.0, 2.0, 14.0, 12.0, 14.0));
@@ -183,18 +183,18 @@ public class BWGBlocks {
     public static final FlowerBlockFeature INCAN_LILY = registerFlower("incan_lily", Block.box(4.0, 0.0, 4.0, 12.0, 13.0, 12.0));
     public static final FlowerBlockFeature IRIS = registerFlower("iris", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
     public static final Supplier<TallFlowerBlock> JAPANESE_ORCHID = registerTallFlower("japanese_orchid");
-    public static final FlowerBlockFeature KOVAN_FLOWER = registerFlower("kovan_flower");
+    public static final FlowerBlockFeature KOVAN_FLOWER = registerFlower("kovan_flower", Block.box(4.0, 0.0, 4.0, 12.0, 14.0, 12.0));
     public static final FlowerBlockFeature LOLLIPOP_FLOWER = registerFlower("lollipop_flower", Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0));
     public static final FlowerBlockFeature ORANGE_DAISY = registerFlower("orange_daisy", Block.box(5.0, 0.0, 5.0, 11.0, 14.0, 11.0));
     public static final FlowerBlockFeature PROTEA_FLOWER = registerFlower("protea_flower", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
-    public static final FlowerBlockFeature RICHEA = registerFlower("richea");
+    public static final FlowerBlockFeature RICHEA = registerFlower("richea", Block.box(5.0, 0.0, 5.0, 11.0, 16.0, 11.0));
     public static final FlowerBlockFeature SILVER_VASE_FLOWER = registerFlower("silver_vase_flower");
     public static final FlowerBlockFeature HORSEWEED = registerFlower("horseweed", Block.box(4.0, 0.0, 4.0, 12.0, 15.0, 12.0));
-    public static final FlowerBlockFeature WINTER_SUCCULENT = registerFlower("winter_succulent");
+    public static final FlowerBlockFeature WINTER_SUCCULENT = registerFlower("winter_succulent", Block.box(4.0, 0.0, 4.0, 12.0, 15.0, 12.0));
 
     /** Snowy Plants */
     public static final PottedBlock SNOWDROPS = createPottedVariant("snowdrops", () -> new BWGPlacementBushBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), Block.box(2.0D, 0.0D, 2.0D, 14.0D, 14.0D, 14.0D), BWGBlockTags.SNOWY_PLANT_PLACEABLE));
-    public static final PottedBlock WINTER_CYCLAMEN = createPottedVariant("winter_cyclamen", () -> new BWGPlacementBushBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), Block.box(2.0D, 0.0D, 2.0D, 14.0D, 14.0D, 14.0D), BWGBlockTags.SNOWY_PLANT_PLACEABLE));
+    public static final PottedBlock WINTER_CYCLAMEN = createPottedVariant("winter_cyclamen", () -> new BWGPlacementBushBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D), BWGBlockTags.SNOWY_PLANT_PLACEABLE));
     public static final PottedBlock WINTER_ROSE = createPottedVariant("winter_rose", () -> new BWGPlacementBushBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), Block.box(5.0D, 0.0D, 5.0D, 11.0D, 12.0D, 11.0D), BWGBlockTags.SNOWY_PLANT_PLACEABLE));
     public static final PottedBlock WINTER_SCILLA = createPottedVariant("winter_scilla", () -> new BWGPlacementBushBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), Block.box(3.0D, 0.0D, 3.0D, 13.0D, 11.0D, 13.0D), BWGBlockTags.SNOWY_PLANT_PLACEABLE));
 
