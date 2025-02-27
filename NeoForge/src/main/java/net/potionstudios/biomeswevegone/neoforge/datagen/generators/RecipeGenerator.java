@@ -444,6 +444,7 @@ public class RecipeGenerator extends RecipeProvider {
         oneToTwoConversionRecipe(recipeOutput, Items.CYAN_DYE, BWGItemTags.MAKES_2_CYAN_DYE);
         oneToTwoConversionRecipe(recipeOutput, Items.PINK_DYE, BWGItemTags.MAKES_2_PINK_DYE);
         oneToTwoConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGItemTags.MAKES_2_PURPLE_DYE);
+        oneToTwoConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGItemTags.MAKES_2_WHITE_DYE);
     }
 
     private static void oneToOneConversionRecipe(RecipeOutput recipeOutput, ItemLike result, TagKey<Item> ingredient) {
