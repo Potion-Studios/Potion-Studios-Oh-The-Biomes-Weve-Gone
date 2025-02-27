@@ -180,7 +180,7 @@ public class BWGBlocks {
     public static final FlowerBlockFeature FAIRY_SLIPPER = registerFlower("fairy_slipper", BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).noOcclusion().lightLevel((level) -> 8), Block.box(1.0, 0.0, 1.0, 15.0, 14.0, 15.0));
     public static final Supplier<TallFlowerBlock> FOXGLOVE = registerTallFlower("foxglove");
     public static final FlowerBlockFeature GUZMANIA = registerFlower("guzmania", Block.box(4.0, 0.0, 4.0, 12.0, 15.0, 12.0));
-    public static final FlowerBlockFeature INCAN_LILY = registerFlower("incan_lily");
+    public static final FlowerBlockFeature INCAN_LILY = registerFlower("incan_lily", Block.box(4.0, 0.0, 4.0, 12.0, 13.0, 12.0));
     public static final FlowerBlockFeature IRIS = registerFlower("iris", Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
     public static final Supplier<TallFlowerBlock> JAPANESE_ORCHID = registerTallFlower("japanese_orchid");
     public static final FlowerBlockFeature KOVAN_FLOWER = registerFlower("kovan_flower");
