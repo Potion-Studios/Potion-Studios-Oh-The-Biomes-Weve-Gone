@@ -348,6 +348,21 @@ public class ModelGenerators {
                         ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get()))).build();
             }, TreeBranchBlock.WATERLOGGED);
             simpleBlockWithItem(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BLOSSOM.get())));
+
+            registerPatchBlockStates(BWGBlocks.CLOVER_PATCH.get(), new String[]{"clover_patch", "clover_patch2", "clover_patch3", "clover_patch4"});
+            registerPatchBlockStates(BWGBlocks.FLOWER_PATCH.get(), new String[]{"flower_patch", "flower_patch2", "flower_patch3"});
+        }
+
+        private void registerPatchBlockStates(Block block, String[] models) {
+            VariantBlockStateBuilder builder = getVariantBuilder(block);
+            int[] rotations = {0, 90, 180, 270};
+
+            for (String model : models) {
+                for (int rotation : rotations) {
+                    builder.partialState()
+                            .addModels(new ConfiguredModel(models().getExistingFile(modLoc("block/" + model)), 0, rotation, false));
+                }
+            }
         }
 
         private void snowyRotatableBlock(Block block) {
