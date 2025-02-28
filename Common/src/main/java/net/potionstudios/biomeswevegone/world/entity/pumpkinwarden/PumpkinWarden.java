@@ -36,12 +36,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.AttachedStemBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
@@ -356,7 +358,13 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         @Override
         protected boolean isValidTarget(@NotNull LevelReader level, @NotNull BlockPos pos) {
             BlockState state = level.getBlockState(pos);
-            return state.is(Blocks.PUMPKIN) || state.is(Blocks.MELON) || state.is(BWGBlocks.PALE_PUMPKIN.get());
+            if (state.is(Blocks.ATTACHED_PUMPKIN_STEM) || state.is(Blocks.ATTACHED_MELON_STEM) || state.is(BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get())) {
+                Direction facing = level.getBlockState(pos).getValue(AttachedStemBlock.FACING);
+                this.blockPos = blockPos.relative(facing);
+                BlockState blockstate = level.getBlockState(blockPos);
+                return blockstate.is(Blocks.PUMPKIN) || blockstate.is(Blocks.MELON) || blockstate.is(BWGBlocks.PALE_PUMPKIN.get());
+            }
+            return false;
         }
 
         @Override
@@ -369,7 +377,9 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
             super.tick();
             if (isReachedTarget()) {
                 Level level = mob.level();
+                BiomesWeveGone.LOGGER.info("Reached target");
                 if (isValidTarget(level, blockPos)) {
+                    BiomesWeveGone.LOGGER.info("Valid target");
                     BlockState blockstate = level.getBlockState(this.blockPos);
                     level.destroyBlock(blockPos, false, mob);
                     level.gameEvent(GameEvent.BLOCK_DESTROY, this.blockPos, GameEvent.Context.of(this.warden, blockstate));
