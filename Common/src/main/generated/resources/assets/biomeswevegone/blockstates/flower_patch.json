@@ -1,0 +1,51 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "biomeswevegone:block/flower_patch"
+      },
+      {
+        "model": "biomeswevegone:block/flower_patch",
+        "y": 90
+      },
+      {
+        "model": "biomeswevegone:block/flower_patch",
+        "y": 180
+      },
+      {
+        "model": "biomeswevegone:block/flower_patch",
+        "y": 270
+      },
+      {
+        "model": "biomeswevegone:block/flower_patch2"
+      },
+      {
+        "model": "biomeswevegone:block/flower_patch2",
+        "y": 90
+      },
+      {
+        "model": "biomeswevegone:block/flower_patch2",
+        "y": 180
+      },
+      {
+        "model": "biomeswevegone:block/flower_patch2",
+        "y": 270
+      },
+      {
+        "model": "biomeswevegone:block/flower_patch3"
+      },
+      {
+        "model": "biomeswevegone:block/flower_patch3",
+        "y": 90
+      },
+      {
+        "model": "biomeswevegone:block/flower_patch3",
+        "y": 180
+      },
+      {
+        "model": "biomeswevegone:block/flower_patch3",
+        "y": 270
+      }
+    ]
+  }
+}
