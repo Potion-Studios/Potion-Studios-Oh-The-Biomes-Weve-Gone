@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side_tall",
+  "textures": {
+    "wall": "biomeswevegone:block/mossy_dacite_bricks"
+  }
+}

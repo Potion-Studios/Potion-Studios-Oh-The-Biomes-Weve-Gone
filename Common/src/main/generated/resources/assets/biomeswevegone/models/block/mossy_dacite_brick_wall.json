@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "biomeswevegone:block/mossy_dacite_bricks"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/chiseled_dacite_brick_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/chiseled_dacite_bricks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/chiseled_dacite_brick_slab_top"
+    }
+  }
+}

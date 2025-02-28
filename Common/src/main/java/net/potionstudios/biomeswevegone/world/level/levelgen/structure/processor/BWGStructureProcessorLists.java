@@ -56,7 +56,7 @@ public class BWGStructureProcessorLists {
     public static final ResourceKey<StructureProcessorList> SKYRIS_TEMPLE = register("skyris_temple", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                     BWGRuleProcessors.POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL,
-                    BWGRuleProcessors.DACITE_10_PERCENT_COBBLED_DACITE,
+                    BWGRuleProcessors.WHITE_DACITE_10_PERCENT_COBBLED_WHITE_DACITE,
                     BWGRuleProcessors.STONEBRICKS_VARIANTS
             )
     ));
@@ -64,7 +64,7 @@ public class BWGStructureProcessorLists {
     public static final ResourceKey<StructureProcessorList> SKYRIS_LIBRARY = register("skyris_library", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                     BWGRuleProcessors.POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL,
-                    BWGRuleProcessors.DACITE_VARIANTS
+                    BWGRuleProcessors.WHITE_DACITE_VARIANTS
             )
     ));
 

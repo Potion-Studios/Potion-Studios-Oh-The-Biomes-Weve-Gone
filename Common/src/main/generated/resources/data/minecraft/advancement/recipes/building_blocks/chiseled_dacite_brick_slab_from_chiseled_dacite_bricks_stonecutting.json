@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chiseled_dacite_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:chiseled_dacite_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:chiseled_dacite_brick_slab_from_chiseled_dacite_bricks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_chiseled_dacite_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:chiseled_dacite_brick_slab_from_chiseled_dacite_bricks_stonecutting"
+    ]
+  }
+}
