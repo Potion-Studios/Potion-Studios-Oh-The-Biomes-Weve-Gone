@@ -1,6 +1,5 @@
 package net.potionstudios.biomeswevegone.world.entity.pumpkinwarden;
 
-import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -76,9 +75,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     private static final EntityDataAccessor<BlockState> DATA_CARRY_STATE = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.BLOCK_STATE);
     private static final EntityDataAccessor<Integer> DATA_VARIANT = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.INT);
 
-    private Goal moveGoal = new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.7F);
-    private Goal runGoal = new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D);
-
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
     }
@@ -111,10 +107,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     @Override
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
+        goalSelector.addGoal(0, new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D));
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
         goalSelector.addGoal(1, new DestroyNearestPumpkinGoal(this, 1));
         goalSelector.addGoal(2, new ThrowItemAtCarvedPumpkinGoal(this, 1));
         goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.PUMPKIN_PIE), false));
+        goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.7F));
         goalSelector.addGoal(5, new StayByBellGoal(this, 1, 5000));
         goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));
@@ -202,17 +200,17 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     private void checkGoals() {
-        if (this.goalSelector.getAvailableGoals().stream().noneMatch(goal -> goal.getGoal().getClass() == WaterAvoidingRandomStrollGoal.class)) {
-            this.goalSelector.addGoal(1, moveGoal);
-        }
         if (this.goalSelector.getAvailableGoals().stream().noneMatch(goal -> goal.getGoal().getClass() == AvoidEntityGoal.class)) {
-            this.goalSelector.addGoal(2, runGoal);
+            this.goalSelector.addGoal(0, new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D));
+        }
+        if (this.goalSelector.getAvailableGoals().stream().noneMatch(goal -> goal.getGoal().getClass() == WaterAvoidingRandomStrollGoal.class)) {
+            this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.7F));
         }
         if (this.goalSelector.getAvailableGoals().stream().noneMatch(goal -> goal.getGoal().getClass() == LookAtPlayerGoal.class)) {
-            this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 8.0F));
+            this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
         }
         if (this.goalSelector.getAvailableGoals().stream().noneMatch(goal -> goal.getGoal().getClass() == RandomLookAroundGoal.class)) {
-            this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+            this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         }
     }
 
@@ -248,8 +246,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
             }
         }
         if (this.isHiding()) {
-            this.goalSelector.removeGoal(moveGoal);
-            this.goalSelector.removeGoal(runGoal);
             goalSelector.getAvailableGoals().forEach(goal -> {
                 if (goal.getGoal().getClass() == WaterAvoidingRandomStrollGoal.class) {
                     this.goalSelector.removeGoal(goal.getGoal());
@@ -456,7 +452,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         DEFAULT(0, "default"),
         PALE(1, "pale");
 
-        private static final Codec<Variant> CODEC = StringRepresentable.fromEnum(Variant::values);
         private static final IntFunction<Variant> BY_ID = ByIdMap.continuous(Variant::getId, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
         private final String name;
         private final int id;
