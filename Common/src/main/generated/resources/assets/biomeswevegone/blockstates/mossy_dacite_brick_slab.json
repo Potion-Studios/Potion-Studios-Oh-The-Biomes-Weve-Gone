@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/mossy_dacite_brick_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/mossy_dacite_bricks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/mossy_dacite_brick_slab_top"
+    }
+  }
+}

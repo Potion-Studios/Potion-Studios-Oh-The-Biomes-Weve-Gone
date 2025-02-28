@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:white_dacite_pillar"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_dacite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:white_dacite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_white_dacite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:white_dacite_pillar"
+    ]
+  }
+}

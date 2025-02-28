@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "biomeswevegone:block/white_dacite_cobblestone",
+    "side": "biomeswevegone:block/white_dacite_cobblestone",
+    "top": "biomeswevegone:block/white_dacite_cobblestone"
+  }
+}

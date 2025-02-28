@@ -70,7 +70,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     public Goal moveGoal = new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.7F);
     public Goal runGoal = new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D);
-    public Goal lookGoal = new LookAtPlayerGoal(this, Player.class, 2.0F);
+    public Goal lookGoal = new LookAtPlayerGoal(this, Player.class, 5.0F);
     public Goal randLookGoal = new RandomLookAroundGoal(this);
 
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {
@@ -195,13 +195,13 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     private void checkGoals() {
         if (this.goalSelector.getAvailableGoals().stream().noneMatch(goal -> goal.getGoal().getClass() == WaterAvoidingRandomStrollGoal.class)) {
-            this.goalSelector.addGoal(1, moveGoal);
+            this.goalSelector.addGoal(5, moveGoal);
         }
         if (this.goalSelector.getAvailableGoals().stream().noneMatch(goal -> goal.getGoal().getClass() == AvoidEntityGoal.class)) {
             this.goalSelector.addGoal(2, runGoal);
         }
         if (this.goalSelector.getAvailableGoals().stream().noneMatch(goal -> goal.getGoal().getClass() == LookAtPlayerGoal.class)) {
-            this.goalSelector.addGoal(7, lookGoal);
+            this.goalSelector.addGoal(6, lookGoal);
         }
         if (this.goalSelector.getAvailableGoals().stream().noneMatch(goal -> goal.getGoal().getClass() == RandomLookAroundGoal.class)) {
             this.goalSelector.addGoal(3, randLookGoal);
@@ -404,7 +404,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
                 if (state.is(Blocks.CARVED_PUMPKIN)) {
                     Direction facing = state.getValue(CarvedPumpkinBlock.FACING);
                     BlockPos frontPos = blockPos.relative(facing);
-                    if (mob.blockPosition().closerThan(frontPos, 2.5)) {
+                    if (mob.blockPosition().closerThan(frontPos, 8)) {
                         if (this.warden.getCarriedBlock() != null) {
                             BehaviorUtils.throwItem(this.warden, this.warden.getCarriedBlock().getBlock().asItem().getDefaultInstance(), new Vec3(this.blockPos.getX(), this.blockPos.getY(), this.blockPos.getZ()));
                             this.warden.setCarriedBlock(null);

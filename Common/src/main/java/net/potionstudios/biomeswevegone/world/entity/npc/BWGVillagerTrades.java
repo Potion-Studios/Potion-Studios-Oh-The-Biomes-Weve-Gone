@@ -86,6 +86,8 @@ public class BWGVillagerTrades {
                 4, ImmutableList.of(
                         createEmeraldForItemsOffer(BWGBlocks.DACITE_SET.getBase(), 12, 12, 30),
                         createItemsForEmeraldsOffer(BWGBlocks.DACITE_SET.getBase(), 1, 1, 12, 15, 0.05f),
+                        createEmeraldForItemsOffer(BWGBlocks.WHITE_DACITE_SET.getBase(), 12, 12, 30),
+                        createItemsForEmeraldsOffer(BWGBlocks.WHITE_DACITE_SET.getBase(), 1, 1, 12, 15, 0.05f),
                         createEmeraldForItemsOffer(BWGBlocks.RED_ROCK_SET.getBase(), 12, 12, 30),
                         createItemsForEmeraldsOffer(BWGBlocks.RED_ROCK_SET.getBase(), 1, 1, 12, 15, 0.05f)
                 )
