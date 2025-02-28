@@ -53,3 +53,5 @@ extendable method net/minecraft/world/level/block/grower/TreeGrower getConfigure
 extendable method net/minecraft/world/level/block/grower/TreeGrower getConfiguredFeature (Lnet/minecraft/util/RandomSource;Z)Lnet/minecraft/resources/ResourceKey;
 
 extendable method net/minecraft/world/entity/LivingEntity getDimensions (Lnet/minecraft/world/entity/Pose;)Lnet/minecraft/world/entity/EntityDimensions;
+
+accessible field net/minecraft/world/level/block/AttachedStemBlock fruit Lnet/minecraft/resources/ResourceKey;

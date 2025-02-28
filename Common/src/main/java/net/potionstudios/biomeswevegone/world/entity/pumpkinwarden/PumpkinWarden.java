@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -37,6 +38,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.AttachedStemBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -364,11 +366,11 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         @Override
         protected boolean isValidTarget(@NotNull LevelReader level, @NotNull BlockPos pos) {
             BlockState state = level.getBlockState(pos);
-            if (state.is(Blocks.ATTACHED_PUMPKIN_STEM) || state.is(Blocks.ATTACHED_MELON_STEM) || state.is(BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get())) {
-                Direction facing = level.getBlockState(pos).getValue(AttachedStemBlock.FACING);
+            if (state.getBlock() instanceof AttachedStemBlock stemBlock) {
+                Direction facing = state.getValue(AttachedStemBlock.FACING);
                 this.blockPos = blockPos.relative(facing);
-                BlockState blockstate = level.getBlockState(blockPos);
-                return blockstate.is(Blocks.PUMPKIN) || blockstate.is(Blocks.MELON) || blockstate.is(BWGBlocks.PALE_PUMPKIN.get());
+                Block fruit = level.registryAccess().registryOrThrow(Registries.BLOCK).getOrThrow(stemBlock.fruit);
+                return level.getBlockState(blockPos).is(fruit);
             }
             return false;
         }
