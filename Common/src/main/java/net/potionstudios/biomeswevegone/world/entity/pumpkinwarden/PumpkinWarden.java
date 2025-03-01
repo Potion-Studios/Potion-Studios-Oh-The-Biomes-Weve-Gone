@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtUtils;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -57,6 +58,7 @@ import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.IntFunction;
 
 /**
@@ -72,7 +74,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     private boolean party;
     private static final EntityDataAccessor<Boolean> HIDING = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> TIMER = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.INT);
-    private static final EntityDataAccessor<BlockState> DATA_CARRY_STATE = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.BLOCK_STATE);
+    private static final EntityDataAccessor<Optional<BlockState>> DATA_CARRY_STATE = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.OPTIONAL_BLOCK_STATE);
     private static final EntityDataAccessor<Integer> DATA_VARIANT = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.INT);
 
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {
@@ -82,22 +84,32 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     @Override
     protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
         super.defineSynchedData(builder);
-        builder.define(DATA_CARRY_STATE, Blocks.AIR.defaultBlockState());
+        builder.define(DATA_CARRY_STATE, Optional.empty());
         builder.define(HIDING, false);
         builder.define(TIMER, 0);
         builder.define(DATA_VARIANT, 0);
     }
 
     @Override
-    public void readAdditionalSaveData(@NotNull CompoundTag compound) {
-        super.readAdditionalSaveData(compound);
-        this.setVariant(Variant.byId(compound.getInt("Variant")));
-    }
-
-    @Override
     public void addAdditionalSaveData(@NotNull CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putInt("Variant", this.getVariant().getId());
+        BlockState blockState = null;
+        if (compound.contains("carriedBlockState", 10)) {
+            blockState = NbtUtils.readBlockState(this.level().holderLookup(Registries.BLOCK), compound.getCompound("carriedBlockState"));
+            if (blockState.isAir())
+                blockState = null;
+        }
+
+        this.setCarriedBlock(blockState);
+    }
+
+    @Override
+    public void readAdditionalSaveData(@NotNull CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        this.setVariant(Variant.byId(compound.getInt("Variant")));
+        BlockState blockState = this.getCarriedBlock();
+        if (blockState != null) compound.put("carriedBlockState", NbtUtils.writeBlockState(blockState));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -320,13 +332,13 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         entityData.set(TIMER, flag);
     }
 
-    public void setCarriedBlock(BlockState pState) {
-        this.entityData.set(DATA_CARRY_STATE, pState == null ? Blocks.AIR.defaultBlockState() : pState);
+    public void setCarriedBlock(@Nullable BlockState state) {
+        this.entityData.set(DATA_CARRY_STATE, Optional.ofNullable(state));
     }
 
+    @Nullable
     public BlockState getCarriedBlock() {
-        BlockState blockState = this.entityData.get(DATA_CARRY_STATE);
-        return blockState.isAir() ? null : blockState;
+        return this.entityData.get(DATA_CARRY_STATE).orElse(null);
     }
 
     @Override
