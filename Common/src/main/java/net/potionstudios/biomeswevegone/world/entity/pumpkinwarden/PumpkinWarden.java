@@ -45,7 +45,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
@@ -121,7 +120,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(0, new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D));
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        goalSelector.addGoal(1, new DestroyNearestPumpkinGoal(this, 1));
+        goalSelector.addGoal(0, new DestroyNearestPumpkinGoal(this, 1));
         goalSelector.addGoal(2, new ThrowItemAtCarvedPumpkinGoal(this, 1));
         goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.PUMPKIN_PIE), false));
         goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.7F));
@@ -259,10 +258,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         }
         if (this.isHiding()) {
             goalSelector.getAvailableGoals().forEach(goal -> {
+                if (goal == null) return;
                 if (goal.getGoal().getClass() == WaterAvoidingRandomStrollGoal.class) {
                     this.goalSelector.removeGoal(goal.getGoal());
-                }
-                if (goal.getGoal().getClass() == AvoidEntityGoal.class) {
+                }if (goal.getGoal().getClass() == AvoidEntityGoal.class) {
                     this.goalSelector.removeGoal(goal.getGoal());
                 }
             });
@@ -272,11 +271,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
             }
         } else {
             checkGoals();
-        }
-        if (this.getCarriedBlock() != null) {
-            this.setItemInHand(this.getUsedItemHand(), this.getCarriedBlock().getBlock().asItem().getDefaultInstance());
-        } else {
-            this.setItemInHand(this.getUsedItemHand(), ItemStack.EMPTY);
         }
     }
 
@@ -315,7 +309,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         return (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.5F;
     }
 
-
     public boolean isHiding() {
         return entityData.get(HIDING);
     }
@@ -333,6 +326,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     public void setCarriedBlock(@Nullable BlockState state) {
+        setItemInHand(InteractionHand.MAIN_HAND, state == null ? ItemStack.EMPTY : new ItemStack(state.getBlock().asItem()));
         this.entityData.set(DATA_CARRY_STATE, Optional.ofNullable(state));
     }
 
@@ -367,7 +361,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         private final PumpkinWarden warden;
 
         private DestroyNearestPumpkinGoal(PumpkinWarden mob, double speed) {
-            super(mob, speed, 32);
+            super(mob, speed, 32, 2);
             this.warden = mob;
         }
 
@@ -376,30 +370,30 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
             BlockState state = level.getBlockState(pos);
             if (state.getBlock() instanceof AttachedStemBlock stemBlock) {
                 Direction facing = state.getValue(AttachedStemBlock.FACING);
-                this.blockPos = blockPos.relative(facing);
+                BlockPos relative = pos.relative(facing);
                 Block fruit = level.registryAccess().registryOrThrow(Registries.BLOCK).getOrThrow(stemBlock.fruit);
-                return level.getBlockState(blockPos).is(fruit);
+                return level.getBlockState(relative).is(fruit);
             }
             return false;
         }
 
         @Override
         public boolean canUse() {
-            return findNearestBlock() && this.warden.getCarriedBlock() == null;
+            return !warden.isHiding() && findNearestBlock() && warden.getCarriedBlock() == null;
         }
 
         @Override
         public void tick() {
             super.tick();
             if (isReachedTarget()) {
-                Level level = mob.level();
-                BiomesWeveGone.LOGGER.info("Reached target");
+                Level level = warden.level();
                 if (isValidTarget(level, blockPos)) {
-                    BiomesWeveGone.LOGGER.info("Valid target");
                     BlockState blockstate = level.getBlockState(this.blockPos);
-                    level.destroyBlock(blockPos, false, mob);
-                    level.gameEvent(GameEvent.BLOCK_DESTROY, this.blockPos, GameEvent.Context.of(this.warden, blockstate));
-                    this.warden.setCarriedBlock(blockstate.getBlock().defaultBlockState());
+                    BlockPos fruit = blockPos.relative(blockstate.getValue(AttachedStemBlock.FACING));
+                    BlockState state = level.getBlockState(fruit);
+                    level.destroyBlock(fruit, false, warden);
+                    level.gameEvent(GameEvent.BLOCK_DESTROY, fruit, GameEvent.Context.of(warden, state));
+                    warden.setCarriedBlock(state);
                 }
             }
         }
@@ -422,7 +416,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
         @Override
         public boolean canUse() {
-            return findNearestBlock() && this.warden.getCarriedBlock() != null;
+            return !warden.isHiding() && findNearestBlock() && warden.getCarriedBlock() != null;
         }
 
         @Override
@@ -434,12 +428,11 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
                 if (state.is(Blocks.CARVED_PUMPKIN)) {
                     Direction facing = state.getValue(CarvedPumpkinBlock.FACING);
                     BlockPos frontPos = blockPos.relative(facing);
-                    if (mob.blockPosition().closerThan(frontPos, 2.5)) {
+                    if (mob.blockPosition().closerThan(frontPos, 2.5))
                         if (this.warden.getCarriedBlock() != null) {
                             BehaviorUtils.throwItem(this.warden, this.warden.getCarriedBlock().getBlock().asItem().getDefaultInstance(), new Vec3(this.blockPos.getX(), this.blockPos.getY(), this.blockPos.getZ()));
                             this.warden.setCarriedBlock(null);
                         }
-                    }
                 }
             }
         }
