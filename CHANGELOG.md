@@ -4,6 +4,7 @@
 - Improve a bunch of flowers hitboxes
 - Update French (fr_fr) Translations (Credits: Brandcraf06)
 - If a Pumpkin Warden is Carrying a block it will now save the block to its NBT
+- Add Missing Music Disc Description key to Language Files
 
 # 2.3.7
 - Add Right-Clicking on Baby Villager With Weakness Potion with a Carved Pumpkin to turn them into a Pumpkin Warden

@@ -993,6 +993,7 @@
   "entity.minecraft.villager.biomeswevegone.forager": "采集者",
   "entity.minecraft.villager.forager": "采集者",
   "item.biomeswevegone.music_disc_pixie_club": "唱片",
+  "item.biomeswevegone.music_disc_pixie_club.desc": "AOCAWOL - 精灵俱乐部",
   "item.biomeswevegone.man_o_war_bucket": "僧帽水母桶",
   "advancements.biomeswevegone.description.root": "创建一个包含 Biome We've Gone 模组内容的世界",
   "advancements.biomeswevegone.husbandry.granny_smith.description": "在天际树林高地收集青苹果",
