@@ -1,11 +1,14 @@
 package net.potionstudios.biomeswevegone.world.entity.pumpkinwarden;
 
+import com.google.common.collect.ImmutableList;
+import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
+import net.minecraft.network.protocol.game.DebugPackets;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -22,11 +25,15 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.ai.sensing.Sensor;
+import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
@@ -78,8 +85,47 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     private static final EntityDataAccessor<Optional<BlockState>> DATA_CARRY_STATE = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.OPTIONAL_BLOCK_STATE);
     private static final EntityDataAccessor<Integer> DATA_VARIANT = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.INT);
 
+    private static final ImmutableList<MemoryModuleType<?>> MEMORY_TYPES = ImmutableList.of(
+            MemoryModuleType.HOME,
+            MemoryModuleType.HEARD_BELL_TIME
+    );
+
+    private static final ImmutableList<SensorType<? extends Sensor<? super PumpkinWarden>>> SENSOR_TYPES = ImmutableList.of(
+            SensorType.NEAREST_LIVING_ENTITIES,
+            SensorType.NEAREST_PLAYERS,
+            SensorType.HURT_BY
+    );
+
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    public @NotNull Brain<PumpkinWarden> getBrain() {
+        return (Brain<PumpkinWarden>) super.getBrain();
+    }
+
+    @Override
+    protected Brain.@NotNull Provider<PumpkinWarden> brainProvider() {
+        return Brain.provider(MEMORY_TYPES, SENSOR_TYPES);
+    }
+
+    @Override
+    protected @NotNull Brain<?> makeBrain(@NotNull Dynamic<?> dynamic) {
+        Brain<PumpkinWarden> brain = brainProvider().makeBrain(dynamic);
+        registerBrainGoals(brain);
+        return brain;
+    }
+
+    public void refreashBrain(ServerLevel serverLevel) {
+        Brain<PumpkinWarden> brain = this.getBrain();
+        brain.stopAll(serverLevel, this);
+        brain = brain.copyWithoutBehaviors();
+        registerBrainGoals(brain);
+    }
+
+    private void registerBrainGoals(Brain<PumpkinWarden> brain) {
+
     }
 
     @Override
@@ -111,6 +157,9 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         this.setVariant(Variant.byId(compound.getInt("Variant")));
         BlockState blockState = this.getCarriedBlock();
         if (blockState != null) compound.put("carriedBlockState", NbtUtils.writeBlockState(blockState));
+
+        if (level() instanceof ServerLevel serverLevel)
+            refreashBrain(serverLevel);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -236,6 +285,9 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     @Override
     protected void customServerAiStep() {
         super.customServerAiStep();
+        level().getProfiler().push("pumpkinWardenBrain");
+        getBrain().tick((ServerLevel)level(), this);
+        level().getProfiler().pop();
         if (!this.level().isDay()) {
             this.setTimer(this.getTimer() + 1);
             this.setHiding(true);
@@ -360,6 +412,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         super.onSyncedDataUpdated(dataAccessor);
         if (HIDING.equals(dataAccessor))
             refreshDimensions();
+    }
+
+    @Override
+    protected void sendDebugPackets() {
+        super.sendDebugPackets();
+        DebugPackets.sendEntityBrain(this);
     }
 
     private static class DestroyNearestPumpkinGoal extends MoveToBlockGoal {
