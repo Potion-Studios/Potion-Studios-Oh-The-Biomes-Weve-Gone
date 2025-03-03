@@ -45,6 +45,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
@@ -56,8 +57,10 @@ import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.IntFunction;
 
 /**
@@ -119,14 +122,14 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(0, new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D));
-        targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        goalSelector.addGoal(0, new DestroyNearestPumpkinGoal(this, 1));
-        goalSelector.addGoal(2, new ThrowItemAtCarvedPumpkinGoal(this, 1));
-        goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.PUMPKIN_PIE), false));
-        goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.7F));
+        goalSelector.addGoal(1, new TemptGoal(this, 1.2D, Ingredient.of(Items.PUMPKIN_PIE), false));
+        goalSelector.addGoal(2, new DestroyNearestPumpkinGoal(this, 1));
+        goalSelector.addGoal(3, new ThrowItemAtCarvedPumpkinGoal(this, 1));
+        goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         goalSelector.addGoal(5, new StayByBellGoal(this, 1, 5000));
         goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+        goalSelector.addGoal(7, new RandomLookAroundGoal(this));
+        targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
 
     @Override
@@ -211,18 +214,22 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     private void checkGoals() {
-        if (this.goalSelector.getAvailableGoals().stream().noneMatch(goal -> goal.getGoal().getClass() == AvoidEntityGoal.class)) {
+        Set<Class<?>> goalClasses = new HashSet<>();
+
+        for (WrappedGoal goal : this.goalSelector.getAvailableGoals())
+            goalClasses.add(goal.getGoal().getClass());
+
+        if (!goalClasses.contains(AvoidEntityGoal.class))
             this.goalSelector.addGoal(0, new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D));
-        }
-        if (this.goalSelector.getAvailableGoals().stream().noneMatch(goal -> goal.getGoal().getClass() == WaterAvoidingRandomStrollGoal.class)) {
+
+        if (!goalClasses.contains(WaterAvoidingRandomStrollGoal.class))
             this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.7F));
-        }
-        if (this.goalSelector.getAvailableGoals().stream().noneMatch(goal -> goal.getGoal().getClass() == LookAtPlayerGoal.class)) {
+
+        if (!goalClasses.contains(LookAtPlayerGoal.class))
             this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        }
-        if (this.goalSelector.getAvailableGoals().stream().noneMatch(goal -> goal.getGoal().getClass() == RandomLookAroundGoal.class)) {
+
+        if (!goalClasses.contains(RandomLookAroundGoal.class))
             this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-        }
     }
 
     @Override
@@ -233,36 +240,44 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     @Override
     public void aiStep() {
-        super.aiStep();
         if (this.jukebox == null || !this.jukebox.closerToCenterThan(this.position(), 10D) || !this.level().getBlockState(this.jukebox).is(Blocks.JUKEBOX)) {
             this.party = false;
             this.jukebox = null;
         }
-        if (!this.level().isClientSide()) {
-            if (!this.level().isDay()) {
+        super.aiStep();
+    }
+
+    @Override
+    protected void customServerAiStep() {
+        super.customServerAiStep();
+        if (!this.level().isDay()) {
+            this.setTimer(this.getTimer() + 1);
+            this.setHiding(true);
+        } else if (this.getTimer() > 0 && this.getLastHurtByMob() == null) {
+            this.setTimer(0);
+            this.setHiding(false);
+        }
+        if (this.getLastHurtByMob() != null) {
+            if (this.getTimer() < 200) {
                 this.setTimer(this.getTimer() + 1);
                 this.setHiding(true);
-            } else if (this.getTimer() > 0 && this.getLastHurtByMob() == null) {
+            } else {
                 this.setTimer(0);
                 this.setHiding(false);
             }
-            if (this.getLastHurtByMob() != null) {
-                if (this.getTimer() < 200) {
-                    this.setTimer(this.getTimer() + 1);
-                    this.setHiding(true);
-                } else {
-                    this.setTimer(0);
-                    this.setHiding(false);
-                }
-            }
         }
-        if (this.isHiding()) {
+        if (!canMove()) {
             goalSelector.getAvailableGoals().forEach(goal -> {
                 if (goal == null) return;
-                if (goal.getGoal().getClass() == WaterAvoidingRandomStrollGoal.class) {
-                    this.goalSelector.removeGoal(goal.getGoal());
-                }if (goal.getGoal().getClass() == AvoidEntityGoal.class) {
-                    this.goalSelector.removeGoal(goal.getGoal());
+                Goal goal1 = goal.getGoal();
+                if (goal1.getClass() == WaterAvoidingRandomStrollGoal.class) {
+                    this.goalSelector.removeGoal(goal1);
+                } else if (goal1.getClass() == AvoidEntityGoal.class) {
+                    this.goalSelector.removeGoal(goal);
+                } else if (goal1.getClass() == LookAtPlayerGoal.class) {
+                    this.goalSelector.removeGoal(goal);
+                } else if (goal1.getClass() == RandomLookAroundGoal.class) {
+                    this.goalSelector.removeGoal(goal);
                 }
             });
             if (this.getCarriedBlock() != null) {
@@ -279,7 +294,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         this.setVariant(Variant.getSpawnVariant(level.getRandom()));
         return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
     }
-
 
     @Override
     public boolean canBeLeashed() {
@@ -307,6 +321,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     @Override
     public float getVoicePitch() {
         return (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.5F;
+    }
+
+    public boolean canMove() {
+        return !isHiding() && !party;
     }
 
     public boolean isHiding() {
@@ -379,7 +397,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
         @Override
         public boolean canUse() {
-            return !warden.isHiding() && findNearestBlock() && warden.getCarriedBlock() == null;
+            return warden.canMove() && warden.getCarriedBlock() == null && findNearestBlock();
+        }
+
+        @Override
+        public boolean canContinueToUse() {
+            return super.canContinueToUse() && warden.canMove();
         }
 
         @Override
@@ -416,7 +439,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
         @Override
         public boolean canUse() {
-            return !warden.isHiding() && findNearestBlock() && warden.getCarriedBlock() != null;
+            return warden.canMove() && warden.getCarriedBlock() != null && findNearestBlock();
+        }
+
+        @Override
+        public boolean canContinueToUse() {
+            return super.canContinueToUse() && warden.canMove();
         }
 
         @Override
@@ -444,6 +472,16 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         private StayByBellGoal(PumpkinWarden pumpkinWarden, double speedModifier, int searchRange) {
             super(pumpkinWarden, speedModifier, searchRange);
             this.warden = pumpkinWarden;
+        }
+
+        @Override
+        public boolean canUse() {
+            return super.canUse() && warden.canMove();
+        }
+
+        @Override
+        public boolean canContinueToUse() {
+            return super.canContinueToUse() && warden.canMove();
         }
 
         @Override
