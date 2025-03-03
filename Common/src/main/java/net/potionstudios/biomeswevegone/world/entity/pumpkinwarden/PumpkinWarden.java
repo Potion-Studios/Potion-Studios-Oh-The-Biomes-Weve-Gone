@@ -45,7 +45,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
@@ -176,41 +175,28 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
 
     private <E extends GeoAnimatable> PlayState predicate(@NotNull AnimationState<E> event) {
-        AnimationController<E> controller = event.getController();
-        controller.transitionLength(0);
+        event.getController().transitionLength(0);
         if (this.isHiding()) {
             if (this.getTimer() < 10) {
-                controller.setAnimation(HIDE_START);
-                return PlayState.CONTINUE;
+                return event.setAndContinue(HIDE_START);
             } else if ((this.getTimer() > 10 && this.getTimer() < 180) || !this.level().isDay() && this.getTimer() > 10) {
-                controller.setAnimation(HIDE);
-                return PlayState.CONTINUE;
+                return event.setAndContinue(HIDE);
             } else if (this.getTimer() > 180) {
-                if (this.level().getBrightness(LightLayer.SKY, this.getOnPos()) > 2) {
-                    controller.setAnimation(HIDE_END);
-                } else {
-                    controller.setAnimation(HIDE);
-                }
-                return PlayState.CONTINUE;
+                if (this.level().getBrightness(LightLayer.SKY, this.getOnPos()) > 2)
+                    return event.setAndContinue(HIDE_END);
+                return event.setAndContinue(HIDE);
             }
         }
         if (this.getCarriedBlock() != null) {
-            if (event.isMoving()) {
-                controller.setAnimation(HOLDING_WALKING);
-            } else {
-                controller.setAnimation(HOLDING_IDLE);
-            }
-            return PlayState.CONTINUE;
+            if (event.isMoving())
+                return event.setAndContinue(HOLDING_WALKING);
+            return event.setAndContinue(HOLDING_IDLE);
         } else if (event.isMoving() && this.getCarriedBlock() == null) {
-            controller.setAnimation(WALKING);
-            return PlayState.CONTINUE;
+            return event.setAndContinue(WALKING);
         } else if (this.party) {
-            controller.setAnimation(WAVE);
-            return PlayState.CONTINUE;
-        } else {
-            controller.setAnimation(IDLE);
-            return PlayState.CONTINUE;
+            return event.setAndContinue(WAVE);
         }
+        return event.setAndContinue(IDLE);
     }
 
     private void checkGoals() {
