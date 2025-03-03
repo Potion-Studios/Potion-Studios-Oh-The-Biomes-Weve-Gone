@@ -3,6 +3,7 @@
 - Add BlueBerries to Blue Dye Recipe
 - Improve a bunch of flowers hitboxes
 - Update French (fr_fr) Translations (Credits: Brandcraf06)
+- Add Missing Music Disc Description key to Language Files
 
 # 2.3.7
 - Add Right-Clicking on Baby Villager With Weakness Potion with a Carved Pumpkin to turn them into a Pumpkin Warden
