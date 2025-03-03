@@ -56,10 +56,8 @@ import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.function.IntFunction;
 
 /**
@@ -125,7 +123,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         goalSelector.addGoal(2, new DestroyNearestPumpkinGoal(this, 1));
         goalSelector.addGoal(3, new ThrowItemAtCarvedPumpkinGoal(this, 1));
         goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        goalSelector.addGoal(5, new StayByBellGoal(this, 1, 5000));
+        goalSelector.addGoal(5, new StayByBellGoal(this, 1, 1000));
         goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
         goalSelector.addGoal(7, new RandomLookAroundGoal(this));
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
@@ -164,13 +162,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     private static final RawAnimation HIDE_START = RawAnimation.begin().thenPlay("animation.pumpkinwarden.hidestart");
-    private static final RawAnimation HIDE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.hide");
+    private static final RawAnimation HIDE = RawAnimation.begin().thenLoop("animation.pumpkinwarden.hide");
     private static final RawAnimation HIDE_END = RawAnimation.begin().thenPlay("animation.pumpkinwarden.hideend");
     private static final RawAnimation HOLDING_WALKING = RawAnimation.begin().thenPlay("animation.pumpkinwarden.holding_walking");
     private static final RawAnimation HOLDING_IDLE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.holding_idle");
     private static final RawAnimation WALKING = RawAnimation.begin().thenPlay("animation.pumpkinwarden.walking");
     private static final RawAnimation IDLE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.idle");
-
     private static final RawAnimation WAVE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.wave");
 
 
@@ -199,29 +196,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         return event.setAndContinue(IDLE);
     }
 
-    private void checkGoals() {
-        Set<Class<?>> goalClasses = new HashSet<>();
-
-        for (WrappedGoal goal : this.goalSelector.getAvailableGoals())
-            goalClasses.add(goal.getGoal().getClass());
-
-        if (!goalClasses.contains(AvoidEntityGoal.class))
-            this.goalSelector.addGoal(0, new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D));
-
-        if (!goalClasses.contains(WaterAvoidingRandomStrollGoal.class))
-            this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.7F));
-
-        if (!goalClasses.contains(LookAtPlayerGoal.class))
-            this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
-
-        if (!goalClasses.contains(RandomLookAroundGoal.class))
-            this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-    }
-
     @Override
-    public void setRecordPlayingNearby(@NotNull BlockPos pPos, boolean pIsPartying) {
-        this.jukebox = pPos;
-        this.party = pIsPartying;
+    public void setRecordPlayingNearby(@NotNull BlockPos blockPos, boolean partying) {
+        this.jukebox = blockPos;
+        this.party = partying;
     }
 
     @Override
@@ -252,27 +230,19 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
                 this.setHiding(false);
             }
         }
-        if (!canMove()) {
-            goalSelector.getAvailableGoals().forEach(goal -> {
-                if (goal == null) return;
-                Goal goal1 = goal.getGoal();
-                if (goal1.getClass() == WaterAvoidingRandomStrollGoal.class) {
-                    this.goalSelector.removeGoal(goal1);
-                } else if (goal1.getClass() == AvoidEntityGoal.class) {
-                    this.goalSelector.removeGoal(goal);
-                } else if (goal1.getClass() == LookAtPlayerGoal.class) {
-                    this.goalSelector.removeGoal(goal);
-                } else if (goal1.getClass() == RandomLookAroundGoal.class) {
-                    this.goalSelector.removeGoal(goal);
-                }
-            });
-            if (this.getCarriedBlock() != null) {
-                BehaviorUtils.throwItem(this, this.getCarriedBlock().getBlock().asItem().getDefaultInstance(), new Vec3(this.getX() + 2, this.getY(), this.getZ()));
-                this.setCarriedBlock(null);
-            }
-        } else {
-            checkGoals();
+        if (!canMove() && this.getCarriedBlock() != null) {
+            BehaviorUtils.throwItem(this, this.getCarriedBlock().getBlock().asItem().getDefaultInstance(), new Vec3(this.getX() + 2, this.getY(), this.getZ()));
+            this.setCarriedBlock(null);
         }
+    }
+
+    @Override
+    protected void updateControlFlags() {
+        super.updateControlFlags();
+        goalSelector.setControlFlag(Goal.Flag.MOVE, canMove());
+        goalSelector.setControlFlag(Goal.Flag.JUMP, canMove());
+        goalSelector.setControlFlag(Goal.Flag.LOOK, !isHiding());
+        goalSelector.setControlFlag(Goal.Flag.TARGET, !isHiding());
     }
 
     @Override
@@ -306,7 +276,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     @Override
     public float getVoicePitch() {
-        return (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.5F;
+        return (getRandom().nextFloat() - getRandom().nextFloat()) * 0.2F + 1.5F;
     }
 
     public boolean canMove() {
@@ -454,7 +424,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     private static class StayByBellGoal extends MoveToBlockGoal {
-        public PumpkinWarden warden;
+        private final PumpkinWarden warden;
 
         private StayByBellGoal(PumpkinWarden pumpkinWarden, double speedModifier, int searchRange) {
             super(pumpkinWarden, speedModifier, searchRange);
@@ -474,7 +444,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         @Override
         protected boolean isValidTarget(@NotNull LevelReader level, @NotNull BlockPos pos) {
             List<BlockState> blockStates = level.getBlockStates(new AABB(warden.blockPosition()).inflate(30)).toList();
-            return !blockStates.get(warden.random.nextInt(blockStates.size())).isAir();
+            return !blockStates.get(warden.getRandom().nextInt(blockStates.size())).isAir();
         }
     }
 

@@ -79,7 +79,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
 
     public int onionTime;
 
-    public Goal movementGoal = new WaterAvoidingRandomStrollGoal(this, 1.0D);
+    private final Goal movementGoal = new WaterAvoidingRandomStrollGoal(this, 1.0D);
 
 
     @Nullable
