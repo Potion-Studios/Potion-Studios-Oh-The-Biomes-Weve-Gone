@@ -370,9 +370,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     @Override
-    public void tick() {
-        super.tick();
-        refreshDimensions();
+    public void onSyncedDataUpdated(@NotNull EntityDataAccessor<?> dataAccessor) {
+        super.onSyncedDataUpdated(dataAccessor);
+        if (HIDING.equals(dataAccessor))
+            refreshDimensions();
     }
 
     private static class DestroyNearestPumpkinGoal extends MoveToBlockGoal {
