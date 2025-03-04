@@ -1,4 +1,6 @@
 {
+  "advancements.biomeswevegone.adventure.forgotten_fae.description": "Trouvez un disque Pixie Club.",
+  "advancements.biomeswevegone.adventure.forgotten_fae.title": "Le royaume des faes",
   "advancements.biomeswevegone.adventure.inside_quicksand.description": "Sombrez dans du sable mouvant.",
   "advancements.biomeswevegone.adventure.inside_quicksand.title": "Je coule?",
   "advancements.biomeswevegone.adventure.little_house_on_the_prairie.description": "Trouvez toute les maisons de prairie",
@@ -1029,5 +1031,7 @@
   "subtitles.entity.oddion_ambient": "Ronronnement de tronion",
   "subtitles.entity.oddion_death": "Tronion meurt",
   "subtitles.entity.oddion_happy": "Ronronnement de joie de tronion",
-  "subtitles.entity.oddion_hurt": "Tronion blessé"
+  "subtitles.entity.oddion_hurt": "Tronion blessé",
+  "biomeswevegone.commands.reload.spawn.success": "La configuration d'apparition des créatures a été rechargée avec succès.",
+  "tooltip.waila.hatch_chance": "Chance d'éclosion : %s"
 }
