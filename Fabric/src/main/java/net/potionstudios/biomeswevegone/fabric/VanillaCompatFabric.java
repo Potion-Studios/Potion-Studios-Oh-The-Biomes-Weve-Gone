@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.*;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -88,9 +89,7 @@ public class VanillaCompatFabric {
         if (!BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value()) return;
         BWGVillagerTrades.makeWanderingTrades();
         BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) ->
-                TradeOfferHelper.registerWanderingTraderOffers(level, factory -> {
-                    factory.addAll(offers);
-                })
+                TradeOfferHelper.registerWanderingTraderOffers(level, factory -> factory.addAll(offers))
         );
     }
 }

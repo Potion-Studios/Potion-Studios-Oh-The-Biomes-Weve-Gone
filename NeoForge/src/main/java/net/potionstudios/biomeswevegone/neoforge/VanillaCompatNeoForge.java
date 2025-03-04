@@ -22,7 +22,6 @@ import net.neoforged.neoforge.event.village.WandererTradesEvent;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
-import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerType;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
