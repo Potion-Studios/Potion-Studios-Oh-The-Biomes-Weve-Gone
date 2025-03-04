@@ -231,6 +231,16 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(BWGBlocks.DACITE_SET.getBase()), has(BWGBlocks.DACITE_SET.getBase()))
                 .save(recipeOutput);
 
+        smeltingResultFromBase(recipeOutput, BWGBlocks.WHITE_DACITE_SET.getBase(), BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase());
+        twoByTwoPackertoFourWithStoneCutting(recipeOutput, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase(), BWGBlocks.WHITE_DACITE_SET.getBase());
+        twoByTwoPackertoFourWithStoneCutting(recipeOutput, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WHITE_DACITE_TILE_SET.getBase(), BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase());
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WHITE_DACITE_PILLAR.get())
+                .define('#', BWGBlocks.WHITE_DACITE_SET.getBase())
+                .pattern("#")
+                .pattern("#")
+                .unlockedBy(getHasName(BWGBlocks.WHITE_DACITE_SET.getBase()), has(BWGBlocks.WHITE_DACITE_SET.getBase()))
+                .save(recipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WINDSWEPT_SANDSTONE_PILLAR.get())
                 .define('X', BWGBlocks.WINDSWEPT_SAND_SET.getSandstone())
                 .pattern("X")

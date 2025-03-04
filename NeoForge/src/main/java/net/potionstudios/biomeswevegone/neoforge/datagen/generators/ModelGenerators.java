@@ -301,6 +301,10 @@ public class ModelGenerators {
             simpleBlockWithItem(BWGBlocks.PODZOL_DACITE.get(),
                     models().cubeBottomTop(name(BWGBlocks.PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.DACITE_SET.getBase()), mcLoc("block/podzol_top")));
 
+            simpleBlockWithItem(BWGBlocks.WHITE_PODZOL_DACITE.get(),
+                    models().cubeBottomTop(name(BWGBlocks.WHITE_PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.WHITE_PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.WHITE_DACITE_SET.getBase()), mcLoc("block/podzol_top")));
+
+
             registerSlab(BWGBlocks.CATTAIL_THATCH_SLAB.get(), BWGBlocks.CATTAIL_THATCH.get());
             registerStairs(BWGBlocks.CATTAIL_THATCH_STAIRS.get(), BWGBlocks.CATTAIL_THATCH.get());
 
@@ -309,6 +313,10 @@ public class ModelGenerators {
             models().cubeBottomTop(name(BWGBlocks.OVERGROWN_DACITE.get()) + "_snowy",  blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "snow_side"), blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "bottom"), blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "top")).texture("particle", blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "bottom")).renderType("cutout_mipped");
             snowyRotatableBlock(BWGBlocks.OVERGROWN_DACITE.get());
             simpleBlockItemExistingModel(BWGBlocks.OVERGROWN_DACITE.get());
+
+            models().cubeBottomTop(name(BWGBlocks.WHITE_OVERGROWN_DACITE.get()) + "_snowy",  blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "snow_side"), blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "bottom"), blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "top")).texture("particle", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "bottom")).renderType("cutout_mipped");
+            snowyRotatableBlock(BWGBlocks.WHITE_OVERGROWN_DACITE.get());
+            simpleBlockItemExistingModel(BWGBlocks.WHITE_OVERGROWN_DACITE.get());
 
             models().cubeBottomTop(name(BWGBlocks.OVERGROWN_STONE.get()) + "_snowy",  blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "snow_side"), blockTexture(Blocks.STONE), blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "top")).texture("particle", blockTexture(Blocks.STONE)).renderType("cutout_mipped");
             snowyRotatableBlock(BWGBlocks.OVERGROWN_STONE.get());

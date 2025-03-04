@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "biomeswevegone:block/white_overgrown_dacite"
+      },
+      {
+        "model": "biomeswevegone:block/white_overgrown_dacite",
+        "y": 90
+      },
+      {
+        "model": "biomeswevegone:block/white_overgrown_dacite",
+        "y": 180
+      },
+      {
+        "model": "biomeswevegone:block/white_overgrown_dacite",
+        "y": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "biomeswevegone:block/white_overgrown_dacite_snowy"
+    }
+  }
+}

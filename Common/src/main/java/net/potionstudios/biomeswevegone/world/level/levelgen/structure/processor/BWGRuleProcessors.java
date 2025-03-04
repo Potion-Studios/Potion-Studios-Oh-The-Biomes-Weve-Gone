@@ -156,13 +156,15 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(Blocks.POTTED_CACTUS, 0.2f, BWGBlocks.GOLDEN_SPINED_CACTUS.getPottedBlock())
 	);
 
-	protected static final RuleProcessor DACITE_10_PERCENT_COBBLED_DACITE = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_SET.getBase(), 0.1f, BWGBlocks.DACITE_COBBLESTONE_SET.getBase())
+	protected static final RuleProcessor WHITE_DACITE_10_PERCENT_COBBLED_WHITE_DACITE = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.1f, BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase())
 	);
 
-	protected static final RuleProcessor DACITE_VARIANTS = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_SET.getBase(), 0.4f, BWGBlocks.DACITE_COBBLESTONE_SET.getBase()),
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_SET.getBase(), 0.4f, BWGBlocks.DACITE_BRICKS_SET.getBase())
+	protected static final RuleProcessor WHITE_DACITE_VARIANTS = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.3f, BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase()),
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.3f, BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase()),
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.1f, BWGBlocks.WHITE_DACITE_CRACKED_BRICKS_SET.getBase()),
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.1f, BWGBlocks.WHITE_DACITE_MOSSY_BRICKS_SET.getBase())
 	);
 
 	protected static final RuleProcessor STONEBRICKS_VARIANTS = createRuleProcessor(

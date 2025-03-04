@@ -7,7 +7,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
-import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -85,7 +84,7 @@ public class VanillaCompatNeoForge {
             BWGVillagerTrades.TRADES.get(event.getType())
                     .forEach((level, offers) -> {
                         List<VillagerTrades.ItemListing> tradeList = trades.get(level.intValue());
-                        for (MerchantOffer offer : offers) tradeList.add((trader, random) -> offer);
+                        tradeList.addAll(offers);
                     });
         }
     }
@@ -96,7 +95,7 @@ public class VanillaCompatNeoForge {
      */
     private static void onWanderingTrade(final WandererTradesEvent event) {
         BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) -> {
-            for (MerchantOffer offer : offers) event.getGenericTrades().add((trader, random) -> offer);
+            for (VillagerTrades.ItemListing itemListing : offers) event.getGenericTrades().add(itemListing);
         });
     }
 

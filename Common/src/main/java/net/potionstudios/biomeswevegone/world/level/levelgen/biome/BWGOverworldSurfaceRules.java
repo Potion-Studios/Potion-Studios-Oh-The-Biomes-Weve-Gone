@@ -38,6 +38,10 @@ public class BWGOverworldSurfaceRules {
     private static final SurfaceRules.RuleSource BLACK_SAND = makeSandRule(BWGBlocks.BLACK_SAND_SET);
     private static final SurfaceRules.RuleSource WHITE_SAND = makeSandRule(BWGBlocks.WHITE_SAND_SET);
 
+
+    private static final SurfaceRules.RuleSource WHITE_OVERGROWN_DACITE_DACITE_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.WHITE_OVERGROWN_DACITE.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.WHITE_DACITE_SET.getBase()));
+    private static final SurfaceRules.RuleSource WHITE_OVERGROWN_PODZOL_DACITE_STONE_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.WHITE_PODZOL_DACITE.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.WHITE_DACITE_SET.getBase()));
+
     private static final SurfaceRules.RuleSource OVERGROWN_DACITE_DACITE_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.OVERGROWN_DACITE.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.DACITE_SET.getBase()));
     private static final SurfaceRules.RuleSource OVERGROWN_PODZOL_DACITE_STONE_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.PODZOL_DACITE.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.DACITE_SET.getBase()));
     private static final SurfaceRules.RuleSource LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.LUSH_GRASS_BLOCK.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.LUSH_DIRT.get()));
@@ -170,9 +174,9 @@ public class BWGOverworldSurfaceRules {
 
     private static final SurfaceRules.RuleSource DACITE_SHORE = biomeAbovePreliminarySurface(BWGBiomes.DACITE_SHORE,
             SurfaceRules.sequence(
-                    makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.85D), makeStateRule(BWGBlocks.DACITE_COBBLESTONE_SET.getBase())),
-                    makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.WHITE_SAND_SET.getSand()), makeStateRule(BWGBlocks.DACITE_SET.getBase()))),
-                    makeStateRule(BWGBlocks.DACITE_SET.getBase())
+                    makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.85D), makeStateRule(BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase())),
+                    makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.WHITE_SAND_SET.getSand()), makeStateRule(BWGBlocks.WHITE_DACITE_SET.getBase()))),
+                    makeStateRule(BWGBlocks.WHITE_DACITE_SET.getBase())
             ));
 
     private static final SurfaceRules.RuleSource DEAD_SEA = biomeAbovePreliminarySurface(BWGBiomes.DEAD_SEA,
@@ -360,10 +364,10 @@ public class BWGOverworldSurfaceRules {
                             makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.LUSH_GRASS_BLOCK.get()),
                             makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.LUSH_DIRT.get())
                     )),
-            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), OVERGROWN_PODZOL_DACITE_STONE_SURFACE),
-            OVERGROWN_DACITE_DACITE_SURFACE,
-            makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), BWGBlocks.DACITE_SET.getBase()),
-            makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), BWGBlocks.DACITE_SET.getBase())
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), WHITE_OVERGROWN_PODZOL_DACITE_STONE_SURFACE),
+            WHITE_OVERGROWN_DACITE_DACITE_SURFACE,
+            makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), BWGBlocks.WHITE_DACITE_SET.getBase()),
+            makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), BWGBlocks.WHITE_DACITE_SET.getBase())
     ));
 
     private static final SurfaceRules.RuleSource WEEPING_WITCH_FOREST = biomeAbovePreliminarySurface(BWGBiomes.WEEPING_WITCH_FOREST, SurfaceRules.sequence(

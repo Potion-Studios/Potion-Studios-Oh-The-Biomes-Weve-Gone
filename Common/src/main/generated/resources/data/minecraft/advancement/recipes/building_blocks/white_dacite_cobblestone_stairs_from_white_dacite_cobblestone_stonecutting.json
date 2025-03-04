@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:white_dacite_cobblestone_stairs_from_white_dacite_cobblestone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_dacite_cobblestone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:white_dacite_cobblestone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_white_dacite_cobblestone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:white_dacite_cobblestone_stairs_from_white_dacite_cobblestone_stonecutting"
+    ]
+  }
+}

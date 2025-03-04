@@ -7,13 +7,14 @@ import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.*;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
@@ -44,6 +45,7 @@ public class VanillaCompatFabric {
                 registerWanderingTrades();
         }
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> BWGBrewingRecipes.buildBrewingRecipes(builder::addMix));
+        BWGVillagerTypes.setVillagerBiomes(VillagerType.BY_BIOME::put);
         UseEntityCallback.EVENT.register(((player, level, interactionHand, entity, entityHitResult) -> PumpkinWarden.villagerToPumpkinWarden(player, player.getItemInHand(interactionHand), level) ? InteractionResult.SUCCESS : InteractionResult.PASS));
     }
 
@@ -78,9 +80,7 @@ public class VanillaCompatFabric {
         if (BWGVillagerTrades.TRADES.isEmpty()) return;
         BWGVillagerTrades.TRADES.forEach((villagerProfession, offersMap) ->
                 offersMap.forEach((level, offers) ->
-                        TradeOfferHelper.registerVillagerOffers(villagerProfession, level, factory -> {
-                            for (MerchantOffer offer : offers) factory.add((trader, random) -> offer);
-                        })
+                        TradeOfferHelper.registerVillagerOffers(villagerProfession, level, factory -> factory.addAll(offers))
                 )
         );
     }
@@ -89,9 +89,7 @@ public class VanillaCompatFabric {
         if (!BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value()) return;
         BWGVillagerTrades.makeWanderingTrades();
         BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) ->
-                TradeOfferHelper.registerWanderingTraderOffers(level, factory -> {
-                    for (MerchantOffer offer : offers) factory.add((trader, random) -> offer);
-                })
+                TradeOfferHelper.registerWanderingTraderOffers(level, factory -> factory.addAll(offers))
         );
     }
 }

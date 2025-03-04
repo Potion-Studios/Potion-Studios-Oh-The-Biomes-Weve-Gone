@@ -40,8 +40,6 @@ accessible field net/minecraft/data/worldgen/ProcessorLists EMPTY Lnet/minecraft
 accessible field net/minecraft/tags/TagBuilder entries Ljava/util/List;
 
 accessible method net/minecraft/world/entity/ai/village/poi/PoiTypes getBlockStates (Lnet/minecraft/world/level/block/Block;)Ljava/util/Set;
-accessible field net/minecraft/world/entity/npc/VillagerType BY_BIOME Ljava/util/Map;
-mutable field net/minecraft/world/entity/npc/VillagerType BY_BIOME Ljava/util/Map;
 
 accessible field net/minecraft/world/level/levelgen/structure/pools/StructureTemplatePool rawTemplates Ljava/util/List;
 mutable field net/minecraft/world/level/levelgen/structure/pools/StructureTemplatePool rawTemplates Ljava/util/List;
