@@ -177,9 +177,10 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
 //    }
 
     @Override
-    public void tick() {
-        super.tick();
-        refreshDimensions();
+    public void onSyncedDataUpdated(@NotNull EntityDataAccessor<?> dataAccessor) {
+        super.onSyncedDataUpdated(dataAccessor);
+        if (GROUNDED.equals(dataAccessor))
+            refreshDimensions();
     }
 
     @Override

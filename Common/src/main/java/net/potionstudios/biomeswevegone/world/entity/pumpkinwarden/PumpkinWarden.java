@@ -32,7 +32,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
-import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -235,9 +234,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public void tick() {
-        super.tick();
-        refreshDimensions();
+    public void onSyncedDataUpdated(@NotNull EntityDataAccessor<?> dataAccessor) {
+        super.onSyncedDataUpdated(dataAccessor);
+        if (HIDING.equals(dataAccessor))
+            refreshDimensions();
     }
 
     @Override
