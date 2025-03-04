@@ -3,9 +3,7 @@
   "category": "building",
   "group": "bark",
   "key": {
-    "#": {
-      "item": "biomeswevegone:green_enchanted_log"
-    }
+    "#": "biomeswevegone:green_enchanted_log"
   },
   "pattern": [
     "##",

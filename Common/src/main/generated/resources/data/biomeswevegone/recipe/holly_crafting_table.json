@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "planks",
   "key": {
-    "#": {
-      "item": "biomeswevegone:holly_planks"
-    }
+    "#": "biomeswevegone:holly_planks"
   },
   "pattern": [
     "##",

@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "minecraft:cobblestone"
-    },
-    {
-      "item": "minecraft:stone"
-    }
+    "minecraft:cobblestone",
+    "minecraft:stone"
   ],
   "result": {
     "count": 2,

@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "biomeswevegone:white_sandstone"
-    }
+    "#": "biomeswevegone:white_sandstone"
   },
   "pattern": [
     "###",

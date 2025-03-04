@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "wooden_sign",
   "key": {
-    "#": {
-      "item": "biomeswevegone:white_mangrove_planks"
-    },
-    "X": {
-      "item": "minecraft:stick"
-    }
+    "#": "biomeswevegone:white_mangrove_planks",
+    "X": "minecraft:stick"
   },
   "pattern": [
     "###",

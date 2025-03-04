@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "wooden_sign",
   "key": {
-    "#": {
-      "item": "biomeswevegone:rainbow_eucalyptus_planks"
-    },
-    "X": {
-      "item": "minecraft:stick"
-    }
+    "#": "biomeswevegone:rainbow_eucalyptus_planks",
+    "X": "minecraft:stick"
   },
   "pattern": [
     "###",

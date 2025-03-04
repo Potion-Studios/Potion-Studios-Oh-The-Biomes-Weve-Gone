@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeswevegone:allium_petal_block"
-    }
+    "biomeswevegone:allium_petal_block"
   ],
   "result": {
     "count": 9,

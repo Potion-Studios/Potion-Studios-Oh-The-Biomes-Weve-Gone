@@ -3,15 +3,9 @@
   "category": "building",
   "key": {
     "#": [
-      {
-        "item": "biomeswevegone:windswept_sandstone"
-      },
-      {
-        "item": "biomeswevegone:chiseled_windswept_sandstone"
-      },
-      {
-        "item": "biomeswevegone:cut_windswept_sandstone"
-      }
+      "biomeswevegone:windswept_sandstone",
+      "biomeswevegone:chiseled_windswept_sandstone",
+      "biomeswevegone:cut_windswept_sandstone"
     ]
   },
   "pattern": [

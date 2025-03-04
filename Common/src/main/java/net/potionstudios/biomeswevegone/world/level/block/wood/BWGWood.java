@@ -196,6 +196,12 @@ public class BWGWood {
         return holder;
     }
 
+    protected static <B extends Block> Supplier<B> register(String id, Supplier<B> block) {
+        Supplier<B> holder = BWGBlocks.register(id, block);
+        WOOD.add(holder);
+        return holder;
+    }
+
     protected static <I extends Item> Supplier<I> registerItem(String id, Function<Item.Properties, I> item, Item.Properties properties) {
         Supplier<I> supplier = BWGItems.register(id, item, properties);
         WOOD_BLOCK_ITEMS.add(supplier);

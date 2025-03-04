@@ -3,9 +3,7 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:redwood_logs"
-    }
+    "#biomeswevegone:redwood_logs"
   ],
   "result": {
     "count": 4,

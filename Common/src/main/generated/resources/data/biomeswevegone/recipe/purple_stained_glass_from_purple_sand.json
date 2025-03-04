@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "biomeswevegone:purple_sand"
-  },
+  "ingredient": "biomeswevegone:purple_sand",
   "result": {
     "count": 1,
     "id": "minecraft:purple_stained_glass"

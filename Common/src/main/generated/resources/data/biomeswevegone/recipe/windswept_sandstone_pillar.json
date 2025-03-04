@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "X": {
-      "item": "biomeswevegone:windswept_sandstone"
-    }
+    "X": "biomeswevegone:windswept_sandstone"
   },
   "pattern": [
     "X",

@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 600,
   "experience": 0.35,
-  "ingredient": {
-    "item": "biomeswevegone:oddion_bulb"
-  },
+  "ingredient": "biomeswevegone:oddion_bulb",
   "result": {
     "count": 1,
     "id": "biomeswevegone:cooked_oddion_bulb"

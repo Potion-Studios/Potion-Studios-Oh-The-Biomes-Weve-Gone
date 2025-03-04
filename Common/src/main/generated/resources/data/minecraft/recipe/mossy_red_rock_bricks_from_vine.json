@@ -3,12 +3,8 @@
   "category": "building",
   "group": "mossy_red_rock_bricks",
   "ingredients": [
-    {
-      "item": "biomeswevegone:red_rock_bricks"
-    },
-    {
-      "item": "minecraft:vine"
-    }
+    "biomeswevegone:red_rock_bricks",
+    "minecraft:vine"
   ],
   "result": {
     "count": 1,

@@ -3,9 +3,7 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:spirit_logs"
-    }
+    "#biomeswevegone:spirit_logs"
   ],
   "result": {
     "count": 4,

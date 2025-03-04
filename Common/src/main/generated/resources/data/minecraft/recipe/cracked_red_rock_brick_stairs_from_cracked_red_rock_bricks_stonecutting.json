@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "biomeswevegone:cracked_red_rock_bricks"
-  },
+  "ingredient": "biomeswevegone:cracked_red_rock_bricks",
   "result": {
     "count": 1,
     "id": "biomeswevegone:cracked_red_rock_brick_stairs"

@@ -3,15 +3,9 @@
   "category": "building",
   "key": {
     "#": [
-      {
-        "item": "biomeswevegone:black_sandstone"
-      },
-      {
-        "item": "biomeswevegone:chiseled_black_sandstone"
-      },
-      {
-        "item": "biomeswevegone:cut_black_sandstone"
-      }
+      "biomeswevegone:black_sandstone",
+      "biomeswevegone:chiseled_black_sandstone",
+      "biomeswevegone:cut_black_sandstone"
     ]
   },
   "pattern": [

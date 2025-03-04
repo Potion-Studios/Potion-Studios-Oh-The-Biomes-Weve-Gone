@@ -3,9 +3,7 @@
   "category": "building",
   "group": "wooden_slab",
   "key": {
-    "#": {
-      "item": "biomeswevegone:white_mangrove_planks"
-    }
+    "#": "biomeswevegone:white_mangrove_planks"
   },
   "pattern": [
     "###"

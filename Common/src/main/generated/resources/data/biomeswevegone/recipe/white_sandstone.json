@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "biomeswevegone:white_sand"
-    }
+    "#": "biomeswevegone:white_sand"
   },
   "pattern": [
     "##",

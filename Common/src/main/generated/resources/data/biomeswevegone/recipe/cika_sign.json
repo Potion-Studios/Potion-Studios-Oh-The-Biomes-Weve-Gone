@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "wooden_sign",
   "key": {
-    "#": {
-      "item": "biomeswevegone:cika_planks"
-    },
-    "X": {
-      "item": "minecraft:stick"
-    }
+    "#": "biomeswevegone:cika_planks",
+    "X": "minecraft:stick"
   },
   "pattern": [
     "###",

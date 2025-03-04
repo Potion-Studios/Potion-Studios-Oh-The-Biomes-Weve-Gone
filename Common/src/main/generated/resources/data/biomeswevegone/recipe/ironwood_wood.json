@@ -3,9 +3,7 @@
   "category": "building",
   "group": "bark",
   "key": {
-    "#": {
-      "item": "biomeswevegone:ironwood_log"
-    }
+    "#": "biomeswevegone:ironwood_log"
   },
   "pattern": [
     "##",

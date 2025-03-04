@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:gold_ingot"
-    },
-    "X": {
-      "item": "biomeswevegone:green_apple"
-    }
+    "#": "minecraft:gold_ingot",
+    "X": "biomeswevegone:green_apple"
   },
   "pattern": [
     "###",

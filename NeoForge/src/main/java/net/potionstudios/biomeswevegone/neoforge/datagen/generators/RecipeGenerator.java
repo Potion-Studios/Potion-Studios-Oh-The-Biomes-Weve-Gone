@@ -8,8 +8,6 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -427,18 +425,33 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(BWGItems.SOUL_FRUIT.get()), has(BWGItems.SOUL_FRUIT.get()))
                 .save(output);
 
-        BWGBlocks.BLOCKS.stream().filter(entry -> entry.get() instanceof FlowerBlock || entry.get() instanceof TallFlowerBlock).forEach(
-                entry -> {
-                    Block block = entry.get();
-                    Item dye = DyeItem.byColor(DyeColor.byId(block.defaultMapColor().id));
-                    oneToOneConversionRecipe(dye, block, getItemName(dye), block instanceof TallFlowerBlock ? 2 : 1);
-                }
-        );
+        oneToOneConversionRecipe(output, itemRegistry, Items.BLACK_DYE, BWGItemTags.MAKES_BLACK_DYE);
+        oneToOneConversionRecipe(output, itemRegistry, Items.BLUE_DYE, BWGItemTags.MAKES_BLUE_DYE);
+        oneToOneConversionRecipe(output, itemRegistry, Items.CYAN_DYE, BWGItemTags.MAKES_CYAN_DYE);
+        oneToOneConversionRecipe(output, itemRegistry, Items.GREEN_DYE, BWGItemTags.MAKES_GREEN_DYE);
+        oneToOneConversionRecipe(output, itemRegistry, Items.LIGHT_BLUE_DYE, BWGItemTags.MAKES_LIGHT_BLUE_DYE);
+        oneToOneConversionRecipe(output, itemRegistry, Items.LIME_DYE, BWGItemTags.MAKES_LIME_DYE);
+        oneToOneConversionRecipe(output, itemRegistry, Items.MAGENTA_DYE, BWGItemTags.MAKES_MAGENTA_DYE);
+        oneToOneConversionRecipe(output, itemRegistry, Items.ORANGE_DYE, BWGItemTags.MAKES_ORANGE_DYE);
+        oneToOneConversionRecipe(output, itemRegistry, Items.PINK_DYE, BWGItemTags.MAKES_PINK_DYE);
+        oneToOneConversionRecipe(output, itemRegistry, Items.PURPLE_DYE, BWGItemTags.MAKES_PURPLE_DYE);
+        oneToOneConversionRecipe(output, itemRegistry, Items.RED_DYE, BWGItemTags.MAKES_RED_DYE);
+        oneToOneConversionRecipe(output, itemRegistry, Items.WHITE_DYE, BWGItemTags.MAKES_WHITE_DYE);
+        oneToOneConversionRecipe(output, itemRegistry, Items.YELLOW_DYE, BWGItemTags.MAKES_YELLOW_DYE);
 
-        oneToOneConversionRecipe(Items.BLUE_DYE, BWGItems.BLUE_GLOWCANE_POWDER.get(), getItemName(Items.BLUE_DYE));
-        oneToOneConversionRecipe(Items.GREEN_DYE, BWGItems.GREEN_GLOWCANE_POWDER.get(), getItemName(Items.GREEN_DYE));
-        oneToOneConversionRecipe(Items.RED_DYE, BWGItems.RED_GLOWCANE_POWDER.get(), getItemName(Items.RED_DYE));
-        oneToOneConversionRecipe(Items.YELLOW_DYE, BWGItems.YELLOW_GLOWCANE_POWDER.get(), getItemName(Items.YELLOW_DYE));
+        oneToTwoConversionRecipe(output, itemRegistry, Items.BLUE_DYE, BWGItemTags.MAKES_2_BLUE_DYE);
+        oneToTwoConversionRecipe(output, itemRegistry, Items.CYAN_DYE, BWGItemTags.MAKES_2_CYAN_DYE);
+        oneToTwoConversionRecipe(output, itemRegistry, Items.PINK_DYE, BWGItemTags.MAKES_2_PINK_DYE);
+        oneToTwoConversionRecipe(output, itemRegistry, Items.PURPLE_DYE, BWGItemTags.MAKES_2_PURPLE_DYE);
+        oneToTwoConversionRecipe(output, itemRegistry, Items.WHITE_DYE, BWGItemTags.MAKES_2_WHITE_DYE);
+    }
+
+    private void oneToOneConversionRecipe(RecipeOutput finishedRecipeConsumer, HolderLookup.RegistryLookup<Item> lookup, ItemLike result, TagKey<Item> ingredient) {
+        ShapelessRecipeBuilder.shapeless(lookup, RecipeCategory.MISC, result, 1).requires(ingredient).group(getItemName(result)).unlockedBy("has_dye_tag", has(ingredient)).save(finishedRecipeConsumer, getItemName(result) + "_from_bwg_dye_tag");
+    }
+
+    private void oneToTwoConversionRecipe(RecipeOutput finishedRecipeConsumer, HolderLookup.RegistryLookup<Item> lookup, ItemLike result, TagKey<Item> ingredient) {
+        ShapelessRecipeBuilder.shapeless(lookup, RecipeCategory.MISC, result, 2).requires(ingredient).group(getItemName(result)).unlockedBy("has_2_dye_tag", has(ingredient)).save(finishedRecipeConsumer, getItemName(result) + "_from_bwg_2_dye_tag");
     }
 
     private void sandToGlass(BWGSandSet set, Item glass) {

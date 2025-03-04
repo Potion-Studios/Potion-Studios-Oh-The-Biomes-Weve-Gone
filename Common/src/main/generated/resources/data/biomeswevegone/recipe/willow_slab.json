@@ -3,9 +3,7 @@
   "category": "building",
   "group": "wooden_slab",
   "key": {
-    "#": {
-      "item": "biomeswevegone:willow_planks"
-    }
+    "#": "biomeswevegone:willow_planks"
   },
   "pattern": [
     "###"

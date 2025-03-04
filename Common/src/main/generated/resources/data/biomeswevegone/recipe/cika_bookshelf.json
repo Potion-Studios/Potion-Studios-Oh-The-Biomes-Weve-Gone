@@ -3,12 +3,8 @@
   "category": "building",
   "group": "planks",
   "key": {
-    "#": {
-      "item": "biomeswevegone:cika_planks"
-    },
-    "X": {
-      "item": "minecraft:book"
-    }
+    "#": "biomeswevegone:cika_planks",
+    "X": "minecraft:book"
   },
   "pattern": [
     "###",

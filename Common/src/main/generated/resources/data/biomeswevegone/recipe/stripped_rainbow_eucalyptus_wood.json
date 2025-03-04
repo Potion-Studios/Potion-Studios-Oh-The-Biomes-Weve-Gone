@@ -3,9 +3,7 @@
   "category": "building",
   "group": "bark",
   "key": {
-    "#": {
-      "item": "biomeswevegone:stripped_rainbow_eucalyptus_log"
-    }
+    "#": "biomeswevegone:stripped_rainbow_eucalyptus_log"
   },
   "pattern": [
     "##",

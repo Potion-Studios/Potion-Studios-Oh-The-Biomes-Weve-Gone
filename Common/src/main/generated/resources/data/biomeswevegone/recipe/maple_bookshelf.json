@@ -3,12 +3,8 @@
   "category": "building",
   "group": "planks",
   "key": {
-    "#": {
-      "item": "biomeswevegone:maple_planks"
-    },
-    "X": {
-      "item": "minecraft:book"
-    }
+    "#": "biomeswevegone:maple_planks",
+    "X": "minecraft:book"
   },
   "pattern": [
     "###",

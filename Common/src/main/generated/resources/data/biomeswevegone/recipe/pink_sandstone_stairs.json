@@ -3,15 +3,9 @@
   "category": "building",
   "key": {
     "#": [
-      {
-        "item": "biomeswevegone:pink_sandstone"
-      },
-      {
-        "item": "biomeswevegone:chiseled_pink_sandstone"
-      },
-      {
-        "item": "biomeswevegone:cut_pink_sandstone"
-      }
+      "biomeswevegone:pink_sandstone",
+      "biomeswevegone:chiseled_pink_sandstone",
+      "biomeswevegone:cut_pink_sandstone"
     ]
   },
   "pattern": [

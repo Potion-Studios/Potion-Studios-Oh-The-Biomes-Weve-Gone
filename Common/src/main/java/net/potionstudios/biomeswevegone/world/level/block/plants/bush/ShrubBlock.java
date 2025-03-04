@@ -13,7 +13,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.TreeGrower;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -28,9 +27,9 @@ public class ShrubBlock extends BushBlock implements BonemealableBlock {
 
 	private static final IntegerProperty STAGE = BlockStateProperties.STAGE;
 	private final @Nullable Supplier<TreeGrower> treeGrower;
-	private static final MapCodec<ShrubBlock> CODEC = MapCodec.unit(() -> new ShrubBlock(null, ""));
+	private static final MapCodec<ShrubBlock> CODEC = MapCodec.unit(() -> new ShrubBlock(null, null));
 
-	public ShrubBlock(BlockBehaviour.Properties properties, @Nullable Supplier<TreeGrower> treeGrower, String id) {
+	public ShrubBlock(Properties properties, @Nullable Supplier<TreeGrower> treeGrower) {
 		super(properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, 0));
 		this.treeGrower = treeGrower;

@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "biomeswevegone:white_sandstone"
-  },
+  "ingredient": "biomeswevegone:white_sandstone",
   "result": {
     "count": 1,
     "id": "biomeswevegone:cut_white_sandstone"

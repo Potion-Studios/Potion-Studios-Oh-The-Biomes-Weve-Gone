@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "red_dye",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:dye/makes_red"
-    }
+    "#biomeswevegone:dye/makes_red"
   ],
   "result": {
     "count": 1,

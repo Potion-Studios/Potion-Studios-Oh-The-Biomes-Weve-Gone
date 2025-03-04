@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeswevegone:yellow_glowcane_shoot"
-    }
+    "biomeswevegone:yellow_glowcane_shoot"
   ],
   "result": {
     "count": 3,

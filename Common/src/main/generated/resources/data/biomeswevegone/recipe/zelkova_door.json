@@ -3,9 +3,7 @@
   "category": "redstone",
   "group": "wooden_door",
   "key": {
-    "#": {
-      "item": "biomeswevegone:zelkova_planks"
-    }
+    "#": "biomeswevegone:zelkova_planks"
   },
   "pattern": [
     "##",

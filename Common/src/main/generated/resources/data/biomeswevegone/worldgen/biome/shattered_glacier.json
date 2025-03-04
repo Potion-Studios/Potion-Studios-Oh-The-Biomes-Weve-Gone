@@ -1,17 +1,16 @@
 {
-  "carvers": {
-    "air": [
-      "minecraft:cave",
-      "minecraft:cave_extra_underground",
-      "minecraft:canyon"
-    ]
-  },
+  "carvers": [
+    "minecraft:cave",
+    "minecraft:cave_extra_underground",
+    "minecraft:canyon"
+  ],
   "downfall": 1.0,
   "effects": {
     "ambient_sound": "minecraft:ambient.soul_sand_valley.loop",
     "fog_color": 12638463,
     "foliage_color": 15834405,
     "grass_color": 15834405,
+    "music_volume": 1.0,
     "particle": {
       "options": {
         "type": "minecraft:white_ash"

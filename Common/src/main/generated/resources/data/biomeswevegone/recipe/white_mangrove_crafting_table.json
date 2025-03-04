@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "planks",
   "key": {
-    "#": {
-      "item": "biomeswevegone:white_mangrove_planks"
-    }
+    "#": "biomeswevegone:white_mangrove_planks"
   },
   "pattern": [
     "##",

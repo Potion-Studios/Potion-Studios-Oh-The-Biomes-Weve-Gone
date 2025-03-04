@@ -3,9 +3,7 @@
   "category": "building",
   "group": "bark",
   "key": {
-    "#": {
-      "item": "biomeswevegone:baobab_log"
-    }
+    "#": "biomeswevegone:baobab_log"
   },
   "pattern": [
     "##",

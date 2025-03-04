@@ -2,19 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
-    "S": {
-      "item": "biomeswevegone:soul_fruit"
-    },
+    "#": "minecraft:stick",
+    "S": "biomeswevegone:soul_fruit",
     "X": [
-      {
-        "item": "minecraft:coal"
-      },
-      {
-        "item": "minecraft:charcoal"
-      }
+      "minecraft:coal",
+      "minecraft:charcoal"
     ]
   },
   "pattern": [

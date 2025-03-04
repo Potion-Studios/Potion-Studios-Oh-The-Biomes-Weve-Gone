@@ -3,12 +3,8 @@
   "category": "building",
   "group": "mossy_stone",
   "ingredients": [
-    {
-      "item": "minecraft:stone"
-    },
-    {
-      "item": "minecraft:vine"
-    }
+    "minecraft:stone",
+    "minecraft:vine"
   ],
   "result": {
     "count": 1,

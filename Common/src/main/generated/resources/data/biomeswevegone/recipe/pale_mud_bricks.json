@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "biomeswevegone:packed_pale_mud"
-    }
+    "#": "biomeswevegone:packed_pale_mud"
   },
   "pattern": [
     "##",

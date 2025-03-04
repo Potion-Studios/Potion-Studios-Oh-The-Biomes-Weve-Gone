@@ -3,9 +3,7 @@
   "category": "redstone",
   "group": "wooden_button",
   "ingredients": [
-    {
-      "item": "biomeswevegone:skyris_planks"
-    }
+    "biomeswevegone:skyris_planks"
   ],
   "result": {
     "count": 1,

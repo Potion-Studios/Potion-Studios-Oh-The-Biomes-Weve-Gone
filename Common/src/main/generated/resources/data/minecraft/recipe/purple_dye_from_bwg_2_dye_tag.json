@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "purple_dye",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:dye/makes_2_purple"
-    }
+    "#biomeswevegone:dye/makes_2_purple"
   ],
   "result": {
     "count": 2,

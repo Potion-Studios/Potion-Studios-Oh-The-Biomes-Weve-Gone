@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeswevegone:pale_pumpkin"
-    },
-    {
-      "item": "minecraft:sugar"
-    },
-    {
-      "item": "minecraft:egg"
-    }
+    "biomeswevegone:pale_pumpkin",
+    "minecraft:sugar",
+    "minecraft:egg"
   ],
   "result": {
     "count": 1,

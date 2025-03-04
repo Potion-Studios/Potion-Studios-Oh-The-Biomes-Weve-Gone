@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "biomeswevegone:mossy_stone"
-  },
+  "ingredient": "biomeswevegone:mossy_stone",
   "result": {
     "count": 1,
     "id": "biomeswevegone:mossy_stone_wall"

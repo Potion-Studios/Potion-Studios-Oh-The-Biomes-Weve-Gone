@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 600,
   "experience": 0.35,
-  "ingredient": {
-    "item": "biomeswevegone:yucca_fruit"
-  },
+  "ingredient": "biomeswevegone:yucca_fruit",
   "result": {
     "count": 1,
     "id": "biomeswevegone:cooked_yucca_fruit"

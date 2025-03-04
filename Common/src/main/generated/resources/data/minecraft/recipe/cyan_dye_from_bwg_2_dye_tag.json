@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "cyan_dye",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:dye/makes_2_cyan"
-    }
+    "#biomeswevegone:dye/makes_2_cyan"
   ],
   "result": {
     "count": 2,

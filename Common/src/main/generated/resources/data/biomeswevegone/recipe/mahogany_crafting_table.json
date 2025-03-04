@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "planks",
   "key": {
-    "#": {
-      "item": "biomeswevegone:mahogany_planks"
-    }
+    "#": "biomeswevegone:mahogany_planks"
   },
   "pattern": [
     "##",

@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "biomeswevegone:pink_sand"
-  },
+  "ingredient": "biomeswevegone:pink_sand",
   "result": {
     "count": 1,
     "id": "minecraft:pink_stained_glass"

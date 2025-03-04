@@ -3,9 +3,7 @@
   "category": "building",
   "group": "wooden_stairs",
   "key": {
-    "#": {
-      "item": "biomeswevegone:jacaranda_planks"
-    }
+    "#": "biomeswevegone:jacaranda_planks"
   },
   "pattern": [
     "#  ",

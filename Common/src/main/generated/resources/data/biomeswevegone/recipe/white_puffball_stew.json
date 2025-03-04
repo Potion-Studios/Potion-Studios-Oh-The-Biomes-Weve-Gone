@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:bowl"
-    },
-    {
-      "item": "biomeswevegone:cooked_white_puffball_cap"
-    },
-    {
-      "item": "biomeswevegone:cooked_white_puffball_cap"
-    }
+    "minecraft:bowl",
+    "biomeswevegone:cooked_white_puffball_cap",
+    "biomeswevegone:cooked_white_puffball_cap"
   ],
   "result": {
     "count": 1,

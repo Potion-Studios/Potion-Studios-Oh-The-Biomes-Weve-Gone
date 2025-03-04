@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "black_dye",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:dye/makes_black"
-    }
+    "#biomeswevegone:dye/makes_black"
   ],
   "result": {
     "count": 1,

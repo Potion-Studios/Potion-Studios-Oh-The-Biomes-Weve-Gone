@@ -3,9 +3,7 @@
   "category": "building",
   "group": "bark",
   "key": {
-    "#": {
-      "item": "biomeswevegone:skyris_log"
-    }
+    "#": "biomeswevegone:skyris_log"
   },
   "pattern": [
     "##",

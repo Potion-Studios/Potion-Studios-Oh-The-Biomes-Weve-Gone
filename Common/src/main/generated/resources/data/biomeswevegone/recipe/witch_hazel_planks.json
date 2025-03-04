@@ -3,9 +3,7 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:witch_hazel_logs"
-    }
+    "#biomeswevegone:witch_hazel_logs"
   ],
   "result": {
     "count": 4,

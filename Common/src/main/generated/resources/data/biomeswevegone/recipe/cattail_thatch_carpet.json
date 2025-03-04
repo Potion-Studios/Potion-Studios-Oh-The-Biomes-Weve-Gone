@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "carpet",
   "key": {
-    "#": {
-      "item": "biomeswevegone:cattail_thatch"
-    }
+    "#": "biomeswevegone:cattail_thatch"
   },
   "pattern": [
     "##"

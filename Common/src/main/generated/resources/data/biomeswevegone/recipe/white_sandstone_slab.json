@@ -3,12 +3,8 @@
   "category": "building",
   "key": {
     "#": [
-      {
-        "item": "biomeswevegone:white_sandstone"
-      },
-      {
-        "item": "biomeswevegone:chiseled_white_sandstone"
-      }
+      "biomeswevegone:white_sandstone",
+      "biomeswevegone:chiseled_white_sandstone"
     ]
   },
   "pattern": [

@@ -3,9 +3,7 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:white_mangrove_logs"
-    }
+    "#biomeswevegone:white_mangrove_logs"
   ],
   "result": {
     "count": 4,

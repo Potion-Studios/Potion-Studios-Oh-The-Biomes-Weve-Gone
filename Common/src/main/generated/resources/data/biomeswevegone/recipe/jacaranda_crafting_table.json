@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "planks",
   "key": {
-    "#": {
-      "item": "biomeswevegone:jacaranda_planks"
-    }
+    "#": "biomeswevegone:jacaranda_planks"
   },
   "pattern": [
     "##",

@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "light_blue_dye",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:dye/makes_light_blue"
-    }
+    "#biomeswevegone:dye/makes_light_blue"
   ],
   "result": {
     "count": 1,

@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "planks",
   "key": {
-    "#": {
-      "item": "biomeswevegone:willow_planks"
-    }
+    "#": "biomeswevegone:willow_planks"
   },
   "pattern": [
     "##",

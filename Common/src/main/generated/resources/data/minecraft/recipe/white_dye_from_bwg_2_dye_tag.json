@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "white_dye",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:dye/makes_2_white"
-    }
+    "#biomeswevegone:dye/makes_2_white"
   ],
   "result": {
     "count": 2,

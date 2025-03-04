@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "wooden_sign",
   "key": {
-    "#": {
-      "item": "biomeswevegone:sakura_planks"
-    },
-    "X": {
-      "item": "minecraft:stick"
-    }
+    "#": "biomeswevegone:sakura_planks",
+    "X": "minecraft:stick"
   },
   "pattern": [
     "###",

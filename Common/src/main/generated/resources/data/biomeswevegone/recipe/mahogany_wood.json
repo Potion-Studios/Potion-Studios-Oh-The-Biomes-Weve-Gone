@@ -3,9 +3,7 @@
   "category": "building",
   "group": "bark",
   "key": {
-    "#": {
-      "item": "biomeswevegone:mahogany_log"
-    }
+    "#": "biomeswevegone:mahogany_log"
   },
   "pattern": [
     "##",

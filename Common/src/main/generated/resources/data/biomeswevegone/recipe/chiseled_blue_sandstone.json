@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "biomeswevegone:blue_sandstone_slab"
-    }
+    "#": "biomeswevegone:blue_sandstone_slab"
   },
   "pattern": [
     "#",

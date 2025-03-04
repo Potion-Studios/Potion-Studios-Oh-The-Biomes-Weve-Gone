@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "biomeswevegone:white_allium"
-    }
+    "#": "biomeswevegone:white_allium"
   },
   "pattern": [
     "###",

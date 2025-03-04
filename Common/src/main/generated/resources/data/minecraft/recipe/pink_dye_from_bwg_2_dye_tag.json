@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "pink_dye",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:dye/makes_2_pink"
-    }
+    "#biomeswevegone:dye/makes_2_pink"
   ],
   "result": {
     "count": 2,

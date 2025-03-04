@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "biomeswevegone:cut_pink_sandstone"
-    }
+    "#": "biomeswevegone:cut_pink_sandstone"
   },
   "pattern": [
     "###"

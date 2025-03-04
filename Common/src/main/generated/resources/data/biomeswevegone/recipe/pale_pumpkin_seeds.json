@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeswevegone:pale_pumpkin"
-    }
+    "biomeswevegone:pale_pumpkin"
   ],
   "result": {
     "count": 4,

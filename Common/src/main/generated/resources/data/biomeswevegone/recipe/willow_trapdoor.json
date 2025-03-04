@@ -3,9 +3,7 @@
   "category": "redstone",
   "group": "wooden_trapdoor",
   "key": {
-    "#": {
-      "item": "biomeswevegone:willow_planks"
-    }
+    "#": "biomeswevegone:willow_planks"
   },
   "pattern": [
     "###",

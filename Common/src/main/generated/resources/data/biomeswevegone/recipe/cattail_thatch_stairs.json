@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "biomeswevegone:cattail_thatch"
-    }
+    "#": "biomeswevegone:cattail_thatch"
   },
   "pattern": [
     "#  ",

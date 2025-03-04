@@ -3,12 +3,8 @@
   "category": "building",
   "group": "planks",
   "key": {
-    "#": {
-      "item": "biomeswevegone:rainbow_eucalyptus_planks"
-    },
-    "X": {
-      "item": "minecraft:book"
-    }
+    "#": "biomeswevegone:rainbow_eucalyptus_planks",
+    "X": "minecraft:book"
   },
   "pattern": [
     "###",

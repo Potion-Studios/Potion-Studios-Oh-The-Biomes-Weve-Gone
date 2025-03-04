@@ -3,9 +3,7 @@
   "category": "building",
   "group": "wooden_stairs",
   "key": {
-    "#": {
-      "item": "biomeswevegone:baobab_planks"
-    }
+    "#": "biomeswevegone:baobab_planks"
   },
   "pattern": [
     "#  ",

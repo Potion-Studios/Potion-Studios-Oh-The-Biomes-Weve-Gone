@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "biomeswevegone:rocky_stone"
-  },
+  "ingredient": "biomeswevegone:rocky_stone",
   "result": {
     "count": 1,
     "id": "biomeswevegone:rocky_stone_wall"

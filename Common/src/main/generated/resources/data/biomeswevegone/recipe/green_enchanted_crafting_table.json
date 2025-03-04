@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "planks",
   "key": {
-    "#": {
-      "item": "biomeswevegone:green_enchanted_planks"
-    }
+    "#": "biomeswevegone:green_enchanted_planks"
   },
   "pattern": [
     "##",

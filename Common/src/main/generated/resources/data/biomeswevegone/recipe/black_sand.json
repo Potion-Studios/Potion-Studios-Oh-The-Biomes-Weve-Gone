@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "tag": "c:dyes/black"
-    },
-    "X": {
-      "item": "minecraft:sand"
-    }
+    "#": "#c:dyes/black",
+    "X": "minecraft:sand"
   },
   "pattern": [
     "XXX",

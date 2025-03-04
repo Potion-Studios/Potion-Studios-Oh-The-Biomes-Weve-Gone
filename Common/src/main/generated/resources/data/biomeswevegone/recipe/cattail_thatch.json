@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "biomeswevegone:cattail_sprout"
-    }
+    "#": "biomeswevegone:cattail_sprout"
   },
   "pattern": [
     "##",

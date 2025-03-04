@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "lime_dye",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:dye/makes_lime"
-    }
+    "#biomeswevegone:dye/makes_lime"
   ],
   "result": {
     "count": 1,

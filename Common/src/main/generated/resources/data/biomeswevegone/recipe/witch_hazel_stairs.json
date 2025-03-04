@@ -3,9 +3,7 @@
   "category": "building",
   "group": "wooden_stairs",
   "key": {
-    "#": {
-      "item": "biomeswevegone:witch_hazel_planks"
-    }
+    "#": "biomeswevegone:witch_hazel_planks"
   },
   "pattern": [
     "#  ",

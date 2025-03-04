@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "biomeswevegone:cooked_oddion_bulb"
-    },
-    "X": {
-      "item": "minecraft:bowl"
-    }
+    "#": "biomeswevegone:cooked_oddion_bulb",
+    "X": "minecraft:bowl"
   },
   "pattern": [
     "##",

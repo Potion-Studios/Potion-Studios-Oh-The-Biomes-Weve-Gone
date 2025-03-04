@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "biomeswevegone:red_rock"
-    }
+    "#": "biomeswevegone:red_rock"
   },
   "pattern": [
     "##",

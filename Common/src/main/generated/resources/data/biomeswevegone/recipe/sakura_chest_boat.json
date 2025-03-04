@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "chest_boat",
   "ingredients": [
-    {
-      "item": "minecraft:chest"
-    },
-    {
-      "item": "biomeswevegone:sakura_boat"
-    }
+    "minecraft:chest",
+    "biomeswevegone:sakura_boat"
   ],
   "result": {
     "count": 1,

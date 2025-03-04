@@ -3,12 +3,8 @@
   "category": "building",
   "key": {
     "#": [
-      {
-        "item": "biomeswevegone:purple_sandstone"
-      },
-      {
-        "item": "biomeswevegone:chiseled_purple_sandstone"
-      }
+      "biomeswevegone:purple_sandstone",
+      "biomeswevegone:chiseled_purple_sandstone"
     ]
   },
   "pattern": [

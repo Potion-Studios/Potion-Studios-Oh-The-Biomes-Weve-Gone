@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "green_dye",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:dye/makes_green"
-    }
+    "#biomeswevegone:dye/makes_green"
   ],
   "result": {
     "count": 1,

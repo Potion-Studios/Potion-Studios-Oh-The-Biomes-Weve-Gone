@@ -2,21 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeswevegone:red_glowcane_powder"
-    },
-    {
-      "item": "biomeswevegone:red_glowcane_powder"
-    },
-    {
-      "item": "biomeswevegone:red_glowcane_powder"
-    },
-    {
-      "item": "biomeswevegone:red_glowcane_powder"
-    },
-    {
-      "item": "minecraft:glass_bottle"
-    }
+    "biomeswevegone:red_glowcane_powder",
+    "biomeswevegone:red_glowcane_powder",
+    "biomeswevegone:red_glowcane_powder",
+    "biomeswevegone:red_glowcane_powder",
+    "minecraft:glass_bottle"
   ],
   "result": {
     "count": 1,

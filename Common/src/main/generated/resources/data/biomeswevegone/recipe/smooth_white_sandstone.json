@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "biomeswevegone:white_sandstone"
-  },
+  "ingredient": "biomeswevegone:white_sandstone",
   "result": {
     "count": 1,
     "id": "biomeswevegone:smooth_white_sandstone"

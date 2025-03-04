@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "biomeswevegone:pale_mud"
-    },
-    {
-      "item": "minecraft:wheat"
-    }
+    "biomeswevegone:pale_mud",
+    "minecraft:wheat"
   ],
   "result": {
     "count": 1,

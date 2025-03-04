@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "planks",
   "key": {
-    "#": {
-      "item": "biomeswevegone:aspen_planks"
-    }
+    "#": "biomeswevegone:aspen_planks"
   },
   "pattern": [
     "##",

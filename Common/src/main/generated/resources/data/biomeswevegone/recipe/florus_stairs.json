@@ -3,9 +3,7 @@
   "category": "building",
   "group": "wooden_stairs",
   "key": {
-    "#": {
-      "item": "biomeswevegone:florus_planks"
-    }
+    "#": "biomeswevegone:florus_planks"
   },
   "pattern": [
     "#  ",

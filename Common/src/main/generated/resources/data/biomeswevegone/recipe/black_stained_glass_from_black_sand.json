@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "biomeswevegone:black_sand"
-  },
+  "ingredient": "biomeswevegone:black_sand",
   "result": {
     "count": 1,
     "id": "minecraft:black_stained_glass"

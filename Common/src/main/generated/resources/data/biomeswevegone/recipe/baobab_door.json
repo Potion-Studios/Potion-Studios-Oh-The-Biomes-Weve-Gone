@@ -3,9 +3,7 @@
   "category": "redstone",
   "group": "wooden_door",
   "key": {
-    "#": {
-      "item": "biomeswevegone:baobab_planks"
-    }
+    "#": "biomeswevegone:baobab_planks"
   },
   "pattern": [
     "##",

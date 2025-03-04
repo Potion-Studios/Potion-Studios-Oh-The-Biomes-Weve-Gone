@@ -3,9 +3,7 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:rainbow_eucalyptus_logs"
-    }
+    "#biomeswevegone:rainbow_eucalyptus_logs"
   ],
   "result": {
     "count": 4,

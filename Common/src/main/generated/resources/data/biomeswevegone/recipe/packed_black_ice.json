@@ -2,33 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "biomeswevegone:black_ice"
-    },
-    {
-      "item": "biomeswevegone:black_ice"
-    },
-    {
-      "item": "biomeswevegone:black_ice"
-    },
-    {
-      "item": "biomeswevegone:black_ice"
-    },
-    {
-      "item": "biomeswevegone:black_ice"
-    },
-    {
-      "item": "biomeswevegone:black_ice"
-    },
-    {
-      "item": "biomeswevegone:black_ice"
-    },
-    {
-      "item": "biomeswevegone:black_ice"
-    },
-    {
-      "item": "biomeswevegone:black_ice"
-    }
+    "biomeswevegone:black_ice",
+    "biomeswevegone:black_ice",
+    "biomeswevegone:black_ice",
+    "biomeswevegone:black_ice",
+    "biomeswevegone:black_ice",
+    "biomeswevegone:black_ice",
+    "biomeswevegone:black_ice",
+    "biomeswevegone:black_ice",
+    "biomeswevegone:black_ice"
   ],
   "result": {
     "count": 1,

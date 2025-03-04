@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "biomeswevegone:dacite_bricks"
-    }
+    "#": "biomeswevegone:dacite_bricks"
   },
   "pattern": [
     "##",

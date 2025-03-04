@@ -2,33 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "biomeswevegone:borealis_ice"
-    },
-    {
-      "item": "biomeswevegone:borealis_ice"
-    },
-    {
-      "item": "biomeswevegone:borealis_ice"
-    },
-    {
-      "item": "biomeswevegone:borealis_ice"
-    },
-    {
-      "item": "biomeswevegone:borealis_ice"
-    },
-    {
-      "item": "biomeswevegone:borealis_ice"
-    },
-    {
-      "item": "biomeswevegone:borealis_ice"
-    },
-    {
-      "item": "biomeswevegone:borealis_ice"
-    },
-    {
-      "item": "biomeswevegone:borealis_ice"
-    }
+    "biomeswevegone:borealis_ice",
+    "biomeswevegone:borealis_ice",
+    "biomeswevegone:borealis_ice",
+    "biomeswevegone:borealis_ice",
+    "biomeswevegone:borealis_ice",
+    "biomeswevegone:borealis_ice",
+    "biomeswevegone:borealis_ice",
+    "biomeswevegone:borealis_ice",
+    "biomeswevegone:borealis_ice"
   ],
   "result": {
     "count": 1,

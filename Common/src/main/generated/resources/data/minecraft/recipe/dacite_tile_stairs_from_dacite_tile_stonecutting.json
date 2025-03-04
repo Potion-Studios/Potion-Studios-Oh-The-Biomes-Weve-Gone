@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "biomeswevegone:dacite_tile"
-  },
+  "ingredient": "biomeswevegone:dacite_tile",
   "result": {
     "count": 1,
     "id": "biomeswevegone:dacite_tile_stairs"

@@ -3,9 +3,7 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:holly_logs"
-    }
+    "#biomeswevegone:holly_logs"
   ],
   "result": {
     "count": 4,

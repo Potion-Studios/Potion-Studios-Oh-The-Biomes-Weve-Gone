@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "boat",
   "key": {
-    "#": {
-      "item": "biomeswevegone:skyris_planks"
-    }
+    "#": "biomeswevegone:skyris_planks"
   },
   "pattern": [
     "# #",

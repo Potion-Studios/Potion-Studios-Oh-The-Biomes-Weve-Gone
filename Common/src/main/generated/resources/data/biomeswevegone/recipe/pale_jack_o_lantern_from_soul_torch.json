@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "A": {
-      "item": "biomeswevegone:carved_pale_pumpkin"
-    },
-    "B": {
-      "item": "minecraft:soul_torch"
-    }
+    "A": "biomeswevegone:carved_pale_pumpkin",
+    "B": "minecraft:soul_torch"
   },
   "pattern": [
     "A",

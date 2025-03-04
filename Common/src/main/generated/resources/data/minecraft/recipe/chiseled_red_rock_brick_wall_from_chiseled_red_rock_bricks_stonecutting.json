@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "biomeswevegone:chiseled_red_rock_bricks"
-  },
+  "ingredient": "biomeswevegone:chiseled_red_rock_bricks",
   "result": {
     "count": 1,
     "id": "biomeswevegone:chiseled_red_rock_brick_wall"

@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "orange_dye",
   "ingredients": [
-    {
-      "tag": "biomeswevegone:dye/makes_orange"
-    }
+    "#biomeswevegone:dye/makes_orange"
   ],
   "result": {
     "count": 1,

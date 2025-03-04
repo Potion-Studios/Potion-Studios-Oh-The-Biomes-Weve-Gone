@@ -3,12 +3,8 @@
   "category": "building",
   "group": "planks",
   "key": {
-    "#": {
-      "item": "biomeswevegone:witch_hazel_planks"
-    },
-    "X": {
-      "item": "minecraft:book"
-    }
+    "#": "biomeswevegone:witch_hazel_planks",
+    "X": "minecraft:book"
   },
   "pattern": [
     "###",

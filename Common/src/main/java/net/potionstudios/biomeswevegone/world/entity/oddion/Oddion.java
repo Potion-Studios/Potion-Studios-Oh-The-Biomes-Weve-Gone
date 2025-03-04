@@ -142,7 +142,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 4.0D).add(Attributes.MOVEMENT_SPEED, 0.4D);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 4.0D).add(Attributes.MOVEMENT_SPEED, 0.4D).add(Attributes.TEMPT_RANGE, 16.0D);
     }
 
     @Nullable

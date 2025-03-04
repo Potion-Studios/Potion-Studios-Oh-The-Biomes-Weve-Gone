@@ -3,9 +3,7 @@
   "category": "building",
   "group": "bark",
   "key": {
-    "#": {
-      "item": "biomeswevegone:stripped_spirit_log"
-    }
+    "#": "biomeswevegone:stripped_spirit_log"
   },
   "pattern": [
     "##",

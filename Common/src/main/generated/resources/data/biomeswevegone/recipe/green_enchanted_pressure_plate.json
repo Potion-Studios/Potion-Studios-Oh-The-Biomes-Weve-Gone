@@ -3,9 +3,7 @@
   "category": "redstone",
   "group": "wooden_pressure_plate",
   "key": {
-    "#": {
-      "item": "biomeswevegone:green_enchanted_planks"
-    }
+    "#": "biomeswevegone:green_enchanted_planks"
   },
   "pattern": [
     "##"

@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "planks",
   "key": {
-    "#": {
-      "item": "biomeswevegone:witch_hazel_planks"
-    }
+    "#": "biomeswevegone:witch_hazel_planks"
   },
   "pattern": [
     "##",

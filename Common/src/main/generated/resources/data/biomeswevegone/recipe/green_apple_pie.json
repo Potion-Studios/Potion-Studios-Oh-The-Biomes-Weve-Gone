@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeswevegone:green_apple"
-    },
-    {
-      "item": "minecraft:sugar"
-    },
-    {
-      "item": "minecraft:egg"
-    }
+    "biomeswevegone:green_apple",
+    "minecraft:sugar",
+    "minecraft:egg"
   ],
   "result": {
     "count": 1,
