@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.forge.datagen.generators;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Item;
@@ -319,13 +320,33 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy("has_mushrooms", has(BWGItemTags.MUSHROOMS))
                 .save(writer);
 
-        BWGBlocks.BLOCKS.stream().filter(entry -> entry.get() instanceof FlowerBlock || entry.get() instanceof TallFlowerBlock).forEach(
-                entry -> {
-                    Block block = entry.get();
-                    Item dye = DyeItem.byColor(DyeColor.byId(block.defaultMapColor().id));
-                    oneToOneConversionRecipe(writer, dye, block, getItemName(dye), block instanceof TallFlowerBlock ? 2 : 1);
-                }
-        );
+        oneToOneConversionRecipe(writer, Items.BLACK_DYE, BWGItemTags.MAKES_BLACK_DYE);
+        oneToOneConversionRecipe(writer, Items.BLUE_DYE, BWGItemTags.MAKES_BLUE_DYE);
+        oneToOneConversionRecipe(writer, Items.CYAN_DYE, BWGItemTags.MAKES_CYAN_DYE);
+        oneToOneConversionRecipe(writer, Items.GREEN_DYE, BWGItemTags.MAKES_GREEN_DYE);
+        oneToOneConversionRecipe(writer, Items.LIGHT_BLUE_DYE, BWGItemTags.MAKES_LIGHT_BLUE_DYE);
+        oneToOneConversionRecipe(writer, Items.LIME_DYE, BWGItemTags.MAKES_LIME_DYE);
+        oneToOneConversionRecipe(writer, Items.MAGENTA_DYE, BWGItemTags.MAKES_MAGENTA_DYE);
+        oneToOneConversionRecipe(writer, Items.ORANGE_DYE, BWGItemTags.MAKES_ORANGE_DYE);
+        oneToOneConversionRecipe(writer, Items.PINK_DYE, BWGItemTags.MAKES_PINK_DYE);
+        oneToOneConversionRecipe(writer, Items.PURPLE_DYE, BWGItemTags.MAKES_PURPLE_DYE);
+        oneToOneConversionRecipe(writer, Items.RED_DYE, BWGItemTags.MAKES_RED_DYE);
+        oneToOneConversionRecipe(writer, Items.WHITE_DYE, BWGItemTags.MAKES_WHITE_DYE);
+        oneToOneConversionRecipe(writer, Items.YELLOW_DYE, BWGItemTags.MAKES_YELLOW_DYE);
+
+        oneToTwoConversionRecipe(writer, Items.BLUE_DYE, BWGItemTags.MAKES_2_BLUE_DYE);
+        oneToTwoConversionRecipe(writer, Items.CYAN_DYE, BWGItemTags.MAKES_2_CYAN_DYE);
+        oneToTwoConversionRecipe(writer, Items.PINK_DYE, BWGItemTags.MAKES_2_PINK_DYE);
+        oneToTwoConversionRecipe(writer, Items.PURPLE_DYE, BWGItemTags.MAKES_2_PURPLE_DYE);
+        oneToTwoConversionRecipe(writer, Items.WHITE_DYE, BWGItemTags.MAKES_2_WHITE_DYE);
+    }
+
+    private static void oneToOneConversionRecipe(Consumer<FinishedRecipe> recipeOutput, ItemLike result, TagKey<Item> ingredient) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, 1).requires(ingredient).group(getItemName(result)).unlockedBy("has_dye_tag", has(ingredient)).save(recipeOutput, getItemName(result) + "_from_bwg_dye_tag");
+    }
+
+    private static void oneToTwoConversionRecipe(Consumer<FinishedRecipe> recipeOutput, ItemLike result, TagKey<Item> ingredient) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, 2).requires(ingredient).group(getItemName(result)).unlockedBy("has_2_dye_tag", has(ingredient)).save(recipeOutput, getItemName(result) + "_from_bwg_2_dye_tag");
     }
 
     private static void sandToGlass(Consumer<FinishedRecipe> finishedRecipeConsumer, BWGSandSet set, Item glass) {

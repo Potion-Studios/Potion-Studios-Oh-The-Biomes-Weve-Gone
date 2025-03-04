@@ -1,4 +1,9 @@
 # 1.5.8
+- Fix Flower Dye Recipes
+- Add BlueBerries to Blue Dye Recipe
+- Improve a bunch of flowers hitboxes
+- Update French (fr_fr) Translations (Credits: Brandcraf06)
+- Improve Oddion and Pumpkin Warden dimension update logic
 
 # 1.5.7
 - Add Right-Clicking on Baby Villager With Weakness Potion with a Carved Pumpkin to turn them into a Pumpkin Warden

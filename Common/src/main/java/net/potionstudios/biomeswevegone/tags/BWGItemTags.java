@@ -38,6 +38,27 @@ public final class BWGItemTags {
 
     public static final TagKey<Item> CRAFTING_TABLES = create("crafting_tables");
 
+    /** Dye Making **/
+    public static final TagKey<Item> MAKES_BLACK_DYE = create("dye/makes_black");
+    public static final TagKey<Item> MAKES_BLUE_DYE = create("dye/makes_blue");
+    public static final TagKey<Item> MAKES_CYAN_DYE = create("dye/makes_cyan");
+    public static final TagKey<Item> MAKES_GREEN_DYE = create("dye/makes_green");
+    public static final TagKey<Item> MAKES_LIGHT_BLUE_DYE = create("dye/makes_light_blue");
+    public static final TagKey<Item> MAKES_LIME_DYE = create("dye/makes_lime");
+    public static final TagKey<Item> MAKES_MAGENTA_DYE = create("dye/makes_magenta");
+    public static final TagKey<Item> MAKES_ORANGE_DYE = create("dye/makes_orange");
+    public static final TagKey<Item> MAKES_PINK_DYE = create("dye/makes_pink");
+    public static final TagKey<Item> MAKES_PURPLE_DYE = create("dye/makes_purple");
+    public static final TagKey<Item> MAKES_RED_DYE = create("dye/makes_red");
+    public static final TagKey<Item> MAKES_WHITE_DYE = create("dye/makes_white");
+    public static final TagKey<Item> MAKES_YELLOW_DYE = create("dye/makes_yellow");
+
+    public static final TagKey<Item> MAKES_2_BLUE_DYE = create("dye/makes_2_blue");
+    public static final TagKey<Item> MAKES_2_CYAN_DYE = create("dye/makes_2_cyan");
+    public static final TagKey<Item> MAKES_2_PINK_DYE = create("dye/makes_2_pink");
+    public static final TagKey<Item> MAKES_2_PURPLE_DYE = create("dye/makes_2_purple");
+    public static final TagKey<Item> MAKES_2_WHITE_DYE = create("dye/makes_2_white");
+
     private static TagKey<Item> create(String name) {
         return TagKey.create(Registries.ITEM, BiomesWeveGone.id(name));
     }

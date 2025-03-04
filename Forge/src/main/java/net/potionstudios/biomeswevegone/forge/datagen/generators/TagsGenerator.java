@@ -301,6 +301,28 @@ public class TagsGenerator {
             tag(Tags.Items.CROPS).add(BWGItems.ODDION_BULB.get());
             tag(BWGItemTags.MUSHROOMS).add(Items.BROWN_MUSHROOM, Items.RED_MUSHROOM, BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem()).addOptionalTag(Tags.Items.MUSHROOMS);
 
+
+            // Dye Recipes
+            tag(BWGItemTags.MAKES_BLACK_DYE).add(BWGBlocks.BLACK_ROSE.getItem());
+            tag(BWGItemTags.MAKES_BLUE_DYE).add(BWGBlocks.BLUE_SAGE.getItem(), BWGBlocks.VIOLET_LEATHER_FLOWER.getItem(), BWGItems.BLUEBERRIES.get());
+            tag(BWGItemTags.MAKES_CYAN_DYE).add(BWGBlocks.CYAN_AMARANTH.getItem(), BWGBlocks.CYAN_ROSE.getItem(), BWGBlocks.CYAN_TULIP.getItem(), BWGBlocks.WINTER_CYCLAMEN.getItem());
+            tag(BWGItemTags.MAKES_GREEN_DYE).add(BWGBlocks.GOLDEN_SPINED_CACTUS.getItem(), BWGBlocks.MINI_CACTUS.getItem(), BWGBlocks.PRICKLY_PEAR_CACTUS.getItem(), BWGBlocks.HORSEWEED.getItem(), BWGBlocks.WINTER_SUCCULENT.getItem());
+            tag(BWGItemTags.MAKES_LIGHT_BLUE_DYE).add(BWGBlocks.WINTER_SCILLA.getItem());
+            tag(BWGItemTags.MAKES_LIME_DYE).add(BWGBlocks.GREEN_TULIP.getItem());
+            tag(BWGItemTags.MAKES_MAGENTA_DYE).add(BWGBlocks.MAGENTA_AMARANTH.getItem(), BWGBlocks.MAGENTA_TULIP.getItem(), BWGBlocks.LAZARUS_BELLFLOWER.getItem(), BWGBlocks.PROTEA_FLOWER.getItem(), BWGBlocks.FAIRY_SLIPPER.getItem(), BWGBlocks.INCAN_LILY.getItem());
+            tag(BWGItemTags.MAKES_ORANGE_DYE).add(BWGBlocks.ORANGE_AMARANTH.getItem(), BWGBlocks.ORANGE_DAISY.getItem(), BWGBlocks.CALIFORNIA_POPPY.getItem(), BWGBlocks.GUZMANIA.getItem());
+            tag(BWGItemTags.MAKES_PINK_DYE).add(BWGBlocks.OSIRIA_ROSE.getItem(), BWGBlocks.SILVER_VASE_FLOWER.getItem(), BWGBlocks.DAFFODIL.getItem(), BWGBlocks.PEACH_LEATHER_FLOWER.getItem(), BWGBlocks.PINK_ALLIUM.getItem(), BWGBlocks.PINK_ALLIUM_FLOWER_BUSH.getItem(), BWGBlocks.PINK_DAFFODIL.getItem(), BWGBlocks.PINK_ANEMONE.getItem(), BWGBlocks.RICHEA.getItem());
+            tag(BWGItemTags.MAKES_PURPLE_DYE).add(BWGBlocks.ALLIUM_FLOWER_BUSH.getItem(), BWGBlocks.ALPINE_BELLFLOWER.getItem(), BWGBlocks.IRIS.getItem(), BWGBlocks.PURPLE_SAGE.getItem(), BWGBlocks.PURPLE_TULIP.getItem(), BWGBlocks.PURPLE_AMARANTH.getItem(), BWGBlocks.CROCUS.getItem());
+            tag(BWGItemTags.MAKES_RED_DYE).add(BWGBlocks.AMARANTH.getItem(), BWGBlocks.BEGONIA.getItem(), BWGBlocks.KOVAN_FLOWER.getItem(), BWGBlocks.ROSE.getItem());
+            tag(BWGItemTags.MAKES_WHITE_DYE).add(BWGBlocks.WHITE_ALLIUM.getItem(), BWGBlocks.WHITE_ALLIUM_FLOWER_BUSH.getItem(), BWGBlocks.WHITE_ANEMONE.getItem(), BWGBlocks.WHITE_SAGE.getItem(), BWGBlocks.WINTER_ROSE.getItem(), BWGBlocks.SNOWDROPS.getItem(), BWGBlocks.ANGELICA.getItem(), BWGBlocks.BISTORT.getItem());
+            tag(BWGItemTags.MAKES_YELLOW_DYE).add(BWGBlocks.YELLOW_DAFFODIL.getItem(), BWGBlocks.YELLOW_TULIP.getItem(), BWGBlocks.LOLLIPOP_FLOWER.getItem(), BWGBlocks.FIRECRACKER_FLOWER_BUSH.getItem());
+
+            tag(BWGItemTags.MAKES_2_BLUE_DYE).add(BWGBlocks.DELPHINIUM.get().asItem(), BWGBlocks.BLUE_ROSE_BUSH.get().asItem());
+            tag(BWGItemTags.MAKES_2_CYAN_DYE).add(BWGBlocks.FOXGLOVE.get().asItem());
+            tag(BWGItemTags.MAKES_2_PINK_DYE).add(BWGBlocks.TALL_PINK_ALLIUM.get().asItem(), BWGBlocks.JAPANESE_ORCHID.get().asItem());
+            tag(BWGItemTags.MAKES_2_PURPLE_DYE).add(BWGBlocks.TALL_ALLIUM.get().asItem());
+            tag(BWGItemTags.MAKES_2_WHITE_DYE).add(BWGBlocks.TALL_WHITE_ALLIUM.get().asItem());
+
             //Serene Seasons
             tag(ModTags.Items.YEAR_ROUND_CROPS).add(BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem(), BWGWood.ASPEN.sapling().getBlock().asItem(), BWGWood.RED_MAPLE_SAPLING.getBlock().asItem()).addTag(BWGItemTags.OAK_SAPLINGS);
             tag(ModTags.Items.AUTUMN_CROPS).add(BWGWood.CYPRESS.sapling().getBlock().asItem(), BWGWood.EBONY.sapling().getBlock().asItem(), BWGWood.FIR.sapling().getBlock().asItem(), BWGWood.HOLLY.sapling().getBlock().asItem(), BWGWood.JACARANDA.sapling().getBlock().asItem(), BWGWood.INDIGO_JACARANDA_SAPLING.getBlock().asItem(), BWGWood.MAPLE.sapling().getBlock().asItem(), BWGWood.SILVER_MAPLE_SAPLING.getBlock().asItem(), BWGWood.PINE.sapling().getBlock().asItem(),

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "white_dye",
+  "ingredients": [
+    {
+      "tag": "biomeswevegone:dye/makes_2_white"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:white_dye"
+  }
+}

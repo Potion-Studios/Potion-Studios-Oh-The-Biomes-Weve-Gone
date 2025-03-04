@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "lime_dye",
+  "ingredients": [
+    {
+      "tag": "biomeswevegone:dye/makes_lime"
+    }
+  ],
+  "result": {
+    "item": "minecraft:lime_dye"
+  }
+}

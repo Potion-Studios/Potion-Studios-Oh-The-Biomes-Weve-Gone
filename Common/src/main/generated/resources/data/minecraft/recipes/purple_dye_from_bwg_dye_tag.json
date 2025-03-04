@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "purple_dye",
+  "ingredients": [
+    {
+      "tag": "biomeswevegone:dye/makes_purple"
+    }
+  ],
+  "result": {
+    "item": "minecraft:purple_dye"
+  }
+}

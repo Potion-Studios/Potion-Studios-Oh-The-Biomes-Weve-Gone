@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "cyan_dye",
+  "ingredients": [
+    {
+      "tag": "biomeswevegone:dye/makes_cyan"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cyan_dye"
+  }
+}

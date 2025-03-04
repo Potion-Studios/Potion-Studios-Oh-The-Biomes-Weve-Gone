@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "yellow_dye",
+  "ingredients": [
+    {
+      "tag": "biomeswevegone:dye/makes_yellow"
+    }
+  ],
+  "result": {
+    "item": "minecraft:yellow_dye"
+  }
+}
