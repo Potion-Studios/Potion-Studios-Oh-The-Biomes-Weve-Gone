@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.bush;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
@@ -11,13 +10,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
@@ -31,10 +27,6 @@ public class BWGBerryBush extends SweetBerryBushBlock {
         super(properties);
         this.item = item;
         this.hurtEntityInside = hurtEntityInside;
-    }
-
-    public BWGBerryBush(Supplier<Supplier<Item>> item, boolean hurtEntityInside, String id) {
-        this(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH).setId(BiomesWeveGone.key(Registries.BLOCK, id)), item, hurtEntityInside);
     }
 
     @Override

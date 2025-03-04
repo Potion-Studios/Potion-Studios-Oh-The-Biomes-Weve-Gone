@@ -16,6 +16,7 @@ import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Fluid;
@@ -65,12 +66,12 @@ public interface PlatformHandler {
 	 * Registers a potted block with the specified block
 	 *
 	 * @param block The block to be potted
-	 * @param name
+	 * @param properties The properties of the FlowerPotBlock
 	 * @return Supplier of the FlowerPotBlock
 	 * @see FlowerPotBlock
 	 */
-	default Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block, String name) {
-		return () -> new FlowerPotBlock(block.get(), FlowerPotBlock.Properties.ofFullCopy(Blocks.FLOWER_POT).setId(BiomesWeveGone.key(Registries.BLOCK, name)));
+	default FlowerPotBlock createPottedBlock(Supplier<? extends Block> block, BlockBehaviour.Properties properties) {
+		return new FlowerPotBlock(block.get(), properties);
 	}
 
 	/**
@@ -85,8 +86,8 @@ public interface PlatformHandler {
 		return () -> new MobBucketItem(entity.get(), fluid.get(), sound.get(), new Item.Properties().stacksTo(1).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY).setId(BiomesWeveGone.key(Registries.ITEM, entity.get().getDescriptionId() + "_bucket")));
 	}
 
-	default Supplier<BWGFarmLandBlock> bwgFarmLandBlock(Supplier<Block> dirt, String id) {
-		return () -> new BWGFarmLandBlock(dirt, id);
+	default BWGFarmLandBlock bwgFarmLandBlock(BlockBehaviour.Properties properties, Supplier<Block> dirt) {
+		return new BWGFarmLandBlock(properties, dirt);
 	}
 
 	/**

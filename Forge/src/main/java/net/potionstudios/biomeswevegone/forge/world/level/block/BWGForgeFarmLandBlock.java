@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.extensions.IForgeBlock;
@@ -18,8 +19,8 @@ import java.util.function.Supplier;
  * @see IForgeBlock
  */
 public class BWGForgeFarmLandBlock extends BWGFarmLandBlock implements IForgeBlock {
-    public BWGForgeFarmLandBlock(Supplier<Block> dirt, String id) {
-        super(dirt, id);
+    public BWGForgeFarmLandBlock(BlockBehaviour.Properties properties, Supplier<Block> dirt) {
+        super(properties, dirt);
     }
 
     @Override

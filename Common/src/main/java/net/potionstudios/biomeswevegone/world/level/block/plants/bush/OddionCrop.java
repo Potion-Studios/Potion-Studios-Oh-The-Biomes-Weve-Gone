@@ -17,6 +17,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -32,8 +33,8 @@ public class OddionCrop extends BWGBerryBush {
     public static final IntegerProperty TIMER = IntegerProperty.create("timer", 0, 10);
     public static final BooleanProperty HATCHING = BooleanProperty.create("hatching");
 
-    public OddionCrop() {
-        super(() -> BWGItems.ODDION_BULB, false, "oddion_crop");
+    public OddionCrop(BlockBehaviour.Properties properties) {
+        super(properties, () -> BWGItems.ODDION_BULB, false);
         this.registerDefaultState(this.stateDefinition.any().setValue(HATCHING, false).setValue(TIMER, 0));
     }
 

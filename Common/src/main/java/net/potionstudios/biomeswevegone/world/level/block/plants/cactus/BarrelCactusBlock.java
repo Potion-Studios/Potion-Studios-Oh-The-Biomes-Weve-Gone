@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.cactus;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -20,14 +19,13 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
 
 public class BarrelCactusBlock extends BWGCactusBlock implements BonemealableBlock {
-	public BarrelCactusBlock(String id) {
-		super(BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS).noOcclusion().setId(BiomesWeveGone.key(Registries.BLOCK, id)));
+	public BarrelCactusBlock(BlockBehaviour.Properties properties) {
+		super(properties);
 	}
 
 	@Override

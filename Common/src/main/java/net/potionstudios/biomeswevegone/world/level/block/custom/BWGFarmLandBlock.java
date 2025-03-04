@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.block.custom;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
@@ -15,12 +14,10 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -30,8 +27,8 @@ public class BWGFarmLandBlock extends FarmBlock {
 
     private final Supplier<Block> dirt;
 
-    public BWGFarmLandBlock(Supplier<Block> dirt, String id) {
-        super(BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND).strength(0.2f).setId(BiomesWeveGone.key(Registries.BLOCK, id)));
+    public BWGFarmLandBlock(BlockBehaviour.Properties properties, Supplier<Block> dirt) {
+        super(properties);
         this.dirt = dirt;
     }
 

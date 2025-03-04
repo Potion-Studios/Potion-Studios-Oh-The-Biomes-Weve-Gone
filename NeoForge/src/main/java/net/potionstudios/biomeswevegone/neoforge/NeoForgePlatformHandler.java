@@ -6,7 +6,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
@@ -50,13 +49,13 @@ public final class NeoForgePlatformHandler implements PlatformHandler{
 	}
 
 	@Override
-	public Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block, String name) {
-		return () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, block, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT).setId(BiomesWeveGone.key(Registries.BLOCK, name)));
+	public FlowerPotBlock createPottedBlock(Supplier<? extends Block> block, BlockBehaviour.Properties properties) {
+		return new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, block, properties);
 	}
 
 	@Override
-	public Supplier<BWGFarmLandBlock> bwgFarmLandBlock(Supplier<Block> dirt, String id) {
-		return () -> new BWGNeoForgeFarmLandBlock(dirt, id);
+	public BWGFarmLandBlock bwgFarmLandBlock(BlockBehaviour.Properties properties, Supplier<Block> dirt) {
+		return new BWGNeoForgeFarmLandBlock(properties, dirt);
 	}
 
 	@Override

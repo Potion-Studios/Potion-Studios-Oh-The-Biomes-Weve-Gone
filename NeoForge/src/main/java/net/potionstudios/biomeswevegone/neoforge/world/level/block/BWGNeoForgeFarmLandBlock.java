@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.extensions.IBlockExtension;
 import net.neoforged.neoforge.common.util.TriState;
@@ -18,8 +19,8 @@ import java.util.function.Supplier;
  * @see IBlockExtension
  */
 public class BWGNeoForgeFarmLandBlock extends BWGFarmLandBlock implements IBlockExtension {
-    public BWGNeoForgeFarmLandBlock(Supplier<Block> dirt, String id) {
-        super(dirt, id);
+    public BWGNeoForgeFarmLandBlock(BlockBehaviour.Properties properties, Supplier<Block> dirt) {
+        super(properties, dirt);
     }
 
     @Override

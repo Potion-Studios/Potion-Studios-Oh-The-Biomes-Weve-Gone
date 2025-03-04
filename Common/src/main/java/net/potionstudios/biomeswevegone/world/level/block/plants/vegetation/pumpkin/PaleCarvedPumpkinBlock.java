@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.pum
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -12,13 +11,11 @@ import net.minecraft.world.entity.animal.SnowGolem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.block.state.pattern.BlockPattern;
 import net.minecraft.world.level.block.state.pattern.BlockPatternBuilder;
 import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -34,12 +31,8 @@ public class PaleCarvedPumpkinBlock extends CarvedPumpkinBlock {
     private static final Predicate<BlockState> PALE_PUMPKINS_PREDICATE = blockState -> blockState != null
             && (blockState.is(BWGBlocks.CARVED_PALE_PUMPKIN.get()) || blockState.is(BWGBlocks.PALE_JACK_O_LANTERN.get()));
 
-    public PaleCarvedPumpkinBlock(Properties properties, String id) {
-        super(properties.setId(BiomesWeveGone.key(Registries.BLOCK, id)));
-    }
-
-    public PaleCarvedPumpkinBlock(String id) {
-        this(BlockBehaviour.Properties.ofFullCopy(Blocks.JACK_O_LANTERN).lightLevel(light -> 14), id);
+    public PaleCarvedPumpkinBlock(Properties properties) {
+        super(properties);
     }
 
     @Override

@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cat
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
@@ -22,7 +21,6 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.redstone.Orientation;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -37,10 +35,6 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
         super(properties);
         this.sprout = sprout;
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false));
-    }
-
-    public CattailPlantBlock(Supplier<Supplier<Item>> sprout) {
-        this(BlockBehaviour.Properties.of().noCollission().noCollission().sound(SoundType.WET_GRASS).strength(0.0F).setId(BiomesWeveGone.key(Registries.BLOCK, "cattail")), sprout);
     }
 
     @Override
