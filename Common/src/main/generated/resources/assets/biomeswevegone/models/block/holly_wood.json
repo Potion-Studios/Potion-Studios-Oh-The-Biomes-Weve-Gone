@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "biomeswevegone:block/holly/log",
+    "side": "biomeswevegone:block/holly/log"
+  }
+}

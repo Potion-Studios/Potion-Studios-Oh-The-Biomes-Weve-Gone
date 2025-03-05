@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "biomeswevegone:block/zelkova/stripped_log",
+    "side": "biomeswevegone:block/zelkova/stripped_log"
+  }
+}

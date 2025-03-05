@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "biomeswevegone:block/white_mangrove/log",
+    "side": "biomeswevegone:block/white_mangrove/log"
+  }
+}
