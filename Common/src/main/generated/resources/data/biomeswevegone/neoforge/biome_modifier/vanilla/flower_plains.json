@@ -1,9 +1,0 @@
-{
-  "type": "neoforge:add_features",
-  "biomes": [
-    "minecraft:plains",
-    "minecraft:sunflower_plains"
-  ],
-  "features": "biomeswevegone:vanilla/flower_plains",
-  "step": "vegetal_decoration"
-}

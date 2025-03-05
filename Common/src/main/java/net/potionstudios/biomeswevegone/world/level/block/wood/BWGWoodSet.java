@@ -253,6 +253,7 @@ public class BWGWoodSet {
     public DoorBlock door() {
         return door.get();
     }
+
     public Block bookshelf() {
         return bookshelf.get();
     }

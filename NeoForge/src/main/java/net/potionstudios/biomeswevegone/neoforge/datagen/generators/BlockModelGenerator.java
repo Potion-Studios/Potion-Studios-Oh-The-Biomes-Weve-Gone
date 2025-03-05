@@ -67,6 +67,18 @@ public class BlockModelGenerator extends ModelProvider {
                     ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.strippedWood(), new TextureMapping().put(TextureSlot.END, StrippedLog).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput)));
             blockItemModel(blockModels, woodSet.strippedWood());
 
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.bookshelf(), ModelTemplates.CUBE_COLUMN.create(woodSet.bookshelf(), new TextureMapping().put(TextureSlot.END, Planks).put(TextureSlot.SIDE, BiomesWeveGone.id("block/" + woodSet.name() + "/bookshelf")), blockModels.modelOutput)));
+            blockItemModel(blockModels, woodSet.bookshelf());
+
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.craftingTable(), ModelTemplates.CUBE.create(woodSet.craftingTable(), new TextureMapping()
+                    .put(TextureSlot.DOWN, Planks)
+                    .put(TextureSlot.UP, BiomesWeveGone.id("block/" + woodSet.name() + "/crafting_table_top"))
+                    .put(TextureSlot.EAST, BiomesWeveGone.id("block/" + woodSet.name() + "/crafting_table_side"))
+                    .put(TextureSlot.WEST, BiomesWeveGone.id("block/" + woodSet.name() + "/crafting_table_front"))
+                    .put(TextureSlot.NORTH, BiomesWeveGone.id("block/" + woodSet.name() + "/crafting_table_front"))
+                    .put(TextureSlot.SOUTH, BiomesWeveGone.id("block/" + woodSet.name() + "/crafting_table_side"))
+                    .put(TextureSlot.PARTICLE, BiomesWeveGone.id("block/" + woodSet.name() + "/crafting_table_front")), blockModels.modelOutput)));
+            blockItemModel(blockModels, woodSet.craftingTable());
 
             itemModels.itemModelOutput.accept(woodSet.signItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.signItem(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/sign")), itemModels.modelOutput)));
             itemModels.itemModelOutput.accept(woodSet.hangingSignItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.hangingSignItem(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/hanging_sign")), itemModels.modelOutput)));

@@ -1,9 +1,0 @@
-{
-  "type": "neoforge:add_features",
-  "biomes": [
-    "minecraft:forest",
-    "minecraft:dark_forest"
-  ],
-  "features": "biomeswevegone:vanilla/forest_flowers",
-  "step": "vegetal_decoration"
-}

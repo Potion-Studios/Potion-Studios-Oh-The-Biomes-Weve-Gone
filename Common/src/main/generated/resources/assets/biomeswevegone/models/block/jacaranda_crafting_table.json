@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "biomeswevegone:block/jacaranda/planks",
+    "east": "biomeswevegone:block/jacaranda/crafting_table_side",
+    "north": "biomeswevegone:block/jacaranda/crafting_table_front",
+    "particle": "biomeswevegone:block/jacaranda/crafting_table_front",
+    "south": "biomeswevegone:block/jacaranda/crafting_table_side",
+    "up": "biomeswevegone:block/jacaranda/crafting_table_top",
+    "west": "biomeswevegone:block/jacaranda/crafting_table_front"
+  }
+}

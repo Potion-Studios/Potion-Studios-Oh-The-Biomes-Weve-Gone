@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "biomeswevegone:block/cika/planks",
+    "east": "biomeswevegone:block/cika/crafting_table_side",
+    "north": "biomeswevegone:block/cika/crafting_table_front",
+    "particle": "biomeswevegone:block/cika/crafting_table_front",
+    "south": "biomeswevegone:block/cika/crafting_table_side",
+    "up": "biomeswevegone:block/cika/crafting_table_top",
+    "west": "biomeswevegone:block/cika/crafting_table_front"
+  }
+}

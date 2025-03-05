@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "biomeswevegone:block/ebony/planks",
+    "east": "biomeswevegone:block/ebony/crafting_table_side",
+    "north": "biomeswevegone:block/ebony/crafting_table_front",
+    "particle": "biomeswevegone:block/ebony/crafting_table_front",
+    "south": "biomeswevegone:block/ebony/crafting_table_side",
+    "up": "biomeswevegone:block/ebony/crafting_table_top",
+    "west": "biomeswevegone:block/ebony/crafting_table_front"
+  }
+}
