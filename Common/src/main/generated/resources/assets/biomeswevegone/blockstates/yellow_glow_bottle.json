@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "biomeswevegone:block/yellow_glow_bottle"
+    },
+    "hanging=true": {
+      "model": "biomeswevegone:block/yellow_glow_bottle_hanging"
+    }
+  }
+}

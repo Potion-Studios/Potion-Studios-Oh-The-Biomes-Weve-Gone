@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.neoforge.datagen.generators;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Holder;
@@ -12,10 +13,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ARGB;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -150,6 +149,16 @@ public class BlockModelGenerator extends ModelProvider {
         blockItemModel(blockModels, BWGBlocks.BLACK_ICE.get());
         //blockModels.createTrivialBlock(BWGBlocks.BOREALIS_ICE.get(), TexturedModel.CUBE.updateTemplate(template -> template.extend().renderType(mcLocation("translucent")).build()));
         //blockItemModel(blockModels, BWGBlocks.BOREALIS_ICE.get());
+
+        BWGBlocks.BLOCKS.forEach(block -> {
+            Block b = block.get();
+            if (b instanceof LanternBlock) {
+                blockModels.blockStateOutput.accept(MultiVariantGenerator.multiVariant(b).with(BlockModelGenerators.createBooleanModelDispatch(BlockStateProperties.HANGING,
+                        TexturedModel.HANGING_LANTERN.updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()).create(b, blockModels.modelOutput),
+                        TexturedModel.LANTERN.updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()).create(b, blockModels.modelOutput))));
+                blockModels.registerSimpleFlatItemModel(b.asItem());
+            }
+        });
 
         basicItem(itemModels, BWGItems.BWG_LOGO.get());
 
