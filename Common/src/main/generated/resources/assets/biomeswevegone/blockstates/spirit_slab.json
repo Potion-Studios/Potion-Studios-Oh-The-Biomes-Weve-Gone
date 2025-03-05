@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/spirit_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/spirit_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/spirit_slab_top"
+    }
+  }
+}

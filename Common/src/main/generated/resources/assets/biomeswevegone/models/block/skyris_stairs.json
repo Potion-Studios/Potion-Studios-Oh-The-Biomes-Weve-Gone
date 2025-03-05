@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "biomeswevegone:block/skyris/planks",
+    "side": "biomeswevegone:block/skyris/planks",
+    "top": "biomeswevegone:block/skyris/planks"
+  }
+}

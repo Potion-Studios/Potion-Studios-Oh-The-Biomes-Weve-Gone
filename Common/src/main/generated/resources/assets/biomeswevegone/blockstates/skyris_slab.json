@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/skyris_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/skyris_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/skyris_slab_top"
+    }
+  }
+}

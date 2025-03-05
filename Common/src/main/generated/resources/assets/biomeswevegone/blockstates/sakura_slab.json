@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/sakura_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/sakura_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/sakura_slab_top"
+    }
+  }
+}

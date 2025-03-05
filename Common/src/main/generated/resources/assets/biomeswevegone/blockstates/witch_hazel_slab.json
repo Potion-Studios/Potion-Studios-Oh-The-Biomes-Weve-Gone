@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/witch_hazel_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/witch_hazel_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/witch_hazel_slab_top"
+    }
+  }
+}

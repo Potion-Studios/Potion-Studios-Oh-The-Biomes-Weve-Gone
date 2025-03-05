@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/fir_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/fir_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/fir_slab_top"
+    }
+  }
+}

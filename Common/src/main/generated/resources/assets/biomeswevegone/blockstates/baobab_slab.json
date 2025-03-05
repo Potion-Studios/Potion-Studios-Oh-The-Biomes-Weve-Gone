@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/baobab_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/baobab_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/baobab_slab_top"
+    }
+  }
+}

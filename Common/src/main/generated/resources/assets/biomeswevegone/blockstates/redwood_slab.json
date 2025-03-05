@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/redwood_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/redwood_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/redwood_slab_top"
+    }
+  }
+}

@@ -47,6 +47,22 @@ public class BlockModelGenerator extends ModelProvider {
             blockModels.createTrivialBlock(woodSet.planks(), TexturedModel.CUBE.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, Planks)));
             blockItemModel(blockModels, woodSet.planks());
 
+            TextureMapping planks = new TextureMapping().put(TextureSlot.ALL, Planks);
+
+            ResourceLocation slabBottom = ModelTemplates.SLAB_BOTTOM.create(woodSet.slab(), planks, blockModels.modelOutput);
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createSlab(woodSet.slab(), slabBottom,
+                    ModelTemplates.SLAB_TOP.create(woodSet.slab(), planks, blockModels.modelOutput), ModelLocationUtils.getModelLocation(woodSet.planks())));
+            itemModels.itemModelOutput.accept(woodSet.slab().asItem(), ItemModelUtils.plainModel(slabBottom));
+
+            ResourceLocation stairs = ModelTemplates.STAIRS_STRAIGHT.create(woodSet.stairs(), planks, blockModels.modelOutput);
+            ResourceLocation stairsInner = ModelTemplates.STAIRS_INNER.create(woodSet.stairs(), planks, blockModels.modelOutput);
+            ResourceLocation stairsOuter = ModelTemplates.STAIRS_OUTER.create(woodSet.stairs(), planks, blockModels.modelOutput);
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createStairs(woodSet.stairs(), stairsInner, stairs, stairsOuter));
+            itemModels.itemModelOutput.accept(woodSet.stairs().asItem(), ItemModelUtils.plainModel(stairs));
+
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createButton(woodSet.button(), ModelTemplates.BUTTON.create(woodSet.button(), planks, blockModels.modelOutput), ModelTemplates.BUTTON_PRESSED.create(woodSet.planks(), planks, blockModels.modelOutput)));
+            itemModels.itemModelOutput.accept(woodSet.button().asItem(), ItemModelUtils.plainModel(ModelTemplates.BUTTON_INVENTORY.create(woodSet.button().asItem(), planks, itemModels.modelOutput)));
+
             ResourceLocation Log = BiomesWeveGone.id(folder + woodSet.logStemEnum().getName());
             ResourceLocation LogTop = BiomesWeveGone.id(folder + woodSet.logStemEnum().getName() + "_top");
 

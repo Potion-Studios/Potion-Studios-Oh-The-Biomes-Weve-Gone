@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/rainbow_eucalyptus_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/rainbow_eucalyptus_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/rainbow_eucalyptus_slab_top"
+    }
+  }
+}

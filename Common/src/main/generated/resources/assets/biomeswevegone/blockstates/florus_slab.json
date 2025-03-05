@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/florus_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/florus_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/florus_slab_top"
+    }
+  }
+}

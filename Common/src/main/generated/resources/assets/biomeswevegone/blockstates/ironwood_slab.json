@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/ironwood_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/ironwood_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/ironwood_slab_top"
+    }
+  }
+}

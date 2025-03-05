@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/zelkova_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/zelkova_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/zelkova_slab_top"
+    }
+  }
+}

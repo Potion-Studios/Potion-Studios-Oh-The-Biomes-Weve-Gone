@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/jacaranda_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/jacaranda_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/jacaranda_slab_top"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/cypress_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/cypress_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/cypress_slab_top"
+    }
+  }
+}

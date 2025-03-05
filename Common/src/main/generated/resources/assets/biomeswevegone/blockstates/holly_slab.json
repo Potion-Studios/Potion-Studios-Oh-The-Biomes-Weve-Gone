@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/holly_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/holly_planks"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/holly_slab_top"
+    }
+  }
+}
