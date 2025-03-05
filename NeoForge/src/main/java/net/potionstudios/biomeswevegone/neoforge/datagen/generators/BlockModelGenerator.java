@@ -94,6 +94,11 @@ public class BlockModelGenerator extends ModelProvider {
                     ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.strippedWood(), new TextureMapping().put(TextureSlot.END, StrippedLog).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput)));
             blockItemModel(blockModels, woodSet.strippedWood());
 
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.sign(), ModelTemplates.PARTICLE_ONLY.create(woodSet.sign(), planks, blockModels.modelOutput)));
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.wallSign(), ModelLocationUtils.getModelLocation(woodSet.sign())));
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.hangingSign(), ModelTemplates.PARTICLE_ONLY.create(woodSet.hangingSign(), TextureMapping.particle(StrippedLog), blockModels.modelOutput)));
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.wallHangingSign(), ModelLocationUtils.getModelLocation(woodSet.hangingSign())));
+
             blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.bookshelf(), ModelTemplates.CUBE_COLUMN.create(woodSet.bookshelf(), new TextureMapping().put(TextureSlot.END, Planks).put(TextureSlot.SIDE, BiomesWeveGone.id("block/" + woodSet.name() + "/bookshelf")), blockModels.modelOutput)));
             blockItemModel(blockModels, woodSet.bookshelf());
 
