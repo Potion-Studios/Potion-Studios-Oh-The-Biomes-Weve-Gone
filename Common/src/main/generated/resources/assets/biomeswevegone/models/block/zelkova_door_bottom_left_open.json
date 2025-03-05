@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_left_open",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "bottom": "biomeswevegone:block/zelkova/door_bottom",
-    "top": "biomeswevegone:block/zelkova/door_top"
-  }
-}

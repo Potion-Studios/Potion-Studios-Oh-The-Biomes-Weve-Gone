@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "biomeswevegone:block/white_sandstone_top",
-    "side": "biomeswevegone:block/cut_white_sandstone"
-  }
-}

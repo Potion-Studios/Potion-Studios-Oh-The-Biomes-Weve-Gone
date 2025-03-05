@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "biomeswevegone:block/cattail_thatch",
-    "side": "biomeswevegone:block/cattail_thatch",
-    "top": "biomeswevegone:block/cattail_thatch"
-  }
-}

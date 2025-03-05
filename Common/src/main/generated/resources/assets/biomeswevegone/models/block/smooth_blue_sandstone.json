@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "biomeswevegone:block/blue_sandstone_top"
-  }
-}

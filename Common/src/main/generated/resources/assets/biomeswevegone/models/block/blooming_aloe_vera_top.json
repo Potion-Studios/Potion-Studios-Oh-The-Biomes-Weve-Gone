@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "biomeswevegone:block/blooming_aloe_vera_top",
-    "particle": "biomeswevegone:block/blooming_aloe_vera_top"
-  }
-}

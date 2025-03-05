@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "biomeswevegone:block/weeping_milkcap_mushroom_block"
-  }
-}

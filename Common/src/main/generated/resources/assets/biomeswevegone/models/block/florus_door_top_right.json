@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/door_top_right",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "bottom": "biomeswevegone:block/florus/door_bottom",
-    "top": "biomeswevegone:block/florus/door_top"
-  }
-}

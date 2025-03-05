@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "biomeswevegone:block/windswept_sandstone_bottom",
-    "side": "biomeswevegone:block/windswept_sandstone",
-    "top": "biomeswevegone:block/windswept_sandstone_top"
-  }
-}

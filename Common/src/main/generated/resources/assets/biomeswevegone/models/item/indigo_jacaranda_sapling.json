@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "biomeswevegone:block/indigo_jacaranda_sapling"
-  }
-}

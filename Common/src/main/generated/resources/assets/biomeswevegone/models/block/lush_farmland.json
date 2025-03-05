@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/template_farmland",
-  "textures": {
-    "dirt": "biomeswevegone:block/lush_dirt",
-    "top": "biomeswevegone:block/lush_farmland"
-  }
-}

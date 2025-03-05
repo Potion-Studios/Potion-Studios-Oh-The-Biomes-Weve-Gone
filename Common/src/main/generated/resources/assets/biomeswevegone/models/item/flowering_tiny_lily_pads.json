@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "biomeswevegone:block/tiny_lily_pads",
-    "layer1": "biomeswevegone:block/tiny_lily_pads_flower_overlay"
-  }
-}

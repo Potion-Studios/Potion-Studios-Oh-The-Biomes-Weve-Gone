@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "biomeswevegone:block/green_enchanted/planks",
-    "side": "biomeswevegone:block/green_enchanted/planks",
-    "top": "biomeswevegone:block/green_enchanted/planks"
-  }
-}

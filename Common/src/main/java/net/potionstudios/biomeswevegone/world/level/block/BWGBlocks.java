@@ -90,7 +90,7 @@ public class BWGBlocks {
     public static final Supplier<IceBlock> PACKED_BLACK_ICE = registerCubeAllBlockItem("packed_black_ice", IceBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_ICE));
 
     public static final Supplier<IceBlock> BOREALIS_ICE = registerBlockItem("borealis_ice", IceBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.ICE).lightLevel(state -> 10));
-    public static final Supplier<IceBlock> PACKED_BOREALIS_ICE = registerBlockItem("packed_borealis_ice", IceBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_ICE).lightLevel(state -> 10));
+    public static final Supplier<IceBlock> PACKED_BOREALIS_ICE = registerCubeAllBlockItem("packed_borealis_ice", IceBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_ICE).lightLevel(state -> 10));
 
     public static final Supplier<BWGBerryBush> BLUEBERRY_BUSH = registerBlock("blueberry_bush", properties -> new BWGBerryBush(properties, () -> BWGItems.BLUEBERRIES, true), BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH));
     public static final Supplier<FloweringBushBlock> FLOWERING_JACARANDA_BUSH = registerBlockItem("flowering_jacaranda_bush", FloweringBushBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA));

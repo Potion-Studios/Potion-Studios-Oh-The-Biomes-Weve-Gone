@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "biomeswevegone:block/zelkova/planks",
-    "side": "biomeswevegone:block/zelkova/planks",
-    "top": "biomeswevegone:block/zelkova/planks"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "biomeswevegone:block/tall_white_allium_top",
-    "particle": "biomeswevegone:block/tall_white_allium_top"
-  }
-}

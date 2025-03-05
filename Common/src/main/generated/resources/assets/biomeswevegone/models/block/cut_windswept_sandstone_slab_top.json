@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "biomeswevegone:block/windswept_sandstone_top",
-    "side": "biomeswevegone:block/cut_windswept_sandstone",
-    "top": "biomeswevegone:block/windswept_sandstone_top"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "biomeswevegone:block/cyan_pitcher_plant_bottom",
-    "particle": "biomeswevegone:block/cyan_pitcher_plant_bottom"
-  }
-}

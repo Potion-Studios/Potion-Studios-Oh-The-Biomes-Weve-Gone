@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "biomeswevegone:block/pink_sandstone_top",
-    "side": "biomeswevegone:block/chiseled_pink_sandstone"
-  }
-}

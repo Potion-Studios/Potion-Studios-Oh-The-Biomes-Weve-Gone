@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "biomeswevegone:block/blue_sandstone_bottom",
-    "side": "biomeswevegone:block/blue_sandstone",
-    "top": "biomeswevegone:block/blue_sandstone_top"
-  }
-}

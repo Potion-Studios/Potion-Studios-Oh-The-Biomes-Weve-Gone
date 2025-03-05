@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "biomeswevegone:block/blue_rose_bush_bottom",
-    "particle": "biomeswevegone:block/blue_rose_bush_bottom"
-  }
-}

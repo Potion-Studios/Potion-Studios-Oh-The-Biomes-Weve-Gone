@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "biomeswevegone:block/ironwood/planks",
-    "side": "biomeswevegone:block/ironwood/planks",
-    "top": "biomeswevegone:block/ironwood/planks"
-  }
-}

@@ -31,7 +31,7 @@ loom {
     accessWidenerPath.set(project(":Common").loom.accessWidenerPath)
 
     runs.create("datagen") {
-        serverData()
+        clientData()
         programArgs("--all", "--mod", "biomeswevegone")
         programArgs("--output", project(":Common").file("src/main/generated/resources").absolutePath)
         programArgs("--existing", project(":Common").file("src/main/resources").absolutePath)

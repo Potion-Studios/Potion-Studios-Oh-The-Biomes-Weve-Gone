@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "biomeswevegone:block/tall_prairie_grass_top",
-    "particle": "biomeswevegone:block/tall_prairie_grass_top"
-  }
-}

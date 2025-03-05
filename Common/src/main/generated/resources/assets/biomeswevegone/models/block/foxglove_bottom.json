@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "biomeswevegone:block/foxglove_bottom",
-    "particle": "biomeswevegone:block/foxglove_bottom"
-  }
-}

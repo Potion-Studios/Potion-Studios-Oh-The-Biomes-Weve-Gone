@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "down": "minecraft:block/beehive_end",
+    "down": "minecraft:block/beehive",
     "east": "biomeswevegone:block/foragers_table_side",
     "north": "biomeswevegone:block/foragers_table_front",
     "particle": "biomeswevegone:block/foragers_table_top",

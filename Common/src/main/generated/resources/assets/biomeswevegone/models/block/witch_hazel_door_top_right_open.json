@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/door_top_right_open",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "bottom": "biomeswevegone:block/witch_hazel/door_bottom",
-    "top": "biomeswevegone:block/witch_hazel/door_top"
-  }
-}

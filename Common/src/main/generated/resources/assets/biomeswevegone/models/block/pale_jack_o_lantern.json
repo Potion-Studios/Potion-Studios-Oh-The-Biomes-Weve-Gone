@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "biomeswevegone:block/pale_jack_o_lantern",
-    "side": "biomeswevegone:block/pale_pumpkin_side",
-    "top": "biomeswevegone:block/pale_pumpkin_top"
-  }
-}

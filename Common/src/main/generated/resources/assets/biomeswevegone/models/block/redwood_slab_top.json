@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "biomeswevegone:block/redwood/planks",
-    "side": "biomeswevegone:block/redwood/planks",
-    "top": "biomeswevegone:block/redwood/planks"
-  }
-}
