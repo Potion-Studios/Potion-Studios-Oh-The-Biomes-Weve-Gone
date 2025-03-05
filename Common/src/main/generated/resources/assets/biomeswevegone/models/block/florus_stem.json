@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "biomeswevegone:block/florus/stem_top",
+    "side": "biomeswevegone:block/florus/stem"
+  }
+}

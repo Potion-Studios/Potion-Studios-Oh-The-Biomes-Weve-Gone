@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "biomeswevegone:block/aspen_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "biomeswevegone:block/aspen_log"
+    },
+    "axis=z": {
+      "model": "biomeswevegone:block/aspen_log_horizontal",
+      "x": 90
+    }
+  }
+}

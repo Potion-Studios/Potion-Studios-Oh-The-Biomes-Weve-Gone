@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "biomeswevegone:block/stripped_ironwood_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "biomeswevegone:block/stripped_ironwood_log"
+    },
+    "axis=z": {
+      "model": "biomeswevegone:block/stripped_ironwood_log_horizontal",
+      "x": 90
+    }
+  }
+}

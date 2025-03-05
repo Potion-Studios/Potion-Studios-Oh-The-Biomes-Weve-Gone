@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "biomeswevegone:block/sakura/log_top",
+    "side": "biomeswevegone:block/sakura/log"
+  }
+}

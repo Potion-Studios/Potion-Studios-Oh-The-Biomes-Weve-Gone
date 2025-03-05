@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ARGB;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -37,8 +38,24 @@ public class BlockModelGenerator extends ModelProvider {
         BWGBlockSet.getBlockSets().stream().filter(set -> set.getBlockFamily().shouldGenerateModel()).forEach(set -> blockModels.family(set.getBase()).generateFor(set.getBlockFamily()));
 
         BWGWoodSet.woodsets().forEach(woodSet -> {
-            blockModels.createTrivialBlock(woodSet.planks(), TexturedModel.CUBE.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, BiomesWeveGone.id("block/" + woodSet.name() + "/planks"))));
+            ResourceLocation Planks = BiomesWeveGone.id("block/" + woodSet.name() + "/planks");
+            blockModels.createTrivialBlock(woodSet.planks(), TexturedModel.CUBE.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, Planks)));
             blockItemModel(blockModels, woodSet.planks());
+
+            ResourceLocation Log = BiomesWeveGone.id("block/" + woodSet.name() + "/" + woodSet.logStemEnum().getName());
+            ResourceLocation LogTop = BiomesWeveGone.id("block/" + woodSet.name() + "/" + woodSet.logStemEnum().getName() + "_top");
+
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(woodSet.logstem(),
+                    ModelTemplates.CUBE_COLUMN.create(woodSet.logstem(), new TextureMapping().put(TextureSlot.END, LogTop).put(TextureSlot.SIDE, Log), blockModels.modelOutput),
+                    ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.logstem(), new TextureMapping().put(TextureSlot.END, LogTop).put(TextureSlot.SIDE, Log), blockModels.modelOutput)));
+            blockItemModel(blockModels, woodSet.logstem());
+
+            ResourceLocation StrippedLog = BiomesWeveGone.id("block/" + woodSet.name() + "/stripped_" + woodSet.logStemEnum().getName());
+            ResourceLocation StrippedLogTop = BiomesWeveGone.id("block/" + woodSet.name() + "/stripped_" + woodSet.logStemEnum().getName() + "_top");
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(woodSet.strippedLogStem(),
+                    ModelTemplates.CUBE_COLUMN.create(woodSet.strippedLogStem(), new TextureMapping().put(TextureSlot.END, StrippedLogTop).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput),
+                    ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.strippedLogStem(), new TextureMapping().put(TextureSlot.END, StrippedLogTop).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput)));
+            blockItemModel(blockModels, woodSet.strippedLogStem());
 
             itemModels.itemModelOutput.accept(woodSet.boatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.boatItem().get(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/boat")), itemModels.modelOutput)));
             itemModels.itemModelOutput.accept(woodSet.chestBoatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.chestBoatItem().get(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/chest_boat")), itemModels.modelOutput)));
