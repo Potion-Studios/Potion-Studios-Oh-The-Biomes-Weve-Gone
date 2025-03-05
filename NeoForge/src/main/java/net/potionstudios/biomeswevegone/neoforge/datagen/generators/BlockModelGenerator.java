@@ -16,6 +16,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.set.BWGBlockSet;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.UnaryOperator;
@@ -35,6 +36,14 @@ public class BlockModelGenerator extends ModelProvider {
 
         BWGBlockSet.getBlockSets().stream().filter(set -> set.getBlockFamily().shouldGenerateModel()).forEach(set -> blockModels.family(set.getBase()).generateFor(set.getBlockFamily()));
 
+        BWGWoodSet.woodsets().forEach(woodSet -> {
+            blockModels.createTrivialBlock(woodSet.planks(), TexturedModel.CUBE.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, BiomesWeveGone.id("block/" + woodSet.name() + "/planks"))));
+            blockItemModel(blockModels, woodSet.planks());
+
+            itemModels.itemModelOutput.accept(woodSet.boatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.boatItem().get(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/boat")), itemModels.modelOutput)));
+            itemModels.itemModelOutput.accept(woodSet.chestBoatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.chestBoatItem().get(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/chest_boat")), itemModels.modelOutput)));
+        });
+
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(BWGBlocks.FORAGERS_TABLE.get(), ModelTemplates.CUBE.create(BWGBlocks.FORAGERS_TABLE.get(), new TextureMapping()
                 .put(TextureSlot.DOWN, TextureMapping.getBlockTexture(Blocks.BEEHIVE, "_end"))
                 .put(TextureSlot.UP, TextureMapping.getBlockTexture(BWGBlocks.FORAGERS_TABLE.get(), "_top"))
@@ -50,46 +59,46 @@ public class BlockModelGenerator extends ModelProvider {
         //blockModels.createTrivialBlock(BWGBlocks.BOREALIS_ICE.get(), TexturedModel.CUBE.updateTemplate(template -> template.extend().renderType(mcLocation("translucent")).build()));
         //blockItemModel(blockModels, BWGBlocks.BOREALIS_ICE.get());
 
-        itemModels.generateFlatItem(BWGItems.BWG_LOGO.get(), ModelTemplates.FLAT_ITEM);
+        basicItem(itemModels, BWGItems.BWG_LOGO.get());
 
         itemModels.generateSpawnEgg(BWGItems.ODDION_SPAWN_EGG.get(), ARGB.color(199, 165, 104), ARGB.color(210, 166, 246));
         itemModels.generateSpawnEgg(BWGItems.MAN_O_WAR_SPAWN_EGG.get(), ARGB.color(210, 166, 246), ARGB.color(199, 165, 104));
         itemModels.generateSpawnEgg(BWGItems.PUMPKIN_WARDEN_SPAWN_EGG.get(), ARGB.color(79, 57, 46), ARGB.color(192, 106, 5));
 
-        itemModels.generateFlatItem(BWGItems.MAN_O_WAR_BUCKET.get(), ModelTemplates.FLAT_ITEM);
+        basicItem(itemModels, BWGItems.MAN_O_WAR_BUCKET.get());
 
         itemModels.itemModelOutput.accept(BWGItems.CATTAIL_SPROUT.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.CATTAIL_SPROUT.get(), TextureMapping.layer0(BiomesWeveGone.id("item/cattails")), itemModels.modelOutput)));
         itemModels.itemModelOutput.accept(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(), TextureMapping.layer0(BiomesWeveGone.id("item/fluorescent_cattails")), itemModels.modelOutput)));
 
-        itemModels.generateFlatItem(BWGItems.BLUE_GLOWCANE_SHOOT.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.GREEN_GLOWCANE_SHOOT.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.RED_GLOWCANE_SHOOT.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.YELLOW_GLOWCANE_SHOOT.get(), ModelTemplates.FLAT_ITEM);
+        basicItem(itemModels, BWGItems.BLUE_GLOWCANE_SHOOT.get());
+        basicItem(itemModels, BWGItems.GREEN_GLOWCANE_SHOOT.get());
+        basicItem(itemModels, BWGItems.RED_GLOWCANE_SHOOT.get());
+        basicItem(itemModels, BWGItems.YELLOW_GLOWCANE_SHOOT.get());
 
-        itemModels.generateFlatItem(BWGItems.BLUE_GLOWCANE_POWDER.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.GREEN_GLOWCANE_POWDER.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.RED_GLOWCANE_POWDER.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.YELLOW_GLOWCANE_POWDER.get(), ModelTemplates.FLAT_ITEM);
+        basicItem(itemModels, BWGItems.BLUE_GLOWCANE_POWDER.get());
+        basicItem(itemModels, BWGItems.GREEN_GLOWCANE_POWDER.get());
+        basicItem(itemModels, BWGItems.RED_GLOWCANE_POWDER.get());
+        basicItem(itemModels, BWGItems.YELLOW_GLOWCANE_POWDER.get());
 
-        itemModels.generateFlatItem(BWGItems.BAOBAB_FRUIT.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.SOUL_FRUIT.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.YUCCA_FRUIT.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.COOKED_YUCCA_FRUIT.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.GREEN_APPLE.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.GREEN_APPLE_PIE.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.BLUEBERRIES.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.BLUEBERRY_PIE.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.ODDION_BULB.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.COOKED_ODDION_BULB.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.ALLIUM_ODDION_SOUP.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.BLOOMING_ODDION.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.WHITE_PUFFBALL_SPORES.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.WHITE_PUFFBALL_CAP.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.COOKED_WHITE_PUFFBALL_CAP.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.WHITE_PUFFBALL_STEW.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(BWGItems.ALOE_VERA_JUICE.get(), ModelTemplates.FLAT_ITEM);
+        basicItem(itemModels, BWGItems.BAOBAB_FRUIT.get());
+        basicItem(itemModels, BWGItems.SOUL_FRUIT.get());
+        basicItem(itemModels, BWGItems.YUCCA_FRUIT.get());
+        basicItem(itemModels, BWGItems.COOKED_YUCCA_FRUIT.get());
+        basicItem(itemModels, BWGItems.GREEN_APPLE.get());
+        basicItem(itemModels, BWGItems.GREEN_APPLE_PIE.get());
+        basicItem(itemModels, BWGItems.BLUEBERRIES.get());
+        basicItem(itemModels, BWGItems.BLUEBERRY_PIE.get());
+        basicItem(itemModels, BWGItems.ODDION_BULB.get());
+        basicItem(itemModels, BWGItems.COOKED_ODDION_BULB.get());
+        basicItem(itemModels, BWGItems.ALLIUM_ODDION_SOUP.get());
+        basicItem(itemModels, BWGItems.BLOOMING_ODDION.get());
+        basicItem(itemModels, BWGItems.WHITE_PUFFBALL_SPORES.get());
+        basicItem(itemModels, BWGItems.WHITE_PUFFBALL_CAP.get());
+        basicItem(itemModels, BWGItems.COOKED_WHITE_PUFFBALL_CAP.get());
+        basicItem(itemModels, BWGItems.WHITE_PUFFBALL_STEW.get());
+        basicItem(itemModels, BWGItems.ALOE_VERA_JUICE.get());
 
-        itemModels.generateFlatItem(BWGItems.PALE_PUMPKIN_SEEDS.get(), ModelTemplates.FLAT_ITEM);
+        basicItem(itemModels, BWGItems.PALE_PUMPKIN_SEEDS.get());
 
         blockModels.createFlatItemModelWithBlockTexture(BWGItems.TINY_LILY_PADS.get(), BWGBlocks.TINY_LILY_PADS.get());
         itemModels.declareCustomModelItem(BWGItems.TINY_LILY_PADS.get());
@@ -103,6 +112,10 @@ public class BlockModelGenerator extends ModelProvider {
 
     private void blockItemModel(BlockModelGenerators blockModels, Block block) {
         blockModels.registerSimpleItemModel(block, ModelLocationUtils.getModelLocation(block));
+    }
+
+    private void basicItem(ItemModelGenerators itemModels, Item item) {
+        itemModels.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
     }
 
     @Override
