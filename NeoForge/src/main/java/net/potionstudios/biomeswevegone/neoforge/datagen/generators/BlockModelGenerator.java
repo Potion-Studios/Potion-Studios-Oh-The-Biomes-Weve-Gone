@@ -8,15 +8,19 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ARGB;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.set.BWGBlockSet;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import org.jetbrains.annotations.NotNull;
 
@@ -38,12 +42,13 @@ public class BlockModelGenerator extends ModelProvider {
         BWGBlockSet.getBlockSets().stream().filter(set -> set.getBlockFamily().shouldGenerateModel()).forEach(set -> blockModels.family(set.getBase()).generateFor(set.getBlockFamily()));
 
         BWGWoodSet.woodsets().forEach(woodSet -> {
-            ResourceLocation Planks = BiomesWeveGone.id("block/" + woodSet.name() + "/planks");
+            String folder = "block/" + woodSet.name() + "/";
+            ResourceLocation Planks = BiomesWeveGone.id(folder + "planks");
             blockModels.createTrivialBlock(woodSet.planks(), TexturedModel.CUBE.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, Planks)));
             blockItemModel(blockModels, woodSet.planks());
 
-            ResourceLocation Log = BiomesWeveGone.id("block/" + woodSet.name() + "/" + woodSet.logStemEnum().getName());
-            ResourceLocation LogTop = BiomesWeveGone.id("block/" + woodSet.name() + "/" + woodSet.logStemEnum().getName() + "_top");
+            ResourceLocation Log = BiomesWeveGone.id(folder + woodSet.logStemEnum().getName());
+            ResourceLocation LogTop = BiomesWeveGone.id(folder + woodSet.logStemEnum().getName() + "_top");
 
             blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(woodSet.logstem(),
                     ModelTemplates.CUBE_COLUMN.create(woodSet.logstem(), new TextureMapping().put(TextureSlot.END, LogTop).put(TextureSlot.SIDE, Log), blockModels.modelOutput),
@@ -55,8 +60,8 @@ public class BlockModelGenerator extends ModelProvider {
                     ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.wood(), new TextureMapping().put(TextureSlot.END, Log).put(TextureSlot.SIDE, Log), blockModels.modelOutput)));
             blockItemModel(blockModels, woodSet.wood());
 
-            ResourceLocation StrippedLog = BiomesWeveGone.id("block/" + woodSet.name() + "/stripped_" + woodSet.logStemEnum().getName());
-            ResourceLocation StrippedLogTop = BiomesWeveGone.id("block/" + woodSet.name() + "/stripped_" + woodSet.logStemEnum().getName() + "_top");
+            ResourceLocation StrippedLog = BiomesWeveGone.id(folder + "stripped_" + woodSet.logStemEnum().getName());
+            ResourceLocation StrippedLogTop = BiomesWeveGone.id(folder + "stripped_" + woodSet.logStemEnum().getName() + "_top");
             blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(woodSet.strippedLogStem(),
                     ModelTemplates.CUBE_COLUMN.create(woodSet.strippedLogStem(), new TextureMapping().put(TextureSlot.END, StrippedLogTop).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput),
                     ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.strippedLogStem(), new TextureMapping().put(TextureSlot.END, StrippedLogTop).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput)));
@@ -72,19 +77,36 @@ public class BlockModelGenerator extends ModelProvider {
 
             blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.craftingTable(), ModelTemplates.CUBE.create(woodSet.craftingTable(), new TextureMapping()
                     .put(TextureSlot.DOWN, Planks)
-                    .put(TextureSlot.UP, BiomesWeveGone.id("block/" + woodSet.name() + "/crafting_table_top"))
-                    .put(TextureSlot.EAST, BiomesWeveGone.id("block/" + woodSet.name() + "/crafting_table_side"))
-                    .put(TextureSlot.WEST, BiomesWeveGone.id("block/" + woodSet.name() + "/crafting_table_front"))
-                    .put(TextureSlot.NORTH, BiomesWeveGone.id("block/" + woodSet.name() + "/crafting_table_front"))
-                    .put(TextureSlot.SOUTH, BiomesWeveGone.id("block/" + woodSet.name() + "/crafting_table_side"))
-                    .put(TextureSlot.PARTICLE, BiomesWeveGone.id("block/" + woodSet.name() + "/crafting_table_front")), blockModels.modelOutput)));
+                    .put(TextureSlot.UP, BiomesWeveGone.id(folder + "crafting_table_top"))
+                    .put(TextureSlot.EAST, BiomesWeveGone.id(folder + "crafting_table_side"))
+                    .put(TextureSlot.WEST, BiomesWeveGone.id(folder + "crafting_table_front"))
+                    .put(TextureSlot.NORTH, BiomesWeveGone.id(folder + "crafting_table_front"))
+                    .put(TextureSlot.SOUTH, BiomesWeveGone.id(folder + "crafting_table_side"))
+                    .put(TextureSlot.PARTICLE, BiomesWeveGone.id(folder + "crafting_table_front")), blockModels.modelOutput)));
             blockItemModel(blockModels, woodSet.craftingTable());
+
+            if (woodSet.leaves() != null) {
+                blockModels.createTrivialBlock(woodSet.leaves(), TexturedModel.LEAVES.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, BiomesWeveGone.id(folder + "leaves"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout_mipped")).build()));
+            }
+            if (woodSet.sapling() != null) {
+                blockModels.createTrivialBlock(woodSet.sapling().getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, BiomesWeveGone.id(folder + "sapling"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()));
+                itemModels.itemModelOutput.accept(woodSet.sapling().getItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.sapling().getItem(), TextureMapping.layer0(BiomesWeveGone.id(folder + "sapling")), itemModels.modelOutput)));
+            }
 
             itemModels.itemModelOutput.accept(woodSet.signItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.signItem(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/sign")), itemModels.modelOutput)));
             itemModels.itemModelOutput.accept(woodSet.hangingSignItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.hangingSignItem(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/hanging_sign")), itemModels.modelOutput)));
             itemModels.itemModelOutput.accept(woodSet.door().asItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.door(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/door")), itemModels.modelOutput)));
             itemModels.itemModelOutput.accept(woodSet.boatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.boatItem().get(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/boat")), itemModels.modelOutput)));
             itemModels.itemModelOutput.accept(woodSet.chestBoatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.chestBoatItem().get(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/chest_boat")), itemModels.modelOutput)));
+        });
+
+        BWGWood.NONSET_WOOD.forEach(block -> {
+            if (block.get() instanceof LeavesBlock leavesBlock && !TextureMapping.getBlockTexture(leavesBlock).toString().contains("yucca"))
+                blockModels.createTrivialBlock(leavesBlock, TexturedModel.LEAVES.updateTemplate(template -> template.extend().renderType(mcLocation("cutout_mipped")).build()));
+            else if (block.get() instanceof SaplingBlock sapling) {
+                blockModels.createTrivialBlock(sapling, TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()));
+                blockModels.registerSimpleFlatItemModel(sapling);
+            }
         });
 
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(BWGBlocks.FORAGERS_TABLE.get(), ModelTemplates.CUBE.create(BWGBlocks.FORAGERS_TABLE.get(), new TextureMapping()
