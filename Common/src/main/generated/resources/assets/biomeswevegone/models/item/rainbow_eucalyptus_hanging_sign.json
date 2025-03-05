@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "biomeswevegone:item/rainbow_eucalyptus/hanging_sign"
+  }
+}

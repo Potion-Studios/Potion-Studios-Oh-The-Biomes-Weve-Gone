@@ -67,6 +67,10 @@ public class BlockModelGenerator extends ModelProvider {
                     ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.strippedWood(), new TextureMapping().put(TextureSlot.END, StrippedLog).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput)));
             blockItemModel(blockModels, woodSet.strippedWood());
 
+
+            itemModels.itemModelOutput.accept(woodSet.signItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.signItem(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/sign")), itemModels.modelOutput)));
+            itemModels.itemModelOutput.accept(woodSet.hangingSignItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.hangingSignItem(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/hanging_sign")), itemModels.modelOutput)));
+            itemModels.itemModelOutput.accept(woodSet.door().asItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.door(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/door")), itemModels.modelOutput)));
             itemModels.itemModelOutput.accept(woodSet.boatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.boatItem().get(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/boat")), itemModels.modelOutput)));
             itemModels.itemModelOutput.accept(woodSet.chestBoatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.chestBoatItem().get(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/chest_boat")), itemModels.modelOutput)));
         });
