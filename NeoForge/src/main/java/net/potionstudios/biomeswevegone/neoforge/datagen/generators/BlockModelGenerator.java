@@ -63,6 +63,12 @@ public class BlockModelGenerator extends ModelProvider {
             blockModels.blockStateOutput.accept(BlockModelGenerators.createButton(woodSet.button(), ModelTemplates.BUTTON.create(woodSet.button(), planks, blockModels.modelOutput), ModelTemplates.BUTTON_PRESSED.create(woodSet.planks(), planks, blockModels.modelOutput)));
             itemModels.itemModelOutput.accept(woodSet.button().asItem(), ItemModelUtils.plainModel(ModelTemplates.BUTTON_INVENTORY.create(woodSet.button().asItem(), planks, itemModels.modelOutput)));
 
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createFence(woodSet.fence(), ModelTemplates.FENCE_POST.create(woodSet.fence(), planks, blockModels.modelOutput), ModelTemplates.FENCE_SIDE.create(woodSet.fence(), planks, blockModels.modelOutput)));
+            itemModels.itemModelOutput.accept(woodSet.fence().asItem(), ItemModelUtils.plainModel(ModelTemplates.FENCE_INVENTORY.create(woodSet.fence().asItem(), planks, itemModels.modelOutput)));
+
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createFenceGate(woodSet.fenceGate(), ModelTemplates.FENCE_GATE_OPEN.create(woodSet.fenceGate(), planks, blockModels.modelOutput), ModelTemplates.FENCE_GATE_CLOSED.create(woodSet.fenceGate(), planks, blockModels.modelOutput), ModelTemplates.FENCE_GATE_WALL_OPEN.create(woodSet.fenceGate(), planks, blockModels.modelOutput), ModelTemplates.FENCE_GATE_WALL_CLOSED.create(woodSet.fenceGate(), planks, blockModels.modelOutput), false));
+            blockItemModel(blockModels, woodSet.fenceGate());
+
             ResourceLocation Log = BiomesWeveGone.id(folder + woodSet.logStemEnum().getName());
             ResourceLocation LogTop = BiomesWeveGone.id(folder + woodSet.logStemEnum().getName() + "_top");
 
